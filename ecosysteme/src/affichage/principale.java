@@ -1,5 +1,5 @@
 
-package Ecosysteme_JAVA;
+package affichage;
 
 public class principale {
 

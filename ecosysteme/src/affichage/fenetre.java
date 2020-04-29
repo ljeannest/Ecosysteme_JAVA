@@ -1,5 +1,5 @@
 
-package Ecosysteme_JAVA;
+package affichage;
 
 import javax.swing.JFrame;
 
@@ -24,7 +24,7 @@ public class fenetre extends JFrame {
 		this.setAlwaysOnTop(true);
 		pan=new ConteneurFenetre();
 		this.setContentPane(pan);
-		
+	
 	}
 
 }
