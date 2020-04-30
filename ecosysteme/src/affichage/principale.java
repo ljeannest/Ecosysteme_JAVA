@@ -1,4 +1,4 @@
-
+//vérife5
 package affichage;
 
 public class principale {
