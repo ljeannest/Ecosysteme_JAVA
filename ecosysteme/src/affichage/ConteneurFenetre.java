@@ -1,7 +1,7 @@
 // verife gus5
 package affichage;
 
-import java.awt.Color; 
+import java.awt.Color;  
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
@@ -84,9 +84,9 @@ public class ConteneurFenetre extends JPanel{
 	private void setGrille() {
 		
 		
-		grille = new JPanel (new GridLayout (50,50));
+		grille = new JPanel (new GridLayout (15,15));
 		Border blackline = BorderFactory.createLineBorder(Color.GRAY,1); 
-		for(int i = 0; i<2500;i++){
+		for(int i = 0; i<225;i++){
 		   JPanel ptest = new JPanel();
 		   ptest.setBorder(blackline);
 		   grille.add(ptest);
