@@ -4,7 +4,7 @@ public class Animal {
 
 	String espece;
 	int type;
-	double position;
+	int[] position;
 	String sexe;
 	int age;
 	int esp_de_vie;
@@ -12,7 +12,7 @@ public class Animal {
 	int besoin_nourriture;
 	int qte_viande;
 	
-	public Animal(String espece, int type, double position, String sexe, int age, int esp_de_vie) {
+	public Animal(String espece, int type, int[] position, String sexe, int age, int esp_de_vie) {
 		this.espece = espece;
 		this.type = type;
 		this.position = position;
