@@ -1,4 +1,4 @@
-// verife
+// verife 2
 package affichage;
 
 import java.awt.Color; 
