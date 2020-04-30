@@ -2,8 +2,8 @@ package individus;
 
 public class Lynx extends Carnivore {
 
-	public Lynx(double position, String sexe, int age) {
-		super("Lynx", position, sexe, age, 15);
+	public Lynx(int posx, int posy, String sexe, int age) {
+		super("Lynx", posx, posy, sexe, age, 15,25);
 	}
 
 }
