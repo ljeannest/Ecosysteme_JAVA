@@ -21,7 +21,7 @@ public class ConteneurFenetre extends JPanel{
 	private JTextField champTexte;
 	private JLabel imageLb1;
 	private ImageIcon iconPhoto;
-	private JFrame grille;
+	
 	
 	
 	public ConteneurFenetre() {
