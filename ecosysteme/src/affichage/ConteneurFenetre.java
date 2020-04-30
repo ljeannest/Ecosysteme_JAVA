@@ -1,4 +1,4 @@
-// verife 2
+// verife gus
 package affichage;
 
 import java.awt.Color; 
