@@ -9,10 +9,10 @@ public class Animal {
 	int age;
 	int esp_de_vie;
 	boolean est_vivant;
-	int besoin_nourriture;
+	int jauge_nourriture;
 	int qte_viande;
 	
-	public Animal(String espece, int type, int[] position, String sexe, int age, int esp_de_vie) {
+	public Animal(String espece, int type, int[] position, String sexe, int age, int esp_de_vie,int jauge_nourriture,int qte_viande) {
 		this.espece = espece;
 		this.type = type;
 		this.position = position;
@@ -20,6 +20,8 @@ public class Animal {
 		this.age = age;
 		this.esp_de_vie = esp_de_vie;
 		this.est_vivant=true;
+		this.jauge_nourriture=jauge_nourriture;
+		this.qte_viande=qte_viande;
 	}
 	
 	public void vieillir() {

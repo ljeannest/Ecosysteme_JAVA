@@ -5,7 +5,7 @@ public class Vautour extends Charognard{
 	Vautour partenaire;
 	
 	public Vautour(int[] position, String sexe, int age) {
-		super("Vautour", position, sexe, age, 10);
+		super("Vautour", position, sexe, age, 10,10);
 	}
 	
 	public static void main (String args[]) {
