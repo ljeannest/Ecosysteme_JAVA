@@ -21,7 +21,7 @@ public class ConteneurFenetre extends JPanel{
 	private JTextField champTexte;
 	private JLabel imageLb1;
 	private ImageIcon iconPhoto;
-	
+	private JPanel grille;
 	
 	
 	public ConteneurFenetre() {
@@ -83,17 +83,18 @@ public class ConteneurFenetre extends JPanel{
 	}
 	private void setGrille() {
 		
-		JFrame t = new JFrame();
-		JPanel pan = new JPanel (new GridLayout (3,3));
+		
+		grille = new JPanel (new GridLayout (10,10));
 		Border blackline = BorderFactory.createLineBorder(Color.black,1); 
-		for(int i = 0; i<9;i++){
+		for(int i = 0; i<100;i++){
 		   JPanel ptest = new JPanel();
 		   ptest.setBorder(blackline);
-		   pan.add(ptest);
+		   grille.add(ptest);
 		}
-		pan.setBorder(blackline);
-		t.add(pan);
-		t.setVisible(true);
+		//grille.setBorder(blackline);
+		this.grille.setBounds(200, 200, 200, 200);
+		this.add(grille);
+		this.setVisible(true);
 		
 		
 	}
