@@ -2,8 +2,8 @@ package individus;
 
 public class Carnivore  extends Animal{
 	
-	public Carnivore(String espece, double position, String sexe, int age, int esp_de_vie) {
-		super(espece, 1, position, sexe, age, esp_de_vie);
+	public Carnivore(String espece, int posx,int posy, String sexe, int age, int esp_de_vie,int qte_viande) {
+		super(espece, 1, posx,posy, sexe, age, esp_de_vie,100,qte_viande);
 	}
 	
 	public void manger(Animal A) {
