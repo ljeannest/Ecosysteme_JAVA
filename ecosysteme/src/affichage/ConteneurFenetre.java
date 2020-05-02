@@ -1,4 +1,3 @@
-// verife gus5
 package affichage;
 
 import java.awt.Color;  

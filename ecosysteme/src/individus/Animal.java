@@ -31,7 +31,7 @@ public class Animal {
 	}
 	
 	public boolean mort_de_vieillesse() {
-		if (this.age>=this.esp_de_vie) {
+		if (this.age>=this.esp_de_vie) {// on devrait rajouter une condition de probabilité genre on tire au hasard un chifffre s'il est sup à 0,5 alors true else false
 			return true;
 		}
 		else {

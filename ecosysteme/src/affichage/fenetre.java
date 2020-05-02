@@ -25,7 +25,7 @@ public class fenetre extends JFrame {
 	//Thread.sleep(2000);
 	
 	
-	
+
 	private void proprietesFenetre() throws InterruptedException {
 		int a = 1, b = 15;
 	
