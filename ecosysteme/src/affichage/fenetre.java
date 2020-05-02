@@ -18,7 +18,7 @@ public class fenetre extends JFrame {
 	
 	private void proprietesFenetre() {
 		this.setSize(500,500);
-		this.setResizable(true);
+		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setAlwaysOnTop(true);

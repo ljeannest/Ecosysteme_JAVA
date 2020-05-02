@@ -4,12 +4,12 @@ public class Animal {
 
 	String espece;
 	int type;
-	int posx;
-	int posy;
+	public int posx;
+	public int posy;
 	String sexe;
 	int age;
 	int esp_de_vie;
-	boolean est_vivant;
+	public boolean est_vivant;
 	int jauge_nourriture;
 	int qte_viande;
 	
