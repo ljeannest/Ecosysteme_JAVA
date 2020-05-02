@@ -14,7 +14,7 @@ public class Vautour extends Charognard{
 	}
 	
 	public void reproduction(Vautour V) {
-		
+
 	}
 
 }
