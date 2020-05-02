@@ -1,9 +1,11 @@
 // verife gus5
 package affichage;
 
-import java.awt.Color;  
-
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Image;
+
+
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon; 
@@ -17,29 +19,56 @@ import javax.swing.border.Border;
 public class ConteneurFenetre extends JPanel{
 	
 	
+	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_eau = new ImageIcon(new ImageIcon("images/bleu.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_lapin = new ImageIcon(new ImageIcon("images/lapin.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_lion = new ImageIcon(new ImageIcon("images/lion.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	Border grayline = BorderFactory.createLineBorder(Color.GRAY,1); 
+	Border blackline = BorderFactory.createLineBorder(Color.black,2); 
+	Border blueline = BorderFactory.createLineBorder(Color.blue,1); 
+	Border redline = BorderFactory.createLineBorder(Color.red,1); 
+	
 	private JLabel etiquette ;
 	private JButton bouton;
 	private JTextField champTexte;
-	private JLabel imageLb1;
-	private ImageIcon iconPhoto;
 	private JPanel grille;
 	
+	public final static int pos_x=3;//position animal en x
+	public final static int pos_y=3;//position animal en y
 	
-	public ConteneurFenetre() {
+	
+	public final static int taille_grille_x=787;
+	public final static int taille_grille_y=650;
+	
+	public final static int NB_LIGNES = 15;
+	public final static int NB_COLONNES = 15;
+ 
+	public final static int largeur = taille_grille_x/ NB_COLONNES;
+	public final static int hauteur = taille_grille_y/ NB_LIGNES;
+	
+	
+	//private int[][] grid = new int[NB_LIGNES][NB_COLONNES];
+	//private Image[] images;
+	
+	public ConteneurFenetre() throws InterruptedException {
 		
 		super();
-		this.proprietesConteneur();
 		
+		//int a = 1, b = 15;
+		//while (a < b) {
+		//Thread.sleep(1000);
+		this.proprietesConteneur();
 
 	}
 	
-	private void proprietesConteneur() {
+	private void proprietesConteneur() throws InterruptedException {
 		
 		this.setLayout(null);
-		this.proprietesEtiquette();
-		this.propBouton();
-		this.propChampTexte();
-		this.affichImage();
+		//this.proprietesEtiquette();
+		//this.propBouton();
+		//this.propChampTexte();
+		//this.affichImage();
 		this.setGrille();
 
 		
@@ -48,13 +77,10 @@ public class ConteneurFenetre extends JPanel{
 		
 		etiquette = new JLabel();
 		
-		
 		this.etiquette.setBounds(20,10,350,20);
 		this.etiquette.setText("TEXTE");
 		this.add(etiquette);
-		
-	
-		
+			
 	}
 		
 	private void propBouton() {
@@ -71,34 +97,60 @@ public class ConteneurFenetre extends JPanel{
 		this.add(champTexte);
 		
 	}
-	private void affichImage() {
+	//private void affichImage() {
 		
-		imageLb1= new JLabel();
-		iconPhoto = new ImageIcon("images/lapin_60-43.jpg");
-		this.imageLb1.setBounds(100, 100, 60, 43);
-		this.imageLb1.setIcon(iconPhoto);
-		this.add(imageLb1);
+
 		
-		
-		
-	}
-	private void setGrille() {
+		//imageLb1= new JLabel();
+		//iconPhoto = new ImageIcon("images/lapin_60-43.jpg");
+		//this.imageLb1.setBounds(100, 100, 60, 43);
+		//this.imageLb1.setIcon(iconPhoto);
+		//this.add(imageLb1);
 		
 		
-		grille = new JPanel (new GridLayout (15,15));
-		Border blackline = BorderFactory.createLineBorder(Color.GRAY,1); 
-		for(int i = 0; i<225;i++){
-		   JPanel ptest = new JPanel();
-		   ptest.setBorder(blackline);
-		   grille.add(ptest);
-		}
-		//grille.setBorder(blackline);
-		this.grille.setBounds(200, 100, 500, 500);
+		
+	//}
+
+	
+	private  void setGrille() throws InterruptedException {
+		
+
+		grille = new JPanel (new GridLayout (NB_LIGNES,NB_COLONNES));
+		
+
+		
+		for(int i = 0; i<NB_LIGNES;i++){
+			for(int j = 0; j<NB_COLONNES;j++){
+		
+				if (i==NB_LIGNES-pos_y-1 && j==pos_x) {
+					
+					JLabel emplacement = new JLabel(icon_lapin);
+					   
+					emplacement.setBorder(redline);	
+					emplacement.setSize(largeur, hauteur);
+					
+					grille.add(emplacement);
+					
+				}
+				else {
+					JLabel emplacement = new JLabel(icon_herbe);
+					   
+					emplacement.setBorder(grayline);
+					emplacement.setSize(largeur, hauteur);
+						
+					grille.add(emplacement);
+				}}}
+
+	
+		grille.setBorder(blackline);
+		this.grille.setBounds(0, 0, taille_grille_x, taille_grille_y);
 		this.add(grille);
 		this.setVisible(true);
 		
-		
+		//Thread.sleep(1000);
 	}
-	
-	
 }
+	
+
+	
+
