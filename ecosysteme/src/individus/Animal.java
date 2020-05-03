@@ -61,6 +61,12 @@ public class Animal {
 		else {
 			return false;
 		}
+		
+	}
+	
+	public void deplacementaleatoire(int maxX,int maxY) {
+		this.posx = (int)(Math.random()*maxX);
+		this.posy = (int)(Math.random()*maxY);
 	}
 	
 }
