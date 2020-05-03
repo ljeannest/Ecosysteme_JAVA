@@ -15,13 +15,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import individus.Animal;
+import test.ContenuFenetreBis;
+
 public class ConteneurFenetre extends JPanel{
-	
+	public int[][] grid = new int[ContenuFenetreBis.NB_LIGNES][ContenuFenetreBis.NB_COLONNES];
 	
 	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	ImageIcon icon_eau = new ImageIcon(new ImageIcon("images/bleu.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
-	ImageIcon icon_lapin = new ImageIcon(new ImageIcon("images/lapin.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
-	ImageIcon icon_lion = new ImageIcon(new ImageIcon("images/lion.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_lynx = new ImageIcon(new ImageIcon("images/lynx.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_lievre = new ImageIcon(new ImageIcon("images/lievre.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_vautour = new ImageIcon(new ImageIcon("images/vautour.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	Border grayline = BorderFactory.createLineBorder(Color.GRAY,1); 
 	Border blackline = BorderFactory.createLineBorder(Color.black,2); 
@@ -33,8 +37,7 @@ public class ConteneurFenetre extends JPanel{
 	private JTextField champTexte;
 	private JPanel grille;
 	
-	public final static int pos_x=3;//position animal en x
-	public final static int pos_y=3;//position animal en y
+
 	
 	
 	public final static int taille_grille_x=787;
@@ -50,24 +53,25 @@ public class ConteneurFenetre extends JPanel{
 	//private int[][] grid = new int[NB_LIGNES][NB_COLONNES];
 	//private Image[] images;
 	
-	public ConteneurFenetre() throws InterruptedException {
+	public ConteneurFenetre(Animal A) throws InterruptedException {
 		
 		super();
 		
 		//int a = 1, b = 15;
 		//while (a < b) {
 		//Thread.sleep(1000);
-		this.proprietesConteneur();
+		this.proprietesConteneur(A);
 
 	}
 	
-	private void proprietesConteneur() throws InterruptedException {
+	private void proprietesConteneur(Animal A) throws InterruptedException {
 		
 		this.setLayout(null);
 		//this.proprietesEtiquette();
 		//this.propBouton();
 		//this.propChampTexte();
 		//this.affichImage();
+		this.Set_grille_position(A);
 		this.setGrille();
 
 		
@@ -111,26 +115,66 @@ public class ConteneurFenetre extends JPanel{
 	//}
 
 	
+	private void Set_grille_position(Animal A) {
+		for(int i = 0; i<NB_LIGNES;i++){
+			for(int j = 0; j<NB_COLONNES;j++){
+				this.grid[i][j]=0;//herbe par defaut
+			
+			}
+	}
+		if (A.espece=="Lynx") {
+		this.grid[A.posx][A.posy]=1;}
+		
+		if (A.espece=="Lievre") {
+		this.grid[A.posx][A.posy]=2;}
+		
+		if (A.espece=="Vautour") {
+		this.grid[A.posx][A.posy]=3;}
+	
+	}
+	
+	
 	private  void setGrille() throws InterruptedException {
 		
 
 		grille = new JPanel (new GridLayout (NB_LIGNES,NB_COLONNES));
 		
-
+		
 		
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
 		
-				if (i==NB_LIGNES-pos_y-1 && j==pos_x) {
+				int valeur_emplacement = grid[j][NB_LIGNES-i-1];
+				
+				if (valeur_emplacement==1) {
 					
-					JLabel emplacement = new JLabel(icon_lapin);
+					JLabel emplacement = new JLabel(icon_lynx);
 					   
 					emplacement.setBorder(redline);	
 					emplacement.setSize(largeur, hauteur);
 					
-					grille.add(emplacement);
+					grille.add(emplacement);}
+				
+				else if (valeur_emplacement==2) {
 					
-				}
+					JLabel emplacement = new JLabel(icon_lievre);
+					   
+					emplacement.setBorder(redline);	
+					emplacement.setSize(largeur, hauteur);
+					
+					grille.add(emplacement);}	
+					
+				else if (valeur_emplacement==3) {
+					
+					JLabel emplacement = new JLabel(icon_vautour);
+					   
+					emplacement.setBorder(redline);	
+					emplacement.setSize(largeur, hauteur);
+					
+					grille.add(emplacement);}
+					
+					
+				
 				else {
 					JLabel emplacement = new JLabel(icon_herbe);
 					   

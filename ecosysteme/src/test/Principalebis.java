@@ -1,6 +1,6 @@
 package test;
 
-import javax.swing.JFrame;
+import javax.swing.JFrame; 
 import affichage.fenetre;
 import individus.Lievre;
 

@@ -3,6 +3,9 @@ package affichage;
 
 import javax.swing.JFrame;
 
+import individus.Animal;
+
+
 public class fenetre extends JFrame {
 	
 	
@@ -11,14 +14,14 @@ public class fenetre extends JFrame {
 	
 	
 	
-	public fenetre() throws InterruptedException {
+	public fenetre(Animal A) throws InterruptedException {
 		super();
 		
-		proprietesFenetre();}
+		proprietesFenetre(A);}
 		
 
 
-	private void proprietesFenetre() throws InterruptedException {
+	private void proprietesFenetre(Animal A) throws InterruptedException {
 		
 	
 		this.setSize(800,700);
@@ -27,8 +30,17 @@ public class fenetre extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setAlwaysOnTop(true);
 		
-		pan=new ConteneurFenetre();
+		pan=new ConteneurFenetre(A);
 		this.setContentPane(pan);
+		
+		
+		for (int k=0;k<10;k++) {
+			A.deplacementaleatoire(ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
+			pan=new ConteneurFenetre(A);
+			this.setContentPane(pan);
+			this.setVisible(true);
+			Thread.sleep(500);
+		}
 		
 		
 	

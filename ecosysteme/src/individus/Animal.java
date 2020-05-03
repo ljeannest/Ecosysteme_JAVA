@@ -2,7 +2,7 @@ package individus;
 
 public class Animal {
 
-	String espece;
+	public String espece;
 	int type;
 	public int posx;
 	public int posy;

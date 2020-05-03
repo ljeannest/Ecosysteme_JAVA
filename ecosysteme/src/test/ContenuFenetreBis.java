@@ -1,6 +1,6 @@
 package test;
 
-import test.Principalebis;
+import test.Principalebis; 
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -35,14 +35,14 @@ public class ContenuFenetreBis extends JPanel{
 	private JTextField champTexte;
 	private JPanel grille;
 	
-	public final static int taille_grille_x=787;
-	public final static int taille_grille_y=650;
+	public  static int taille_grille_x=787;
+	public  static int taille_grille_y=650;
 	
-	public final static int NB_LIGNES = 15;
-	public final static int NB_COLONNES = 15;
+	public static int NB_LIGNES = 15;
+	public static int NB_COLONNES = 15;
  
-	public final static int largeur = taille_grille_x/ NB_COLONNES;
-	public final static int hauteur = taille_grille_y/ NB_LIGNES;
+	public static int largeur = taille_grille_x/ NB_COLONNES;
+	public  static int hauteur = taille_grille_y/ NB_LIGNES;
 	
 	
 	public ContenuFenetreBis(Animal A) throws InterruptedException {
@@ -94,7 +94,7 @@ public class ContenuFenetreBis extends JPanel{
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
 		
-				if (i==NB_LIGNES-A.posy-1 && j==A.posx) {
+				if (i==NB_LIGNES-A.posy-1 && j==A.posx){
 					
 					JLabel emplacement = new JLabel(icon_lapin);
 					   

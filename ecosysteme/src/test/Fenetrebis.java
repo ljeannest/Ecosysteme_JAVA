@@ -1,6 +1,6 @@
 package test;
 
-import javax.swing.JFrame;
+import javax.swing.JFrame; 
 
 import affichage.ConteneurFenetre;
 import affichage.fenetre;
@@ -31,12 +31,12 @@ public class Fenetrebis extends JFrame{
 		pan=new ContenuFenetreBis(A);
 		this.setContentPane(pan);
 		
-		for (int k=0;k<10;k++) {
-			A.deplacementaleatoire(15,15);
+		for (int k=0;k<1;k++) {
+			A.deplacementaleatoire(ContenuFenetreBis.NB_LIGNES,ContenuFenetreBis.NB_COLONNES);
 			pan=new ContenuFenetreBis(A);
 			this.setContentPane(pan);
 			this.setVisible(true);
-			Thread.sleep(1000);
+			Thread.sleep(500);
 		}
 	}
 }
