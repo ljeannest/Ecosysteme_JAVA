@@ -5,23 +5,23 @@ public class Vegetaux {
 	
 	String type;
 	String couleur;
-	int quantiteRessources;
+	public int quantiteRessources;
 	int posX;
 	int posY;
-	boolean estVivant;
+	public boolean estVivant;
 	
-	public Vegetaux(String type, String couleur, int quantiteRessouce,int posX, int posY) {
+	public Vegetaux(String type, String couleur, int quantiteRessource,int posX, int posY) {
 		
 		this.type = type;
 		this.couleur = couleur;
-		this.quantiteRessources = quantiteRessouce;
+		this.quantiteRessources = quantiteRessource;
 		this.estVivant = true;
 		this.posX = posX;
 		this.posY = posY;
 		
 		}
 	
-	public void manger() {
+	public void se_faire_manger() {
 		
 		this.quantiteRessources-=1;
 		

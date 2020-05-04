@@ -1,9 +1,9 @@
 
 package affichage;
 
-import javax.swing.JFrame;
+import javax.swing.JFrame; 
 
-import individus.Animal;
+import individus.*;
 
 
 public class fenetre extends JFrame {

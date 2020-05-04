@@ -5,7 +5,7 @@ public class Eau {
 	
 	String type;
 	String couleur;
-	int quantiteRessource;
+	public int quantiteRessource;
 	
 	public Eau (String type, int quantiteRessource) {
 		
@@ -15,7 +15,7 @@ public class Eau {
 	}
 	
 	
-	public void Boire() {
+	public void se_faire_boire() {
 		this.quantiteRessource-=1;
 		
 	}

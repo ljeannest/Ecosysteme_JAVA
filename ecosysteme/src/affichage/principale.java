@@ -1,8 +1,9 @@
 //vérife5
 package affichage;
 
-import individus.Lievre;
-import individus.Lynx;
+import individus.*;
+
+
 
 public class principale {
 
