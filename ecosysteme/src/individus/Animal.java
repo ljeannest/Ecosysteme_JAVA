@@ -28,6 +28,25 @@ public class Animal {
 		this.qte_viande=qte_viande;
 	}
 	
+	public String toString() {
+		String type = "";
+		if (this.type==0) {
+			type="Herbivore";
+		}
+		if (this.type==1) {
+			type="Carnivore";
+		}
+		if (this.type==2) {
+			type="Charognard";
+		}
+		String text ="Type : "+type+"\n";
+		text+="Espece : "+this.espece+"\n";
+		text+="Sexe : "+this.sexe+"\n";
+		text+="Age : "+this.age + " ans"+"\n";
+		text+="Position : ("+this.posx+","+this.posy+")";
+		return text;
+	}
+	
 	public void vieillir() {
 		this.age+=1;
 	}
@@ -68,9 +87,13 @@ public class Animal {
 		
 	}
 	
-	public void deplacementaleatoire(int maxX,int maxY) {
-		this.posx = (int)(Math.random()*maxX);
-		this.posy = (int)(Math.random()*maxY);
+	public void deplacementaleatoire(Animal[] A_list,int pos,int maxX,int maxY) {
+		boolean est_libre=false;
+		//while (est_libre==false) {
+			this.posx = (int)(Math.random()*maxX);
+			this.posy = (int)(Math.random()*maxY);
+			//est_libre=position_libre(A_list,pos,this.posx,this.posy);
+		//}
 	}
 	
 	
@@ -93,6 +116,18 @@ public class Animal {
 		this.qte_viande+=(-1);
 		
 		
+	}
+	
+	public boolean position_libre (Animal[] A,int pos, int posx, int posy) {
+		if (pos==0) {
+			return true;
+		}
+		for (int k=0;k<pos;k++) {
+			if (A[k].posx==posx && A[k].posy==posy) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 }

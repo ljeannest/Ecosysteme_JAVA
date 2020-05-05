@@ -32,7 +32,7 @@ public class Fenetrebis extends JFrame{
 		this.setContentPane(pan);
 		
 		for (int k=0;k<1;k++) {
-			A.deplacementaleatoire(ContenuFenetreBis.NB_LIGNES,ContenuFenetreBis.NB_COLONNES);
+//			A.deplacementaleatoire(ContenuFenetreBis.NB_LIGNES,ContenuFenetreBis.NB_COLONNES);
 			pan=new ContenuFenetreBis(A);
 			this.setContentPane(pan);
 			this.setVisible(true);

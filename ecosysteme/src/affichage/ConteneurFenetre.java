@@ -53,25 +53,25 @@ public class ConteneurFenetre extends JPanel{
 	//private int[][] grid = new int[NB_LIGNES][NB_COLONNES];
 	//private Image[] images;
 	
-	public ConteneurFenetre(Animal A) throws InterruptedException {
+	public ConteneurFenetre(Animal[] A_list) throws InterruptedException {
 		
 		super();
 		
 		//int a = 1, b = 15;
 		//while (a < b) {
 		//Thread.sleep(1000);
-		this.proprietesConteneur(A);
+		this.proprietesConteneur(A_list);
 
 	}
 	
-	private void proprietesConteneur(Animal A) throws InterruptedException {
+	private void proprietesConteneur(Animal[] A_list) throws InterruptedException {
 		
 		this.setLayout(null);
 		//this.proprietesEtiquette();
 		//this.propBouton();
 		//this.propChampTexte();
 		//this.affichImage();
-		this.Set_grille_position(A);
+		this.Set_grille_position(A_list);
 		this.setGrille();
 
 		
@@ -115,23 +115,25 @@ public class ConteneurFenetre extends JPanel{
 	//}
 
 	
-	private void Set_grille_position(Animal A) {
+	private void Set_grille_position(Animal[] A_list) {
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
 				this.grid[i][j]=0;//herbe par defaut
 			
 			}
-	}
-		if (A.espece=="Lynx") {
-		this.grid[A.posx][A.posy]=1;}
+		}
+		int n = A_list.length;
+		for (int k=0; k<n; k++) {
+			if (A_list[k].espece=="Lynx") {
+				this.grid[A_list[k].posx][A_list[k].posy]=1;}
+			
+			if (A_list[k].espece=="Lievre") {
+				this.grid[A_list[k].posx][A_list[k].posy]=2;}
 		
-		if (A.espece=="Lievre") {
-		this.grid[A.posx][A.posy]=2;}
-		
-		if (A.espece=="Vautour") {
-		this.grid[A.posx][A.posy]=3;}
-	
-	}
+			if (A_list[k].espece=="Vautour") {
+				this.grid[A_list[k].posx][A_list[k].posy]=3;}
+			}
+		}
 	
 	
 	private  void setGrille() throws InterruptedException {
