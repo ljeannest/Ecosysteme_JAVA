@@ -99,22 +99,21 @@ public class Animal {
 	
 
 	public void manger() {
-		{
-
+		
+		if (this.est_vivant==true) {
 		this.jauge_nourriture+=1;}
 	}
 	
 	
 	
 	public void boire() {
-		 {
+		if (this.est_vivant==true) {
 		this.jauge_eau+=1;}
 	}
 	
 	public void se_faire_manger() {
 		
 		this.qte_viande+=(-1);
-		
 		
 	}
 	

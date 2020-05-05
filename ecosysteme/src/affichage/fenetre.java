@@ -58,7 +58,7 @@ public class fenetre extends JFrame {
 //			pan2=new Individus(A_list);
 //			this.setContentPane(pan2);
 //			this.setVisible(true);
-			Thread.sleep(400);
+			Thread.sleep(1000);
 		}
 		
 		
