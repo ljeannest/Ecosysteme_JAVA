@@ -3,16 +3,16 @@ package individus;
 public class Animal {
 
 	public String espece;
-	int type;
+	public int type;
 	public int posx;
 	public int posy;
-	String sexe;
+	public String sexe;
 	int age;
-	int esp_de_vie;
+	public int esp_de_vie;
 	public boolean est_vivant;
 	int jauge_nourriture;
 	int jauge_eau;
-	int qte_viande;
+	public int qte_viande;
 	
 	public Animal(String espece, int type, int posx,int posy, String sexe, int age, int esp_de_vie,int jauge_nourriture,int jauge_eau,int qte_viande) {
 		this.espece = espece;
