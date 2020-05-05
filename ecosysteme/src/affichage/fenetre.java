@@ -8,9 +8,11 @@ import individus.*;
 
 public class fenetre extends JFrame {
 	
-	
 	ConteneurFenetre pan;
 	
+	Environnement pan1;
+	
+	Individus pan2;
 	
 	
 	
@@ -34,6 +36,14 @@ public class fenetre extends JFrame {
 		this.setContentPane(pan);
 		this.setVisible(true);
 		
+//		pan1=new Environnement();
+//		this.setContentPane(pan1);
+//		this.setVisible(true);
+		
+//		pan2=new Individus(A_list);
+//		this.setContentPane(pan2);
+//		this.setVisible(true);
+		
 		
 		for (int k=0;k<10;k++) {
 			int n=A_list.length;
@@ -44,7 +54,11 @@ public class fenetre extends JFrame {
 			pan=new ConteneurFenetre(A_list);
 			this.setContentPane(pan);
 			this.setVisible(true);
-			Thread.sleep(500);
+			
+//			pan2=new Individus(A_list);
+//			this.setContentPane(pan2);
+//			this.setVisible(true);
+			Thread.sleep(2000);
 		}
 		
 		
