@@ -19,7 +19,7 @@ import individus.Animal;
 import test.ContenuFenetreBis;
 
 public class ConteneurFenetre extends JPanel{
-	public int[][] grid = new int[ContenuFenetreBis.NB_LIGNES][ContenuFenetreBis.NB_COLONNES];
+	public int[][] grid = new int[NB_COLONNES][NB_LIGNES];
 	
 	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	ImageIcon icon_eau = new ImageIcon(new ImageIcon("images/bleu.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
@@ -43,8 +43,8 @@ public class ConteneurFenetre extends JPanel{
 	public final static int taille_grille_x=787;
 	public final static int taille_grille_y=650;
 	
-	public final static int NB_LIGNES = 15;
-	public final static int NB_COLONNES = 15;
+	public final static int NB_LIGNES = 7;
+	public final static int NB_COLONNES = 7;
  
 	public final static int largeur = taille_grille_x/ NB_COLONNES;
 	public final static int hauteur = taille_grille_y/ NB_LIGNES;
@@ -139,7 +139,7 @@ public class ConteneurFenetre extends JPanel{
 	private  void setGrille() throws InterruptedException {
 		
 
-		grille = new JPanel (new GridLayout (NB_LIGNES,NB_COLONNES));
+		grille = new JPanel (new GridLayout (NB_COLONNES,NB_LIGNES));
 		
 		
 		

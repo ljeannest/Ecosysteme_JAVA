@@ -17,7 +17,7 @@ import test.ContenuFenetreBis;
 
 public class Individus extends JPanel{
 	
-public int[][] grid = new int[ContenuFenetreBis.NB_LIGNES][ContenuFenetreBis.NB_COLONNES];
+	public int[][] grid = new int[NB_COLONNES][NB_LIGNES];
 	
 	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	ImageIcon icon_eau = new ImageIcon(new ImageIcon("images/bleu.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));

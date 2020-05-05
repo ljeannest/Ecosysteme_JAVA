@@ -45,7 +45,7 @@ public class fenetre extends JFrame {
 //		this.setVisible(true);
 		
 		
-		for (int k=0;k<10;k++) {
+		for (int k=0;k<300;k++) {
 			int n=A_list.length;
 			for (int i=0;i<n;i++) {
 				A_list[i].deplacementaleatoire(A_list,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
@@ -58,7 +58,7 @@ public class fenetre extends JFrame {
 //			pan2=new Individus(A_list);
 //			this.setContentPane(pan2);
 //			this.setVisible(true);
-			Thread.sleep(2000);
+			Thread.sleep(400);
 		}
 		
 		
