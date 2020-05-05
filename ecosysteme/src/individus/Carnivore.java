@@ -4,8 +4,8 @@ import ressources.Eau;
 
 public class Carnivore  extends Animal{
 	
-	public Carnivore(String espece, int posx,int posy, String sexe, int age, int esp_de_vie,int qte_viande) {
-		super(espece, 1, posx,posy, sexe, age, esp_de_vie,100,100,qte_viande);
+	public Carnivore(String espece, int posx,int posy, String sexe, int age, int esp_de_vie,int qte_viande,int ageReproMin, int ageReproMax) {
+		super(espece, 1, posx,posy, sexe, age, esp_de_vie,100,100,qte_viande, ageReproMin, ageReproMax);
 	}
 	
 	public void manger(Animal A) {
