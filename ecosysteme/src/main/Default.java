@@ -1,11 +1,13 @@
 package main;
 
-import individus.Animal;
+//import individus.Animal;
 import individus.Lievre;
 import individus.Lynx;
 import individus.Vautour;
 import ressources.Vegetaux;
 import ressources.Eau;
+import ressources.Riviere;
+import ressources.Lac;
 
 
 public class Default {
@@ -13,9 +15,11 @@ public class Default {
 	Lievre populationLievre []= new Lievre [20];
 	Lynx populationLynx[]=new Lynx [30];
 	Vautour populationVautour[]=new Vautour[10];
-	Animal populationAnimal []= new Animal [60];
+	//Animal populationAnimal [] = new Animal [3];
 	Vegetaux ressourceVegetal[];
 	Eau ressouceEnEau[];
+	Riviere riviere;
+	Lac lac;
 
 	public Default() {
 
@@ -32,7 +36,7 @@ public class Default {
 			this.populationLievre[i]= new Lievre(0,0,sexe,1);// on cree le nouvel individu su'on insere dans sa population
 
 		}
-		// creation des lynx
+		// creation des lynx de même que pour les Lievres
 		sexe="F";
 		for(int i=0; i<30; i++) {
 
@@ -45,7 +49,7 @@ public class Default {
 			this.populationLynx[i]= new Lynx (0,0, sexe,2);
 		}
 
-
+// création des Vautour
 		sexe = "F";
 
 		for(int i=0; i<10; i++) {
@@ -59,6 +63,14 @@ public class Default {
 			this.populationVautour[i]= new Vautour(0,0,sexe,4);
 			
 		}
+		
+		this.riviere= new Riviere(3,0,3,29);
+		this.lac = new Lac(29,29);
+		
+		
+		//this.populationAnimal[0]=this.populationLievre;
+		//this.populationAnimal[1]=this.populationLynx;
+		//this.populationVautour[2]=this.populationVautour;
 
 
 	}
