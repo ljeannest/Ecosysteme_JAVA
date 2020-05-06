@@ -4,8 +4,6 @@ import individus.Animal;
 import ressources.Vegetaux;
 import java.lang.Math;
 
-//bonjour
-
 public class repro {
 
 	public static boolean placeVide(int posX, int posY, Animal tableauIndividu[], Vegetaux tableauRessource[]){
