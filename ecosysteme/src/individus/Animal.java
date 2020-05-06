@@ -3,18 +3,20 @@ package individus;
 public class Animal {
 
 	public String espece;
-	int type;
+	public int type;
 	public int posx;
 	public int posy;
-	String sexe;
+	public String sexe;
 	int age;
-	int esp_de_vie;
+	public int esp_de_vie;
 	public boolean est_vivant;
 	int jauge_nourriture;
 	int jauge_eau;
-	int qte_viande;
+	public  int qte_viande;
+	int ageReproMin;
+	int ageReproMax;
 	
-	public Animal(String espece, int type, int posx,int posy, String sexe, int age, int esp_de_vie,int jauge_nourriture,int jauge_eau,int qte_viande) {
+	public Animal(String espece, int type, int posx,int posy, String sexe, int age, int esp_de_vie,int jauge_nourriture,int jauge_eau,int qte_viande, int ageReproMin, int ageReproMax) {
 		this.espece = espece;
 		this.type = type;
 		this.posx = posx;
@@ -26,6 +28,8 @@ public class Animal {
 		this.jauge_nourriture=jauge_nourriture;
 		this.jauge_eau=jauge_eau;
 		this.qte_viande=qte_viande;
+		this.ageReproMin = ageReproMin;
+		this.ageReproMax = ageReproMax;
 	}
 	
 	public String toString() {
@@ -64,16 +68,12 @@ public class Animal {
 	
 	public boolean reproduction(Animal A) {
 		if (this.espece==A.espece) {
-			if (this.sexe=="M") {
-				if (A.sexe=="F") {
-					return true;
-				}
-				else {
+			if (this.sexe== A.sexe) {
 					return false;
-				}
 			}
+				
 			else {
-				if (A.sexe=="M") {
+				if (this.age>this.ageReproMin && this.age<this.ageReproMax && A.age>A.ageReproMin && A.age<A.ageReproMax) {
 					return true;
 				}
 				else {
@@ -87,7 +87,7 @@ public class Animal {
 		
 	}
 	
-	public void deplacementaleatoire(Animal[] A_list,int pos,int maxX,int maxY) {
+	public void deplacementAleatoire(Animal[] A_list,int pos,int maxX,int maxY) {
 		boolean est_libre=false;
 		//while (est_libre==false) {
 			this.posx = (int)(Math.random()*maxX);
