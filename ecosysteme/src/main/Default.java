@@ -16,8 +16,8 @@ public class Default {
 	Lynx populationLynx[]=new Lynx [30];
 	Vautour populationVautour[]=new Vautour[10];
 	//Animal populationAnimal [] = new Animal [3];
-	Vegetaux ressourceVegetal[];
-	Eau ressouceEnEau[];
+	//Vegetaux ressourceVegetal[];
+	//Eau ressouceEnEau[];
 	Riviere riviere;
 	Lac lac;
 
@@ -63,7 +63,7 @@ public class Default {
 			this.populationVautour[i]= new Vautour(0,0,sexe,4);
 			
 		}
-		
+// creation des resspurces en eau
 		this.riviere= new Riviere(3,0,3,29);
 		this.lac = new Lac(29,29);
 		
