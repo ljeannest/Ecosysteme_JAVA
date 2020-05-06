@@ -13,8 +13,8 @@ public class Animal {
 	int jauge_nourriture;
 	int jauge_eau;
 	public  int qte_viande;
-	int ageReproMin;
-	int ageReproMax;
+	public int ageReproMin;
+	public int ageReproMax;
 	
 	public Animal(String espece, int type, int posx,int posy, String sexe, int age, int esp_de_vie,int jauge_nourriture,int jauge_eau,int qte_viande, int ageReproMin, int ageReproMax) {
 		this.espece = espece;

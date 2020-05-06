@@ -4,10 +4,10 @@ public class Vegetaux {
 	
 	
 	String type;
-	String couleur;
+	public String couleur;
 	public int quantiteRessources;
-	int posX;
-	int posY;
+	public int posX;
+	public int posY;
 	public boolean estVivant;
 	
 	public Vegetaux(String type, String couleur, int quantiteRessource,int posX, int posY) {
