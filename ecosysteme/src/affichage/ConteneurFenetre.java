@@ -20,6 +20,7 @@ import test.ContenuFenetreBis;
 
 public class ConteneurFenetre extends JPanel{
 	public int[][] grid = new int[NB_COLONNES][NB_LIGNES];
+	public int[][] grid_animaux = new int[NB_COLONNES][NB_LIGNES];
 	
 	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	ImageIcon icon_eau = new ImageIcon(new ImageIcon("images/bleu.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
@@ -53,24 +54,25 @@ public class ConteneurFenetre extends JPanel{
 	//private int[][] grid = new int[NB_LIGNES][NB_COLONNES];
 	//private Image[] images;
 	
-	public ConteneurFenetre(Animal[] A_list) throws InterruptedException {
+	public ConteneurFenetre(Animal[] A_list,int posx1,int posy1,int posx2, int posy2) throws InterruptedException {
 		
 		super();
 		
 		//int a = 1, b = 15;
 		//while (a < b) {
 		//Thread.sleep(1000);
-		this.proprietesConteneur(A_list);
+		this.proprietesConteneur(A_list,posx1,posy1,posx2,posy2);
 
 	}
 	
-	private void proprietesConteneur(Animal[] A_list) throws InterruptedException {
+	private void proprietesConteneur(Animal[] A_list,int posx1,int posy1,int posx2, int posy2) throws InterruptedException {
 		
 		this.setLayout(null);
 		//this.proprietesEtiquette();
 		//this.propBouton();
 		//this.propChampTexte();
 		//this.affichImage();
+		this.Set_grille_env(posx1, posy1, posx2, posy2);
 		this.Set_grille_position(A_list);
 		this.setGrille();
 
@@ -113,28 +115,68 @@ public class ConteneurFenetre extends JPanel{
 		
 		
 	//}
-
+	
+	private void Set_lac(int posx , int posy) {
+		for (int i=0;i<4;i++) {
+			for (int j=0;j<4;j++) {
+				if (posx+i<NB_LIGNES && posy+j<NB_COLONNES && i+j<=4) {
+					this.grid[posx+i][posy+j]=-1;
+				}
+				if (posx-i>=0 && posy-j>=0 && i+j<=4) {
+					this.grid[posx-i][posy-j]=-1;
+				}
+				if (posx+i<NB_LIGNES && posy-j>=0 && i+j<=4) {
+					this.grid[posx+i][posy-j]=-1;
+				}
+				if (posx-i>=0 && posy+j<NB_COLONNES && i+j<=4) {
+					this.grid[posx-i][posy+j]=-1;
+				}
+			}
+		}
+	}
+	
+	private void Set_riviere(int posx, int posy) {
+		for (int i=0;i<=posy;i++) {
+			this.grid[posx][i]=-1;
+		}
+		for (int j=0;j<=posx;j++) {
+			this.grid[j][posy]=-1;
+		}
+	}
 	
 	private void Set_grille_position(Animal[] A_list) {
+		System.out.println(grid);
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
-				this.grid[i][j]=0;//herbe par defaut
+				this.grid_animaux[i][j]=this.grid[i][j];//environnement
 			
 			}
 		}
 		int n = A_list.length;
 		for (int k=0; k<n; k++) {
 			if (A_list[k].espece=="Lynx") {
-				this.grid[A_list[k].posx][A_list[k].posy]=1;}
+				this.grid_animaux[A_list[k].posx][A_list[k].posy]=1;}
 			
 			if (A_list[k].espece=="Lievre") {
-				this.grid[A_list[k].posx][A_list[k].posy]=2;}
+				this.grid_animaux[A_list[k].posx][A_list[k].posy]=2;}
 		
 			if (A_list[k].espece=="Vautour") {
-				this.grid[A_list[k].posx][A_list[k].posy]=3;}
+				this.grid_animaux[A_list[k].posx][A_list[k].posy]=3;}
 			}
 		}
 	
+	private void Set_grille_env(int posx1,int posy1,int posx2,int posy2) {
+		for(int i = 0; i<NB_LIGNES;i++){
+			for(int j = 0; j<NB_COLONNES;j++){
+				this.grid[i][j]=0;//herbe par defaut
+			
+			}
+		}
+		this.Set_lac(posx1,posy1);
+		this.Set_riviere(posx2,posy2);
+		}
+	
+
 	
 	private  void setGrille() throws InterruptedException {
 		
@@ -146,7 +188,7 @@ public class ConteneurFenetre extends JPanel{
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
 		
-				int valeur_emplacement = grid[j][NB_LIGNES-i-1];
+				int valeur_emplacement = grid_animaux[j][NB_LIGNES-i-1];
 				
 				if (valeur_emplacement==1) {
 					
@@ -175,7 +217,14 @@ public class ConteneurFenetre extends JPanel{
 					
 					grille.add(emplacement);}
 					
+				else if (valeur_emplacement==-1) {
 					
+					JLabel emplacement = new JLabel(icon_eau);
+					   
+					emplacement.setBorder(blueline);	
+					emplacement.setSize(largeur, hauteur);
+					
+					grille.add(emplacement);}	
 				
 				else {
 					JLabel emplacement = new JLabel(icon_herbe);

@@ -41,8 +41,8 @@ public class Environnement extends JPanel{
 	public final static int taille_grille_x=787;
 	public final static int taille_grille_y=650;
 	
-	public final static int NB_LIGNES = 15;
-	public final static int NB_COLONNES = 15;
+	public final static int NB_LIGNES = 30;
+	public final static int NB_COLONNES = 30;
  
 	public final static int largeur = taille_grille_x/ NB_COLONNES;
 	public final static int hauteur = taille_grille_y/ NB_LIGNES;
@@ -70,6 +70,7 @@ public class Environnement extends JPanel{
 		//this.propChampTexte();
 		//this.affichImage();
 		//this.Set_grille_position(A_list);
+		this.Set_grille_env();
 		this.setGrille();
 
 		
@@ -112,25 +113,43 @@ public class Environnement extends JPanel{
 		
 	//}
 
+	private void Set_lac(int posx , int posy) {
+		for (int i=0;i<4;i++) {
+			for (int j=0;j<4;j++) {
+				if (posx+i<NB_LIGNES && posy+j<NB_COLONNES && i+j<=4) {
+					this.grid[posx+i][posy+j]=-1;
+				}
+				if (posx-i>=0 && posy-j>0 && i+j<=4) {
+					this.grid[posx-i][posy-j]=-1;
+				}
+				if (posx+i<NB_LIGNES && posy-j>0 && i+j<=4) {
+					this.grid[posx+i][posy-j]=-1;
+				}
+				if (posx-i>0 && posy+j<NB_COLONNES && i+j<=4) {
+					this.grid[posx-i][posy+j]=-1;
+				}
+			}
+		}
+	}
 	
-	private void Set_grille_position(Animal[] A_list) {
+	private void Set_riviere(int posx, int posy) {
+		for (int i=0;i<=posy;i++) {
+			this.grid[posx][i]=-1;
+		}
+		for (int j=0;j<=posx;j++) {
+			this.grid[j][posy]=-1;
+		}
+	}
+	
+	private void Set_grille_env() {
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
 				this.grid[i][j]=0;//herbe par defaut
 			
 			}
 		}
-		int n = A_list.length;
-		for (int k=0; k<n; k++) {
-			if (A_list[k].espece=="Lynx") {
-				this.grid[A_list[k].posx][A_list[k].posy]=1;}
-			
-			if (A_list[k].espece=="Lievre") {
-				this.grid[A_list[k].posx][A_list[k].posy]=2;}
-		
-			if (A_list[k].espece=="Vautour") {
-				this.grid[A_list[k].posx][A_list[k].posy]=3;}
-			}
+		this.Set_lac((int)(Math.random()*NB_LIGNES),(int)(Math.random()*NB_COLONNES));
+		this.Set_riviere((int)(Math.random()*NB_LIGNES),(int)(Math.random()*NB_COLONNES));
 		}
 	
 	
@@ -173,7 +192,14 @@ public class Environnement extends JPanel{
 					
 					grille.add(emplacement);}
 					
+				else if (valeur_emplacement==-1) {
 					
+					JLabel emplacement = new JLabel(icon_eau);
+					   
+					emplacement.setBorder(blueline);	
+					emplacement.setSize(largeur, hauteur);
+					
+					grille.add(emplacement);}	
 				
 				else {
 					JLabel emplacement = new JLabel(icon_herbe);
