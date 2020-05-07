@@ -32,12 +32,15 @@ public class fenetre extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setAlwaysOnTop(true);
 		
-		int posx1= (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
-		int posy1= (int)(Math.random()*ConteneurFenetre.NB_COLONNES);
-		int posx2= (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
-		int posy2= (int)(Math.random()*ConteneurFenetre.NB_COLONNES);
+		int nb_flaque=(int)(Math.random()*6)+4;
+		int[] posx=new int[nb_flaque+2];
+		int[] posy=new int[nb_flaque+2];
+		for (int k=0; k<nb_flaque+2;k++) {
+			posx[k]= (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
+			posy[k]= (int)(Math.random()*ConteneurFenetre.NB_COLONNES);
+		}
 		
-		pan=new ConteneurFenetre(A_list,posx1,posy1,posx2,posy2);
+		pan=new ConteneurFenetre(A_list,posx,posy);
 		this.setContentPane(pan);
 		this.setVisible(true);
 		
@@ -56,7 +59,7 @@ public class fenetre extends JFrame {
 				A_list[i].deplacementAleatoire(A_list,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 			}
 			
-			pan=new ConteneurFenetre(A_list,posx1,posy1,posx2,posy2);
+			pan=new ConteneurFenetre(A_list,posx,posy);
 			this.setContentPane(pan);
 			this.setVisible(true);
 			
