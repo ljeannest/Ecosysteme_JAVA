@@ -1,4 +1,4 @@
-//vérife5
+//vérif5
 package affichage;
 
 import individus.*;
