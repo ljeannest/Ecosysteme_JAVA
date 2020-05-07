@@ -145,7 +145,6 @@ public class ConteneurFenetre extends JPanel{
 	}
 	
 	private void Set_grille_position(Animal[] A_list) {
-		System.out.println(grid);
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
 				this.grid_animaux[i][j]=this.grid[i][j];//environnement
