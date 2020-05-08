@@ -18,7 +18,7 @@ public class principale {
 		Vautour Char1 = new Vautour (2,4,"M",0);
 		Animal[] A_list = {Herb1,Carn1,Char1};
 		int nb_flaque = 4;
-		fenetre fenetrePrincipale = new fenetre(A_list,nb_flaque,1,1);
+		fenetre fenetrePrincipale = new fenetre(A_list,nb_flaque,1,1,2);
 		fenetrePrincipale.setVisible(true);
 		//Thread.sleep(1000);
 	

@@ -1,6 +1,8 @@
 package affichage;
 
-import java.awt.Color;   
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 
@@ -54,7 +56,7 @@ public class ConteneurFenetre extends JPanel{
 	//private int[][] grid = new int[NB_LIGNES][NB_COLONNES];
 	//private Image[] images;
 	
-	public ConteneurFenetre(Animal[] A_list,int[] posx, int[] posy,int presencelac, int presenceriviere) throws InterruptedException {
+	public ConteneurFenetre(Animal[] A_list,int[] posx, int[] posy,int presencelac, int presenceriviere,int duree_ecoulee) throws InterruptedException {
 		
 		super();
 		
@@ -62,6 +64,17 @@ public class ConteneurFenetre extends JPanel{
 		//while (a < b) {
 		//Thread.sleep(1000);
 		this.proprietesConteneur(A_list,posx,posy,presencelac,presenceriviere);
+		
+		String tempsec = duree_ecoulee/365 + " an et " + duree_ecoulee %365 + " jours";
+		JPanel pan_temps = new JPanel();
+		pan_temps.setBackground(Color.white);
+		pan_temps.setPreferredSize(new Dimension(750,50));
+		pan_temps.setBorder(BorderFactory.createTitledBorder("Temps écoulé"));
+		JLabel temps_ecoule=new JLabel(tempsec);
+		
+		pan_temps.add(temps_ecoule);
+		this.add(pan_temps,BorderLayout.SOUTH);
+
 
 	}
 	
@@ -75,9 +88,10 @@ public class ConteneurFenetre extends JPanel{
 		this.Set_grille_env(posx, posy,presencelac,presenceriviere);
 		this.Set_grille_position(A_list);
 		this.setGrille();
-
 		
 	}
+	
+	
 	private void proprietesEtiquette() {
 		
 		etiquette = new JLabel();
@@ -212,7 +226,7 @@ public class ConteneurFenetre extends JPanel{
 	
 	private  void setGrille() throws InterruptedException {
 		
-
+		
 		grille = new JPanel (new GridLayout (NB_COLONNES,NB_LIGNES));
 		
 		
@@ -271,6 +285,9 @@ public class ConteneurFenetre extends JPanel{
 		grille.setBorder(blackline);
 		this.grille.setBounds(0, 0, taille_grille_x, taille_grille_y);
 		this.add(grille);
+		
+		
+		
 		this.setVisible(true);
 		
 		//Thread.sleep(1000);

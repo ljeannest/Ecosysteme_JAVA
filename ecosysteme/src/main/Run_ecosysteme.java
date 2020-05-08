@@ -33,7 +33,7 @@ public class Run_ecosysteme {
 		//boire, manger, se deplacer, se reproduire.
 		//la boucle se termine quand ? extinction d'une espece? laps de temps donné? extinction de toutes les especes?
 		
-		fenetre fenetrePrincipale = new fenetre(individus,nb_flaque,presencelac,presenceriviere);
+		fenetre fenetrePrincipale = new fenetre(individus,nb_flaque,presencelac,presenceriviere,duree);
 		fenetrePrincipale.setVisible(true);
 		
 		//fermeture de l'ecosysteme.
