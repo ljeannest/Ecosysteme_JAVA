@@ -2,19 +2,18 @@ package ressources;
 
 public class Riviere extends Eau{
 	
-	int posXDebut;
-	int posYDebut;
-	int posXFin;
-	int posYFin;
+	int posX;
 	
-	public Riviere ( int posXDebut, int posYDebut, int posXFin, int posYFin) {
+	
+	int posY;
+	
+	public Riviere ( int posX, int posY) {
 		
-		super("riviere", 10000);
+		super("riviere", 10000, posX, posY);
 		
-		this.posXDebut = posXDebut;
-		this.posYDebut = posYDebut;
-		this.posXFin = posXFin;
-		this.posYFin = posYFin;
+		this.posX = posX;
+		this.posY = posY;
+		
 		
 	}
 

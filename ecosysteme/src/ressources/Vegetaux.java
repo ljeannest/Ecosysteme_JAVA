@@ -1,6 +1,6 @@
 package ressources;
 
-public class Vegetaux {
+public class Vegetaux extends Ressource{
 	
 	
 	String type;
@@ -11,7 +11,7 @@ public class Vegetaux {
 	public boolean estVivant;
 	
 	public Vegetaux(String type, String couleur, int quantiteRessource,int posX, int posY) {
-		
+		super("Vegetaux");
 		this.type = type;
 		this.couleur = couleur;
 		this.quantiteRessources = quantiteRessource;

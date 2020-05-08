@@ -64,7 +64,7 @@ public class Default {
 			
 		}
 // creation des resspurces en eau
-		this.riviere= new Riviere(3,0,3,29);
+		this.riviere= new Riviere(3,0);
 		this.lac = new Lac(29,29);
 		
 		

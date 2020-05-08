@@ -1,5 +1,6 @@
 package affichage;
 
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,12 +18,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
-import individus.Animal;
-import test.ContenuFenetreBis;
+import individus.*;
+
+import ressources.*;
 
 public class ConteneurFenetre extends JPanel{
-	public int[][] grid = new int[NB_COLONNES][NB_LIGNES];
-	public int[][] grid_animaux = new int[NB_COLONNES][NB_LIGNES];
+	public Ressource[][] grid_ressources = new Ressource[NB_COLONNES][NB_LIGNES];
+	public Animal[][] grid_animaux = new Animal[NB_COLONNES][NB_LIGNES];
+	
+	
 	
 	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	ImageIcon icon_eau = new ImageIcon(new ImageIcon("images/bleu.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
@@ -131,19 +135,24 @@ public class ConteneurFenetre extends JPanel{
 	//}
 	
 	private void Set_lac(int posx , int posy) {
+		
 		for (int i=0;i<4;i++) {
 			for (int j=0;j<4;j++) {
 				if (posx+i<NB_LIGNES && posy+j<NB_COLONNES && i+j<=4) {
-					this.grid[posx+i][posy+j]=-1;
+					Lac lac= new Lac (posx+i, posx+j);
+					this.grid_ressources[posx+i][posy+j]=lac;
 				}
 				if (posx-i>=0 && posy-j>=0 && i+j<=4) {
-					this.grid[posx-i][posy-j]=-1;
+					Lac lac= new Lac (posx-i, posx-j);
+					this.grid_ressources[posx-i][posy-j]=lac;
 				}
 				if (posx+i<NB_LIGNES && posy-j>=0 && i+j<=4) {
-					this.grid[posx+i][posy-j]=-1;
+					Lac lac= new Lac (posx+i, posx-j);
+					this.grid_ressources[posx+i][posy-j]=lac;
 				}
 				if (posx-i>=0 && posy+j<NB_COLONNES && i+j<=4) {
-					this.grid[posx-i][posy+j]=-1;
+					Lac lac= new Lac (posx-i, posx+j);
+					this.grid_ressources[posx-i][posy+j]=lac;
 				}
 			}
 		}
@@ -151,41 +160,45 @@ public class ConteneurFenetre extends JPanel{
 	
 	private void Set_riviere(int posx, int posy) {
 		for (int i=0;i<=posy;i++) {
-			this.grid[posx][i]=-1;
+			Riviere riviere= new Riviere (posx,i);
+			this.grid_ressources[posx][i]=riviere;
 		}
 		for (int j=0;j<=posx;j++) {
-			this.grid[j][posy]=-1;
+			Riviere riviere= new Riviere (j,posy);
+			this.grid_ressources[j][posy]=riviere;
 		}
 	}
 	
 	private void Set_flaque(int posx,int posy) {
-		this.grid[posx][posy]=-1;
+		Eau flaque= new Eau ("flaque",10,posx,posy);
+		this.grid_ressources[posx][posy]=flaque;
 	}
 	
 	private void Set_grille_position(Animal[] A_list) {
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
-				this.grid_animaux[i][j]=this.grid[i][j];//environnement
+				//this.grid_animaux[i][j]=this.grid_ressources[i][j];//environnement_initialisation
 			
 			}
 		}
 		int n = A_list.length;
 		for (int k=0; k<n; k++) {
-			if (A_list[k].espece=="Lynx") {
-				this.grid_animaux[A_list[k].posx][A_list[k].posy]=1;}
 			
-			if (A_list[k].espece=="Lievre") {
-				this.grid_animaux[A_list[k].posx][A_list[k].posy]=2;}
+				this.grid_animaux[A_list[k].posx][A_list[k].posy]=A_list[k];}//=A_list[k].espece
+			
+			//if (A_list[k].espece=="Lievre") {
+				//this.grid_animaux[A_list[k].posx][A_list[k].posy]=2;}
 		
-			if (A_list[k].espece=="Vautour") {
-				this.grid_animaux[A_list[k].posx][A_list[k].posy]=3;}
+			//if (A_list[k].espece=="Vautour") {
+				//this.grid_animaux[A_list[k].posx][A_list[k].posy]=3;}
 			}
-		}
+		
 	
 	private void Set_grille_env(int[] posx, int[] posy, int presencelac, int presenceriviere) {
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
-				this.grid[i][j]=0;//herbe par defaut
+				Herbe herbe=new Herbe("vert",i,j);
+				this.grid_ressources[i][j]=herbe;//herbe par defaut
 			
 			}
 		}
@@ -233,55 +246,55 @@ public class ConteneurFenetre extends JPanel{
 		
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
-		
-				int valeur_emplacement = grid_animaux[j][NB_LIGNES-i-1];
+				JLabel emplacement=new JLabel(icon_herbe);//par défault comme bcp de herbe
 				
-				if (valeur_emplacement==1) {
-					
-					JLabel emplacement = new JLabel(icon_lynx);
-					   
-					emplacement.setBorder(redline);	
-					emplacement.setSize(largeur, hauteur);
-					
-					grille.add(emplacement);}
 				
-				else if (valeur_emplacement==2) {
-					
-					JLabel emplacement = new JLabel(icon_lievre);
-					   
-					emplacement.setBorder(redline);	
-					emplacement.setSize(largeur, hauteur);
-					
-					grille.add(emplacement);}	
-					
-				else if (valeur_emplacement==3) {
-					
-					JLabel emplacement = new JLabel(icon_vautour);
-					   
-					emplacement.setBorder(redline);	
-					emplacement.setSize(largeur, hauteur);
-					
-					grille.add(emplacement);}
-					
-				else if (valeur_emplacement==-1) {
-					
-					JLabel emplacement = new JLabel(icon_eau);
-					   
-					emplacement.setBorder(blueline);	
-					emplacement.setSize(largeur, hauteur);
-					
-					grille.add(emplacement);}	
+				Animal animal_emplacement = grid_animaux[j][NB_LIGNES-i-1];
 				
-				else {
-					JLabel emplacement = new JLabel(icon_herbe);
+				Ressource ressource_emplacement = grid_ressources[j][NB_LIGNES-i-1];
+				
+				if (animal_emplacement!=null) {
+				
+				if (animal_emplacement.espece=="Lynx") {
+					 	emplacement = new JLabel(icon_lynx);
+				}
+				else if (animal_emplacement.espece=="Lievre") {
+						emplacement = new JLabel(icon_lievre);
+				}
+				else if (animal_emplacement.espece=="Vautour") {
+						emplacement = new JLabel(icon_vautour);
+				}
+				   
+					emplacement.setBorder(redline);	}
+					
+				
+				
+					
+				else  {
+					
+					if (ressource_emplacement.type=="Eau") {
+					 	emplacement = new JLabel(icon_eau);
+					 	emplacement.setBorder(blueline);
+				}
+					
 					   
-					emplacement.setBorder(grayline);
-					emplacement.setSize(largeur, hauteur);
 						
+						
+				
+				else if (ressource_emplacement.type=="Vegetaux") {
+					
+					emplacement.setBorder(grayline);}
+					
+				}
+					
+					emplacement.setSize(largeur, hauteur);
+					
 					grille.add(emplacement);
-				}}}
+				
+				}
+			}
 
-	
+
 		grille.setBorder(blackline);
 		this.grille.setBounds(0, 0, taille_grille_x, taille_grille_y);
 		this.add(grille);

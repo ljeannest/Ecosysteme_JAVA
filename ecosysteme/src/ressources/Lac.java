@@ -7,7 +7,7 @@ public class Lac extends Eau{
 	
 	public Lac (int posX, int posY) {
 		
-		super("lac",100000);
+		super("lac",100000,posX,posY);
 		this.posX = posX;
 		this.posY = posY;
 	}
