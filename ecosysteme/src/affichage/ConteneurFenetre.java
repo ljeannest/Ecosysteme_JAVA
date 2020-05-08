@@ -54,25 +54,25 @@ public class ConteneurFenetre extends JPanel{
 	//private int[][] grid = new int[NB_LIGNES][NB_COLONNES];
 	//private Image[] images;
 	
-	public ConteneurFenetre(Animal[] A_list,int[] posx, int[] posy) throws InterruptedException {
+	public ConteneurFenetre(Animal[] A_list,int[] posx, int[] posy,int presencelac, int presenceriviere) throws InterruptedException {
 		
 		super();
 		
 		//int a = 1, b = 15;
 		//while (a < b) {
 		//Thread.sleep(1000);
-		this.proprietesConteneur(A_list,posx,posy);
+		this.proprietesConteneur(A_list,posx,posy,presencelac,presenceriviere);
 
 	}
 	
-	private void proprietesConteneur(Animal[] A_list,int[] posx, int[] posy) throws InterruptedException {
+	private void proprietesConteneur(Animal[] A_list,int[] posx, int[] posy,int presencelac,int presenceriviere) throws InterruptedException {
 		
 		this.setLayout(null);
 		//this.proprietesEtiquette();
 		//this.propBouton();
 		//this.propChampTexte();
 		//this.affichImage();
-		this.Set_grille_env(posx, posy);
+		this.Set_grille_env(posx, posy,presencelac,presenceriviere);
 		this.Set_grille_position(A_list);
 		this.setGrille();
 
@@ -168,19 +168,43 @@ public class ConteneurFenetre extends JPanel{
 			}
 		}
 	
-	private void Set_grille_env(int[] posx, int[] posy) {
+	private void Set_grille_env(int[] posx, int[] posy, int presencelac, int presenceriviere) {
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
 				this.grid[i][j]=0;//herbe par defaut
 			
 			}
 		}
-		this.Set_lac(posx[0],posy[0]);
-		this.Set_riviere(posx[1],posy[1]);
+		if (presencelac==1 && presenceriviere ==1) {
+			this.Set_lac(posx[0],posy[0]);
+			this.Set_riviere(posx[1],posy[1]);
 		
-		int n = posx.length;
-		for (int k=2;k<n;k++) {
-			this.Set_flaque(posx[k], posy[k]);
+			int n = posx.length;
+			for (int k=2;k<n;k++) {
+				this.Set_flaque(posx[k], posy[k]);
+			}
+		}
+		else if (presencelac==1 && presenceriviere ==0) {
+			this.Set_lac(posx[0],posy[0]);
+		
+			int n = posx.length;
+			for (int k=1;k<n;k++) {
+				this.Set_flaque(posx[k], posy[k]);
+			}
+		}
+		else if (presencelac==0 && presenceriviere ==1) {
+			this.Set_riviere(posx[0],posy[0]);
+		
+			int n = posx.length;
+			for (int k=1;k<n;k++) {
+				this.Set_flaque(posx[k], posy[k]);
+			}
+		}
+		else {
+			int n = posx.length;
+			for (int k=1;k<n;k++) {
+				this.Set_flaque(posx[k], posy[k]);
+			}
 		}
 	}
 	

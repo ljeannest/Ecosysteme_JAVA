@@ -32,7 +32,7 @@ public class FenetreInitOuverture extends JFrame{
 	}
 	
 	public static int[] recuperation_info() {
-		int[] info = new int[5];
+		int[] info = new int[7];
 		FenetreInit FI=new FenetreInit(null,"Paramètres de la simulation",true);
 		FenetreInitInfo FII = FI.showFII();
 		JOptionPane jop=new JOptionPane();
@@ -42,6 +42,8 @@ public class FenetreInitOuverture extends JFrame{
 		info[2]=FII.nb_vautour;
 		info[3]=FII.nb_flaques;
 		info[4]=FII.duree;
+		info[5]=FII.presence_lac;
+		info[6]=FII.presence_riviere;
 		return info;
 		
 	}

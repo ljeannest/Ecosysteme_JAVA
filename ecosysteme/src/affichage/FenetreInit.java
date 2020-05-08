@@ -21,9 +21,9 @@ import javax.swing.JTextField;
 public class FenetreInit extends JDialog {
 	private FenetreInitInfo info= new FenetreInitInfo();
 	private boolean sendData;
-	private JLabel lievreLabel, lynxLabel, vautourLabel, flaqueLabel, dureeLabel,anLabel;
-	private JComboBox lievre,lynx,vautour,flaque,duree;
-	private JLabel lievreIcon,lynxIcon,vautourIcon,flaqueIcon,tempsIcon;
+	private JLabel lievreLabel, lynxLabel, vautourLabel, flaqueLabel, dureeLabel,anLabel,lacLabel,riviereLabel;
+	private JComboBox lievre,lynx,vautour,flaque,duree,lac,riviere;
+	private JLabel lievreIcon,lynxIcon,vautourIcon,eauIcon,tempsIcon;
 	
 
 	ImageIcon icon_eau = new ImageIcon(new ImageIcon("images/bleu.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
@@ -34,7 +34,7 @@ public class FenetreInit extends JDialog {
 	
 	public FenetreInit(JFrame parent,String titre, boolean modal) {
 		super(parent, titre, modal);
-		this.setSize(1000,300);
+		this.setSize(1000,400);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
@@ -52,14 +52,14 @@ public class FenetreInit extends JDialog {
 		// creation du panel individus
 		JPanel pan_individus = new JPanel();
 		pan_individus.setBackground(Color.white);
-		pan_individus.setPreferredSize(new Dimension(900,90));
+		pan_individus.setPreferredSize(new Dimension(320,320));
 		pan_individus.setBorder(BorderFactory.createTitledBorder("Individus"));
 		
 		//lievres
 		lievreIcon=new JLabel(icon_lievre);
 		JPanel pan_lapin= new JPanel();
 		pan_lapin.setBackground(Color.white);
-		pan_lapin.setPreferredSize(new Dimension(290,80));
+		pan_lapin.setPreferredSize(new Dimension(290,90));
 		lievre=new JComboBox();
 		for (int k=1;k<=20;k++) {
 			lievre.addItem(k);
@@ -73,7 +73,7 @@ public class FenetreInit extends JDialog {
 		lynxIcon=new JLabel(icon_lynx);
 		JPanel pan_lynx= new JPanel();
 		pan_lynx.setBackground(Color.white);
-		pan_lynx.setPreferredSize(new Dimension(290,80));
+		pan_lynx.setPreferredSize(new Dimension(290,90));
 		lynx=new JComboBox();
 		for (int k=1;k<=30;k++) {
 			lynx.addItem(k);
@@ -87,7 +87,7 @@ public class FenetreInit extends JDialog {
 		vautourIcon=new JLabel(icon_vautour);
 		JPanel pan_vautour= new JPanel();
 		pan_vautour.setBackground(Color.white);
-		pan_vautour.setPreferredSize(new Dimension(290,80));
+		pan_vautour.setPreferredSize(new Dimension(290,90));
 		vautour=new JComboBox();
 		for (int k=1;k<=10;k++) {
 			vautour.addItem(k);
@@ -106,27 +106,59 @@ public class FenetreInit extends JDialog {
 		//creation du panel environnement
 		JPanel pan_environnement=new JPanel();
 		pan_environnement.setBackground(Color.white);
-		pan_environnement.setPreferredSize(new Dimension(450,90));
+		pan_environnement.setPreferredSize(new Dimension(320,320));
 		pan_environnement.setBorder(BorderFactory.createTitledBorder("Environnement"));
 		
 		//Nombre de flaques
-		flaqueIcon = new JLabel(icon_eau);
+		JPanel pan_flaque=new JPanel();
+		pan_flaque.setBackground(Color.white);
+		pan_flaque.setPreferredSize(new Dimension(290,90));
+		eauIcon = new JLabel(icon_eau);
 		flaque=new JComboBox();
 		for (int k=4; k<=10;k++) {
 			flaque.addItem(k);
 		}
 		flaqueLabel=new JLabel ("Nombre de flaques : ");
+		pan_flaque.add(eauIcon);
+		pan_flaque.add(flaqueLabel);
+		pan_flaque.add(flaque);
+		
+		//Presence de riviere
+		JPanel pan_riviere=new JPanel();
+		pan_riviere.setBackground(Color.white);
+		pan_riviere.setPreferredSize(new Dimension(290,90));
+		eauIcon=new JLabel(icon_eau);
+		riviere=new JComboBox();
+		riviere.addItem("oui");
+		riviere.addItem("non");
+		riviereLabel=new JLabel ("Présence de riviere ? ");
+		pan_riviere.add(eauIcon);
+		pan_riviere.add(riviereLabel);
+		pan_riviere.add(riviere);
+		
+		//Presence de lac
+		JPanel pan_lac=new JPanel();
+		pan_lac.setBackground(Color.white);
+		pan_lac.setPreferredSize(new Dimension(290,90));
+		eauIcon=new JLabel(icon_eau);
+		lac=new JComboBox();
+		lac.addItem("oui");
+		lac.addItem("non");
+		lacLabel=new JLabel ("Présence de lac ? ");
+		pan_lac.add(eauIcon);
+		pan_lac.add(lacLabel);
+		pan_lac.add(lac);
 		
 		//Remplissage du panel environnement
-		pan_environnement.add(flaqueIcon);
-		pan_environnement.add(flaqueLabel);
-		pan_environnement.add(flaque);
+		pan_environnement.add(pan_lac);
+		pan_environnement.add(pan_riviere);
+		pan_environnement.add(pan_flaque);
 		
 		
 		//creation du panel simulation
 		JPanel pan_simulation= new JPanel();
 		pan_simulation.setBackground(Color.white);
-		pan_simulation.setPreferredSize(new Dimension(450,90));
+		pan_simulation.setPreferredSize(new Dimension(320,320));
 		pan_simulation.setBorder(BorderFactory.createTitledBorder("Simulation"));
 		
 		//duree de la simulation
@@ -148,9 +180,9 @@ public class FenetreInit extends JDialog {
 		// JPanel General
 		JPanel Contenu = new JPanel();
 		Contenu.setBackground(Color.white);
-		Contenu.add(pan_individus,BorderLayout.NORTH);
-		Contenu.add(pan_environnement,BorderLayout.WEST);
-		Contenu.add(pan_simulation, BorderLayout.EAST);
+		Contenu.add(pan_individus);
+		Contenu.add(pan_environnement);
+		Contenu.add(pan_simulation);
 		
 		
 		// JPanel controle
@@ -158,7 +190,7 @@ public class FenetreInit extends JDialog {
 		JButton okBouton = new JButton("OK");
 		okBouton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				info = new FenetreInitInfo((int)lievre.getSelectedItem(),(int)lynx.getSelectedItem(),(int)vautour.getSelectedItem(),(int)flaque.getSelectedItem(),(int)duree.getSelectedItem());
+				info = new FenetreInitInfo((int)lievre.getSelectedItem(),(int)lynx.getSelectedItem(),(int)vautour.getSelectedItem(),(int)flaque.getSelectedItem(),(int)duree.getSelectedItem(),(String)riviere.getSelectedItem(),(String)lac.getSelectedItem());
 				setVisible(false);
 			}
 		});

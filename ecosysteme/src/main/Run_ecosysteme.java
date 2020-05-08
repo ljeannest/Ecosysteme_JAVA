@@ -12,7 +12,6 @@ public class Run_ecosysteme {
 		
 		//ouverture d'une premiere fenetre permettant à l'utilisateur de sélectionner les paramètres de la simulation.
 
-//		FenetreInitOuverture f1 = new FenetreInitOuverture();
 		int[] info = FenetreInitOuverture.recuperation_info();
 		
 		//une fois les paramètres validés, la fenetre se ferme, et les paramètres sont enregistrés.
@@ -22,6 +21,8 @@ public class Run_ecosysteme {
 		int nb_vautour =info[2];
 		int nb_flaque = info[3];
 		int duree = info[4];
+		int presencelac=info[5];
+		int presenceriviere=info[6];
 		
 		//création de l'écosystème, ainsi que des différents individus
 		
@@ -32,7 +33,7 @@ public class Run_ecosysteme {
 		//boire, manger, se deplacer, se reproduire.
 		//la boucle se termine quand ? extinction d'une espece? laps de temps donné? extinction de toutes les especes?
 		
-		fenetre fenetrePrincipale = new fenetre(individus,nb_flaque);
+		fenetre fenetrePrincipale = new fenetre(individus,nb_flaque,presencelac,presenceriviere);
 		fenetrePrincipale.setVisible(true);
 		
 		//fermeture de l'ecosysteme.
