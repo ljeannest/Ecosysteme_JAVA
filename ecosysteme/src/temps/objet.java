@@ -2,7 +2,7 @@ package temps;
 
 
 
-public class ressources {
+public class objet {
 	
 	public int [] grille_ressources;
 	
