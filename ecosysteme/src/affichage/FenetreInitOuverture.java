@@ -29,8 +29,4 @@ public class FenetreInitOuverture extends JFrame{
 		this.setVisible(true);
 	}
 	
-	public static void main(String[] args) {
-		FenetreInitOuverture f1 = new FenetreInitOuverture();
-	}
-	
 }

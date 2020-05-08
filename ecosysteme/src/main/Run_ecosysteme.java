@@ -1,12 +1,15 @@
 package main;
 
+import affichage.FenetreInitOuverture;
+
 public class Run_ecosysteme {
 
 	public static void main(String[] args) {
 		
 		
 		//ouverture d'une premiere fenetre permettant à l'utilisateur de sélectionner les paramètres de la simulation.
-		
+
+		FenetreInitOuverture f1 = new FenetreInitOuverture();
 		
 		//une fois les paramètres validés, la fenetre se ferme, et les paramètres sont enregistrés.
 		
