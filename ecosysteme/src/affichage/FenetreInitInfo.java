@@ -2,7 +2,11 @@ package affichage;
 
 public class FenetreInitInfo {
 	
-	int nb_lievre,nb_lynx,nb_vautour,nb_flaques,duree;
+	public int nb_lievre;
+	public int nb_lynx;
+	public int nb_vautour;
+	public int nb_flaques;
+	public int duree;
 	
 	public FenetreInitInfo() {}
 	
@@ -28,5 +32,9 @@ public class FenetreInitInfo {
 			str="Aucune Information !";
 		}
 		return str;
+	}
+	
+	public int get_nb_lievre() {
+		return this.nb_lievre;
 	}
 }

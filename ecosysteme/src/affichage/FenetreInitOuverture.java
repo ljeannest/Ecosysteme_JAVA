@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 
 public class FenetreInitOuverture extends JFrame{
 	private JButton bouton = new JButton("Choisir les parametres de la simulation");
+
+	public FenetreInitInfo FII;
 	
 	public FenetreInitOuverture() {
 		this.setTitle("Initialisation");
@@ -27,6 +29,21 @@ public class FenetreInitOuverture extends JFrame{
 			}
 		});
 		this.setVisible(true);
+	}
+	
+	public static int[] recuperation_info() {
+		int[] info = new int[5];
+		FenetreInit FI=new FenetreInit(null,"Paramètres de la simulation",true);
+		FenetreInitInfo FII = FI.showFII();
+		JOptionPane jop=new JOptionPane();
+		jop.showMessageDialog(null,FII.toString(),"Recapitulatif",JOptionPane.INFORMATION_MESSAGE);
+		info[0]=FII.nb_lievre;
+		info[1]=FII.nb_lynx;
+		info[2]=FII.nb_vautour;
+		info[3]=FII.nb_flaques;
+		info[4]=FII.duree;
+		return info;
+		
 	}
 	
 }

@@ -1,5 +1,7 @@
 package individus;
 
+import affichage.ConteneurFenetre;
+
 public class Animal {
 
 	public String espece;
@@ -50,6 +52,50 @@ public class Animal {
 		text+="Position : ("+this.posx+","+this.posy+")";
 		return text;
 	}
+	
+	
+	public static Animal[] creation(int nb_lievre,int nb_lynx, int nb_vautour) {
+		int n = nb_lievre+nb_lynx+nb_vautour;
+		String sexeanimal;
+		Animal[] individus= new Animal[n];
+		for (int k=0;k<n;k++) {
+			if (k<nb_lievre) {
+				int posx = (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
+				int posy = (int)(Math.random()*ConteneurFenetre.NB_COLONNES);
+				if (k%2==0) {
+					sexeanimal = "M";
+				}
+				else {
+					sexeanimal = "F";
+				}
+				individus[k]=new Lievre(posx, posy, sexeanimal, 0);
+			}
+			else if (k<nb_lievre+nb_lynx) {
+				int posx = (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
+				int posy = (int)(Math.random()*ConteneurFenetre.NB_COLONNES);
+				if (k%2==0) {
+					sexeanimal = "M";
+				}
+				else {
+					sexeanimal = "F";
+				}
+				individus[k]=new Lynx(posx, posy, sexeanimal, 0);
+			}
+			else {
+				int posx = (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
+				int posy = (int)(Math.random()*ConteneurFenetre.NB_COLONNES);
+				if (k%2==0) {
+					sexeanimal = "M";
+				}
+				else {
+					sexeanimal = "F";
+				}
+				individus[k]=new Vautour(posx, posy, sexeanimal, 0);
+			}
+		}
+		return individus;
+	}
+	
 	
 	public void vieillir() {
 		this.age+=1;

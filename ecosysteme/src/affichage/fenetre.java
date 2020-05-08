@@ -16,14 +16,14 @@ public class fenetre extends JFrame {
 	
 	
 	
-	public fenetre(Animal[] A_list) throws InterruptedException {
+	public fenetre(Animal[] A_list, int nb_flaque) throws InterruptedException {
 		super();
 		
-		proprietesFenetre(A_list);}
+		proprietesFenetre(A_list,nb_flaque);}
 		
 
 
-	private void proprietesFenetre(Animal[] A_list) throws InterruptedException {
+	private void proprietesFenetre(Animal[] A_list, int nb_flaque) throws InterruptedException {
 		
 	
 		this.setSize(800,700);
@@ -32,7 +32,6 @@ public class fenetre extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setAlwaysOnTop(true);
 		
-		int nb_flaque=(int)(Math.random()*6)+4;
 		int[] posx=new int[nb_flaque+2];
 		int[] posy=new int[nb_flaque+2];
 		for (int k=0; k<nb_flaque+2;k++) {

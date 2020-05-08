@@ -17,7 +17,8 @@ public class principale {
 		Lynx Carn1 = new Lynx (1,1,"F",0);
 		Vautour Char1 = new Vautour (2,4,"M",0);
 		Animal[] A_list = {Herb1,Carn1,Char1};
-		fenetre fenetrePrincipale = new fenetre(A_list);
+		int nb_flaque = 4;
+		fenetre fenetrePrincipale = new fenetre(A_list,nb_flaque);
 		fenetrePrincipale.setVisible(true);
 		//Thread.sleep(1000);
 	
