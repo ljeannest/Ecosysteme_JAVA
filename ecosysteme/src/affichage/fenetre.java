@@ -39,6 +39,9 @@ public class fenetre extends JFrame {
 		this.setContentPane(pan);
 		this.setVisible(true);
 		
+		Fenetre_timer fenetretime = new Fenetre_timer(duree_ecoulee);
+		fenetretime.setVisible(true);
+		
 		
 		for (int k=0;k<duree*365;k++) {
 			duree_ecoulee++;
@@ -50,6 +53,9 @@ public class fenetre extends JFrame {
 			pan=new ConteneurFenetre(A_list,posx,posy,presencelac,presenceriviere,duree_ecoulee);
 			this.setContentPane(pan);
 			this.setVisible(true);
+			
+			fenetretime.maj_pan(duree_ecoulee);
+			fenetretime.setVisible(true);
 			
 //			pan2=new Individus(A_list);
 //			this.setContentPane(pan2);

@@ -37,6 +37,7 @@ public class Run_ecosysteme {
 		fenetre fenetrePrincipale = new fenetre(individus,nb_flaque,presencelac,presenceriviere,duree);
 		fenetrePrincipale.setVisible(true);
 		
+		
 		//fermeture de l'ecosysteme.
 		
 		
