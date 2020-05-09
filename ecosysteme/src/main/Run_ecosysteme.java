@@ -11,6 +11,7 @@ public class Run_ecosysteme {
 		
 		
 		//ouverture d'une premiere fenetre permettant à l'utilisateur de sélectionner les paramètres de la simulation.
+		//a la validation, une fenetre recapitulative s'ouvre
 
 		int[] info = FenetreInitOuverture.recuperation_info();
 		
