@@ -56,10 +56,7 @@ public class fenetre extends JFrame {
 			
 			fenetretime.maj_pan(duree_ecoulee);
 			fenetretime.setVisible(true);
-			
-//			pan2=new Individus(A_list);
-//			this.setContentPane(pan2);
-//			this.setVisible(true);
+
 			Thread.sleep(50);
 		}
 		

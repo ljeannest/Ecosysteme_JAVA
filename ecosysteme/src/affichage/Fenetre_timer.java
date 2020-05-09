@@ -23,7 +23,7 @@ public class Fenetre_timer extends JFrame {
 		this.setResizable(false);
 //		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setAlwaysOnTop(true);
+//		this.setAlwaysOnTop(true);
 		
 		JPanel pan = new JPanel();
 		pan.setBackground(Color.white);

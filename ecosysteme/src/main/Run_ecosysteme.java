@@ -3,7 +3,6 @@ package main;
 import affichage.FenetreInitOuverture;
 import affichage.fenetre;
 import individus.Animal;
-import affichage.FenetreInitInfo;
 
 public class Run_ecosysteme {
 
