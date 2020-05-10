@@ -143,6 +143,16 @@ public class Animal {
 	}
 	
 	
+	public void deplacement() {
+		if (this.jauge_nourriture<=50) {
+			if (this.jauge_eau<=50) {
+				//this.deplacement_eau();
+			}
+		}
+	}
+	
+
+	
 
 	public void manger() {
 		

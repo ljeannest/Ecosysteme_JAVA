@@ -14,7 +14,8 @@ public class fenetre extends JFrame {
 	public fenetre(Animal[] A_list, int nb_flaque,int presencelac,int presenceriviere,int duree) throws InterruptedException {
 		super();
 		
-		proprietesFenetre(A_list,nb_flaque,presencelac,presenceriviere,duree);}
+		proprietesFenetre(A_list,nb_flaque,presencelac,presenceriviere,duree);
+	}
 		
 
 
@@ -35,7 +36,7 @@ public class fenetre extends JFrame {
 		}
 		
 		int duree_ecoulee=0;
-		pan=new ConteneurFenetre(A_list,posx,posy,presencelac,presenceriviere,duree_ecoulee);
+		pan=new ConteneurFenetre(A_list,posx,posy,presencelac,presenceriviere,duree_ecoulee,true);
 		this.setContentPane(pan);
 		this.setVisible(true);
 		
@@ -50,7 +51,7 @@ public class fenetre extends JFrame {
 				A_list[i].deplacementAleatoire(A_list,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 			}
 			
-			pan=new ConteneurFenetre(A_list,posx,posy,presencelac,presenceriviere,duree_ecoulee);
+			pan=new ConteneurFenetre(A_list,posx,posy,presencelac,presenceriviere,duree_ecoulee,true);
 			this.setContentPane(pan);
 			this.setVisible(true);
 			
