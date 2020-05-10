@@ -3,39 +3,15 @@ package ressources;
 public class Vegetaux extends Ressource{
 	
 	
-	String type;
-	public String couleur;
-	public int quantiteRessources;
-	public int posX;
-	public int posY;
-	public boolean estVivant;
+
 	
-	public Vegetaux(String type, String couleur, int quantiteRessource,int posX, int posY) {
-		super("Vegetaux");
-		this.type = type;
-		this.couleur = couleur;
-		this.quantiteRessources = quantiteRessource;
-		this.estVivant = true;
-		this.posX = posX;
-		this.posY = posY;
+	public Vegetaux(String sous_type,int posx, int posy,String couleur, int quantiteRessource) {
+		super("Vegetaux",sous_type,posx, posy,  couleur, quantiteRessource);
+	
 		
 		}
 	
-	public void se_faire_manger() {
-		
-		this.quantiteRessources-=1;
-		
-		if(this.quantiteRessources==0) {
-			
-			this.couleur = "marron";
-			this.estVivant = false;
-			
-		}
-	}
+
 	
-	public void pousser() {
-		
-		this.quantiteRessources +=1;
-		
-	}
+
 	}

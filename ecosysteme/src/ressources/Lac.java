@@ -2,14 +2,13 @@ package ressources;
 
 public class Lac extends Eau{
 	
-	public int posX;
-	public int posY;
-	
-	public Lac (int posX, int posY) {
+	public Lac (int posx, int posy,String couleur, int quantiteRessource) {
 		
-		super("lac",100000,posX,posY);
-		this.posX = posX;
-		this.posY = posY;
+		super("Lac",posx,posy,"bleu foncé", quantiteRessource);
+	}
+		
+		
+		
 	}
 
-}
+

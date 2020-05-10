@@ -13,9 +13,9 @@ public class Herbivore extends Animal {
 	public void manger(Vegetaux V) {
 		if (V.estVivant = true) {
 
-		while (V.quantiteRessources<0 && this.jauge_nourriture<100) {
+		while (V.quantiteRessource<0 && this.jauge_nourriture<100) {
 			this.manger();
-			V.se_faire_manger();	}	
+			V.se_faire_manger_boire();	}	
 			
 		}
 		
@@ -28,7 +28,7 @@ public class Herbivore extends Animal {
 		
 		while (eau.quantiteRessource<0 && this.jauge_eau<100) {
 			this.boire();
-			eau.se_faire_boire();
+			eau.se_faire_manger_boire();
 		}
 		
 		
