@@ -145,25 +145,25 @@ public class ConteneurFenetre extends JPanel{
 		for (int i=0;i<4;i++) {
 			for (int j=0;j<4;j++) {
 				if (posx+i<NB_LIGNES && posy+j<NB_COLONNES && i+j<=4) {
-					Lac lac= new Lac (posx+i, posx+j);
+					Lac lac= new Lac (posx+i, posx+j,"bleu fonce",100);
 					this.grid_ressources[posx+i][posy+j]=lac;
 //					this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //					this.point_eau.add(lac);
 				}
 				if (posx-i>=0 && posy-j>=0 && i+j<=4) {
-					Lac lac= new Lac (posx-i, posx-j);
+					Lac lac= new Lac (posx-i, posx-j,"bleu fonce",100);
 					this.grid_ressources[posx-i][posy-j]=lac;
 //					this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //					this.point_eau.add(lac);
 				}
 				if (posx+i<NB_LIGNES && posy-j>=0 && i+j<=4) {
-					Lac lac= new Lac (posx+i, posx-j);
+					Lac lac= new Lac (posx+i, posx-j,"bleu fonce",100);
 					this.grid_ressources[posx+i][posy-j]=lac;
 //					this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //					this.point_eau.add(lac);
 				}
 				if (posx-i>=0 && posy+j<NB_COLONNES && i+j<=4) {
-					Lac lac= new Lac (posx-i, posx+j);
+					Lac lac= new Lac (posx-i, posx+j,"bleu fonce",100);
 					this.grid_ressources[posx-i][posy+j]=lac;
 //					this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //					this.point_eau.add(lac);
@@ -174,13 +174,13 @@ public class ConteneurFenetre extends JPanel{
 	
 	private void Set_riviere(int posx, int posy) {
 		for (int i=0;i<=posy;i++) {
-			Riviere riviere= new Riviere (posx,i);
+			Riviere riviere= new Riviere (posx,i,"bleu clair",100);
 			this.grid_ressources[posx][i]=riviere;
 //			this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //			this.point_eau.add(riviere);
 		}
 		for (int j=0;j<=posx;j++) {
-			Riviere riviere= new Riviere (j,posy);
+			Riviere riviere= new Riviere (j,posy,"bleu clair",100);
 			this.grid_ressources[j][posy]=riviere;
 //			this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //			this.point_eau.add(riviere);
@@ -188,7 +188,7 @@ public class ConteneurFenetre extends JPanel{
 	}
 	
 	private void Set_flaque(int posx,int posy) {
-		Eau flaque= new Eau ("flaque",10,posx,posy);
+		Eau flaque= new Eau ("flaque",posx,posy,"bleu clair",20);
 		this.grid_ressources[posx][posy]=flaque;
 //		this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //		this.point_eau.add(flaque);
@@ -217,7 +217,7 @@ public class ConteneurFenetre extends JPanel{
 	private void Set_grille_env(int[] posx, int[] posy, int presencelac, int presenceriviere) {
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
-				Herbe herbe=new Herbe("vert",i,j);
+				Herbe herbe=new Herbe(i,j,"vert", 20);
 				this.grid_ressources[i][j]=herbe;//herbe par defaut
 			
 			}

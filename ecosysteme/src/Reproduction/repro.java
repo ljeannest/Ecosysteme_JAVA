@@ -6,13 +6,13 @@ import java.lang.Math;
 
 public class repro {
 
-	public static boolean placeVide(int posX, int posY, Animal tableauIndividu[], Vegetaux tableauRessource[]){
+	public static boolean placeVide(int posx, int posy, Animal tableauIndividu[], Vegetaux tableauRessource[]){
 
 		boolean placeLibre = true;
 
 		for(int i = 0; i < tableauIndividu.length; i++) {
 
-			if (tableauIndividu[i].posx == posX && tableauIndividu[i].posy == posY) {
+			if (tableauIndividu[i].posx == posx && tableauIndividu[i].posy == posy) {
 
 				placeLibre=false;
 
@@ -23,7 +23,7 @@ public class repro {
 
 				if(tableauRessource[j].couleur=="marron") {
 
-					if (tableauRessource[j].posX==posX && tableauRessource[j].posY==posX) {
+					if (tableauRessource[j].posx==posx && tableauRessource[j].posy==posx) {
 
 						placeLibre = false;
 
@@ -31,7 +31,7 @@ public class repro {
 				}
 				else if(tableauRessource[j].couleur=="vert fonce") {
 
-					if (tableauRessource[j].posX==posX && tableauRessource[j].posY==posX) {
+					if (tableauRessource[j].posx==posx && tableauRessource[j].posy==posx) {
 						placeLibre = false;
 					}
 				}
