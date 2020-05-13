@@ -39,13 +39,14 @@ public class fenetre extends JFrame {
 		
 		Fenetre_timer fenetretime = new Fenetre_timer(duree_ecoulee);
 		fenetretime.setVisible(true);
+		String orientation="E";
 		
 		
 		for (int k=0;k<duree*365;k++) {
 			duree_ecoulee++;
 			int n=A_list.size();
 			for (int i=0;i<n;i++) {
-				A_list.get(i).deplacementAleatoire(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
+				A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES,orientation);
 			}
 			
 			pan=new ConteneurFenetre(A_list,ressource,duree_ecoulee);
