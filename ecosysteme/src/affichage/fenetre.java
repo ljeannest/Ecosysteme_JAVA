@@ -1,7 +1,7 @@
 
 package affichage;
 
-import javax.swing.JFrame; 
+import javax.swing.JFrame;  
 
 import individus.*;
 import ressources.Ressource;

@@ -1,10 +1,12 @@
 package main;
 
+
 import affichage.ConteneurFenetre;
+import affichage.FenetreInitOuverture; 
 import affichage.FenetreInitOuverture; 
 import affichage.fenetre;
 import individus.Animal;
-import ressources.*;
+import ressources.Ressource;
 
 public class Run_ecosysteme {
 
@@ -30,6 +32,7 @@ public class Run_ecosysteme {
 		
 		Animal[] individus = Animal.creation(nb_lievre,nb_lynx,nb_vautour);
 		Ressource [] ressource = Ressource.creation(nb_flaque,presencelac,presenceriviere,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
+
 		
 		//entrée dans une boucle qui modélise notre écosysteme, avec tous nos individus qui peuvent 
 		//boire, manger, se deplacer, se reproduire...
