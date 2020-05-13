@@ -145,25 +145,25 @@ public class ConteneurFenetre extends JPanel{
 		for (int i=0;i<4;i++) {
 			for (int j=0;j<4;j++) {
 				if (posx+i<NB_LIGNES && posy+j<NB_COLONNES && i+j<=4) {
-					Lac lac= new Lac (posx+i, posx+j,"bleu fonce",100);
+					Lac lac= new Lac (posx+i, posx+j,100);
 					this.grid_ressources[posx+i][posy+j]=lac;
 //					this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //					this.point_eau.add(lac);
 				}
 				if (posx-i>=0 && posy-j>=0 && i+j<=4) {
-					Lac lac= new Lac (posx-i, posx-j,"bleu fonce",100);
+					Lac lac= new Lac (posx-i, posx-j,100);
 					this.grid_ressources[posx-i][posy-j]=lac;
 //					this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //					this.point_eau.add(lac);
 				}
 				if (posx+i<NB_LIGNES && posy-j>=0 && i+j<=4) {
-					Lac lac= new Lac (posx+i, posx-j,"bleu fonce",100);
+					Lac lac= new Lac (posx+i, posx-j,100);
 					this.grid_ressources[posx+i][posy-j]=lac;
 //					this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //					this.point_eau.add(lac);
 				}
 				if (posx-i>=0 && posy+j<NB_COLONNES && i+j<=4) {
-					Lac lac= new Lac (posx-i, posx+j,"bleu fonce",100);
+					Lac lac= new Lac (posx-i, posx+j,100);
 					this.grid_ressources[posx-i][posy+j]=lac;
 //					this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //					this.point_eau.add(lac);
