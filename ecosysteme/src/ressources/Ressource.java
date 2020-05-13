@@ -230,7 +230,7 @@ public class Ressource {
 	 * @param NB_COLONNES
 	 * 			Donnee sur la dimension de la grille modélisant l'environnement.
 	 * 
-	 * @return	renvoie une liste contenant les ressources présent dans l'ecosyssteme.
+	 * @return	renvoie une liste contenant les ressources présent dans l'ecosysteme.
 	 */
 
 	public static Ressource[] creation(int nb_flaque, int presence_lac, int presence_riviere,int NB_LIGNES, int NB_COLONNES) {
