@@ -1,6 +1,7 @@
 package individus;
 
 import affichage.ConteneurFenetre;
+import ressources.Ressource;
 /**
  * <b>Individu vivant de type Animal pouvant se déplacer manger boire et se reporoduire.</b>
  * <p>
@@ -282,13 +283,13 @@ public class Animal {
 
 	}
 
-	public void deplacementAleatoire(Animal[] A_list,int pos,int maxX,int maxY) {
+	public void deplacementAleatoire(Animal[] A_list,Ressource[] ressource ,int pos, int maxX,int maxY) {
 		boolean est_libre=false;
-		//while (est_libre==false) {
-		this.posx = (int)(Math.random()*maxX);
-		this.posy = (int)(Math.random()*maxY);
-		//est_libre=position_libre(A_list,pos,this.posx,this.posy);
-		//}
+		while (est_libre==false) {
+			this.posx = (int)(Math.random()*maxX);
+			this.posy = (int)(Math.random()*maxY);
+			est_libre = pos_libre(A_list,ressource,pos, this.posx,this.posy);
+		}
 	}
 
 
@@ -322,9 +323,14 @@ public class Animal {
 
 	}
 
-	public boolean position_libre (Animal[] A,int pos, int posx, int posy) {
-		if (pos==0) {
-			return true;
+	public boolean pos_libre (Animal[] A,Ressource[] ressource, int pos, int posx, int posy) {
+		int n = ressource.length;
+		for (int k=0;k<n;k++) {
+			if(ressource[k].posx==posx && ressource[k].posy==posy) {
+				if (ressource[k].type=="Eau") {
+					return false;
+				}
+			}
 		}
 		for (int k=0;k<pos;k++) {
 			if (A[k].posx==posx && A[k].posy==posy) {
