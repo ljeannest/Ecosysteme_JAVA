@@ -29,7 +29,7 @@ public class Carnivore  extends Animal{
 		
 		while (eau.quantiteRessource<0 && this.jauge_eau<100) {
 			this.boire();
-			eau.se_faire_boire();
+			eau.se_faire_manger_boire();
 		}
 		
 		

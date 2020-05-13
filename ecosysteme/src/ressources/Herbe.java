@@ -2,9 +2,9 @@ package ressources;
 
 public class Herbe extends Vegetaux{
 	
-	public Herbe (String type,int posX, int posY) {
+	public Herbe (int posx, int posy,String couleur, int quantiteRessource) {
 		
-		super(type, "vert claire", 20, posX, posY);
+		super("Herbe",posx,posy,"vert clair", quantiteRessource);
 	}
 
 }

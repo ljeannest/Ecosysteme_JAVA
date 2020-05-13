@@ -1,6 +1,6 @@
 package main;
 
-import affichage.FenetreInitOuverture;
+import affichage.FenetreInitOuverture; 
 import affichage.fenetre;
 import individus.Animal;
 

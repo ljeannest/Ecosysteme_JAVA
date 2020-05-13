@@ -3,15 +3,16 @@ package ressources;
 
 public class Buisson extends Vegetaux {
 	
-	int dimension;
+	//int dimension;
 	boolean fruitier;
 	
-	public Buisson (String type, int quantiteRessouce,int posX, int posY, int dimension, boolean fruitier) {
+	public Buisson (int posx, int posy,String couleur, int quantiteRessource) {
 		
-		super(type, "vert fonce", 50, posX, posY);
+		super("Buisson",posx,posy,"vert clair", quantiteRessource);
+	
 		
-		this.dimension = dimension;
-		this.fruitier= fruitier;
+		//this.dimension = dimension;
+		this.fruitier= true;
 	}
 
 }

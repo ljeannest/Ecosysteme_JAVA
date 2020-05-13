@@ -2,19 +2,12 @@ package ressources;
 
 public class Riviere extends Eau{
 	
-	int posX;
-	
-	
-	int posY;
-	
-	public Riviere ( int posX, int posY) {
+	public Riviere (int posx, int posy,String couleur, int quantiteRessource) {
 		
-		super("riviere", 10000, posX, posY);
-		
-		this.posX = posX;
-		this.posY = posY;
-		
-		
+		super("Riviere",posx,posy,"bleu clair", quantiteRessource);
 	}
+		
+		
+	
 
 }
