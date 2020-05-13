@@ -2,6 +2,16 @@ package individus;
 
 import ressources.Eau;
 
+/**
+ * Individus de type Animal mais ne mangeant que les individus de type Herbivore.
+ * 
+ *@see Animal
+ *
+ * @author Mélodia
+ * @version 2.0
+ *
+ */
+
 public class Carnivore  extends Animal{
 	
 	public Carnivore(String espece, int posx,int posy, String sexe, int age, int esp_de_vie,int qte_viande,int ageReproMin, int ageReproMax) {

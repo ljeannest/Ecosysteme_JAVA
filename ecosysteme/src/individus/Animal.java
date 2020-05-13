@@ -175,7 +175,7 @@ public class Animal {
 		this.ageReproMin = ageReproMin;
 		this.ageReproMax = ageReproMax;
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -199,10 +199,17 @@ public class Animal {
 		return text;
 	}
 
-	/*
-	 * permet de créer les individus
+
+	/**
+	 * Permet de génerer le nombre d'animaux nécessaire à la simulation.
 	 * 
-	 * @param nb_lievre, nb
+	 * @param nb_lievre
+	 *         Nombre de lievre voulu par l'utilisateur ou par default.
+	 * @param nb_lynx
+	 *         Nombre de lynx voulu par l'utilisateur ou par default.
+	 * @param nb_vautour
+	 *         Nombre de vautour voulu par l'utiliateur ou par default.
+	 * @return Une liste d'individus de type animal.
 	 */
 	public static Animal[] creation(int nb_lievre,int nb_lynx, int nb_vautour) {
 		int n = nb_lievre+nb_lynx+nb_vautour;
@@ -246,13 +253,22 @@ public class Animal {
 		return individus;
 	}
 
-
+	/**
+	 * Fait viellir l'animal
+	 * 
+	 */
 	public void vieillir() {
 		this.age+=1;
 	}
 
 
-
+	/**
+	 * Indique si l'animal doit mourir de vielliesse. 
+	 * attention vérifier que l'animal n'est pas déja mort avant utilisation.
+	 * 
+	 * 
+	 * @return un boolean true si l'animal doit mourir
+	 */
 	public boolean mort_de_vieillesse() {
 		if (this.age>=this.esp_de_vie) {// on devrait rajouter une condition de probabilité genre on tire au hasard un chifffre s'il est sup à 0,5 alors true else false
 			return true;
@@ -261,20 +277,35 @@ public class Animal {
 			return false;
 		}
 	}
-
+	
+	/**
+	 * Verifie que la reproduction entre deux animaux est possible.
+	 * 
+	 * @param A
+	 * 		prend un l'animal avec lequel on veut accouplé un autre animal.
+	 * @param est_vivant
+	 * 
+	 * @return un boolean true si l'accouplement est possible false sinon.
+	 */
 	public boolean reproduction(Animal A) {
-		if (this.espece==A.espece) {
-			if (this.sexe== A.sexe) {
-				return false;
-			}
+		if (this.est_vivant==true && A.est_vivant==false) {
 
-			else {
-				if (this.age>this.ageReproMin && this.age<this.ageReproMax && A.age>A.ageReproMin && A.age<A.ageReproMax) {
-					return true;
-				}
-				else {
+			if (this.espece==A.espece) {
+				if (this.sexe== A.sexe) {
 					return false;
 				}
+
+				else {
+					if (this.age>this.ageReproMin && this.age<this.ageReproMax && A.age>A.ageReproMin && A.age<A.ageReproMax) {
+						return true;
+					}
+					else {
+						return false;
+					}
+				}
+			}
+			else {
+				return false;
 			}
 		}
 		else {
@@ -283,6 +314,18 @@ public class Animal {
 
 	}
 
+	/**
+	 * Fait se déplacer aléatoirement un animal.
+	 * 
+	 * @param A_list
+	 * 			list de type animal a deplacer de maniere aleatoire.
+	 * @param pos
+	 *          position de l'animal à déplacer dans la liste.
+	 * @param maxX
+	 * 			limite en X de la position.
+	 * @param maxY
+	 * 			Limite en Y de la position.
+	 */
 	public void deplacementAleatoire(Animal[] A_list,Ressource[] ressource ,int pos, int maxX,int maxY) {
 		boolean est_libre=false;
 		while (est_libre==false) {
@@ -292,6 +335,10 @@ public class Animal {
 		}
 	}
 
+	/**
+	 *Permet de faire déplacer un animal selon ses besoins en nourriture ou en eau 
+	 *
+	 */
 
 	public void deplacement() {
 		if (this.jauge_nourriture<=50) {
@@ -303,6 +350,9 @@ public class Animal {
 
 
 
+	/**
+	 * Permet de nourrir l'animal vivant en augmantant jauge_nourriture
+	 */
 
 	public void manger() {
 
@@ -310,18 +360,38 @@ public class Animal {
 			this.jauge_nourriture+=1;}
 	}
 
-
-
+	/**
+	 * Permet de faire boire l'animal vivant en augmentant jauge_eau.
+	 */
 	public void boire() {
 		if (this.est_vivant==true) {
 			this.jauge_eau+=1;}
 	}
+
+	/**
+	 * Permet de modifier la quantité de nourriture d'un animal quand il se fait manger.
+	 */
+
 
 	public void se_faire_manger() {
 
 		this.qte_viande+=(-1);
 
 	}
+	/**
+	 * Permet de vérifier si les animaux qui précéde l'animal à bouger n'est pas sur l'emplacement visé.
+	 * 
+	 * @param A
+	 * 			liste des individus présent dans la modélisation
+	 * @param pos
+	 * 			Position de l'animal que l'on doit déplacer.
+	 * @param posx
+	 * 			Position en x que l'on souhaite vérifier.
+	 * @param posy
+	 * 			Position en Y que l'on souhaite vérifier.
+	 * @return Boolean true si l'emplacement est vide sinon false. 
+	 */
+
 
 	public boolean pos_libre (Animal[] A,Ressource[] ressource, int pos, int posx, int posy) {
 		int n = ressource.length;
