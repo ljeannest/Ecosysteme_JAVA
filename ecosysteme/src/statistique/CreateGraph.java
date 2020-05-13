@@ -27,7 +27,7 @@ public class CreateGraph extends JFrame {
 	    setContentPane(pnl); 
 	    setSize(400, 250); 
 
-	    DefaultPieDataset pieDataset = new DefaultPieDataset(); 
+	    DefaultPieDataset pieDataset = new DefaultPieDataset();
 	    pieDataset.setValue("Valeur1", 10); 
 	    pieDataset.setValue("Valeur2", 3); 
 	    pieDataset.setValue("Valeur3", 50); 
