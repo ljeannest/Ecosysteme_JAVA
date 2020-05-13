@@ -1,5 +1,5 @@
 package individus;
-
+//commit gus
 import java.util.ArrayList;
 
 import affichage.ConteneurFenetre;
@@ -355,7 +355,7 @@ public class Animal {
 	 *
 	 */
 
-	public void deplacement(ArrayList<Animal> A_list,Ressource[] ressource, int pos, int maxX,int maxY,int posx, int posy,String orientation) {
+	public void deplacement(ArrayList<Animal> A_list,Ressource[] ressource, int pos, int maxX,int maxY,String orientation) {
 	
 		int newX=this.posx;
 		int newY=this.posy;
@@ -363,19 +363,19 @@ public class Animal {
 	if (this.est_vivant==true) {
 		
 
-		if (orientation=="N"&& maxY>this.posy&& pos_libre (A_list,ressource,pos,posx,posy+1)==true) {
+		if (orientation=="N"&& (maxY-1)>this.posy&& pos_libre (A_list,ressource,pos,posx,posy+1)==true) {
 			newX=this.posx;
 			newY=this.posy+1;}
 		
-		if (orientation=="S"&& this.posy!=0 && pos_libre (A_list,ressource,pos,posx,posy+1)==true) {
+		if (orientation=="S"&& this.posy!=0 && pos_libre (A_list,ressource,pos,posx,posy-1)==true) {
 			newX=this.posx;
 			newY=this.posy-1;}
 		
-		if (orientation=="E"&& maxX>this.posx && pos_libre (A_list,ressource,pos,posx,posy+1)==true) {
+		if (orientation=="E"&& (maxX-1)>this.posx && pos_libre (A_list,ressource,pos,posx+1,posy)==true) {
 			newX=this.posx+1;
 			newY=this.posy;}
 		
-		if (orientation=="W"&& this.posx!=0 && pos_libre (A_list,ressource,pos,posx,posy+1)==true) {
+		if (orientation=="W"&& this.posx!=0 && pos_libre (A_list,ressource,pos,posx-1,posy)==true) {
 			newX=this.posx-1;
 			newY=this.posy;}
 		
