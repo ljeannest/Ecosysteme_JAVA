@@ -62,14 +62,14 @@ public class ConteneurFenetre extends JPanel{
 	//private int[][] grid = new int[NB_LIGNES][NB_COLONNES];
 	//private Image[] images;
 	
-	public ConteneurFenetre(Animal[] A_list,int[] posx, int[] posy,int presencelac, int presenceriviere,int duree_ecoulee,boolean init) throws InterruptedException {
+	public ConteneurFenetre(Animal[] A_list,Ressource[] ressource,int duree_ecoulee) throws InterruptedException {
 		
 		super();
 		
 		//int a = 1, b = 15;
 		//while (a < b) {
 		//Thread.sleep(1000);
-		this.proprietesConteneur(A_list,posx,posy,presencelac,presenceriviere,init);
+		this.proprietesConteneur(A_list,ressource);
 		
 		String tempsec = duree_ecoulee/365 + " an et " + duree_ecoulee %365 + " jours";
 		JPanel pan_temps = new JPanel();
@@ -84,16 +84,14 @@ public class ConteneurFenetre extends JPanel{
 
 	}
 	
-	private void proprietesConteneur(Animal[] A_list,int[] posx, int[] posy,int presencelac,int presenceriviere,boolean init) throws InterruptedException {
+	private void proprietesConteneur(Animal[] A_list,Ressource[] ressource) throws InterruptedException {
 		
 		this.setLayout(null);
 		//this.proprietesEtiquette();
 		//this.propBouton();
 		//this.propChampTexte();
 		//this.affichImage();
-		if (init==true) {
-			this.Set_grille_env(posx, posy,presencelac,presenceriviere);
-		}
+		this.setGrilleEnv(ressource);
 		this.Set_grille_position(A_list);
 		this.setGrille();
 		
@@ -252,6 +250,14 @@ public class ConteneurFenetre extends JPanel{
 			for (int k=1;k<n;k++) {
 				this.Set_flaque(posx[k], posy[k]);
 			}
+		}
+	}
+	
+	
+	private void setGrilleEnv(Ressource[] ressource) {
+		int n = ressource.length;
+		for (int k=0; k<n; k++) {
+				this.grid_ressources[ressource[k].posx][ressource[k].posy]=ressource[k];
 		}
 	}
 	

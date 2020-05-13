@@ -4,6 +4,7 @@ package affichage;
 import javax.swing.JFrame; 
 
 import individus.*;
+import ressources.Ressource;
 
 
 public class fenetre extends JFrame {
@@ -11,15 +12,15 @@ public class fenetre extends JFrame {
 	ConteneurFenetre pan;
 	
 	
-	public fenetre(Animal[] A_list, int nb_flaque,int presencelac,int presenceriviere,int duree) throws InterruptedException {
+	public fenetre(Animal[] A_list, Ressource[] ressource,int duree) throws InterruptedException {
 		super();
 		
-		proprietesFenetre(A_list,nb_flaque,presencelac,presenceriviere,duree);
+		proprietesFenetre(A_list,ressource,duree);
 	}
 		
 
 
-	private void proprietesFenetre(Animal[] A_list, int nb_flaque,int presencelac,int presenceriviere,int duree) throws InterruptedException {
+	private void proprietesFenetre(Animal[] A_list,Ressource[] ressource ,int duree) throws InterruptedException {
 		
 	
 		this.setSize(800,1200);
@@ -28,15 +29,9 @@ public class fenetre extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setAlwaysOnTop(true);
 		
-		int[] posx=new int[nb_flaque+presencelac+presenceriviere];
-		int[] posy=new int[nb_flaque+presencelac+presenceriviere];
-		for (int k=0; k<nb_flaque+presencelac+presenceriviere;k++) {
-			posx[k]= (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
-			posy[k]= (int)(Math.random()*ConteneurFenetre.NB_COLONNES);
-		}
 		
 		int duree_ecoulee=0;
-		pan=new ConteneurFenetre(A_list,posx,posy,presencelac,presenceriviere,duree_ecoulee,true);
+		pan=new ConteneurFenetre(A_list,ressource,duree_ecoulee);
 		this.setContentPane(pan);
 		this.setVisible(true);
 		
@@ -51,7 +46,7 @@ public class fenetre extends JFrame {
 				A_list[i].deplacementAleatoire(A_list,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 			}
 			
-			pan=new ConteneurFenetre(A_list,posx,posy,presencelac,presenceriviere,duree_ecoulee,true);
+			pan=new ConteneurFenetre(A_list,ressource,duree_ecoulee);
 			this.setContentPane(pan);
 			this.setVisible(true);
 			
