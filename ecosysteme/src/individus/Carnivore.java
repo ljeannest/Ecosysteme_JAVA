@@ -3,8 +3,8 @@ package individus;
 import ressources.Eau;
 
 /**
- * Individus de type Animal mais ne mangeant que les individus de type Herbivore.
- * 
+ * <b>Individus de type Animal mais ne mangeant que les individus de type Herbivore.</b>
+ *  <p> Il es identifié par l'id 1 dans type.</p>
  *@see Animal
  *
  * @author Lucie
@@ -47,7 +47,8 @@ public class Carnivore  extends Animal{
 	 * 
 	 * 
 	 * @param A
-	 * 		Animal que le carnivore mange nécessairement de type 0
+	 * 		Animal que le carnivore mange nécessairement de type 0.
+	 * 		@see Herbivore
 	 */
 	public void manger(Animal A) {
 		if (A.type==0 && A.est_vivant==true) {

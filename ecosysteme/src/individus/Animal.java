@@ -35,7 +35,7 @@ public class Animal {
 	public String espece;
 
 	/**
-	 * Le type de l'animal à savoir son régime alimentaire. n'est pas modifiable
+	 * Le type de l'animal à savoir son régime alimentaire. non modifiable.
 	 * 
 	 */
 	public int type;
@@ -210,6 +210,8 @@ public class Animal {
 	 * @param nb_vautour
 	 *         Nombre de vautour voulu par l'utiliateur ou par default.
 	 * @return Une liste d'individus de type animal.
+	 * 
+	 * @author Lucie
 	 */
 	public static Animal[] creation(int nb_lievre,int nb_lynx, int nb_vautour) {
 		int n = nb_lievre+nb_lynx+nb_vautour;
@@ -256,6 +258,8 @@ public class Animal {
 	/**
 	 * Fait viellir l'animal
 	 * 
+	 * @author Lucie
+	 * 
 	 */
 	public void vieillir() {
 		this.age+=1;
@@ -268,6 +272,8 @@ public class Animal {
 	 * 
 	 * 
 	 * @return un boolean true si l'animal doit mourir
+	 * 
+	 * @author Augustin
 	 */
 	public boolean mort_de_vieillesse() {
 		if (this.age>=this.esp_de_vie) {// on devrait rajouter une condition de probabilité genre on tire au hasard un chifffre s'il est sup à 0,5 alors true else false
@@ -286,6 +292,8 @@ public class Animal {
 	 * @param est_vivant
 	 * 
 	 * @return un boolean true si l'accouplement est possible false sinon.
+	 * 
+	 * @author Mélodia
 	 */
 	public boolean reproduction(Animal A) {
 		if (this.est_vivant==true && A.est_vivant==false) {
@@ -325,6 +333,8 @@ public class Animal {
 	 * 			limite en X de la position.
 	 * @param maxY
 	 * 			Limite en Y de la position.
+	 * 
+	 * @author Lucie
 	 */
 	public void deplacementAleatoire(Animal[] A_list,Ressource[] ressource ,int pos, int maxX,int maxY) {
 		boolean est_libre=false;
@@ -337,6 +347,8 @@ public class Animal {
 
 	/**
 	 *Permet de faire déplacer un animal selon ses besoins en nourriture ou en eau 
+	 *
+	 *@author Augustin
 	 *
 	 */
 
@@ -352,6 +364,8 @@ public class Animal {
 
 	/**
 	 * Permet de nourrir l'animal vivant en augmantant jauge_nourriture
+	 * 
+	 * @author Augustin
 	 */
 
 	public void manger() {
@@ -362,6 +376,8 @@ public class Animal {
 
 	/**
 	 * Permet de faire boire l'animal vivant en augmentant jauge_eau.
+	 * 
+	 * @author Augustin
 	 */
 	public void boire() {
 		if (this.est_vivant==true) {
@@ -370,6 +386,8 @@ public class Animal {
 
 	/**
 	 * Permet de modifier la quantité de nourriture d'un animal quand il se fait manger.
+	 * 
+	 * @author Augustin
 	 */
 
 
@@ -390,6 +408,8 @@ public class Animal {
 	 * @param posy
 	 * 			Position en Y que l'on souhaite vérifier.
 	 * @return Boolean true si l'emplacement est vide sinon false.
+	 * 
+	 * @author Lucie
 	 */
 
 

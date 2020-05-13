@@ -2,7 +2,17 @@ package individus;
 
 import ressources.*;
 
-
+/**
+ * <b>Individus de type Animal mais ne mangeant que les ressources de type herbe.</b>
+ * 
+ * <p>Il es identifié par l'id 0 dans type.</p>
+ * 
+ *@see Animal
+ *
+ * @author Lucie
+ * @version 2.0
+ *
+ */
 public class Herbivore extends Animal {
 
 	public Herbivore(String espece, int posx, int posy, String sexe, int age, int esp_de_vie,int qte_viande, int ageReproMin, int ageReproMax) {
