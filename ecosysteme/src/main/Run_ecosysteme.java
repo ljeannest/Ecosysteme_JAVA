@@ -28,7 +28,7 @@ public class Run_ecosysteme {
 		//création de l'écosystème, ainsi que des différents individus
 		
 		Animal[] individus = Animal.creation(nb_lievre,nb_lynx,nb_vautour);
-		Ressource [] ressource = Ressource.
+//		Ressource [] ressource = Ressource.*;
 		
 		//entrée dans une boucle qui modélise notre écosysteme, avec tous nos individus qui peuvent 
 		//boire, manger, se deplacer, se reproduire.
