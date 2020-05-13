@@ -24,7 +24,7 @@ import ressources.*;
 
 public class ConteneurFenetre extends JPanel{
 	public Ressource[][] grid_ressources = new Ressource[NB_COLONNES][NB_LIGNES];
-	public Animal[][] grid_animaux = new Animal[NB_COLONNES][NB_LIGNES];
+	public Animal[][] grid_animaux = new Animal[NB_COLONNES][NB_LIGNES];// ça
 	
 	
 	
