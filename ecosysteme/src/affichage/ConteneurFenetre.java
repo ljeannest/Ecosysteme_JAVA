@@ -299,10 +299,15 @@ public class ConteneurFenetre extends JPanel{
 					
 				else  {
 					
-					if (ressource_emplacement.type=="Eau") {
+					if (ressource_emplacement.couleur=="bleu clair") {
 					 	emplacement = new JLabel(icon_eau_claire);
 					 	emplacement.setBorder(blueline);
 				}
+					
+					else if(ressource_emplacement.couleur=="bleu fonce") {
+						emplacement = new JLabel(icon_eau_foncee);
+						emplacement.setBorder(blueline);
+					}
 					
 					   
 						
