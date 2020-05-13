@@ -125,19 +125,19 @@ public class Ressource {
 										plein = true;
 									}
 								}
-								else if (posx_lac-a>=0 && posy_lac+b<NB_COLONNES && a+b<=4) {
+								if (posx_lac-a>=0 && posy_lac+b<NB_COLONNES && a+b<=4) {
 									if (posx_lac-a==i && posy_lac+b==j) {
 										ressource[k]=new Lac (i,j,"bleu fonce",100);
 										plein = true;
 									}
 								}
-								else if (posx_lac+a<NB_LIGNES && posy_lac-b>=0 && a+b<=4) {
+								if (posx_lac+a<NB_LIGNES && posy_lac-b>=0 && a+b<=4) {
 									if (posx_lac+a==i && posy_lac-b==j) {
 										ressource[k]=new Lac (i,j,"bleu fonce",100);
 										plein = true;
 									}
 								}
-								else if (posx_lac-a>=0 && posy_lac-b>=0 && a+b<=4) {
+								if (posx_lac-a>=0 && posy_lac-b>=0 && a+b<=4) {
 									if (posx_lac-a==i && posy_lac-b==j) {
 										ressource[k]=new Lac (i,j,"bleu fonce",100);
 										plein = true;
