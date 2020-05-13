@@ -63,7 +63,7 @@ public class ConteneurFenetre extends JPanel{
 	//private int[][] grid = new int[NB_LIGNES][NB_COLONNES];
 	//private Image[] images;
 	
-	public ConteneurFenetre(Animal[] A_list,Ressource[] ressource,int duree_ecoulee) throws InterruptedException {
+	public ConteneurFenetre(ArrayList<Animal> A_list,Ressource[] ressource,int duree_ecoulee) throws InterruptedException {
 		
 		super();
 		
@@ -85,7 +85,7 @@ public class ConteneurFenetre extends JPanel{
 
 	}
 	
-	private void proprietesConteneur(Animal[] A_list,Ressource[] ressource) throws InterruptedException {
+	private void proprietesConteneur(ArrayList<Animal> A_list,Ressource[] ressource) throws InterruptedException {
 		
 		this.setLayout(null);
 		//this.proprietesEtiquette();
@@ -193,17 +193,17 @@ public class ConteneurFenetre extends JPanel{
 //		this.point_eau.add(flaque);
 	}
 	
-	private void Set_grille_position(Animal[] A_list) {
+	private void Set_grille_position(ArrayList<Animal> a_list) {
 		for(int i = 0; i<NB_LIGNES;i++){
 			for(int j = 0; j<NB_COLONNES;j++){
 				//this.grid_animaux[i][j]=this.grid_ressources[i][j];//environnement_initialisation
 			
 			}
 		}
-		int n = A_list.length;
+		int n = a_list.size();
 		for (int k=0; k<n; k++) {
 			
-				this.grid_animaux[A_list[k].posx][A_list[k].posy]=A_list[k];}//=A_list[k].espece
+				this.grid_animaux[a_list.get(k).posx][a_list.get(k).posy]=a_list.get(k);}//=A_list[k].espece
 			
 			//if (A_list[k].espece=="Lievre") {
 				//this.grid_animaux[A_list[k].posx][A_list[k].posy]=2;}

@@ -7,6 +7,7 @@ import affichage.FenetreInitOuverture;
 import affichage.fenetre;
 import individus.Animal;
 import ressources.Ressource;
+import java.util.ArrayList;
 
 public class Run_ecosysteme {
 
@@ -30,7 +31,7 @@ public class Run_ecosysteme {
 		
 		//création de l'écosystème, ainsi que des différents individus
 		
-		Animal[] individus = Animal.creation(nb_lievre,nb_lynx,nb_vautour);
+		ArrayList<Animal> individus = Animal.creation(nb_lievre,nb_lynx,nb_vautour);
 		Ressource [] ressource = Ressource.creation(nb_flaque,presencelac,presenceriviere,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 
 		

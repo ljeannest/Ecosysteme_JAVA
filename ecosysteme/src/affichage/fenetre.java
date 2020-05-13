@@ -1,6 +1,8 @@
 
 package affichage;
 
+import java.util.ArrayList;
+
 import javax.swing.JFrame;  
 
 import individus.*;
@@ -12,7 +14,7 @@ public class fenetre extends JFrame {
 	ConteneurFenetre pan;
 	
 	
-	public fenetre(Animal[] A_list, Ressource[] ressource,int duree) throws InterruptedException {
+	public fenetre(ArrayList<Animal> A_list, Ressource[] ressource,int duree) throws InterruptedException {
 		super();
 		
 		proprietesFenetre(A_list,ressource,duree);
@@ -20,7 +22,7 @@ public class fenetre extends JFrame {
 		
 
 
-	private void proprietesFenetre(Animal[] A_list,Ressource[] ressource ,int duree) throws InterruptedException {
+	private void proprietesFenetre(ArrayList<Animal> A_list,Ressource[] ressource ,int duree) throws InterruptedException {
 		
 	
 		this.setSize(800,1200);
@@ -41,9 +43,9 @@ public class fenetre extends JFrame {
 		
 		for (int k=0;k<duree*365;k++) {
 			duree_ecoulee++;
-			int n=A_list.length;
+			int n=A_list.size();
 			for (int i=0;i<n;i++) {
-				A_list[i].deplacementAleatoire(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
+				A_list.get(i).deplacementAleatoire(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 			}
 			
 			pan=new ConteneurFenetre(A_list,ressource,duree_ecoulee);

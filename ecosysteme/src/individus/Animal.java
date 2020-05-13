@@ -1,5 +1,7 @@
 package individus;
 
+import java.util.ArrayList;
+
 import affichage.ConteneurFenetre;
 import ressources.Ressource;
 /**
@@ -211,10 +213,10 @@ public class Animal {
 	 *         Nombre de vautour voulu par l'utiliateur ou par default.
 	 * @return Une liste d'individus de type animal.
 	 */
-	public static Animal[] creation(int nb_lievre,int nb_lynx, int nb_vautour) {
+	public static ArrayList<Animal> creation(int nb_lievre,int nb_lynx, int nb_vautour) {
 		int n = nb_lievre+nb_lynx+nb_vautour;
 		String sexeanimal;
-		Animal[] individus= new Animal[n];
+		ArrayList<Animal> individus= new ArrayList<Animal>();
 		for (int k=0;k<n;k++) {
 			if (k<nb_lievre) {
 				int posx = (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
@@ -225,7 +227,7 @@ public class Animal {
 				else {
 					sexeanimal = "F";
 				}
-				individus[k]=new Lievre(posx, posy, sexeanimal, 0);
+				individus.add(new Lievre(posx, posy, sexeanimal, 0));
 			}
 			else if (k<nb_lievre+nb_lynx) {
 				int posx = (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
@@ -236,7 +238,7 @@ public class Animal {
 				else {
 					sexeanimal = "F";
 				}
-				individus[k]=new Lynx(posx, posy, sexeanimal, 0);
+				individus.add(new Lynx(posx, posy, sexeanimal, 0));
 			}
 			else {
 				int posx = (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
@@ -247,7 +249,7 @@ public class Animal {
 				else {
 					sexeanimal = "F";
 				}
-				individus[k]=new Vautour(posx, posy, sexeanimal, 0);
+				individus.add(new Vautour(posx, posy, sexeanimal, 0));
 			}
 		}
 		return individus;
@@ -326,7 +328,7 @@ public class Animal {
 	 * @param maxY
 	 * 			Limite en Y de la position.
 	 */
-	public void deplacementAleatoire(Animal[] A_list,Ressource[] ressource ,int pos, int maxX,int maxY) {
+	public void deplacementAleatoire(ArrayList<Animal> A_list,Ressource[] ressource ,int pos, int maxX,int maxY) {
 		boolean est_libre=false;
 		while (est_libre==false) {
 			this.posx = (int)(Math.random()*maxX);
@@ -393,7 +395,7 @@ public class Animal {
 	 */
 
 
-	public boolean pos_libre (Animal[] A,Ressource[] ressource, int pos, int posx, int posy) {
+	public boolean pos_libre (ArrayList<Animal> A,Ressource[] ressource, int pos, int posx, int posy) {
 		int n = ressource.length;
 		for (int k=0;k<n;k++) {
 			if(ressource[k].posx==posx && ressource[k].posy==posy) {
@@ -402,9 +404,9 @@ public class Animal {
 				}
 			}
 		}
-		int p= A.length;
+		int p= A.size();
 		for (int k=0;k<p;k++) {
-			if (A[k].posx==posx && A[k].posy==posy && k!=pos) {
+			if (A.get(k).posx==posx && A.get(k).posy==posy && k!=pos) {
 				return false;
 			}
 		}
