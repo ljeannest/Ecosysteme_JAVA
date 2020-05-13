@@ -92,6 +92,18 @@ public class Ressource {
 	}
 	
 	
+	
+	public static Ressource[] devient_desert(Ressource[] ressource) {
+		int n = ressource.length;
+		for (int k=0;k<n;k++) {
+			if (ressource[n].quantiteRessource<=0) {
+				ressource[n]=new Desert(ressource[n].posx,ressource[n].posy,"marron clair",0);
+			}
+		}
+		return ressource;
+	}
+	
+	
 	public static Ressource[] creation(int nb_flaque, int presence_lac, int presence_riviere,int NB_LIGNES, int NB_COLONNES) {
 		
 		boolean plein = false;
@@ -109,6 +121,8 @@ public class Ressource {
 			posx_flaque[k] = (int) (Math.random()*NB_LIGNES);
 			posy_flaque[k] = (int) (Math.random()*NB_COLONNES);
 		}
+		
+		
 		
 		Ressource[] ressource = new Ressource[NB_LIGNES*NB_COLONNES];
 		int k=0;
