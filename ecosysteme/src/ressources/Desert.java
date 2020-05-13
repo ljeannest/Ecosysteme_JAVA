@@ -2,24 +2,25 @@ package ressources;
 
 import individus.Animal;
 //vérife90
+public class Desert extends Ressource{
 
-public class Desert {
-	
-	public int posX;
-	public int posY;
 	public boolean individuMort;
+
 	
-	public Desert(int posX, int posY) {
+	public Desert(int posx, int posy,String couleur, int quantiteRessource) {
+		super("Desert","desert",posx, posy, "marron clair", 0);
+
+	
 		
-		this.posX = posX;
-		this.posY = posY;
+		this.posx = posx;
+		this.posy = posy;
 		this.individuMort = false;
 		
 	}
 
 	public boolean régénérationPossible(Animal A) {
-		 if (this.posX == A.posx) {
-			 if (this.posY == A.posy) {
+		 if (this.posx == A.posx) {
+			 if (this.posy == A.posy) {
 				 if (A.est_vivant == false) {
 					 this.individuMort = true;
 				 }
