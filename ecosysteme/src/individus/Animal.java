@@ -389,7 +389,7 @@ public class Animal {
 	 * 			Position en x que l'on souhaite vérifier.
 	 * @param posy
 	 * 			Position en Y que l'on souhaite vérifier.
-	 * @return Boolean true si l'emplacement est vide sinon false. 
+	 * @return Boolean true si l'emplacement est vide sinon false.
 	 */
 
 
