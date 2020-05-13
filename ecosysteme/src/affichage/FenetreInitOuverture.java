@@ -1,11 +1,18 @@
 package affichage;
 
 import java.awt.FlowLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+/**
+ * Class regroupant les methodes nécessaire à l'ouverture de la fenetre.
+ * @author 
+ *
+ */
 
 
 public class FenetreInitOuverture extends JFrame{

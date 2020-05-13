@@ -7,7 +7,11 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-
+/**
+ * <b> On créée les graphisques issu du traitement statistiques de la modélisation. </b>
+ * @author Mélodia
+ *
+ */
 
 public class CreateGraph extends JFrame {
 
