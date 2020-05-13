@@ -332,8 +332,9 @@ public class Animal {
 				}
 			}
 		}
-		for (int k=0;k<pos;k++) {
-			if (A[k].posx==posx && A[k].posy==posy) {
+		int p= A.length;
+		for (int k=0;k<p;k++) {
+			if (A[k].posx==posx && A[k].posy==posy && k!=pos) {
 				return false;
 			}
 		}
