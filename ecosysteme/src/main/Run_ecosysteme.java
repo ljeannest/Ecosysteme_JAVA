@@ -32,7 +32,7 @@ public class Run_ecosysteme {
 		Ressource [] ressource = Ressource.creation(nb_flaque,presencelac,presenceriviere,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 		
 		//entrée dans une boucle qui modélise notre écosysteme, avec tous nos individus qui peuvent 
-		//boire, manger, se deplacer, se reproduire.
+		//boire, manger, se deplacer, se reproduire...
 		//la boucle se termine quand ? extinction d'une espece? laps de temps donné? extinction de toutes les especes?
 		
 		fenetre fenetrePrincipale = new fenetre(individus,ressource,duree);
