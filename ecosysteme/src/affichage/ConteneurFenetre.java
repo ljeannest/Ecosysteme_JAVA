@@ -173,13 +173,13 @@ public class ConteneurFenetre extends JPanel{
 	
 	private void Set_riviere(int posx, int posy) {
 		for (int i=0;i<=posy;i++) {
-			Riviere riviere= new Riviere (posx,i,"bleu clair",100);
+			Riviere riviere= new Riviere (posx,i,"bleu fonce",100);
 			this.grid_ressources[posx][i]=riviere;
 //			this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //			this.point_eau.add(riviere);
 		}
 		for (int j=0;j<=posx;j++) {
-			Riviere riviere= new Riviere (j,posy,"bleu clair",100);
+			Riviere riviere= new Riviere (j,posy,"bleu fonce",100);
 			this.grid_ressources[j][posy]=riviere;
 //			this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //			this.point_eau.add(riviere);
@@ -187,7 +187,7 @@ public class ConteneurFenetre extends JPanel{
 	}
 	
 	private void Set_flaque(int posx,int posy) {
-		Eau flaque= new Eau ("flaque",posx,posy,"bleu clair",20);
+		Eau flaque= new Eau ("flaque",posx,posy,"bleu fonce",20);
 		this.grid_ressources[posx][posy]=flaque;
 //		this.point_eau.ensureCapacity(this.point_eau.size()+1);
 //		this.point_eau.add(flaque);
