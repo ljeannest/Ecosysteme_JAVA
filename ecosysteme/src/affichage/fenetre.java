@@ -53,7 +53,7 @@ public class fenetre extends JFrame {
 			fenetretime.maj_pan(duree_ecoulee);
 			fenetretime.setVisible(true);
 
-			Thread.sleep(50);
+			Thread.sleep(10);
 		}
 		
 		
