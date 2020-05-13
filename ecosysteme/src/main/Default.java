@@ -65,7 +65,7 @@ public class Default {
 		}
 // creation des resspurces en eau
 		this.riviere= new Riviere(3,0,"bleu clair", 200);
-		this.lac = new Lac(29,29,"bleu fonce", 1000);
+		this.lac = new Lac(29,29, 1000);
 		
 		
 		//this.populationAnimal[0]=this.populationLievre;
