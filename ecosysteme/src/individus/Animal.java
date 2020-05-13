@@ -128,7 +128,7 @@ public class Animal {
 	/**
 	 * Constructeur Animal
 	 * <p>
-	 * A la cosntruction l'animal est vivant donc le paramére est_vivant est fixé à true.
+	 * A la cosntruction l'animal est vivant donc le paramétre est_vivant est fixé à true.
 	 * </p>
 	 * 
 	 * 
