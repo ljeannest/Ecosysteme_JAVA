@@ -7,10 +7,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
+
 
 public class CreateGraph extends JFrame {
 
@@ -27,20 +24,20 @@ public class CreateGraph extends JFrame {
 	    setContentPane(pnl); 
 	    setSize(400, 250); 
 
-	    DefaultPieDataset pieDataset = new DefaultPieDataset(); 
-	    pieDataset.setValue("Valeur1", 10); 
-	    pieDataset.setValue("Valeur2", 3); 
-	    pieDataset.setValue("Valeur3", 50); 
-	    pieDataset.setValue("Valeur4", 5); 
+	    //DefaultPieDataset pieDataset = new DefaultPieDataset(); 
+	   // pieDataset.setValue("Valeur1", 10); 
+	   // pieDataset.setValue("Valeur2", 3); 
+	    //pieDataset.setValue("Valeur3", 50); 
+	    //pieDataset.setValue("Valeur4", 5); 
 
-	    JFreeChart pieChart = ChartFactory.createPieChart("Test camembert", 
-	      pieDataset, true, true, true); 
-	    ChartPanel cPanel = new ChartPanel(pieChart); 
-	    pnl.add(cPanel); 
-	  } 
+	    //JFreeChart pieChart = ChartFactory.createPieChart("Test camembert", 
+	      //pieDataset, true, true, true); 
+	    //ChartPanel cPanel = new ChartPanel(pieChart); 
+	   //pnl.add(cPanel); 
+	 // } 
 
-	  public static void main(String args[]) { 
-	    TestPieChart tpc = new TestPieChart(); 
-	    tpc.setVisible(true); 
+	  //public static void main(String args[]) { 
+	    //TestPieChart tpc = new TestPieChart(); 
+	    //tpc.setVisible(true); 
 	  } 
 }
