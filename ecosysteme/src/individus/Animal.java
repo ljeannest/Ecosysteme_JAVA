@@ -197,7 +197,10 @@ public class Animal {
 		text+="Espece : "+this.espece+"\n";
 		text+="Sexe : "+this.sexe+"\n";
 		text+="Age : "+this.age + " ans"+"\n";
-		text+="Position : ("+this.posx+","+this.posy+")";
+		text+="Position : ("+this.posx+","+this.posy+")\n";
+		text+="Jauge nourriture : "+this.jauge_nourriture+"\n";
+		text+="Jauge eau : "+this.jauge_eau+"\n";
+		text+="Est Vivant : "+this.est_vivant;
 		return text;
 	}
 
@@ -382,11 +385,11 @@ public class Animal {
 	
 	public void deplacement(ArrayList<Animal> A_list, Ressource[] ressource, int pos, int maxX, int maxY) {
 		String orientation ="E";
-		if (this.jauge_eau<75) {
+		if (this.jauge_eau<=this.jauge_nourriture) {
 			orientation = this.setOrientationEau(ressource);
 		}
-		else if (this.jauge_nourriture<50) {
-			orientation = this.setOrientationNourriture(ressource);
+		else {
+			orientation = this.setOrientationNourriture(A_list,ressource);
 		}
 		this.deplacement_orientation(A_list, ressource, pos, maxX, maxY, orientation);
 	}
@@ -432,17 +435,69 @@ public class Animal {
 	/**
 	 *Permet de définir la direction que va emprunter l'animal à l'instant t+1 s'il a faim
 	 *
-	 *@author Augustin
+	 *@author Lucie
 	 *
 	 */
 	
-	public String setOrientationNourriture(Ressource[] ressource) {
-		String orientation = "E";
+	public String setOrientationNourriture(ArrayList<Animal> A_list,Ressource[] ressource) {
+		String orientation = "";
 		if (this.type==0) {
+			int[] pos_veg= this.ppvegetaux(ressource);
+			if ((pos_veg[0]==posx && (pos_veg[1]==posy+1||pos_veg[1]==posy-1))||(pos_veg[1]==posy && (pos_veg[0]==posx+1||pos_veg[0]==posx-1))) {
+				this.manger_herb(ressource[pos_veg[2]]);
+				orientation="";
+			}
+			else if(pos_veg[0]>this.posx) {
+				orientation="E";
+			}
+			else if (pos_veg[0]<this.posx) {
+				orientation="W";
+			}
+			else if (pos_veg[1]<this.posy) {
+				orientation="S";
+			}
+			else if (pos_veg[1]>this.posy){
+				orientation="N";
+			}
+			return orientation;
+		}
+		else if (this.type==1) {
+			
+		}
+		else if (this.type==2) {
 			
 		}
 		return orientation;
 	}
+	
+	/**
+	 *Permet de determiner la zone d'herbe la plus proche
+	 *
+	 *@author Lucie
+	 *
+	 */
+	
+	public int[] ppvegetaux(Ressource[] ressource) {
+		int n = ressource.length;
+		int[] pos_veg = new int[3];
+		double dist_min=1000;
+		pos_veg[0]=0;//pos en x
+		pos_veg[1]=0;//pos en y
+		pos_veg[2]=0;//position de la case dans la liste des ressources
+		for (int k=0;k<n;k++) {
+			if (ressource[k].type=="Vegetaux") {
+				double dist = Math.sqrt((this.posx-ressource[k].posx)*(this.posx-ressource[k].posx)+(this.posy-ressource[k].posy)*(this.posy-ressource[k].posy));
+				if (dist<dist_min && dist >0) {
+					dist_min = dist;
+					pos_veg[0]=ressource[k].posx;
+					pos_veg[1]=ressource[k].posy;
+					pos_veg[2]=k;
+				}
+			}
+		}
+		return pos_veg;
+	}
+
 	
 	
 	/**
@@ -502,28 +557,16 @@ public class Animal {
 
 
 	/**
-	 * Permet de nourrir l'animal vivant en augmantant jauge_nourriture
-	 * 
-	 * @author Augustin
-	 */
-
-	public void manger() {
-
-		if (this.est_vivant==true) {
-			this.jauge_nourriture+=1;}
-	}
-
-	/**
 	 * Permet de faire boire l'animal vivant en augmentant jauge_eau.
 	 * 
 	 * @author Augustin
 	 */
 	public void boire(Ressource case_r) {
-		if (this.est_vivant==true && case_r.quantiteRessource>=10) {
+		if (this.est_vivant==true && case_r.quantiteRessource>=10 && this.jauge_eau<=90) {
 			this.jauge_eau+=10;
 			case_r.quantiteRessource-=10;
 		}
-		else if(this.est_vivant==true && case_r.quantiteRessource>0) {
+		else if(this.est_vivant==true && case_r.quantiteRessource>0 && this.jauge_eau<=90) {
 			this.jauge_eau+=case_r.quantiteRessource;
 			case_r.quantiteRessource=0;
 		}
@@ -581,7 +624,64 @@ public class Animal {
 		}
 		return true;
 	}
+	
+	/**
+	 * Permet à l'herbivore de  manger.
+	 * 
+	 * @param V
+	 * 			variable Ressource de type Vegetaux que l'herbivore va manger.
+	 */
+	public void manger_herb(Ressource V) {
+		if (this.est_vivant = true) {
 
+			if(V.quantiteRessource>=10) {
+				this.jauge_nourriture+=10;
+				V.quantiteRessource-=10;	
+			}	
+			else if(V.quantiteRessource>0) {
+				this.jauge_nourriture+=V.quantiteRessource;
+				V.quantiteRessource=0;
+			}		
+		}
+	}
+	
+	/**
+	 * Permet de faire manger un carnivore en vérifiant qu'il est vivant.
+	 * Modifie le boolean est-vivant de l'animal mangé en false.
+	 * 
+	 * 
+	 * @param A
+	 * 		Animal que le carnivore mange nécessairement de type 0.
+	 * 		@see Herbivore
+	 */
+	public void manger_carn(Animal A) {
+		if (A.type==0 && A.est_vivant==true) {
+				A.est_vivant=false;
+				A.qte_viande-=20;
+				this.jauge_nourriture+=20;
+		}
+	}
+	
+	/**
+	 * Permet de faire manger un charognard en vérifiant qu'il est vivant et que l'animal mangé est mort.
+	 * 
+	 * 
+	 * @param A
+	 * 		Animal que le charognard mange nécessairement de type 0 ou 1.
+	 * 		@see cadavre
+	 */
+	public void manger_char(Animal A) {
+		if (A.type!=2 && A.est_vivant==false) {
+			if (A.qte_viande >20) {
+				A.qte_viande-=20;
+				this.jauge_nourriture+=20;
+			}
+		}
+		else if (A.qte_viande>=0) {
+			this.jauge_nourriture+=A.qte_viande;
+			A.qte_viande=0;
+		}
+	}
 }
 
 

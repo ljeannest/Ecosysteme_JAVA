@@ -42,22 +42,7 @@ public class Herbivore extends Animal {
 		super(espece, 0, posx, posy, sexe, age, esp_de_vie,100,100, qte_viande, ageReproMin, ageReproMax);
 	}
 	
-	/**
-	 * Permet à l'herbivore de  manger.
-	 * 
-	 * @param V
-	 * 			variable Ressource de type Vegetaux que l'herbivore va manger.
-	 */
-	public void manger(Vegetaux V) {
-		if (V.estVivant = true) {
 
-		while (V.quantiteRessource<0 && this.jauge_nourriture<100) {
-			this.manger();
-			V.se_faire_manger_boire();	}	
-			
-		}
-		
-	}
 	
 	
 }

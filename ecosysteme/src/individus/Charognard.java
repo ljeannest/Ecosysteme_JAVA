@@ -42,32 +42,4 @@ public class Charognard extends Animal{
 	}
 
 
-
-	/**
-	 * Permet de faire manger un animal en vérifiant qu'il est mort.
-	 * Modifie le boolean est-vivant de l'animal mangé en false.
-	 * 
-	 * 
-	 * @param A
-	 * 		Animal que le charognard mange nécessairement de type 0 ou 1.
-	 * 		@see Carnivore
-	 * 		@see Herbivore
-	 * 
-	 */
-	public void manger(Animal A) {
-		if (A.espece!=this.espece  && A.est_vivant==false) {
-
-
-
-
-			while (A.qte_viande<0 && this.jauge_nourriture<100) {
-				this.manger();
-				A.se_faire_manger();	}	
-
-		}
-
-
-
-	}
-
 }

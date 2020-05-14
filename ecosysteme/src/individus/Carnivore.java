@@ -41,30 +41,6 @@ public class Carnivore  extends Animal{
 		super(espece, 1, posx,posy, sexe, age, esp_de_vie,100,100,qte_viande, ageReproMin, ageReproMax);
 	}
 	
-	/**
-	 * Permet de faire manger un animal en vérifiant qu'il est vivant.
-	 * Modifie le boolean est-vivant de l'animal mangé en false.
-	 * 
-	 * 
-	 * @param A
-	 * 		Animal que le carnivore mange nécessairement de type 0.
-	 * 		@see Herbivore
-	 */
-	public void manger(Animal A) {
-		if (A.type==0 && A.est_vivant==true) {
-			
-				A.est_vivant=false;
-			
-		
-		while (A.qte_viande<0 && this.jauge_nourriture<100) {
-			this.manger();
-			A.se_faire_manger();	}	
-			
-		}
-		
-		
-		
-	}
 	
 
 }

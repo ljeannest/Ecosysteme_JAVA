@@ -49,13 +49,16 @@ public class fenetre extends JFrame {
 			duree_ecoulee++;
 			n=A_list.size();
 			for (int i=0;i<n;i++) {
-				A_list.get(i).jauge_nourriture-=2;
-				A_list.get(i).jauge_eau-=5;
-				A_list.get(i).mort_naturelle();
-				A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
-				A_list.get(i).vieillir();
-				ressource = Ressource.devient_desert(ressource);
+				if (A_list.get(i).est_vivant==true) {
+					A_list.get(i).jauge_nourriture-=2;
+					A_list.get(i).jauge_eau-=2;
+					A_list.get(i).mort_naturelle();
+					A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
+					A_list.get(i).vieillir();
+					System.out.println(A_list.get(i));
+				}
 			}
+			ressource = Ressource.devient_desert(ressource);
 			
 			pan=new ConteneurFenetre(A_list,ressource,duree_ecoulee);
 			this.setContentPane(pan);
