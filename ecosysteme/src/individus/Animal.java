@@ -127,6 +127,10 @@ public class Animal {
 	 *  @see Animal#reproduction(Animal)
 	 */
 	public int ageReproMax;
+	
+	public int date_naissance;
+	
+	public int date_mort;
 
 	/**
 	 * Constructeur Animal
@@ -163,7 +167,7 @@ public class Animal {
 	 *
 	 */
 
-	public Animal(String espece, int type, int posx,int posy, String sexe, int age, int esp_de_vie,int jauge_nourriture,int jauge_eau,int qte_viande, int ageReproMin, int ageReproMax) {
+	public Animal(String espece, int type, int posx,int posy, String sexe, int age, int esp_de_vie,int jauge_nourriture,int jauge_eau,int qte_viande, int ageReproMin, int ageReproMax,int date_naissance) {
 		this.espece = espece;
 		this.type = type;
 		this.posx = posx;
@@ -177,6 +181,8 @@ public class Animal {
 		this.qte_viande=qte_viande;
 		this.ageReproMin = ageReproMin;
 		this.ageReproMax = ageReproMax;
+		this.date_naissance=date_naissance;
+		this.date_mort=date_naissance+esp_de_vie;
 	}
 
 	/**
@@ -233,7 +239,7 @@ public class Animal {
 				else {
 					sexeanimal = "F";
 				}
-				individus.add(new Lievre(posx, posy, sexeanimal, 0));
+				individus.add(new Lievre(posx, posy, sexeanimal, 0,0));
 			}
 			else if (k<nb_lievre+nb_lynx) {
 				int posx = (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
@@ -244,7 +250,7 @@ public class Animal {
 				else {
 					sexeanimal = "F";
 				}
-				individus.add(new Lynx(posx, posy, sexeanimal, 0));
+				individus.add(new Lynx(posx, posy, sexeanimal, 0,0));
 			}
 			else {
 				int posx = (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
@@ -255,7 +261,7 @@ public class Animal {
 				else {
 					sexeanimal = "F";
 				}
-				individus.add(new Vautour(posx, posy, sexeanimal, 0));
+				individus.add(new Vautour(posx, posy, sexeanimal, 0,0));
 			}
 		}
 		return individus;
@@ -292,9 +298,10 @@ public class Animal {
 	}
 	
 	
-	public void mort_naturelle() {
+	public void mort_naturelle(int duree_ecoulee) {
 		if (this.mort_de_vieillesse()||this.mort_de_manque()) {
 			this.est_vivant=false;
+			this.date_mort=duree_ecoulee;
 		}
 	}
 

@@ -38,8 +38,8 @@ public class Herbivore extends Animal {
 	 * 			Age maximal pour la reproduction.
 	 */
 
-	public Herbivore(String espece, int posx, int posy, String sexe, int age, int esp_de_vie,int qte_viande, int ageReproMin, int ageReproMax) {
-		super(espece, 0, posx, posy, sexe, age, esp_de_vie,100,100, qte_viande, ageReproMin, ageReproMax);
+	public Herbivore(String espece, int posx, int posy, String sexe, int age, int esp_de_vie,int qte_viande, int ageReproMin, int ageReproMax,int date_naissance) {
+		super(espece, 0, posx, posy, sexe, age, esp_de_vie,100,100, qte_viande, ageReproMin, ageReproMax,date_naissance);
 	}
 	
 

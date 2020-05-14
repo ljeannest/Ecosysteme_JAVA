@@ -33,7 +33,7 @@ public class Default {
 
 			}
 
-			this.populationLievre[i]= new Lievre(0,0,sexe,1);// on cree le nouvel individu su'on insere dans sa population
+			this.populationLievre[i]= new Lievre(0,0,sexe,1,0);// on cree le nouvel individu su'on insere dans sa population
 
 		}
 		// creation des lynx de même que pour les Lievres
@@ -46,7 +46,7 @@ public class Default {
 
 			}
 
-			this.populationLynx[i]= new Lynx (0,0, sexe,2);
+			this.populationLynx[i]= new Lynx (0,0, sexe,2,0);
 		}
 
 // création des Vautour
@@ -60,7 +60,7 @@ public class Default {
 
 			}
 
-			this.populationVautour[i]= new Vautour(0,0,sexe,4);
+			this.populationVautour[i]= new Vautour(0,0,sexe,4,0);
 			
 		}
 // creation des resspurces en eau

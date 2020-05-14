@@ -23,8 +23,8 @@ public class Lynx extends Carnivore {
 	 * 			Age.
 	 */
 
-	public Lynx(int posx, int posy, String sexe, int age) {
-		super("Lynx", posx, posy, sexe, age, 7*365,25, 3 ,15);
+	public Lynx(int posx, int posy, String sexe, int age,int date_naissance) {
+		super("Lynx", posx, posy, sexe, age, 7*365,25, 3 ,15,date_naissance);
 		
 		
 	}

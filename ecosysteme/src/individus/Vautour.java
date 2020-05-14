@@ -29,22 +29,11 @@ public class Vautour extends Charognard{
 	 * @param age
 	 * 			Age.
 	 */
-	public Vautour(int posx, int posy, String sexe, int age) {
+	public Vautour(int posx, int posy, String sexe, int age,int date_naissance) {
 		
-		super("Vautour", posx, posy, sexe, age, 10*365, 10, 4, 100);
+		super("Vautour", posx, posy, sexe, age, 10*365, 10, 4, 100,date_naissance);
 	}
 	
-	/**
-	 * 
-	 * @param args
-	 */
-	public static void main (String args[]) {
-		Vautour V = new Vautour(0,0, "M", 1);
-		System.out.println(V.partenaire);
-	}
-	
-	public void reproduction(Vautour V) {
 
-	}
 
 }

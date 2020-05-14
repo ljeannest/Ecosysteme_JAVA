@@ -132,7 +132,7 @@ public class repro {
 	 * 
 	 */
 
-	public static void créationNouvelIndividu(Animal A1, Animal A2, ArrayList<Animal> A, Vegetaux tableauRessource[]) {
+	public static void créationNouvelIndividu(Animal A1, Animal A2, ArrayList<Animal> A, Vegetaux tableauRessource[],int duree_ecoulee) {
 
 		String sexe;
 
@@ -155,7 +155,7 @@ public class repro {
 			positionNaissance = vérificationNouvellePlace(A2.posx, A2.posy,A,tableauRessource);
 		}
 
-		Animal A3= new Animal(A1.espece, A1.type, positionNaissance[0], positionNaissance[1], sexe, 0, A1.esp_de_vie, 100, 100, A1.qte_viande, A1.ageReproMin, A2.ageReproMax );
+		Animal A3= new Animal(A1.espece, A1.type, positionNaissance[0], positionNaissance[1], sexe, 0, A1.esp_de_vie, 100, 100, A1.qte_viande, A1.ageReproMin, A2.ageReproMax ,duree_ecoulee);
 		
 		A.add(A3);
 	}
