@@ -10,7 +10,8 @@ import javax.swing.JOptionPane;
 
 /**
  * Class regroupant les methodes nécessaire à l'ouverture de la fenetre.
- * @author 
+ * 
+ * @author Lucie
  *
  */
 
@@ -39,7 +40,7 @@ public class FenetreInitOuverture extends JFrame{
 	}
 	
 	public static int[] recuperation_info() {
-		int[] info = new int[7];
+		int[] info = new int[8];
 		FenetreInit FI=new FenetreInit(null,"Paramètres de la simulation",true);
 		FenetreInitInfo FII = FI.showFII();
 		JOptionPane jop=new JOptionPane();
@@ -51,6 +52,7 @@ public class FenetreInitOuverture extends JFrame{
 		info[4]=FII.duree;
 		info[5]=FII.presence_lac;
 		info[6]=FII.presence_riviere;
+		info[7]=FII.size;
 		return info;
 		
 	}

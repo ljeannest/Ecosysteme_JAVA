@@ -21,9 +21,9 @@ import javax.swing.JTextField;
 public class FenetreInit extends JDialog {
 	private FenetreInitInfo info= new FenetreInitInfo();
 	private boolean sendData;
-	private JLabel lievreLabel, lynxLabel, vautourLabel, flaqueLabel, dureeLabel,anLabel,lacLabel,riviereLabel;
-	private JComboBox lievre,lynx,vautour,flaque,duree,lac,riviere;
-	private JLabel lievreIcon,lynxIcon,vautourIcon,eauIcon,tempsIcon;
+	private JLabel lievreLabel, lynxLabel, vautourLabel, flaqueLabel, dureeLabel,anLabel,lacLabel,riviereLabel,sizeLabel;
+	private JComboBox lievre,lynx,vautour,flaque,duree,lac,riviere,size;
+	private JLabel lievreIcon,lynxIcon,vautourIcon,eauIcon,tempsIcon,sizeIcon;
 	
 
 	ImageIcon icon_eau = new ImageIcon(new ImageIcon("images/bleu.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
@@ -31,6 +31,7 @@ public class FenetreInit extends JDialog {
 	ImageIcon icon_lievre = new ImageIcon(new ImageIcon("images/lievre.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
 	ImageIcon icon_vautour = new ImageIcon(new ImageIcon("images/vautour.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
 	ImageIcon icon_temps = new ImageIcon(new ImageIcon("images/temps.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+	ImageIcon icon_size = new ImageIcon(new ImageIcon("images/fleche.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 	
 	public FenetreInit(JFrame parent,String titre, boolean modal) {
 		super(parent, titre, modal);
@@ -162,6 +163,9 @@ public class FenetreInit extends JDialog {
 		pan_simulation.setBorder(BorderFactory.createTitledBorder("Simulation"));
 		
 		//duree de la simulation
+		JPanel pan_temps = new JPanel();
+		pan_temps.setBackground(Color.white);
+		pan_temps.setPreferredSize(new Dimension(290,90));
 		tempsIcon = new JLabel(icon_temps);
 		duree=new JComboBox();
 		for (int k=2;k<=100;k++) {
@@ -170,11 +174,31 @@ public class FenetreInit extends JDialog {
 		dureeLabel=new JLabel ("Duree de la simulation : ");
 		anLabel=new JLabel (" ans");
 		
+		pan_temps.add(tempsIcon);
+		pan_temps.add(dureeLabel);
+		pan_temps.add(duree);
+		pan_temps.add(anLabel);
+		
+		//taille de la grille
+		
+		JPanel pan_size = new JPanel();
+		pan_size.setBackground(Color.white);
+		pan_size.setPreferredSize(new Dimension(290,90));
+		sizeIcon = new JLabel (icon_size);
+		size =new JComboBox();
+		for (int k=30;k<101;k++) {
+			size.addItem(k);
+		}
+		sizeLabel = new JLabel ("Taille de la grille : ");
+				
+		pan_size.add(sizeIcon);
+		pan_size.add(sizeLabel);
+		pan_size.add(size);
+		
 		//Remplissage du panel Simulation
-		pan_simulation.add(tempsIcon);
-		pan_simulation.add(dureeLabel);
-		pan_simulation.add(duree);
-		pan_simulation.add(anLabel);
+		
+		pan_simulation.add(pan_temps);
+		pan_simulation.add(pan_size);
 		
 		
 		// JPanel General
@@ -190,7 +214,7 @@ public class FenetreInit extends JDialog {
 		JButton okBouton = new JButton("OK");
 		okBouton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				info = new FenetreInitInfo((int)lievre.getSelectedItem(),(int)lynx.getSelectedItem(),(int)vautour.getSelectedItem(),(int)flaque.getSelectedItem(),(int)duree.getSelectedItem(),(String)riviere.getSelectedItem(),(String)lac.getSelectedItem());
+				info = new FenetreInitInfo((int)lievre.getSelectedItem(),(int)lynx.getSelectedItem(),(int)vautour.getSelectedItem(),(int)flaque.getSelectedItem(),(int)duree.getSelectedItem(),(String)riviere.getSelectedItem(),(String)lac.getSelectedItem(),(int) size.getSelectedItem());
 				setVisible(false);
 			}
 		});

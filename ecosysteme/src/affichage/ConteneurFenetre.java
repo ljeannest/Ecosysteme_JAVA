@@ -52,11 +52,11 @@ public class ConteneurFenetre extends JPanel{
 	public final static int taille_grille_x=787;
 	public final static int taille_grille_y=650;
 	
-	public final static int NB_LIGNES = 30;
-	public final static int NB_COLONNES = 30;
+	public static int NB_LIGNES = 30;
+	public static int NB_COLONNES = 30;
  
-	public final static int largeur = taille_grille_x/ NB_COLONNES;
-	public final static int hauteur = taille_grille_y/ NB_LIGNES;
+	public static int largeur = taille_grille_x/ NB_COLONNES;
+	public static int hauteur = taille_grille_y/ NB_LIGNES;
 	
 	public  ArrayList<Ressource> point_eau;
 	public static ArrayList<Ressource> herbe;

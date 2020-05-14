@@ -9,10 +9,11 @@ public class FenetreInitInfo {
 	public int duree;
 	public int presence_riviere;
 	public int presence_lac;
+	public int size;
 	
 	public FenetreInitInfo() {}
 	
-	public FenetreInitInfo(int nb_lievre,int nb_lynx,int nb_vautour,int nb_flaques, int duree,String riv,String lac) {
+	public FenetreInitInfo(int nb_lievre,int nb_lynx,int nb_vautour,int nb_flaques, int duree,String riv,String lac,int size) {
 		this.nb_lievre=nb_lievre;
 		this.nb_lynx=nb_lynx;
 		this.nb_vautour=nb_vautour;
@@ -30,6 +31,7 @@ public class FenetreInitInfo {
 		else {
 			this.presence_lac=0;
 		}
+		this.size=size;
 	}
 	
 	public String toString() {
@@ -56,7 +58,8 @@ public class FenetreInitInfo {
 			str+= "Présence de rivière : " + riviere + "\n";
 			str+= "Présence de lac : " + lac+"\n";
 			str+= "Nombre de flaques : "+this.nb_flaques +"\n\n";
-			str+= "Duree de la simulation : "+this.duree +" ans\n\n";
+			str+= "Duree de la simulation : "+this.duree +" ans\n";
+			str+= "Taille de la grille : "+this.size+"x"+this.size +"\n\n";
 
 		}
 		else {

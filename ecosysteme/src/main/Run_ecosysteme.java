@@ -36,8 +36,12 @@ public class Run_ecosysteme {
 		int duree = info[4];
 		int presencelac=info[5];
 		int presenceriviere=info[6];
+		int taille = info[7];
 		
 		//création de l'écosystème, ainsi que des différents individus
+		
+		ConteneurFenetre.NB_LIGNES = taille;
+		ConteneurFenetre.NB_COLONNES = taille;
 		
 		ArrayList<Animal> individus = Animal.creation(nb_lievre,nb_lynx,nb_vautour);
 		Ressource [] ressource = Ressource.creation(nb_flaque,presencelac,presenceriviere,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
