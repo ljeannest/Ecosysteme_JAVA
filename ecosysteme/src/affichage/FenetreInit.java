@@ -26,7 +26,8 @@ public class FenetreInit extends JDialog {
 	private JLabel lievreIcon,lynxIcon,vautourIcon,eauIcon,tempsIcon,sizeIcon;
 	
 
-	ImageIcon icon_eau = new ImageIcon(new ImageIcon("images/bleu.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+	ImageIcon icon_eau_claire = new ImageIcon(new ImageIcon("images/bleu clair.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+	ImageIcon icon_eau_foncee = new ImageIcon(new ImageIcon("images/bleu fonce.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
 	ImageIcon icon_lynx = new ImageIcon(new ImageIcon("images/lynx.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
 	ImageIcon icon_lievre = new ImageIcon(new ImageIcon("images/lievre.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
 	ImageIcon icon_vautour = new ImageIcon(new ImageIcon("images/vautour.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
@@ -114,7 +115,7 @@ public class FenetreInit extends JDialog {
 		JPanel pan_flaque=new JPanel();
 		pan_flaque.setBackground(Color.white);
 		pan_flaque.setPreferredSize(new Dimension(290,90));
-		eauIcon = new JLabel(icon_eau);
+		eauIcon = new JLabel(icon_eau_claire);
 		flaque=new JComboBox();
 		for (int k=4; k<=10;k++) {
 			flaque.addItem(k);
@@ -128,7 +129,7 @@ public class FenetreInit extends JDialog {
 		JPanel pan_riviere=new JPanel();
 		pan_riviere.setBackground(Color.white);
 		pan_riviere.setPreferredSize(new Dimension(290,90));
-		eauIcon=new JLabel(icon_eau);
+		eauIcon=new JLabel(icon_eau_foncee);
 		riviere=new JComboBox();
 		riviere.addItem("oui");
 		riviere.addItem("non");
@@ -141,7 +142,7 @@ public class FenetreInit extends JDialog {
 		JPanel pan_lac=new JPanel();
 		pan_lac.setBackground(Color.white);
 		pan_lac.setPreferredSize(new Dimension(290,90));
-		eauIcon=new JLabel(icon_eau);
+		eauIcon=new JLabel(icon_eau_foncee);
 		lac=new JComboBox();
 		lac.addItem("oui");
 		lac.addItem("non");
