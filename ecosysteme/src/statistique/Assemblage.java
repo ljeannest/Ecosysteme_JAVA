@@ -132,64 +132,82 @@ public class Assemblage {
 	/**
 	 * Nombre total d'individus lors de la simulation.
 	 */
-	int nbTotalIndividus;
+	public int nbTotalIndividus;
 	
 	/**
 	 * Nombre total de Mort pendant la simulation.
 	 */
-	int nbTotalMort;
+	public int nbTotalMort;
 	
 	/**
 	 * Nombre total d'individus mort par faim.
 	 */
-	int nbTotalMortFaim;
+	public int nbTotalMortFaim;
 	/**
 	 * Nombre total de mort par manque d'eau.
 	 */
-	int nbTotalMortSoif;
+	public int nbTotalMortSoif;
 	
 	/**
 	 * Nombre total d'individus mort du à la chasse.
 	 */
-	int nbTotalMortChasse;
+	public int nbTotalMortChasse;
 	
 	/**
 	 * Nombre total de nouveaux individus.
 	 */
-	int nbTotalNaissance;
+	public int nbTotalNaissance;
 	
 	/**
 	 * Nombre total d'individu au début de la simulation.
 	 */
 	
-	int nbTotalIndivDebut;
+	public int nbTotalIndivDebut;
 	
 	/**
 	 * Nombre total d'individu a la fin de la simulation.
 	 */
-	int nbTotalIndiFin;
+	public int nbTotalIndiFin;
 	
 
 	
 	/**
+	 * Constructeur de la classe.
 	 * 
 	 * @param nbIndividus
+	 * 			Liste comprenant le nombre d'individus par espéce sur toute la simulation.
 	 * @param moyenAgeParEspece
+	 * 			Liste des moyennes d'age par espéce.
 	 * @param moyenAgeALaMort
+	 * 			Liste des moyenne d'age a la mort par espéce.
 	 * @param causeFinSimulation
+	 * 			Cause de fin de simulation.
 	 * @param tSimulation
+	 * 			Temps de la simulation.
 	 * @param nbEspeceDebut
+	 * 			Nombre d'espece au début de la simulation.
 	 * @param nbEspeceFin
+	 * 			Nombre d'espece a la fin de la simulation.
 	 * @param nbIndividuDebut
+	 * 			Liste du ombre d'individu au début de la simulation par espece.
 	 * @param nbIndividuFin
+	 * 			Liste du nombre d'individue a la fin de la simulation par espece.
 	 * @param nbMoyenNaissance
+	 * 			Liste des nombres moyen de naissance par espece.
+	 * @param nbNaissance
+	 * 			Liste du nombre de naissance par espece.
 	 * @param nbMortNorm
+	 * 			Liste du nombre de mort naturelle par espece.
 	 * @param nbMortFaim
+	 * 			Liste du nombre de mort par faim par espece.
 	 * @param nbMortSoif
+	 * 			Liste du nombre de mort par manque d'eau par espece.
 	 * @param nbMortChasse
+	 * 			Liste du nombre de mort par chasse par espece.
 	 * @param nbMoyenPetit
+	 * 			Liste du nombre de nouveau nee par espece.
 	 */
-	public Assemblage(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,int tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,int [] nbMoyenNaissance,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse,int [] nbMoyenPetit) {
+	public Assemblage(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,int tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,int [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse,int [] nbMoyenPetit) {
 		
 		this.nbIndividus = nbIndividus;
 		this.moyenAgeParEspece = moyenAgeParEspece;
@@ -201,6 +219,7 @@ public class Assemblage {
 		this.nbIndividuDebut = nbIndividuDebut;
 		this.nbIndividuFin = nbIndividuFin;
 		this.nbMoyenNaissance = nbMoyenNaissance;
+		this.nbNaissance = nbNaissance;
 		this.nbMortNorm = nbMortNorm;
 		this.nbMortFaim = nbMortFaim ;
 		this.nbMortSoif = nbMortSoif;
@@ -211,18 +230,9 @@ public class Assemblage {
 		this.nbTotalMortFaim = this.nbMortFaim[0] + this.nbMortFaim[1] + this.nbMortFaim[2];
 		this.nbTotalMortSoif = this.nbMortSoif[0] + this.nbMortSoif[1] + this.nbMortSoif[2];
 		this.nbTotalMortChasse = this.nbMortChasse[0] + this.nbMortChasse[1] + this.nbMortChasse[2];
-		this.nbTotalNaissance = this.nb;
-		
-		/**
-		 * Nombre total d'individu au début de la simulation.
-		 */
-		
-		int nbTotalIndivDebut;
-		
-		/**
-		 * Nombre total d'individu a la fin de la simulation.
-		 */
-		int nbTotalIndiFin;
+		this.nbTotalNaissance = this.nbNaissance[0] + this.nbNaissance[1] + this.nbNaissance[2];
+		this.nbTotalIndivDebut = this.nbIndividuDebut[0] + this.nbIndividuDebut[1] + this.nbIndividuDebut[2];
+		this.nbTotalIndiFin = this.nbIndividuFin[0] + this.nbIndividuFin[1] + this.nbIndividuFin[2];
 		
 	}
 	
