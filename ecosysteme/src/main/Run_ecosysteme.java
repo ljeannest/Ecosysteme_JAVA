@@ -57,6 +57,7 @@ public class Run_ecosysteme {
 		
 		//fermeture de l'ecosysteme
 		
+		fenetrePrincipale.setVisible(false);
 		
 		//nouvelle fenetre affichant les statistiques de la modelisation.
 

@@ -347,15 +347,34 @@ public class Animal {
 			est_libre = pos_libre(A_list,ressource,pos, this.posx,this.posy);
 		}
 	}
-
+	
 	/**
 	 *Permet de faire déplacer un animal selon ses besoins en nourriture ou en eau 
+	 *
+	 *@author Lucie
+	 *
+	 */
+	
+	public void deplacement(ArrayList<Animal> A_list, Ressource[] ressource, int pos, int maxX, int maxY) {
+		String orientation ="E";
+		if (this.jauge_eau<75) {
+			orientation = this.setOrientationEau(ressource);
+		}
+		else if (this.jauge_nourriture<50) {
+			orientation = this.setOrientationNourriture(ressource);
+		}
+		this.deplacement_orientation(A_list, ressource, pos, maxX, maxY, orientation);
+	}
+	
+	
+	/**
+	 *Permet de faire déplacer un animal dans une direction donnée
 	 *
 	 *@author Augustin
 	 *
 	 */
 
-	public void deplacement(ArrayList<Animal> A_list,Ressource[] ressource, int pos, int maxX,int maxY,String orientation) {
+	public void deplacement_orientation(ArrayList<Animal> A_list,Ressource[] ressource, int pos, int maxX,int maxY,String orientation) {
 	
 		int newX=this.posx;
 		int newY=this.posy;
@@ -386,6 +405,22 @@ public class Animal {
 	}
 	
 	/**
+	 *Permet de définir la direction que va emprunter l'animal à l'instant t+1 s'il a faim
+	 *
+	 *@author Augustin
+	 *
+	 */
+	
+	public String setOrientationNourriture(Ressource[] ressource) {
+		String orientation = "E";
+		if (this.type==0) {
+			
+		}
+		return orientation;
+	}
+	
+	
+	/**
 	 * Permet de définir la direction que va emprunter l'animal à l'instant t+1 s'il a soif
 	 * 
 	 * @author Lucie
@@ -394,7 +429,11 @@ public class Animal {
 	public String setOrientationEau(Ressource[] ressource) {
 		String orientation="N";
 		int[] pos_eau = ppeau(this.posx,this.posy,ressource);
-		if(pos_eau[0]>this.posx) {
+		if ((pos_eau[0]==posx && (pos_eau[1]==posy+1||pos_eau[1]==posy-1))||(pos_eau[1]==posy && (pos_eau[0]==posx+1||pos_eau[0]==posx-1))) {
+			this.boire(ressource[pos_eau[2]]);
+			orientation="";
+		}
+		else if(pos_eau[0]>this.posx) {
 			orientation="E";
 		}
 		else if (pos_eau[0]<this.posx) {
@@ -417,10 +456,11 @@ public class Animal {
 	
 	public int[] ppeau(int posx, int posy, Ressource[] ressource) {
 		int n = ressource.length;
-		int[] pos_eau = new int[2];
+		int[] pos_eau = new int[3];
 		double dist_min=1000;
-		pos_eau[0]=0;
-		pos_eau[1]=0;
+		pos_eau[0]=0;//pos en x
+		pos_eau[1]=0;//pos en y
+		pos_eau[2]=0;//position de la case dans la liste des ressources
 		for (int k=0;k<n;k++) {
 			if (ressource[k].type=="Eau") {
 				double dist = Math.sqrt((posx-ressource[k].posx)*(posx-ressource[k].posx)+(posy-ressource[k].posy)*(posy-ressource[k].posy));
@@ -428,6 +468,7 @@ public class Animal {
 					dist_min = dist;
 					pos_eau[0]=ressource[k].posx;
 					pos_eau[1]=ressource[k].posy;
+					pos_eau[2]=k;
 				}
 			}
 		}
@@ -452,9 +493,15 @@ public class Animal {
 	 * 
 	 * @author Augustin
 	 */
-	public void boire() {
-		if (this.est_vivant==true) {
-			this.jauge_eau+=1;}
+	public void boire(Ressource case_r) {
+		if (this.est_vivant==true && case_r.quantiteRessource>=10) {
+			this.jauge_eau+=10;
+			case_r.quantiteRessource-=10;
+		}
+		else if(this.est_vivant==true && case_r.quantiteRessource>0) {
+			this.jauge_eau+=case_r.quantiteRessource;
+			case_r.quantiteRessource=0;
+		}
 	}
 
 	/**
