@@ -483,7 +483,24 @@ public class Animal {
 			return orientation;
 		}
 		else if (this.type==1) {
-			
+			int[] pos_herb= this.ppherbivore(A_list);
+			if ((pos_herb[0]==posx && (pos_herb[1]==posy+1||pos_herb[1]==posy-1))||(pos_herb[1]==posy && (pos_herb[0]==posx+1||pos_herb[0]==posx-1))) {
+				this.manger_carn(A_list.get(pos_herb[2]));
+				orientation="";
+			}
+			else if(pos_herb[0]>this.posx) {
+				orientation="E";
+			}
+			else if (pos_herb[0]<this.posx) {
+				orientation="W";
+			}
+			else if (pos_herb[1]<this.posy) {
+				orientation="S";
+			}
+			else if (pos_herb[1]>this.posy){
+				orientation="N";
+			}
+			return orientation;
 		}
 		else if (this.type==2) {
 			int[] pos_cad= this.ppcadavre(A_list);
@@ -562,6 +579,35 @@ public class Animal {
 			}
 		}
 		return pos_cad;
+	}
+	
+	
+	/**
+	 *Permet de determiner l'herbivore le plus proche
+	 *
+	 *@author Lucie
+	 *
+	 */
+	
+	public int[] ppherbivore(ArrayList<Animal> A_list) {
+		int n = A_list.size();
+		int[] pos_herb = new int[3];
+		double dist_min=1000;
+		pos_herb[0]=this.posx;//pos en x
+		pos_herb[1]=this.posy;//pos en y
+		pos_herb[2]=0;//position de la case dans la liste des animaux
+		for (int k=0;k<n;k++) {
+			if (A_list.get(k).type==0 && A_list.get(k).est_vivant==true) {
+				double dist = Math.sqrt((this.posx-A_list.get(k).posx)*(this.posx-A_list.get(k).posx)+(this.posy-A_list.get(k).posy)*(this.posy-A_list.get(k).posy));
+				if (dist<dist_min && dist >0) {
+					dist_min = dist;
+					pos_herb[0]=A_list.get(k).posx;
+					pos_herb[1]=A_list.get(k).posy;
+					pos_herb[2]=k;
+				}
+			}
+		}
+		return pos_herb;
 	}
 	
 	
@@ -712,7 +758,7 @@ public class Animal {
 		if (A.type==0 && A.est_vivant==true) {
 				A.est_vivant=false;
 				A.qte_viande-=1;
-				this.jauge_nourriture+=20;
+				this.jauge_nourriture+=50;
 		}
 	}
 	
