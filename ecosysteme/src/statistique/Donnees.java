@@ -27,7 +27,7 @@ package statistique;
  *
  */
 
-public class Assemblage {
+public class Donnees {
 	
 	/**
 	 * Liste contenant le nombre d'individus par espéce sur toute la simulation par convention la position 0 correspond aux herbivores 1 pour Carnivore 3 pour Charognard.
@@ -207,7 +207,7 @@ public class Assemblage {
 	 * @param nbMoyenPetit
 	 * 			Liste du nombre de nouveau nee par espece.
 	 */
-	public Assemblage(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,int tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,int [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse,int [] nbMoyenPetit) {
+	public Donnees(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,int tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,int [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse,int [] nbMoyenPetit) {
 		
 		this.nbIndividus = nbIndividus;
 		this.moyenAgeParEspece = moyenAgeParEspece;

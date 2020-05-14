@@ -1,4 +1,4 @@
- package statistique;
+package statistique;
 
 import java.io.IOException;
 
