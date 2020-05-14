@@ -271,7 +271,10 @@ public class Animal {
 		this.age+=1;
 	}
 	
-	
+	/**
+	 * Permet de faire mourir l'animal quand il atteint son la fin de son espérance de vie
+	 * 
+	 */
 	public void mort_naturelle() {
 		if (this.mort_de_vieillesse()||this.mort_de_manque()) {
 			this.est_vivant=false;
@@ -672,7 +675,12 @@ public class Animal {
 			A.qte_viande=0;
 		}
 	}
-	
+	/**
+	 * Permet de faire se décomposer un animal mort
+	 * 
+	 * @param ressource
+	 * 			Tableau de type Ressource contenant l'ensemble des ressources de l'ecosysteme.
+	 */
 	public void decomposition(Ressource[] ressource) {
 		this.qte_viande-=1;
 		for (int i=0;i<=2;i++) {
@@ -708,7 +716,16 @@ public class Animal {
 			}
 		}
 	}
-	
+	/**
+	 * <p>Permet de faire disparaitre les animaux aprés décompostion de leur cadavre. Et de mes faire passer dans la liste des animaux mort.</p>
+	 * @param A_list
+	 * 			Liste array de type Animal. contient les animaux vivant de l'ecosysteme.
+	 * @param A_list_mort
+	 * 			Liste array de type Animal. Contient les animaux mort de l'ecosysteme.
+	 * @param pos
+	 * 			Position de l'animal à faire disparaitre de la A_list vers la A_list_mort.
+	 * 
+	 */
 	public void disparition(ArrayList<Animal> A_list,ArrayList<Animal> A_list_mort,int pos) {
 		if (this.est_vivant==false && this.qte_viande<=0) {
 			A_list.remove(pos);
