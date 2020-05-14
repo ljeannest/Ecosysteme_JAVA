@@ -360,26 +360,28 @@ public class Animal {
 		int newX=this.posx;
 		int newY=this.posy;
 	
-	if (this.est_vivant==true) {
+		if (this.est_vivant==true) {
 		
 
-		if (orientation=="N"&& (maxY-1)>this.posy&& pos_libre (A_list,ressource,pos,posx,posy+1)==true) {
-			newX=this.posx;
-			newY=this.posy+1;}
+			if (orientation=="N"&& (maxY-1)>this.posy&& pos_libre (A_list,ressource,pos,posx,posy+1)==true) {
+				newX=this.posx;
+				newY=this.posy+1;}
 		
-		if (orientation=="S"&& this.posy!=0 && pos_libre (A_list,ressource,pos,posx,posy-1)==true) {
-			newX=this.posx;
-			newY=this.posy-1;}
+			if (orientation=="S"&& this.posy!=0 && pos_libre (A_list,ressource,pos,posx,posy-1)==true) {
+				newX=this.posx;
+				newY=this.posy-1;}
 		
-		if (orientation=="E"&& (maxX-1)>this.posx && pos_libre (A_list,ressource,pos,posx+1,posy)==true) {
-			newX=this.posx+1;
-			newY=this.posy;}
+			if (orientation=="E"&& (maxX-1)>this.posx && pos_libre (A_list,ressource,pos,posx+1,posy)==true) {
+				newX=this.posx+1;
+				newY=this.posy;}
 		
-		if (orientation=="W"&& this.posx!=0 && pos_libre (A_list,ressource,pos,posx-1,posy)==true) {
-			newX=this.posx-1;
-			newY=this.posy;}
-		
-		
+			if (orientation=="W"&& this.posx!=0 && pos_libre (A_list,ressource,pos,posx-1,posy)==true) {
+				newX=this.posx-1;
+				newY=this.posy;}
+		}
+		else {
+			newX=-1;
+			newY=-1;
 		}
 		this.posx=newX;
 		this.posy=newY;
