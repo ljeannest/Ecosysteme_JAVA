@@ -37,9 +37,11 @@ public class ConteneurFenetre extends JPanel{
 	ImageIcon icon_vautour = new ImageIcon(new ImageIcon("images/vautour.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	Border grayline = BorderFactory.createLineBorder(Color.GRAY,1); 
-	Border blackline = BorderFactory.createLineBorder(Color.black,2); 
+	Border blackline = BorderFactory.createLineBorder(Color.black,1); 
 	Border blueline = BorderFactory.createLineBorder(Color.blue,1); 
 	Border redline = BorderFactory.createLineBorder(Color.red,1); 
+	Border whiteline = BorderFactory.createLineBorder(Color.white,1);
+	Border greenline = BorderFactory.createLineBorder(Color.green,1);
 	
 	private JLabel etiquette ;
 	private JButton bouton;
@@ -285,15 +287,19 @@ public class ConteneurFenetre extends JPanel{
 				
 				if (animal_emplacement.espece=="Lynx") {
 					 	emplacement = new JLabel(icon_lynx);
+					 	emplacement.setBorder(redline);
 				}
 				else if (animal_emplacement.espece=="Lievre") {
 						emplacement = new JLabel(icon_lievre);
+						emplacement.setBorder(whiteline);
 				}
 				else if (animal_emplacement.espece=="Vautour") {
 						emplacement = new JLabel(icon_vautour);
+						emplacement.setBorder(blackline);		
+									
 				}
 				   
-					emplacement.setBorder(redline);	}
+						}
 					
 				
 				
@@ -302,12 +308,13 @@ public class ConteneurFenetre extends JPanel{
 					
 					if (ressource_emplacement.couleur=="bleu clair") {
 					 	emplacement = new JLabel(icon_eau_claire);
-					 	emplacement.setBorder(blueline);
+					 	//emplacement.setBorder(blueline);
+					 	
 				}
 					
 					else if(ressource_emplacement.couleur=="bleu fonce") {
 						emplacement = new JLabel(icon_eau_foncee);
-						emplacement.setBorder(blueline);
+						//emplacement.setBorder(blueline);
 					}
 					
 					   
