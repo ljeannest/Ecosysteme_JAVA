@@ -103,21 +103,25 @@ public class ConteneurFenetre extends JPanel{
 	 * Bordure de case de couleur grise.
 	 */
 	Border grayline = BorderFactory.createLineBorder(Color.GRAY,1); 
+
 	
 	/**
 	 * Bordure de case de couleurer noir.
 	 */
-	Border blackline = BorderFactory.createLineBorder(Color.black,2); 
+	Border blackline = BorderFactory.createLineBorder(Color.black,1); 
 	
 	/**
 	 * Bordure de case de couleur bleu.
 	 */
+
 	Border blueline = BorderFactory.createLineBorder(Color.blue,1); 
 	
 	/**
 	 * Bordure de case de couleur rouge.
 	 */
 	Border redline = BorderFactory.createLineBorder(Color.red,1); 
+	Border whiteline = BorderFactory.createLineBorder(Color.white,1);
+	Border greenline = BorderFactory.createLineBorder(Color.green,1);
 	
 	
 	
@@ -410,15 +414,19 @@ public class ConteneurFenetre extends JPanel{
 				
 				if (animal_emplacement.espece=="Lynx") {
 					 	emplacement = new JLabel(icon_lynx);
+					 	emplacement.setBorder(redline);
 				}
 				else if (animal_emplacement.espece=="Lievre") {
 						emplacement = new JLabel(icon_lievre);
+						emplacement.setBorder(whiteline);
 				}
 				else if (animal_emplacement.espece=="Vautour") {
 						emplacement = new JLabel(icon_vautour);
+						emplacement.setBorder(blackline);		
+									
 				}
 				   
-					emplacement.setBorder(redline);	}
+						}
 					
 				
 				
@@ -427,12 +435,13 @@ public class ConteneurFenetre extends JPanel{
 					
 					if (ressource_emplacement.couleur=="bleu clair") {
 					 	emplacement = new JLabel(icon_eau_claire);
-					 	emplacement.setBorder(blueline);
+					 	//emplacement.setBorder(blueline);
+					 	
 				}
 					
 					else if(ressource_emplacement.couleur=="bleu fonce") {
 						emplacement = new JLabel(icon_eau_foncee);
-						emplacement.setBorder(blueline);
+						//emplacement.setBorder(blueline);
 					}
 					
 					   
