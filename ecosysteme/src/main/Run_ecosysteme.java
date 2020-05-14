@@ -60,7 +60,7 @@ public class Run_ecosysteme {
 		fenetrePrincipale.setVisible(false);
 		
 		
-		//recuperation informations
+		//affichage des informations de la simulation
 		
 		int p = individus.size();
 		for (int k=0;k<p;k++) {
