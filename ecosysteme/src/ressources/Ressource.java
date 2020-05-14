@@ -207,8 +207,8 @@ public class Ressource {
 	public static Ressource[] devient_desert(Ressource[] ressource) {
 		int n = ressource.length;
 		for (int k=0;k<n;k++) {
-			if (ressource[n].quantiteRessource<=0) {
-				ressource[n]=new Desert(ressource[n].posx,ressource[n].posy);
+			if (ressource[k].quantiteRessource<=0) {
+				ressource[k]=new Desert(ressource[k].posx,ressource[k].posy);
 			}
 		}
 		return ressource;

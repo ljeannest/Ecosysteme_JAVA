@@ -273,50 +273,47 @@ public class ConteneurFenetre extends JPanel{
 				
 				if (animal_emplacement!=null) {
 				
-				if (animal_emplacement.espece=="Lynx") {
-					if (animal_emplacement.est_vivant==true) {
-					 	emplacement = new JLabel(icon_lynx);
-					 	emplacement.setBorder(redline);
-					}
-					else {
-						emplacement = new JLabel(icon_lynx_mort);
-					 	emplacement.setBorder(redline);
-					}
-				}
-				else if (animal_emplacement.espece=="Lievre") {
-					if (animal_emplacement.est_vivant == true) {
-						emplacement = new JLabel(icon_lievre);
-						emplacement.setBorder(whiteline);
-					}
-					else {
-						emplacement = new JLabel(icon_lievre_mort);
-					 	emplacement.setBorder(whiteline);
-					}
-				}
-				else if (animal_emplacement.espece=="Vautour") {
-					if (animal_emplacement.est_vivant == true) {
-						emplacement = new JLabel(icon_vautour);
-						emplacement.setBorder(blackline);	
-					}
-					else {
-						emplacement = new JLabel(icon_vautour_mort);
-					 	emplacement.setBorder(blackline);
-					}
-									
-				}
-				   
+					if (animal_emplacement.espece=="Lynx") {
+						if (animal_emplacement.est_vivant==true) {
+							emplacement = new JLabel(icon_lynx);
+							emplacement.setBorder(redline);
 						}
-					
-				
-				
-					
+						else {
+							emplacement = new JLabel(icon_lynx_mort);
+							emplacement.setBorder(redline);
+						}
+					}
+					else if (animal_emplacement.espece=="Lievre") {
+						if (animal_emplacement.est_vivant == true) {
+							emplacement = new JLabel(icon_lievre);
+							emplacement.setBorder(whiteline);
+						}
+						else {
+							emplacement = new JLabel(icon_lievre_mort);
+							emplacement.setBorder(whiteline);
+						}
+					}
+					else if (animal_emplacement.espece=="Vautour") {
+						if (animal_emplacement.est_vivant == true) {
+							emplacement = new JLabel(icon_vautour);
+							emplacement.setBorder(blackline);	
+						}
+						else {
+							emplacement = new JLabel(icon_vautour_mort);
+							emplacement.setBorder(blackline);
+						}
+									
+					}
+				   
+				}
+						
 				else  {
 					
 					if (ressource_emplacement.couleur=="bleu clair") {
 					 	emplacement = new JLabel(icon_eau_claire);
 					 	//emplacement.setBorder(blueline);
 					 	
-				}
+					}
 					
 					else if(ressource_emplacement.couleur=="bleu fonce") {
 						emplacement = new JLabel(icon_eau_foncee);
@@ -324,14 +321,17 @@ public class ConteneurFenetre extends JPanel{
 					}
 					
 					   
-						
+					else if (ressource_emplacement.type=="Desert") {
+						emplacement = new JLabel(icon_desert);
+						emplacement.setBorder(grayline);
+					}
 						
 				
-				else if (ressource_emplacement.type=="Vegetaux") {
+					else if (ressource_emplacement.type=="Vegetaux") {
 					
-					emplacement.setBorder(grayline);}
+						emplacement.setBorder(grayline);}
 					
-				}
+					}
 					
 					emplacement.setSize(largeur, hauteur);
 					
@@ -341,17 +341,13 @@ public class ConteneurFenetre extends JPanel{
 			}
 
 
-		grille.setBorder(blackline);
-		this.grille.setBounds(0, 0, taille_grille_x, taille_grille_y);
-		this.add(grille);
+			grille.setBorder(blackline);
+			this.grille.setBounds(0, 0, taille_grille_x, taille_grille_y);
+			this.add(grille);
+			this.setVisible(true);
 		
-		
-		
-		this.setVisible(true);
-		
-		//Thread.sleep(1000);
+		}
 	}
-}
 	
 
 	
