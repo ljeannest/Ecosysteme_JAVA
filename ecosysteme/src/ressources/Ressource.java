@@ -180,10 +180,10 @@ public class Ressource {
 		int k=0;
 		Ressource[] riviere = new Ressource[posx+posy];
 		for (int i=0;i<posy;i++) {
-			riviere[k]=new Riviere(posx,i,"bleu clair",100);	
+			riviere[k]=new Riviere(posx,i,"bleu clair",1000);	
 		}
 		for (int j=0;j<posx;j++) {
-			riviere[k]=new Riviere(j,posy,"bleu clair",100);
+			riviere[k]=new Riviere(j,posy,"bleu clair",1000);
 		}
 		return riviere;
 	}
@@ -264,25 +264,25 @@ public class Ressource {
 							for (int b=0;b<4;b++) {
 								if (posx_lac+a<NB_LIGNES && posy_lac+b<NB_COLONNES && a+b<=4) {
 									if (posx_lac+a==i && posy_lac+b==j) {
-										ressource[k]=new Lac (i,j,100);
+										ressource[k]=new Lac (i,j,1000);
 										plein = true;
 									}
 								}
 								if (posx_lac-a>=0 && posy_lac+b<NB_COLONNES && a+b<=4) {
 									if (posx_lac-a==i && posy_lac+b==j) {
-										ressource[k]=new Lac (i,j,100);
+										ressource[k]=new Lac (i,j,1000);
 										plein = true;
 									}
 								}
 								if (posx_lac+a<NB_LIGNES && posy_lac-b>=0 && a+b<=4) {
 									if (posx_lac+a==i && posy_lac-b==j) {
-										ressource[k]=new Lac (i,j,100);
+										ressource[k]=new Lac (i,j,1000);
 										plein = true;
 									}
 								}
 								if (posx_lac-a>=0 && posy_lac-b>=0 && a+b<=4) {
 									if (posx_lac-a==i && posy_lac-b==j) {
-										ressource[k]=new Lac (i,j,100);
+										ressource[k]=new Lac (i,j,1000);
 										plein = true;
 									}
 								}
@@ -294,13 +294,13 @@ public class Ressource {
 					if (presence_riviere == 1) {
 						for (int a=0;a<=posx_riviere;a++) {
 							if (a==i && posy_riviere==j) {
-								ressource[k]=new Riviere (i,j,"bleu clair",100);
+								ressource[k]=new Riviere (i,j,"bleu clair",1000);
 								plein = true;
 							}
 						}
 						for (int b=0;b<=posy_riviere;b++) {
 							if (posx_riviere==i && b==j) {
-								ressource[k]=new Riviere (i,j,"bleu clair",100);
+								ressource[k]=new Riviere (i,j,"bleu clair",1000);
 								plein = true;
 							}
 						}
@@ -309,7 +309,7 @@ public class Ressource {
 				if (plein==false) {
 					for (int a=0; a<nb_flaque;a++) {
 						if (posx_flaque[a]==i && posy_flaque[a]==j) {
-							ressource[k]=new Flaque (i,j,"bleu clair",100);
+							ressource[k]=new Flaque (i,j,"bleu clair",50);
 							plein=true;
 						}
 					}

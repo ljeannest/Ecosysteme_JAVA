@@ -527,6 +527,9 @@ public class Animal {
 			this.jauge_eau+=case_r.quantiteRessource;
 			case_r.quantiteRessource=0;
 		}
+		if (case_r.sous_type=="Riviere") {
+			case_r.quantiteRessource+=10;
+		}
 	}
 
 	/**

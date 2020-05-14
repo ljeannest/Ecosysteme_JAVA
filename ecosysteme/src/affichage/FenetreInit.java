@@ -125,7 +125,7 @@ public class FenetreInit extends JDialog {
 		pan_flaque.setPreferredSize(new Dimension(290,90));
 		eauIcon = new JLabel(icon_eau_claire);
 		flaque=new JComboBox();
-		for (int k=4; k<=10;k++) {
+		for (int k=4; k<=20;k++) {
 			flaque.addItem(k);
 		}
 		flaqueLabel=new JLabel ("Nombre de flaques : ");
