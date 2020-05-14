@@ -22,48 +22,173 @@ import individus.*;
 
 import ressources.*;
 
+/**
+ *<b> Permet de l'affichage de l'ecosysteme et de l'actualiser selon le temps qui passe.</b>
+ * <p>Les variables suivantes sont donc nécessaire:</p>
+ * <ul>
+ * <li> Un tableau de type Ressources au dimension de l'ecosysteme regroupere toute les ressources présente dans l'ecosysteme.</li>
+ * <li> Un tableau de type Animal au dimension de l'ecosysteme qui regroupera toute les individus présent dans l'ecosyteme.</li>
+ * <li> Une image de type icon et de couleur verte qui servira à modéliser l'herbe dans l'ecosyteme.</li>
+ * <li> Une image de type icon et de couleur bleu clair qui servira à modéliser l'Eau de sous-type Flaque.</li>
+ * <li> Une image de type icon et de couleur bleu fonce qui servire à modeliser l'Eau de sous-type Lac et Riviere.</li>
+ * <li> Une image de type icon de couleur marron clair qui servira à modeliser le Desert.</li>
+ * <li> Une image de type icon representant un Lynx.</li>
+ * <li> Une image de type icon representant un Lievre</li>
+ * <li> Une image de type icon representant un Vautour</li>
+ * <li> les borudre des cases auront des coiuleur pour un meilleur rendu visuel et faire ressortir les différents type se trouvant dans l'ecosysteme.</li>
+ * <li> Des varaibles permettant l'affichage d'un menu de selection pour l'utilisateur via des boutons.</li>
+ * <li> La taille de la grille en X mise par défault à 787.</li>
+ * <li> La taille de la grille en Y mise par défault à 650.</li>
+ * <li> Le nombre de lignes du tableau représentant l'ecosysteme.</li>
+ * <li> Le nombre de colonne du tableau représentant l'ecosysteme.</li>
+ * <li> La largeur définit comme le rapport de la taille de la grille en X et du nombre de lignes.</li>
+ * <li> La hauteur definit comme le rapport de la taille de la grille en Y et du nombre de colonnes.</li>
+ * <li> Une liste array de type Ressource contenant les points d'Eau.</li>
+ * <li> Une liste array de type Ressource contenant de l'herbe.</li>
+ * </ul>
+ *
+ */
+
+
 public class ConteneurFenetre extends JPanel{
+	
+	/**
+	 * Tableau de type Ressource regroupant les ressources présente dans l'ecosysteme.
+	 */
 	public Ressource[][] grid_ressources = new Ressource[NB_COLONNES][NB_LIGNES];
+	
+	/**
+	 * Tableau de type Animal regroupant les animaux present dans l'ecosysteme.
+	 */
 	public Animal[][] grid_animaux = new Animal[NB_COLONNES][NB_LIGNES];// ça
 	
 	
-	
+	/**
+	 * Icon représentant l'herbe.
+	 */
 	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	/**
+	 * Icon représentant de l'eau clair.
+	 */
 	ImageIcon icon_eau_claire = new ImageIcon(new ImageIcon("images/bleu clair.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	/**
+	 * Icone représentant de l'eau foncé.
+	 */
 	ImageIcon icon_eau_foncee = new ImageIcon(new ImageIcon("images/bleu fonce.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	/**
+	 * Icon représentant le desert.
+	 */
 	ImageIcon icon_desert = new ImageIcon (new ImageIcon("images/marron clair.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	/**
+	 * Icon représentant un Lynx
+	 */
 	ImageIcon icon_lynx = new ImageIcon(new ImageIcon("images/lynx.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	/** 
+	 * Icon représentant un Lievre.
+	 */
 	ImageIcon icon_lievre = new ImageIcon(new ImageIcon("images/lievre.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	/**
+	 * Icon representant un Vautour.
+	 */
 	ImageIcon icon_vautour = new ImageIcon(new ImageIcon("images/vautour.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
+	
+	/**
+	 * Bordure de case de couleur grise.
+	 */
 	Border grayline = BorderFactory.createLineBorder(Color.GRAY,1); 
+	
+	/**
+	 * Bordure de case de couleurer noir.
+	 */
 	Border blackline = BorderFactory.createLineBorder(Color.black,2); 
+	
+	/**
+	 * Bordure de case de couleur bleu.
+	 */
 	Border blueline = BorderFactory.createLineBorder(Color.blue,1); 
+	
+	/**
+	 * Bordure de case de couleur rouge.
+	 */
 	Border redline = BorderFactory.createLineBorder(Color.red,1); 
+	
+	
 	
 	private JLabel etiquette ;
 	private JButton bouton;
+	
+	/**
+	 * Texte afficher à l'ecran.
+	 */
 	private JTextField champTexte;
 	private JPanel grille;
 	
 
 	
-	
+	/**
+	 * Taille de la grille en X.
+	 */
 	public final static int taille_grille_x=787;
+	
+	/**
+	 * taille de la grille en Y
+	 */
 	public final static int taille_grille_y=650;
 	
+	
+	/**
+	 * Nombre de lignes dans le tableau.
+	 */
 	public static int NB_LIGNES = 30;
+	
+	/**
+	 * Nombre de colonnes dans le tableau.
+	 */
 	public static int NB_COLONNES = 30;
  
+	
+	/**
+	 * Largeur de la fentre.
+	 */
 	public static int largeur = taille_grille_x/ NB_COLONNES;
+	
+	/**
+	 * hauteur de la fenetre
+	 */
 	public static int hauteur = taille_grille_y/ NB_LIGNES;
 	
+	
+	/**
+	 * Liste Array de type Ressource regroupant les points d'eau dans l'ecosysteme.
+	 */
 	public  ArrayList<Ressource> point_eau;
+	
+	/**
+	 * Liste Aray de type Ressource  regroupant l'herbe.
+	 */
 	public static ArrayList<Ressource> herbe;
 	
 	//private int[][] grid = new int[NB_LIGNES][NB_COLONNES];
 	//private Image[] images;
 	
+	/**
+	 * Constructeur de la classe.
+	 * 
+	 * @param A_list
+	 * 			Liste Array de type Animal regroupant les individus à modéliser.
+	 * @param ressource
+	 * 			Liste Array de type Ressource regroupant les ressources à modéliser.
+	 * @param duree_ecoulee
+	 * 			Duree de la modélisation.
+	 * @throws InterruptedException
+	 */
 	public ConteneurFenetre(ArrayList<Animal> A_list,Ressource[] ressource,int duree_ecoulee) throws InterruptedException {
 		
 		super();
