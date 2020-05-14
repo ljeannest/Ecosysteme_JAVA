@@ -98,6 +98,21 @@ public class ConteneurFenetre extends JPanel{
 	 */
 	ImageIcon icon_vautour = new ImageIcon(new ImageIcon("images/vautour.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
+	/**
+	 * Icon representant un Lievre mort.
+	 */
+	ImageIcon icon_lievre_mort = new ImageIcon(new ImageIcon("images/lievre_mort.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	/**
+	 * Icon representant un Lynx mort.
+	 */
+	ImageIcon icon_lynx_mort = new ImageIcon(new ImageIcon("images/lynx_mort.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	/**
+	 * Icon representant un Vautour.
+	 */
+	ImageIcon icon_vautour_mort = new ImageIcon(new ImageIcon("images/vautour_mort.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
 	
 	/**
 	 * Bordure de case de couleur grise.
@@ -123,15 +138,7 @@ public class ConteneurFenetre extends JPanel{
 	Border whiteline = BorderFactory.createLineBorder(Color.white,1);
 	Border greenline = BorderFactory.createLineBorder(Color.green,1);
 	
-	
-	
-	private JLabel etiquette ;
-	private JButton bouton;
-	
-	/**
-	 * Texte afficher à l'ecran.
-	 */
-	private JTextField champTexte;
+
 	private JPanel grille;
 	
 
@@ -228,162 +235,16 @@ public class ConteneurFenetre extends JPanel{
 		
 	}
 	
-	
-	private void proprietesEtiquette() {
-		
-		etiquette = new JLabel();
-		
-		this.etiquette.setBounds(20,10,350,20);
-		this.etiquette.setText("TEXTE");
-		this.add(etiquette);
-			
-	}
-		
-	private void propBouton() {
-		this.bouton= new JButton();
-		this.bouton.setText("appuyer");
-		this.bouton.setBounds(30, 50, 90, 20);
-		this.add(bouton);
-	}
-	
-	private void propChampTexte() {
-		
-		champTexte = new JTextField();
-		this.champTexte.setBounds(130, 50, 100, 20);
-		this.add(champTexte);
-		
-	}
-	//private void affichImage() {
-		
 
-		
-		//imageLb1= new JLabel();
-		//iconPhoto = new ImageIcon("images/lapin_60-43.jpg");
-		//this.imageLb1.setBounds(100, 100, 60, 43);
-		//this.imageLb1.setIcon(iconPhoto);
-		//this.add(imageLb1);
-		
-		
-		
-	//}
-	
-
-	
-	private void Set_lac(int posx , int posy) {
-		
-		for (int i=0;i<4;i++) {
-			for (int j=0;j<4;j++) {
-				if (posx+i<NB_LIGNES && posy+j<NB_COLONNES && i+j<=4) {
-					Lac lac= new Lac (posx+i, posx+j,100);
-					this.grid_ressources[posx+i][posy+j]=lac;
-//					this.point_eau.ensureCapacity(this.point_eau.size()+1);
-//					this.point_eau.add(lac);
-				}
-				if (posx-i>=0 && posy-j>=0 && i+j<=4) {
-					Lac lac= new Lac (posx-i, posx-j,100);
-					this.grid_ressources[posx-i][posy-j]=lac;
-//					this.point_eau.ensureCapacity(this.point_eau.size()+1);
-//					this.point_eau.add(lac);
-				}
-				if (posx+i<NB_LIGNES && posy-j>=0 && i+j<=4) {
-					Lac lac= new Lac (posx+i, posx-j,100);
-					this.grid_ressources[posx+i][posy-j]=lac;
-//					this.point_eau.ensureCapacity(this.point_eau.size()+1);
-//					this.point_eau.add(lac);
-				}
-				if (posx-i>=0 && posy+j<NB_COLONNES && i+j<=4) {
-					Lac lac= new Lac (posx-i, posx+j,100);
-					this.grid_ressources[posx-i][posy+j]=lac;
-//					this.point_eau.ensureCapacity(this.point_eau.size()+1);
-//					this.point_eau.add(lac);
-				}
-			}
-		}
-	}
-	
-	private void Set_riviere(int posx, int posy) {
-		for (int i=0;i<=posy;i++) {
-			Riviere riviere= new Riviere (posx,i,"bleu fonce",100);
-			this.grid_ressources[posx][i]=riviere;
-//			this.point_eau.ensureCapacity(this.point_eau.size()+1);
-//			this.point_eau.add(riviere);
-		}
-		for (int j=0;j<=posx;j++) {
-			Riviere riviere= new Riviere (j,posy,"bleu fonce",100);
-			this.grid_ressources[j][posy]=riviere;
-//			this.point_eau.ensureCapacity(this.point_eau.size()+1);
-//			this.point_eau.add(riviere);
-		}
-	}
-	
-	private void Set_flaque(int posx,int posy) {
-		Eau flaque= new Eau ("flaque",posx,posy,"bleu fonce",20);
-		this.grid_ressources[posx][posy]=flaque;
-//		this.point_eau.ensureCapacity(this.point_eau.size()+1);
-//		this.point_eau.add(flaque);
-	}
 	
 	private void Set_grille_position(ArrayList<Animal> a_list) {
-		for(int i = 0; i<NB_LIGNES;i++){
-			for(int j = 0; j<NB_COLONNES;j++){
-				//this.grid_animaux[i][j]=this.grid_ressources[i][j];//environnement_initialisation
-			
-			}
-		}
 		int n = a_list.size();
 		for (int k=0; k<n; k++) {
-			
 				this.grid_animaux[a_list.get(k).posx][a_list.get(k).posy]=a_list.get(k);}//=A_list[k].espece
-			
-			//if (A_list[k].espece=="Lievre") {
-				//this.grid_animaux[A_list[k].posx][A_list[k].posy]=2;}
-		
-			//if (A_list[k].espece=="Vautour") {
-				//this.grid_animaux[A_list[k].posx][A_list[k].posy]=3;}
 			}
 		
 	
-	private void Set_grille_env(int[] posx, int[] posy, int presencelac, int presenceriviere) {
-		for(int i = 0; i<NB_LIGNES;i++){
-			for(int j = 0; j<NB_COLONNES;j++){
-				Herbe herbe=new Herbe(i,j,"vert", 20);
-				this.grid_ressources[i][j]=herbe;//herbe par defaut
-			
-			}
-		}
-		if (presencelac==1 && presenceriviere ==1) {
-			this.Set_lac(posx[0],posy[0]);
-			this.Set_riviere(posx[1],posy[1]);
-		
-			int n = posx.length;
-			for (int k=2;k<n;k++) {
-				this.Set_flaque(posx[k], posy[k]);
-			}
-		}
-		else if (presencelac==1 && presenceriviere ==0) {
-			this.Set_lac(posx[0],posy[0]);
-		
-			int n = posx.length;
-			for (int k=1;k<n;k++) {
-				this.Set_flaque(posx[k], posy[k]);
-			}
-		}
-		else if (presencelac==0 && presenceriviere ==1) {
-			this.Set_riviere(posx[0],posy[0]);
-		
-			int n = posx.length;
-			for (int k=1;k<n;k++) {
-				this.Set_flaque(posx[k], posy[k]);
-			}
-		}
-		else {
-			int n = posx.length;
-			for (int k=1;k<n;k++) {
-				this.Set_flaque(posx[k], posy[k]);
-			}
-		}
-	}
-	
+
 	
 	private void setGrilleEnv(Ressource[] ressource) {
 		int n = ressource.length;
@@ -413,16 +274,34 @@ public class ConteneurFenetre extends JPanel{
 				if (animal_emplacement!=null) {
 				
 				if (animal_emplacement.espece=="Lynx") {
+					if (animal_emplacement.est_vivant==true) {
 					 	emplacement = new JLabel(icon_lynx);
 					 	emplacement.setBorder(redline);
+					}
+					else {
+						emplacement = new JLabel(icon_lynx_mort);
+					 	emplacement.setBorder(redline);
+					}
 				}
 				else if (animal_emplacement.espece=="Lievre") {
+					if (animal_emplacement.est_vivant == true) {
 						emplacement = new JLabel(icon_lievre);
 						emplacement.setBorder(whiteline);
+					}
+					else {
+						emplacement = new JLabel(icon_lievre_mort);
+					 	emplacement.setBorder(whiteline);
+					}
 				}
 				else if (animal_emplacement.espece=="Vautour") {
+					if (animal_emplacement.est_vivant == true) {
 						emplacement = new JLabel(icon_vautour);
-						emplacement.setBorder(blackline);		
+						emplacement.setBorder(blackline);	
+					}
+					else {
+						emplacement = new JLabel(icon_vautour_mort);
+					 	emplacement.setBorder(blackline);
+					}
 									
 				}
 				   

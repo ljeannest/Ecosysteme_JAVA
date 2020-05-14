@@ -59,31 +59,5 @@ public class Herbivore extends Animal {
 		
 	}
 	
-	/**
-	 * Permet à l'herbivore de boire.
-	 * 
-	 * @param eau
-	 * 			Variable Ressource de type Eau.
-	 */
-	public void boire(Eau eau) {
-		
-		
-		while (eau.quantiteRessource<0 && this.jauge_eau<100) {
-			this.boire();
-			eau.se_faire_manger_boire();
-		}
-		
-		
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

@@ -49,7 +49,11 @@ public class fenetre extends JFrame {
 			duree_ecoulee++;
 			n=A_list.size();
 			for (int i=0;i<n;i++) {
+				A_list.get(i).jauge_nourriture-=5;
+				A_list.get(i).jauge_eau-=5;
+				A_list.get(i).mort_naturelle();
 				A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
+				A_list.get(i).vieillir();
 			}
 			
 			pan=new ConteneurFenetre(A_list,ressource,duree_ecoulee);

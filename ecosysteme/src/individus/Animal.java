@@ -97,7 +97,7 @@ public class Animal {
 	 * @see Animal#manger()
 	 * @see Animal#mort_de_faim()// a créé
 	 */
-	int jauge_nourriture;
+	public int jauge_nourriture;
 
 	/**
 	 * Etat de soif de l'animal. Modifiable.
@@ -105,7 +105,7 @@ public class Animal {
 	 * @see Animal#boire()
 	 * @see Animal#mort_de_soif()
 	 */
-	int jauge_eau;
+	public int jauge_eau;
 
 	/**
 	 * represente la quantité de nourriture pour un autre animal. Non modifiable.
@@ -266,7 +266,13 @@ public class Animal {
 	public void vieillir() {
 		this.age+=1;
 	}
-
+	
+	
+	public void mort_naturelle() {
+		if (this.mort_de_vieillesse()||this.mort_de_manque()) {
+			this.est_vivant=false;
+		}
+	}
 
 	/**
 	 * Indique si l'animal doit mourir de vielliesse. 
@@ -279,6 +285,25 @@ public class Animal {
 	 */
 	public boolean mort_de_vieillesse() {
 		if (this.age>=this.esp_de_vie) {// on devrait rajouter une condition de probabilité genre on tire au hasard un chifffre s'il est sup à 0,5 alors true else false
+			this.est_vivant=false;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Indique si l'animal doit mourir de faim ou de soif 
+	 * attention vérifier que l'animal n'est pas déja mort avant utilisation.
+	 * 
+	 * 
+	 * @return un boolean true si l'animal doit mourir
+	 * 
+	 * @author Lucie
+	 */
+	public boolean mort_de_manque() {
+		if (this.jauge_nourriture<=0||this.jauge_eau<=0) {
 			return true;
 		}
 		else {

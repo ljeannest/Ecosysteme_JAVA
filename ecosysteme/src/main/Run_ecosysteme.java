@@ -4,14 +4,13 @@ package main;
 import affichage.ConteneurFenetre;
 
 import affichage.FenetreInitOuverture; 
-import affichage.FenetreInitOuverture; 
 import affichage.fenetre;
 import individus.Animal;
 import ressources.Ressource;
 import java.util.ArrayList;
 
 /**
- * <b> Main de l'appliation.</b>
+ * <b> Main de l'application.</b>
  * 
  * 
  *

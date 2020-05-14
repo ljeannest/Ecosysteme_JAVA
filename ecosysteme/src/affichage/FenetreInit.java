@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 public class FenetreInit extends JDialog {
 	private FenetreInitInfo info= new FenetreInitInfo();
@@ -33,6 +34,10 @@ public class FenetreInit extends JDialog {
 	ImageIcon icon_vautour = new ImageIcon(new ImageIcon("images/vautour.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
 	ImageIcon icon_temps = new ImageIcon(new ImageIcon("images/temps.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 	ImageIcon icon_size = new ImageIcon(new ImageIcon("images/fleche.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+	
+	Border redline = BorderFactory.createLineBorder(Color.red,1); 
+	Border whiteline = BorderFactory.createLineBorder(Color.white,1);
+	Border blackline = BorderFactory.createLineBorder(Color.black,1);
 	
 	public FenetreInit(JFrame parent,String titre, boolean modal) {
 		super(parent, titre, modal);
@@ -59,6 +64,7 @@ public class FenetreInit extends JDialog {
 		
 		//lievres
 		lievreIcon=new JLabel(icon_lievre);
+		lievreIcon.setBorder(whiteline);
 		JPanel pan_lapin= new JPanel();
 		pan_lapin.setBackground(Color.white);
 		pan_lapin.setPreferredSize(new Dimension(290,90));
@@ -73,6 +79,7 @@ public class FenetreInit extends JDialog {
 		
 		//lynx
 		lynxIcon=new JLabel(icon_lynx);
+		lynxIcon.setBorder(redline);
 		JPanel pan_lynx= new JPanel();
 		pan_lynx.setBackground(Color.white);
 		pan_lynx.setPreferredSize(new Dimension(290,90));
@@ -87,6 +94,7 @@ public class FenetreInit extends JDialog {
 		
 		//vautour
 		vautourIcon=new JLabel(icon_vautour);
+		vautourIcon.setBorder(blackline);
 		JPanel pan_vautour= new JPanel();
 		pan_vautour.setBackground(Color.white);
 		pan_vautour.setPreferredSize(new Dimension(290,90));

@@ -66,27 +66,5 @@ public class Carnivore  extends Animal{
 		
 	}
 	
-	/**
-	 * Permet de faire boire un animal.
-	 * Modife la quantité d'eau de la ressouce eau bu
-	 * 
-	 * @param eau
-	 * 			 Ressource de type eau. @see Eau
-	 */
-	public void boire(Eau eau) {
-		
-		
-		while (eau.quantiteRessource<0 && this.jauge_eau<100) {
-			this.boire();
-			eau.se_faire_manger_boire();
-		}
-		
-		
-		
-	}
-
-	
-	
-	
 
 }
