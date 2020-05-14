@@ -52,7 +52,7 @@ public class fenetre extends JFrame {
 				if (A_list.get(i).est_vivant==true) {
 					A_list.get(i).degradation_besoin();
 					A_list.get(i).mort_naturelle(duree_ecoulee);
-					A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
+					A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES,duree_ecoulee);
 					A_list.get(i).vieillir();
 					if (A_list.get(i).est_enceinte==true){
 						A_list.get(i).duree_ecoulee_gestation+=1;

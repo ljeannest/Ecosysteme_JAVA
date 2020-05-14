@@ -405,7 +405,7 @@ public class Animal {
 	 *
 	 */
 	
-	public void deplacement(ArrayList<Animal> A_list, Ressource[] ressource, int pos, int maxX, int maxY) {
+	public void deplacement(ArrayList<Animal> A_list, Ressource[] ressource, int pos, int maxX, int maxY,int duree_ecoulee) {
 		String orientation ="";
 		if (this.jauge_eau>60 && this.jauge_nourriture>60 && this.est_enceinte==false && this.age>=this.ageReproMin && this.age<=this.ageReproMax) {
 			orientation = this.setOrientationRepro(A_list);
@@ -414,7 +414,7 @@ public class Animal {
 			orientation = this.setOrientationEau(ressource);
 		}
 		else {
-			orientation = this.setOrientationNourriture(A_list,ressource);
+			orientation = this.setOrientationNourriture(A_list,ressource,duree_ecoulee);
 		}
 		this.deplacement_orientation(A_list, ressource, pos, maxX, maxY, orientation);
 	}
@@ -519,7 +519,7 @@ public class Animal {
 	 *
 	 */
 	
-	public String setOrientationNourriture(ArrayList<Animal> A_list,Ressource[] ressource) {
+	public String setOrientationNourriture(ArrayList<Animal> A_list,Ressource[] ressource,int duree_ecoulee) {
 		String orientation = "";
 		if (this.type==0) {
 			int[] pos_veg= this.ppvegetaux(ressource);
@@ -544,7 +544,7 @@ public class Animal {
 		else if (this.type==1) {
 			int[] pos_herb= this.ppherbivore(A_list);
 			if ((pos_herb[0]==posx && (pos_herb[1]==posy+1||pos_herb[1]==posy-1))||(pos_herb[1]==posy && (pos_herb[0]==posx+1||pos_herb[0]==posx-1))) {
-				this.manger_carn(A_list.get(pos_herb[2]));
+				this.manger_carn(A_list.get(pos_herb[2]),duree_ecoulee);
 				orientation="";
 			}
 			else if(pos_herb[0]>this.posx) {
@@ -813,9 +813,10 @@ public class Animal {
 	 * 		Animal que le carnivore mange nécessairement de type 0.
 	 * 		@see Herbivore
 	 */
-	public void manger_carn(Animal A) {
+	public void manger_carn(Animal A,int duree_ecoulee) {
 		if (A.type==0 && A.est_vivant==true) {
 				A.est_vivant=false;
+				A.date_mort=duree_ecoulee;
 				A.qte_viande-=1;
 				this.jauge_nourriture+=50;
 		}
