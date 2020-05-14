@@ -3,6 +3,7 @@ package individus;
 import java.util.ArrayList;
 
 import affichage.ConteneurFenetre;
+import ressources.Lac;
 import ressources.Ressource;
 /**
  * <b>Individu vivant de type Animal pouvant se déplacer manger boire et se reporoduire.</b>
@@ -575,18 +576,7 @@ public class Animal {
 		}
 	}
 
-	/**
-	 * Permet de modifier la quantité de nourriture d'un animal quand il se fait manger.
-	 * 
-	 * @author Augustin
-	 */
 
-
-	public void se_faire_manger() {
-
-		this.qte_viande+=(-1);
-
-	}
 	/**
 	 * Permet de vérifier si les animaux qui précéde l'animal à bouger n'est pas sur l'emplacement visé.
 	 * 
@@ -680,6 +670,49 @@ public class Animal {
 		else if (A.qte_viande>=0) {
 			this.jauge_nourriture+=A.qte_viande;
 			A.qte_viande=0;
+		}
+	}
+	
+	public void decomposition(Ressource[] ressource) {
+		this.qte_viande-=1;
+		for (int i=0;i<=2;i++) {
+			for (int j=0;j<=2;j++) {
+				if (this.posx+i<ConteneurFenetre.NB_LIGNES && this.posy+j<ConteneurFenetre.NB_COLONNES && i+j<=2) {
+					for (int k=0;k<ressource.length;k++) {
+						if (ressource[k].posx==this.posx+i && ressource[k].posy==this.posy+j) {
+							ressource[k].quantiteRessource+=5;
+						}
+					}
+				}
+				else if (this.posx+i<ConteneurFenetre.NB_LIGNES && this.posy-j>=0 && i+j<=2) {
+					for (int k=0;k<ressource.length;k++) {
+						if (ressource[k].posx==this.posx+i && ressource[k].posy==this.posy-j) {
+							ressource[k].quantiteRessource+=5;
+						}
+					}
+				}
+				else if (this.posx-i>=0 && this.posy+j<ConteneurFenetre.NB_COLONNES && i+j<=2) {
+					for (int k=0;k<ressource.length;k++) {
+						if (ressource[k].posx==this.posx-i && ressource[k].posy==this.posy+j) {
+							ressource[k].quantiteRessource+=5;
+						}
+					}
+				}
+				else if (this.posx-i>=0 && this.posy-j>=0 && i+j<=2) {
+					for (int k=0;k<ressource.length;k++) {
+						if (ressource[k].posx==this.posx-i && ressource[k].posy==this.posy-j && ressource[k].quantiteRessource<95) {
+							ressource[k].quantiteRessource+=5;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public void disparition(ArrayList<Animal> A_list,ArrayList<Animal> A_list_mort,int pos) {
+		if (this.est_vivant==false && this.qte_viande<=0) {
+			A_list.remove(pos);
+			A_list_mort.add(this);
 		}
 	}
 }

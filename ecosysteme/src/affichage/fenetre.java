@@ -31,7 +31,7 @@ public class fenetre extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setAlwaysOnTop(true);
 		
-		
+		ArrayList<Animal> A_list_mort = new ArrayList<Animal>(0);
 		int duree_ecoulee=0;
 		int n=A_list.size();
 		for (int i=0;i<n;i++) {
@@ -55,7 +55,10 @@ public class fenetre extends JFrame {
 					A_list.get(i).mort_naturelle();
 					A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 					A_list.get(i).vieillir();
-					System.out.println(A_list.get(i));
+				}
+				else {
+					A_list.get(i).decomposition(ressource);
+					A_list.get(i).disparition(A_list,A_list_mort,i);
 				}
 			}
 			ressource = Ressource.devient_desert(ressource);
