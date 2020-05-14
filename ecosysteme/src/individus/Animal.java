@@ -7,23 +7,23 @@ import affichage.ConteneurFenetre;
 import ressources.Lac;
 import ressources.Ressource;
 /**
- * <b>Individu vivant de type Animal pouvant se déplacer manger boire et se reporoduire.</b>
+ * <b> Individu vivant de type Animal pouvant se déplacer manger boire et se reproduire.</b>
  * <p>
- * Un animal est caraxtérisé par les infos suivantes:
+ * Un animal est caractérisé par les infos suivantes:
  * <ul>
- * <li> Son espece attribué de façon définitive.</li>
- * <li> Son régime alimentaire attribué sous formede chiffre de façon définitive et renvoie à la classe correspondante.</li>
- * <li> Sa position en x qui evoulue.</li>
- * <li> Sa position en y qui evolue.</li>
+ * <li> Son espèce attribuée de façon définitive.</li>
+ * <li> Son régime alimentaire attribué sous forme de chiffre de façon définitive et renvoie à la classe correspondante.</li>
+ * <li> Sa position en x qui évolue.</li>
+ * <li> Sa position en y qui évolue.</li>
  * <li> Le genre de l'animal attribué définitivement.</li>
- * <li> Son age qui évolue prend plus un tous les ans. commence à zero pour les nouveau né et à l'age de repro min pour les individus au début de simulation</li>
- * <li> L'espérence de vie est non modifiable et dépend de l'espéce attribué.</li>
+ * <li> Son âge qui évolue prend plus un tous les ans. Commence à zero pour les nouveaux nés et à l'âge de repro min pour les individus au début de simulation.</li>
+ * <li> L'espérence de vie est non modifiable et dépend de l'espèce attribuée.</li>
  * <li> Est_vivant indique l'état de vie de l'animal par un boolean toujours true à la création.</li>
- * <li>La jauge de nourriture indique la niveau de daim de l'individu. elle diminue selon le temps et augmente selon ce qui a été mangé. Chaque individue a une jauge max soit de 100/100 à sa création.Quand la jauge tombe à zero l'individu meurt.</li>
- * <li>La jauge d'eau indique le niveau de soif de l'individu. il diminue avec le temps et augmente quand l'individu boit. Chaque individu a une jauge de 100/100 à sa création. quand la jauge tombe à zero l'individu meurt.</li>
- * <li> La qautntie d'individu est un nombre qui ne bouge pas et est donnné en fonction du type.</li>
- * <li> un nombre est fixé selon l'espéce pour l'age à partir du quel l'animal peut se reproduire.</li>
- * <li> Un nombre est fixé selon l'espéce à partir du quel la reproduction de l'animal est impossible.</li>
+ * <li> La jauge de nourriture indique la niveau de faim de l'individu. Elle diminue selon le temps et augmente selon ce qui a été mangé. Chaque individue a une jauge max soit de 100/100 à sa création. Quand la jauge tombe à zero l'individu meurt.</li>
+ * <li> La jauge d'eau indique le niveau de soif de l'individu. Elle diminue avec le temps et augmente quand l'individu boit. Chaque individu a une jauge de 100/100 à sa création. Quand la jauge tombe à zero l'individu meurt.</li>
+ * <li> La quantité d'individu est un nombre qui ne bouge pas et est donnné en fonction du type.</li>
+ * <li> un nombre est fixé selon l'espèce pour l'âge à partir duquel l'animal peut se reproduire.</li>
+ * <li> Un nombre est fixé selon l'espèce à partir duquel la reproduction de l'animal est impossible.</li>
  * </ul>
  * 
  * @author Lucie 
@@ -33,19 +33,19 @@ import ressources.Ressource;
 public class Animal {
 
 	/**
-	 * L'espece de l'aniamal. n'est pas modifiable.
+	 * L'espèce de l'animal. Non modifiable.
 	 * 
 	 */
 	public String espece;
 
 	/**
-	 * Le type de l'animal à savoir son régime alimentaire. non modifiable.
+	 * Le type de l'animal à savoir son régime alimentaire. Non modifiable.
 	 * 
 	 */
 	public int type;
 
 	/**
-	 * Positon de l'animal en x modifiable.
+	 * Position de l'animal en x. Modifiable.
 	 * 
 	 * @see Animal#position_libre(Animal[], int, int, int)
 	 * @see Animal#deplacement()
@@ -53,7 +53,7 @@ public class Animal {
 	public int posx;
 
 	/**
-	 * Positon de l'animal en y modifiable.
+	 * Position de l'animal en y. Modifiable.
 	 * 
 	 * @see Animal#position_libre(Animal[], int, int, int)
 	 * @see Animal#deplacement()
@@ -61,7 +61,7 @@ public class Animal {
 	public int posy;
 
 	/**
-	 * Sexe de l'animal non modifiable.
+	 * Sexe de l'animal. Non modifiable.
 	 * 
 	 * @see Animal#reproduction(Animal)
 	 * @see Animal#creation(int, int, int)
@@ -69,21 +69,21 @@ public class Animal {
 	public String sexe;
 
 	/**
-	 * Age de l'animal modifiable.
+	 * Age de l'animal. Modifiable.
 	 * 
 	 * @see Animal#vieillir()
 	 */
 	int age;
 
 	/**
-	 * Espérance de vie de l'animal non modifiable.
+	 * Espérance de vie de l'animal. Non modifiable.
 	 * 
 	 * @see Animal#mort_de_vieillesse()
 	 */
 	public int esp_de_vie;
 
 	/**
-	 * boolean sur l'etat de vie de l'animal pouvant être modifié.
+	 * boolean sur l'état de vie de l'animal. Peut être modifié.
 	 * @see Animal#se_faire_manger()
 	 * @see Animal#vieillir()
 	 * @see Animal#reproduction(Animal)
@@ -110,20 +110,20 @@ public class Animal {
 	public int jauge_eau;
 
 	/**
-	 * represente la quantité de nourriture pour un autre animal. Non modifiable.
+	 * représente la quantité de nourriture pour un autre animal. Non modifiable.
 	 * @see Animal#se_faire_manger()
 	 */
 	public  int qte_viande;
 
 	/**
-	 * représente l'age min de reproduction. Non modifiable.
+	 * représente l'âge min de reproduction. Non modifiable.
 	 * 
 	 * @see Animal#reproduction(Animal)
 	 */
 	public int ageReproMin;
 
 	/**
-	 *  représente l'age max de reproduction. Non modifiable.
+	 *  représente l'âge max de reproduction. Non modifiable.
 	 *  
 	 *  @see Animal#reproduction(Animal)
 	 */
@@ -142,7 +142,7 @@ public class Animal {
 	/**
 	 * Constructeur Animal
 	 * <p>
-	 * A la cosntruction l'animal est vivant donc le paramétre est_vivant est fixé à true.
+	 * A la construction l'animal est vivant donc le paramètre est_vivant est fixé à true.
 	 * </p>
 	 * 
 	 * 
@@ -165,7 +165,7 @@ public class Animal {
 	 * @param jauge_eau
 	 *        Etat de soif de l'animal.
 	 * @param qte_viande
-	 *        Quantité de nourriture pour un autre animal de cet animal.
+	 *        Quantité de nourriture de cet animal pour un autre animal .
 	 * @param ageReproMin
 	 *        Age minimal pour la reproduction.
 	 * @param ageReproMax
@@ -225,14 +225,14 @@ public class Animal {
 
 
 	/**
-	 * Permet de génerer le nombre d'animaux nécessaire à la simulation.
+	 * Permet de générer le nombre d'animaux nécessaires à la simulation.
 	 * 
 	 * @param nb_lievre
-	 *         Nombre de lievre voulu par l'utilisateur ou par default.
+	 *         Nombre de lievres voulu par l'utilisateur ou par défaut.
 	 * @param nb_lynx
-	 *         Nombre de lynx voulu par l'utilisateur ou par default.
+	 *         Nombre de lynx voulu par l'utilisateur ou par défaut.
 	 * @param nb_vautour
-	 *         Nombre de vautour voulu par l'utiliateur ou par default.
+	 *         Nombre de vautours voulu par l'utilisateur ou par défaut.
 	 * @return Une liste d'individus de type animal.
 	 * 
 	 * @author Lucie
@@ -300,7 +300,7 @@ public class Animal {
 	
 	
 	/**
-	 * Fait viellir l'animal
+	 * Fait vieillir l'animal
 	 * 
 	 * @author Lucie
 	 * 
@@ -318,11 +318,11 @@ public class Animal {
 	}
 
 	/**
-	 * Indique si l'animal doit mourir de vielliesse. 
-	 * attention vérifier que l'animal n'est pas déja mort avant utilisation.
+	 * Indique si l'animal doit mourir de vieillesse. 
+	 * Attention vérifier que l'animal n'est pas déjà mort avant utilisation.
 	 * 
 	 * 
-	 * @return un boolean true si l'animal doit mourir
+	 * @return un boolean true si l'animal doit mourir.
 	 * 
 	 * @author Augustin
 	 */
@@ -337,11 +337,11 @@ public class Animal {
 	}
 	
 	/**
-	 * Indique si l'animal doit mourir de faim ou de soif 
-	 * attention vérifier que l'animal n'est pas déja mort avant utilisation.
+	 * Indique si l'animal doit mourir de faim ou de soif.
+	 * Attention vérifier que l'animal n'est pas déjà mort avant utilisation.
 	 * 
 	 * 
-	 * @return un boolean true si l'animal doit mourir
+	 * @return un boolean true si l'animal doit mourir.
 	 * 
 	 * @author Lucie
 	 */
@@ -358,7 +358,7 @@ public class Animal {
 	 * Fait la reproduction entre deux animaux
 	 * 
 	 * @param A
-	 * 		prend un l'animal avec lequel on veut accouplé un autre animal.
+	 * 		prend un l'animal avec lequel on veut accoupler un autre animal.
 	 * @param est_vivant
 	 * 
 	 * @author Mélodia
@@ -375,10 +375,10 @@ public class Animal {
 	}
 
 	/**
-	 * Fait se déplacer aléatoirement un animal.
+	 * Fait déplacer aléatoirement un animal.
 	 * 
 	 * @param A_list
-	 * 			list de type animal a deplacer de maniere aleatoire.
+	 * 			list de type animal à déplacer de manière aléatoire.
 	 * @param pos
 	 *          position de l'animal à déplacer dans la liste.
 	 * @param maxX
@@ -399,7 +399,7 @@ public class Animal {
 	}
 	
 	/**
-	 *Permet de faire déplacer un animal selon ses besoins en nourriture ou en eau 
+	 *Permet de faire déplacer un animal selon ses besoins en nourriture ou en eau.
 	 *
 	 *@author Lucie
 	 *
@@ -421,7 +421,7 @@ public class Animal {
 	
 	
 	/**
-	 *Permet de faire déplacer un animal dans une direction donnée
+	 *Permet de faire déplacer un animal dans une direction donnée.
 	 *
 	 *@author Augustin
 	 *
@@ -458,7 +458,7 @@ public class Animal {
 	}
 	
 	/**
-	 *Permet de définir la direction que va emprunter l'animal à l'instant t+1 pour se reproduire
+	 *Permet de définir la direction que va emprunter l'animal à l'instant t+1 pour se reproduire.
 	 *
 	 *@author Lucie
 	 *
@@ -513,7 +513,7 @@ public class Animal {
 	}
 	
 	/**
-	 *Permet de définir la direction que va emprunter l'animal à l'instant t+1 s'il a faim
+	 *Permet de définir la direction que va emprunter l'animal à l'instant t+1 s'il a faim.
 	 *
 	 *@author Lucie
 	 *
@@ -585,7 +585,7 @@ public class Animal {
 	}
 	
 	/**
-	 *Permet de determiner la zone d'herbe la plus proche
+	 *Permet de déterminer la zone d'herbe la plus proche.
 	 *
 	 *@author Lucie
 	 *
@@ -613,7 +613,7 @@ public class Animal {
 	}
 
 	/**
-	 *Permet de determiner le cadavre le plus proche
+	 *Permet de déterminer le cadavre le plus proche.
 	 *
 	 *@author Lucie
 	 *
@@ -642,7 +642,7 @@ public class Animal {
 	
 	
 	/**
-	 *Permet de determiner l'herbivore le plus proche
+	 *Permet de déterminer l'herbivore le plus proche.
 	 *
 	 *@author Lucie
 	 *
@@ -671,7 +671,7 @@ public class Animal {
 	
 	
 	/**
-	 * Permet de définir la direction que va emprunter l'animal à l'instant t+1 s'il a soif
+	 * Permet de définir la direction que va emprunter l'animal à l'instant t+1 s'il a soif.
 	 * 
 	 * @author Lucie
 	 */
@@ -699,7 +699,7 @@ public class Animal {
 	}
 	
 	/**
-	 * Permet de récuperer la position du point d'eau le plus proche d'un animal donné
+	 * Permet de récuperer la position du point d'eau le plus proche d'un animal donné.
 	 * 
 	 * @author Lucie
 	 */
@@ -747,14 +747,14 @@ public class Animal {
 
 
 	/**
-	 * Permet de vérifier si les animaux qui précéde l'animal à bouger n'est pas sur l'emplacement visé.
+	 * Permet de vérifier si les animaux qui précédent l'animal à bouger ne sont pas sur l'emplacement visé.
 	 * 
 	 * @param A
-	 * 			liste des individus présent dans la modélisation
+	 * 			liste des individus présents dans la modélisation.
 	 * @param pos
 	 * 			Position de l'animal que l'on doit déplacer.
 	 * @param posx
-	 * 			Position en x que l'on souhaite vérifier.
+	 * 			Position en X que l'on souhaite vérifier.
 	 * @param posy
 	 * 			Position en Y que l'on souhaite vérifier.
 	 * @return Boolean true si l'emplacement est vide sinon false.
@@ -806,7 +806,7 @@ public class Animal {
 	
 	/**
 	 * Permet de faire manger un carnivore en vérifiant qu'il est vivant.
-	 * Modifie le boolean est-vivant de l'animal mangé en false.
+	 * Modifie le boolean est_vivant de l'animal mangé en false.
 	 * 
 	 * 
 	 * @param A

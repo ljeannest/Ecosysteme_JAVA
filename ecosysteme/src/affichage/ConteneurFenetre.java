@@ -23,24 +23,24 @@ import individus.*;
 import ressources.*;
 
 /**
- *<b> Permet de l'affichage de l'ecosysteme et de l'actualiser selon le temps qui passe.</b>
- * <p>Les variables suivantes sont donc nécessaire:</p>
+ *<b> Permet l'affichage de l'écosystème et l'actualisation selon le temps qui passe.</b>
+ * <p> Les variables suivantes sont donc nécessaires:</p>
  * <ul>
- * <li> Un tableau de type Ressources au dimension de l'ecosysteme regroupere toute les ressources présente dans l'ecosysteme.</li>
- * <li> Un tableau de type Animal au dimension de l'ecosysteme qui regroupera toute les individus présent dans l'ecosyteme.</li>
- * <li> Une image de type icon et de couleur verte qui servira à modéliser l'herbe dans l'ecosyteme.</li>
+ * <li> Un tableau de type Ressources aux dimensions de l'écosystème regroupera toutes les ressources présentes dans l'écosystème.</li>
+ * <li> Un tableau de type Animal aux dimensions de l'écosystème qui regroupera tous les individus présents dans l'écosystème.</li>
+ * <li> Une image de type icon et de couleur verte qui servira à modéliser l'herbe dans l'écosystème.</li>
  * <li> Une image de type icon et de couleur bleu clair qui servira à modéliser l'Eau de sous-type Flaque.</li>
  * <li> Une image de type icon et de couleur bleu fonce qui servire à modeliser l'Eau de sous-type Lac et Riviere.</li>
  * <li> Une image de type icon de couleur marron clair qui servira à modeliser le Desert.</li>
- * <li> Une image de type icon representant un Lynx.</li>
- * <li> Une image de type icon representant un Lievre</li>
- * <li> Une image de type icon representant un Vautour</li>
- * <li> les borudre des cases auront des coiuleur pour un meilleur rendu visuel et faire ressortir les différents type se trouvant dans l'ecosysteme.</li>
- * <li> Des varaibles permettant l'affichage d'un menu de selection pour l'utilisateur via des boutons.</li>
- * <li> La taille de la grille en X mise par défault à 787.</li>
- * <li> La taille de la grille en Y mise par défault à 650.</li>
- * <li> Le nombre de lignes du tableau représentant l'ecosysteme.</li>
- * <li> Le nombre de colonne du tableau représentant l'ecosysteme.</li>
+ * <li> Une image de type icon représentant un Lynx.</li>
+ * <li> Une image de type icon représentant un Lievre</li>
+ * <li> Une image de type icon représentant un Vautour</li>
+ * <li> les bordures des cases auront des couleurs pour un meilleur rendu visuel et pour faire ressortir les différents types se trouvant dans l'écosystème.</li>
+ * <li> Des variables permettant l'affichage d'un menu de selection pour l'utilisateur via des boutons.</li>
+ * <li> La taille de la grille en X mise par défaut à 787.</li>
+ * <li> La taille de la grille en Y mise par défaut à 650.</li>
+ * <li> Le nombre de lignes du tableau représentant l'écosystème.</li>
+ * <li> Le nombre de colonne du tableau représentant l'écosystème.</li>
  * <li> La largeur définit comme le rapport de la taille de la grille en X et du nombre de lignes.</li>
  * <li> La hauteur definit comme le rapport de la taille de la grille en Y et du nombre de colonnes.</li>
  * <li> Une liste array de type Ressource contenant les points d'Eau.</li>
@@ -53,12 +53,12 @@ import ressources.*;
 public class ConteneurFenetre extends JPanel{
 	
 	/**
-	 * Tableau de type Ressource regroupant les ressources présente dans l'ecosysteme.
+	 * Tableau de type Ressource regroupant les ressources présentes dans l'écosystème.
 	 */
 	public Ressource[][] grid_ressources = new Ressource[NB_COLONNES][NB_LIGNES];
 	
 	/**
-	 * Tableau de type Animal regroupant les animaux present dans l'ecosysteme.
+	 * Tableau de type Animal regroupant les animaux présents dans l'écosystème.
 	 */
 	public Animal[][] grid_animaux = new Animal[NB_COLONNES][NB_LIGNES];// ça
 	
@@ -69,22 +69,22 @@ public class ConteneurFenetre extends JPanel{
 	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
-	 * Icon représentant de l'eau clair.
+	 * Icon représentant de l'eau claire.
 	 */
 	ImageIcon icon_eau_claire = new ImageIcon(new ImageIcon("images/bleu clair.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
-	 * Icone représentant de l'eau foncé.
+	 * Icone représentant de l'eau foncée.
 	 */
 	ImageIcon icon_eau_foncee = new ImageIcon(new ImageIcon("images/bleu fonce.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
-	 * Icon représentant le desert.
+	 * Icone représentant le Desert.
 	 */
 	ImageIcon icon_desert = new ImageIcon (new ImageIcon("images/marron clair.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
-	 * Icon représentant un Lynx
+	 * Icon représentant un Lynx.
 	 */
 	ImageIcon icon_lynx = new ImageIcon(new ImageIcon("images/lynx.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
@@ -94,22 +94,22 @@ public class ConteneurFenetre extends JPanel{
 	ImageIcon icon_lievre = new ImageIcon(new ImageIcon("images/lievre.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
-	 * Icon representant un Vautour.
+	 * Icon représentant un Vautour.
 	 */
 	ImageIcon icon_vautour = new ImageIcon(new ImageIcon("images/vautour.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
-	 * Icon representant un Lievre mort.
+	 * Icon représentant un Lievre mort.
 	 */
 	ImageIcon icon_lievre_mort = new ImageIcon(new ImageIcon("images/lievre_mort.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
-	 * Icon representant un Lynx mort.
+	 * Icon représentant un Lynx mort.
 	 */
 	ImageIcon icon_lynx_mort = new ImageIcon(new ImageIcon("images/lynx_mort.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
-	 * Icon representant un Vautour.
+	 * Icon répresentant un Vautour.
 	 */
 	ImageIcon icon_vautour_mort = new ImageIcon(new ImageIcon("images/vautour_mort.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
@@ -121,12 +121,12 @@ public class ConteneurFenetre extends JPanel{
 
 	
 	/**
-	 * Bordure de case de couleurer noir.
+	 * Bordure de case de couleur noire.
 	 */
 	Border blackline = BorderFactory.createLineBorder(Color.black,1); 
 	
 	/**
-	 * Bordure de case de couleur bleu.
+	 * Bordure de case de couleur bleue.
 	 */
 
 	Border blueline = BorderFactory.createLineBorder(Color.blue,1); 
@@ -149,7 +149,7 @@ public class ConteneurFenetre extends JPanel{
 	public final static int taille_grille_x=787;
 	
 	/**
-	 * taille de la grille en Y
+	 * taille de la grille en Y.
 	 */
 	public final static int taille_grille_y=650;
 	
@@ -166,23 +166,23 @@ public class ConteneurFenetre extends JPanel{
  
 	
 	/**
-	 * Largeur de la fentre.
+	 * Largeur de la fenêtre.
 	 */
 	public static int largeur = taille_grille_x/ NB_COLONNES;
 	
 	/**
-	 * hauteur de la fenetre
+	 * Hauteur de la fenêtre.
 	 */
 	public static int hauteur = taille_grille_y/ NB_LIGNES;
 	
 	
 	/**
-	 * Liste Array de type Ressource regroupant les points d'eau dans l'ecosysteme.
+	 * Liste Array de type Ressource regroupant les points d'eau dans l'écosystème.
 	 */
 	public  ArrayList<Ressource> point_eau;
 	
 	/**
-	 * Liste Aray de type Ressource  regroupant l'herbe.
+	 * Liste Array de type Ressource regroupant l'herbe.
 	 */
 	public static ArrayList<Ressource> herbe;
 	

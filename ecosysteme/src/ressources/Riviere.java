@@ -1,7 +1,7 @@
 package ressources;
 
 /**
- *<b> Ressource de type Eau  et de sous-type Riviere pouvant etre bu par les individus.</b>
+ *<b> Ressource de type Eau  et de sous-type Riviere pouvant être bue par les individus.</b>
  * <p> Lorsque la quantité de ressource disponible tombe à zero le type change en Desert.</p>
  * <p> Pour les variables définissant ce type voir @see Ressource </p>
  * 
@@ -12,12 +12,12 @@ package ressources;
 public class Riviere extends Eau{
 	
 	/**
-	 * Constructeur du sous-type riviere.
+	 * Constructeur du sous-type Riviere.
 	 * 
 	 * @param posx
-	 * 			Position en X non modifiable.
+	 * 			Position en X. Non modifiable.
 	 * @param posy
-	 * 			Position en Y non modifiable.
+	 * 			Position en Y. Non modifiable.
 	 * @param couleur
 	 * @param quantiteRessource
 	 * 			Quantite de ressource accessible.

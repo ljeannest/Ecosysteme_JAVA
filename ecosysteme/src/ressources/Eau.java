@@ -1,8 +1,8 @@
 package ressources;
 
 /**
- * <b> Ressource de type Eau qui peuvant etre bu par tous les individus composant l'ecosysyteme.</b>
- * <p> Pour les variables définissant se type voir @see Ressource </p>
+ * <b> Ressource de type Eau qui peut être bue par tous les individus composant l'écosytème.</b>
+ * <p> Pour les variables définissant ce type voir @see Ressource </p>
  * 
  * 
  * @author Mélodia
@@ -23,7 +23,7 @@ public class Eau extends Ressource{
 	 * @param couleur
 	 * 			Couleur selon le sous-type. Non modifiable.
 	 * @param quantiteRessource
-	 * 			Quantite de Ressouce accessible par les individus.
+	 * 			Quantite de Ressouce accessible pour les individus.
 	 */
 	
 	

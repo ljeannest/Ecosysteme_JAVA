@@ -1,8 +1,8 @@
 package individus;
 
 /**
- * <b> individu Animal de type Herbivore d'espce Lievre.</b>
- * <p> cet individues est défini par les meme paramétre que l'individue @see Animal.</p>
+ * <b> Individu Animal de type Herbivore d'espèce Lievre.</b>
+ * <p> Cet individu est défini par les mêmes paramètres que l'individu @see Animal.</p>
  * @author Mélodia
  *
  */
@@ -10,7 +10,7 @@ package individus;
 public class Lievre extends Herbivore {
 	
 	/**
-	 * Constructeur de l'espece Lievre.
+	 * Constructeur de l'espèce Lievre.
 	 * 
 	 * @param posx
 	 * 			Position en X.

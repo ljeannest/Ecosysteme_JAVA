@@ -1,17 +1,17 @@
 package ressources;
 
 /**
- * <b> ressources qui pouvent etre manger par les individus de type animal.</b>
+ * <b> ressource qui peut être mangée par les individus de type animal.</b>
  * <p>
- * Un ressource est caractérise par les variables suivantes:
+ * Une ressource est caractérisée par les variables suivantes:
  * <ul>
- * <li> Son type attribué à sa création et pouvant etre modifié.</li>
+ * <li> Son type attribué à sa création et pouvant être modifié.</li>
  * <li> Son sous_type attribué à la création et modifiable.</li>
  * <li> Sa position en X est donné à la création et est non modifiable.</li>
- * <li> Sa position en Y est donné à la créarion et est non modifiable.</li>
- * <li> Sa couleur attribué à sa creéation en fonction de son sous type.</li>
- * <li> Sa quantité de ressource accessible par un animal. Elle est definie selon le sous type et diminue si un animal l'utilise.</li>
- * <li> Son etat de vie qui est vrai par défault mais modifiable.</li>
+ * <li> Sa position en Y est donné à la création et est non modifiable.</li>
+ * <li> Sa couleur attribuée à sa création en fonction de son sous type.</li>
+ * <li> Sa quantité de ressource accessible pour un animal. Elle est définie selon le sous-type et diminue si un animal l'utilise.</li>
+ * <li> Son état de vie qui est vrai par défaut mais modifiable.</li>
  * </ul>
  * 
  * @author Augustin
@@ -27,7 +27,7 @@ public class Ressource {
 	public String type;
 	
 	/**
-	 * Le sous type de la resssouce. Modifiable
+	 * Le sous-type de la resssouce. Modifiable.
 	 */
 	public String sous_type;
 	
@@ -42,12 +42,12 @@ public class Ressource {
 	public int posy;
 	
 	/**
-	 * Couleur de la ressources. Modifiable.
+	 * Couleur de la ressource. Modifiable.
 	 */
 	public String couleur;
 	
 	/**
-	 * Quantité de ressource qu'un animal peut en tirer. Elle ne diminue que si un animal l'utilise. Valeur donné par défult pouvant augmenter.
+	 * Quantité de ressource qu'un animal peut en tirer. Elle ne diminue que si un animal l'utilise. Valeur donnée par défaut pouvant augmenter.
 	 * 
 	 * @see Ressource#pousser_croitre()
 	 * 
@@ -55,7 +55,7 @@ public class Ressource {
 	public int quantiteRessource;
 	
 	/**
-	 *  Boolean sur l'etat de vie de la ressource pouvant être modifié.
+	 *  Boolean sur l'état de vie de la ressource pouvant être modifié.
 	 *  
 	 *  @see Ressource#se_faire_manger_boire()
 	 *  
@@ -65,7 +65,7 @@ public class Ressource {
 	/**
 	 * Constructeur Ressource
 	 * <p>
-	 * Les ressources sont vivantes par default au debut sauf Eau et desert.
+	 * Les ressources sont vivantes par défaut au debut sauf Eau et Desert.
 	 * <p>
 	 * 
 	 * 
@@ -75,13 +75,13 @@ public class Ressource {
 	 * @param sous_type
 	 * 			Sous type de la ressource( herber, lac...).
 	 * @param posx
-	 * 			position fixe en X.
+	 * 			position fixée en X.
 	 * @param posy
-	 * 			position fixe en y.
+	 * 			position fixée en Y.
 	 * @param couleur
 	 * 			Couleur de la ressource.
 	 * @param quantiteRessource
-	 * 			Quantité de ressource disponnible pour un individus.
+	 * 			Quantité de ressource disponible pour les individus.
 	 */
 	
 	public Ressource(String type,String sous_type,int posx,int posy, String couleur,int quantiteRessource) {
@@ -97,7 +97,7 @@ public class Ressource {
 		}
 	
 	/**
-	 * Permet de diminuer la quantité de ressource accessible aprés qu'un indidividues ai utilisé une ressource.
+	 * Permet de diminuer la quantité de ressource accessible après qu'un individu ait utilisé une ressource.
 	 * 
 	 * @author Augustin
 	 */
@@ -128,11 +128,11 @@ public class Ressource {
 	 * Permet  de créer un lac.
 	 * 
 	 * @param NB_LIGNES
-	 * 			Donnee sur la dimension de la grille modélisant l'environnement.
+	 * 			Donnée sur la dimension de la grille modélisant l'environnement.
 	 * @param NB_COLONNES
 	 * 			Donnee sur la dimension de la grille modélisant l'environnement.
 	 * @param presence_lac
-	 * 			Id pour savoir si la ressource doit être modifier en lac.
+	 * 			Id pour savoir si la ressource doit être modifiée en Lac.
 	 * @return Un element de sous-type Lac
 	 * 
 	 * @author Augustin
@@ -163,18 +163,18 @@ public class Ressource {
 	
 	/**
 	 * 
-	 * Permet de creer une riviere.
+	 * Permet de créer une riviere.
 	 * 
 	 * @param posx
-	 * 			Postion en X donné à la création.
+	 * 			Position en X donnée à la création.
 	 * @param posy
-	 * 			Position en Y donné à la création.
+	 * 			Position en Y donnée à la création.
 	 * @param NB_LIGNES
-	 * 			Donnee sur la dimension de la grille modélisant l'environnement.
+	 * 			Donnée sur la dimension de la grille modélisant l'environnement.
 	 * @param NB_COLONNES
-	 * 			Donnee sur la dimension de la grille modélisant l'environnement.
+	 * 			Donnée sur la dimension de la grille modélisant l'environnement.
 	 * 
-	 * @return Un element de sous-type Riviere
+	 * @return Un élément de sous-type Riviere.
 	 */
 	public static Ressource[] riviere(int posx, int posy,int NB_LIGNES, int NB_COLONNES) {
 		int k=0;
@@ -217,20 +217,20 @@ public class Ressource {
 	
 
 	/**
-	 * Permet de créer une l'ensemble des ressources présente dans l'environnement.
+	 * Permet de créer l'ensemble des ressources présente dans l'environnement.
 	 * 
 	 * @param nb_flaque
-	 * 			Donne le nombre de flaque à modéliser.
+	 * 			Donne le nombre de flaques à modéliser.
 	 * @param presence_lac
-	 * 			Indique si un lac doit etre présent crée par la valeur 1 sinon 0.
+	 * 			Indique si un lac doit être créé par la valeur 1 sinon 0.
 	 * @param presence_riviere
 	 * 			Indique si une riviere doit être présente par la valeur 1 sinon 0.
 	 * @param NB_LIGNES
-	 * 			Donnee sur la dimension de la grille modélisant l'environnement.
+	 * 			Donnée sur la dimension de la grille modélisant l'environnement.
 	 * @param NB_COLONNES
-	 * 			Donnee sur la dimension de la grille modélisant l'environnement.
+	 * 			Donnée sur la dimension de la grille modélisant l'environnement.
 	 * 
-	 * @return	renvoie une liste contenant les ressources présent dans l'ecosysteme.
+	 * @return	renvoie une liste contenant les ressources présentes dans l'écosystème.
 	 */
 
 	public static Ressource[] creation(int nb_flaque, int presence_lac, int presence_riviere,int NB_LIGNES, int NB_COLONNES) {

@@ -2,9 +2,9 @@ package individus;
 
 import ressources.Eau;
 /**
- * <b> Individu de type animal ne mangeant que des individus mort.</b>
+ * <b> Individu de type animal ne mangeant que des individus morts.</b>
  * <p>
- * Il es identifié par l'id 2 dans type.</p>
+ * Il est identifié par l'id 2 dans type.</p>
  * 
  * @version 2.0
  * @author Lucie

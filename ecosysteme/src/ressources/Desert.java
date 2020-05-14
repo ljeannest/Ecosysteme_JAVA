@@ -4,10 +4,10 @@ import individus.Animal;
 
 
 /**
- * <b> Il s'agir de l'etat dans lequel se trouve une ressource lorsqu'elle est épuisé.</b>
- * <p> Ce type est definie avec des variable similaire à @see Ressource mais posséde cette varible en plus:</p>
+ * <b> Il s'agit de l'état dans lequel se trouve une ressource lorsqu'elle est épuisé.</b>
+ * <p> Ce type est défini avec des variables similaires à @see Ressource mais possède cette variable en plus:</p>
  * <ul>
- * <li> Une varaible boolean indiquant s'il y a présence d'un individu mort. True si présent sinon false. Par défault la varible est initialisé a false.</li>
+ * <li> Une variable boolean indiquant s'il y a présence d'un individu mort. True si présent sinon false. Par défaut la variable est initialisée à false.</li>
  * </ul>
  * 
  * 
@@ -17,7 +17,7 @@ import individus.Animal;
 public class Desert extends Ressource{
 	
 	/**
-	 * Presence d'un idividue true sinon false
+	 * Présence d'un individu true sinon false
 	 */
 	public boolean individuMort;
 	
@@ -25,9 +25,9 @@ public class Desert extends Ressource{
 	 * Constructeur du type Desert.
 	 * 
 	 * @param posx
-	 * 			Position en X non modifiable.
+	 * 			Position en X. Non modifiable.
 	 * @param posy
-	 * 			Position en Y non modifiable.
+	 * 			Position en Y. Non modifiable.
 	 */
 
 	
@@ -44,12 +44,12 @@ public class Desert extends Ressource{
 	}
 	
 	/**
-	 * Indique si le type Desert peut être change.
+	 * Indique si le type Desert peut être changé.
 	 * 
 	 * @param A
-	 * 			varaible de type Animal se trouvant à la meme position que le desert.
+	 * 			variable de type Animal se trouvant à la même position que le desert.
 	 * 
-	 * @return Un boolean true si le type Desert peut etre changé false sinon.
+	 * @return Un boolean true si le type Desert peut être changé false sinon.
 	 */
 	public boolean régénérationPossible(Animal A) {
 		 if (this.posx == A.posx) {

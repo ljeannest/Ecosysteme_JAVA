@@ -3,9 +3,9 @@ package individus;
 import ressources.*;
 
 /**
- * <b>Individus de type Animal mais ne mangeant que les ressources de type herbe.</b>
+ * <b> Individus de type Animal mais ne mangeant que les ressources de type herbe.</b>
  * 
- * <p>Il es identifié par l'id 0 dans type.</p>
+ * <p> Il est identifié par l'id 0 dans type.</p>
  * 
  *@see Animal
  *
