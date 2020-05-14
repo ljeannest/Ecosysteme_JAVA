@@ -2,6 +2,7 @@ package individus;
 //commit gus
 import java.util.ArrayList;
 
+import Reproduction.repro;
 import affichage.ConteneurFenetre;
 import ressources.Lac;
 import ressources.Ressource;
@@ -131,6 +132,12 @@ public class Animal {
 	public int date_naissance;
 	
 	public int date_mort;
+	
+	public boolean est_enceinte;
+	
+	public int duree_ecoulee_gestation;
+	
+	public int duree_gestation;
 
 	/**
 	 * Constructeur Animal
@@ -167,7 +174,7 @@ public class Animal {
 	 *
 	 */
 
-	public Animal(String espece, int type, int posx,int posy, String sexe, int age, int esp_de_vie,int jauge_nourriture,int jauge_eau,int qte_viande, int ageReproMin, int ageReproMax,int date_naissance) {
+	public Animal(String espece, int type, int posx,int posy, String sexe, int age, int esp_de_vie,int jauge_nourriture,int jauge_eau,int qte_viande, int ageReproMin, int ageReproMax,int date_naissance, int duree_gestation) {
 		this.espece = espece;
 		this.type = type;
 		this.posx = posx;
@@ -183,6 +190,9 @@ public class Animal {
 		this.ageReproMax = ageReproMax;
 		this.date_naissance=date_naissance;
 		this.date_mort=date_naissance+esp_de_vie;
+		this.est_enceinte=false;
+		this.duree_ecoulee_gestation=0;
+		this.duree_gestation=duree_gestation;
 	}
 
 	/**
@@ -345,41 +355,23 @@ public class Animal {
 	}
 	
 	/**
-	 * Verifie que la reproduction entre deux animaux est possible.
+	 * Fait la reproduction entre deux animaux
 	 * 
 	 * @param A
 	 * 		prend un l'animal avec lequel on veut accouplé un autre animal.
 	 * @param est_vivant
 	 * 
-	 * @return un boolean true si l'accouplement est possible false sinon.
-	 * 
 	 * @author Mélodia
 	 */
-	public boolean reproduction(Animal A) {
-		if (this.est_vivant==true && A.est_vivant==false) {
-
-			if (this.espece==A.espece) {
-				if (this.sexe== A.sexe) {
-					return false;
-				}
-
-				else {
-					if (this.age>this.ageReproMin && this.age<this.ageReproMax && A.age>A.ageReproMin && A.age<A.ageReproMax) {
-						return true;
-					}
-					else {
-						return false;
-					}
-				}
-			}
-			else {
-				return false;
-			}
+	public void reproduction(Animal A) {
+		if (this.sexe=="F") {
+			this.est_enceinte=true;
+			this.duree_ecoulee_gestation=0;
 		}
 		else {
-			return false;
+			A.est_enceinte=true;
+			A.duree_ecoulee_gestation=0;
 		}
-
 	}
 
 	/**
@@ -414,8 +406,11 @@ public class Animal {
 	 */
 	
 	public void deplacement(ArrayList<Animal> A_list, Ressource[] ressource, int pos, int maxX, int maxY) {
-		String orientation ="E";
-		if (this.jauge_eau<=this.jauge_nourriture) {
+		String orientation ="";
+		if (this.jauge_eau>60 && this.jauge_nourriture>60 && this.est_enceinte==false && this.age>=this.ageReproMin && this.age<=this.ageReproMax) {
+			orientation = this.setOrientationRepro(A_list);
+		}
+		else if (this.jauge_eau<=this.jauge_nourriture) {
 			orientation = this.setOrientationEau(ressource);
 		}
 		else {
@@ -460,6 +455,61 @@ public class Animal {
 		this.posx=newX;
 		this.posy=newY;
 		
+	}
+	
+	/**
+	 *Permet de définir la direction que va emprunter l'animal à l'instant t+1 pour se reproduire
+	 *
+	 *@author Lucie
+	 *
+	 */
+	
+	public String setOrientationRepro(ArrayList<Animal> A_list) {
+		String orientation = "";
+		int[] pos_animal= this.ppcompagnon(A_list);
+		if ((pos_animal[0]==posx && (pos_animal[1]==posy+1||pos_animal[1]==posy-1))||(pos_animal[1]==posy && (pos_animal[0]==posx+1||pos_animal[0]==posx-1))) {
+			this.reproduction(A_list.get(pos_animal[2]));
+			orientation="";
+		}
+		else if(pos_animal[0]>this.posx) {
+			orientation="E";
+		}
+		else if (pos_animal[0]<this.posx) {
+			orientation="W";
+		}
+		else if (pos_animal[1]<this.posy) {
+			orientation="S";
+		}
+		else if (pos_animal[1]>this.posy){
+			orientation="N";
+		}
+		return orientation;
+	}
+	
+	
+	
+	
+	public int[] ppcompagnon(ArrayList<Animal> A_list) {
+		int[] pos_animal = new int[3];
+		int n = A_list.size();
+		double dist_min=1000;
+		pos_animal[0]=this.posx;//pos en x
+		pos_animal[1]=this.posy;//pos en y
+		pos_animal[2]=0;//position de la case dans la liste des animaux
+		for (int k=0;k<n;k++) {
+			if (A_list.get(k).espece==this.espece && A_list.get(k).est_vivant==true && A_list.get(k).sexe!=this.sexe && this.est_enceinte==false) {
+				if (this.age>this.ageReproMin && this.age<this.ageReproMax && A_list.get(k).age>A_list.get(k).ageReproMin && A_list.get(k).age<A_list.get(k).ageReproMax) {
+					double dist = Math.sqrt((this.posx-A_list.get(k).posx)*(this.posx-A_list.get(k).posx)+(this.posy-A_list.get(k).posy)*(this.posy-A_list.get(k).posy));
+					if (dist<dist_min && dist >0) {
+						dist_min = dist;
+						pos_animal[0]=A_list.get(k).posx;
+						pos_animal[1]=A_list.get(k).posy;
+						pos_animal[2]=k;
+					}
+				}
+			}
+		}
+		return pos_animal;
 	}
 	
 	/**
@@ -714,7 +764,7 @@ public class Animal {
 
 
 
-	public boolean pos_libre (ArrayList<Animal> A,Ressource[] ressource, int pos, int posx, int posy) {
+	public static boolean pos_libre (ArrayList<Animal> A,Ressource[] ressource, int pos, int posx, int posy) {
 		int n = ressource.length;
 		for (int k=0;k<n;k++) {
 			if(ressource[k].posx==posx && ressource[k].posy==posy) {
@@ -832,6 +882,14 @@ public class Animal {
 		if (this.est_vivant==false && this.qte_viande<=0) {
 			A_list.remove(pos);
 			A_list_mort.add(this);
+		}
+	}
+	
+	
+	public void accouchement (ArrayList<Animal> A_list, Ressource[] ressource, int duree_ecoulee) {
+		if (this.duree_ecoulee_gestation>=this.duree_gestation) {
+			this.est_enceinte=false;
+			repro.creationNouvelIndividu(this,A_list,ressource,duree_ecoulee);
 		}
 	}
 }

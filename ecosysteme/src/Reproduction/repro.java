@@ -2,8 +2,8 @@ package Reproduction;
 
 
 
-import individus.Animal;
-
+import individus.*;
+import ressources.Ressource;
 import ressources.Vegetaux;
 import java.lang.Math;
 import java.util.ArrayList;
@@ -17,59 +17,6 @@ import java.util.ArrayList;
  */
 
 public class repro {
-	
-	/**
-	 * Permet de vérifier qu'un eplacement existe au prés de la mere.
-	 * 
-	 * @param posx
-	 * 			Position en X à vérifier.
-	 * @param posy
-	 * 			Position en Y à vérifier.
-	 * @param A
-	 * 			Liste de type Animal regroupant de tous les animaux présent dans l'écosystéme.
-	 * @param tableauRessource
-	 * 			Tableau de type Ressource regroupant toute les ressources présentent dans l'ecosysteme.
-	 * 
-	 * @return Un boolean true si l'emplacement est vide sinon false.
-	 */
-
-	public static boolean placeVide(int posx, int posy, ArrayList<Animal> A, Vegetaux tableauRessource[]){
-
-		boolean placeLibre = true;
-
-		for(int i = 0; i < A.size(); i++) {
-
-			if (A.get(i).posx == posx && A.get(i).posy == posy) {
-
-				placeLibre=false;
-
-			}
-		}
-		if (placeLibre == true) {
-			for(int j = 0; j< tableauRessource.length; j++) {
-
-				if(tableauRessource[j].couleur=="marron") {
-
-					if (tableauRessource[j].posx==posx && tableauRessource[j].posy==posx) {
-
-						placeLibre = false;
-
-					}
-				}
-				else if(tableauRessource[j].couleur=="vert fonce") {
-
-					if (tableauRessource[j].posx==posx && tableauRessource[j].posy==posx) {
-						placeLibre = false;
-					}
-				}
-				else {
-				}
-
-			}
-		}
-			
-			return placeLibre;
-	}
 	
 	
 	/**
@@ -86,31 +33,31 @@ public class repro {
 	 * @return Une contenant la position du futur animal s'il n'en existe pas la liste {-1,-1} est renvoyé.
 	 */
 	
-	public static int [] vérificationNouvellePlace(int posx, int posy,ArrayList<Animal> A,Vegetaux tableauRessource[]) {
+	public static int [] vérificationNouvellePlace(int posx, int posy,ArrayList<Animal> A,Ressource[] ressource) {
 		// on vérifie avec cette fonction que le nouveau né peut être placé prés de sa mére
 		
 		int posX;
 		int posY;
 		
-		if (placeVide(posx+1, posy,A,tableauRessource)==true) {
+		if (Animal.pos_libre(A, ressource,-1,posx+1, posy)==true) {
 			posX = posx+1;
 			posY = posy;
 		}
-		else if (placeVide(posx-1,posy,A,tableauRessource)==true) {
+		else if (Animal.pos_libre(A,  ressource, -1, posx-1, posy)==true) {
 			posX = posx-1;
 			posY = posy;
 		}
-		else if(placeVide(posx,posy+1,A,tableauRessource)==true) {
-			posX = posx+1;
-			posY = posy;
+		else if(Animal.pos_libre(A,  ressource, -1, posx, posy+1)==true) {
+			posX = posx;
+			posY = posy+1;
 		}
-		else if(placeVide(posx,posy-1,A,tableauRessource)==true) {
-			posX = posx+1;
-			posY = posy;
+		else if(Animal.pos_libre(A,  ressource, -1, posx, posy-1)==true) {
+			posX = posx;
+			posY = posy-1;
 		}
 		else {
-			posX=-1;
-			posY=-1;
+			posX=0;
+			posY=0;
 		}
 		
 		int positionNaissance[]= {posX,posY};
@@ -132,7 +79,7 @@ public class repro {
 	 * 
 	 */
 
-	public static void créationNouvelIndividu(Animal A1, Animal A2, ArrayList<Animal> A, Vegetaux tableauRessource[],int duree_ecoulee) {
+	public static void creationNouvelIndividu(Animal A1, ArrayList<Animal> A, Ressource[] ressource,int duree_ecoulee) {
 
 		String sexe;
 
@@ -148,16 +95,24 @@ public class repro {
 
 		int positionNaissance[];
 		// on crée les coordonné du nouvel animal qu'on place auprés de sa mére par défault
-		if(A1.sexe == "F") {
-			positionNaissance = vérificationNouvellePlace(A1.posx, A1.posy,A,tableauRessource);
-		}
-		else {
-			positionNaissance = vérificationNouvellePlace(A2.posx, A2.posy,A,tableauRessource);
-		}
-
-		Animal A3= new Animal(A1.espece, A1.type, positionNaissance[0], positionNaissance[1], sexe, 0, A1.esp_de_vie, 100, 100, A1.qte_viande, A1.ageReproMin, A2.ageReproMax ,duree_ecoulee);
+		positionNaissance = vérificationNouvellePlace(A1.posx, A1.posy,A,ressource);
 		
-		A.add(A3);
+		
+		if(A1.espece=="Lievre") {
+			Animal A3= new Lievre(positionNaissance[0], positionNaissance[1], sexe, 0, duree_ecoulee);
+			A.add(A3);
+		}
+		
+		else if(A1.espece=="Lynx") {
+			Animal A3= new Lynx(positionNaissance[0], positionNaissance[1], sexe, 0, duree_ecoulee);
+			A.add(A3);
+		}
+		
+		else if(A1.espece=="Vautour") {
+			Animal A3= new Vautour(positionNaissance[0], positionNaissance[1], sexe, 0, duree_ecoulee);
+			A.add(A3);
+		}
+		
 	}
 
 

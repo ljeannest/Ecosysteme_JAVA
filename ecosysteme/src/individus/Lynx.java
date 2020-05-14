@@ -24,7 +24,7 @@ public class Lynx extends Carnivore {
 	 */
 
 	public Lynx(int posx, int posy, String sexe, int age,int date_naissance) {
-		super("Lynx", posx, posy, sexe, age, 7*365,25, 3 ,15,date_naissance);
+		super("Lynx", posx, posy, sexe, age, 7*365,25, 3 ,6*365,date_naissance,60);
 		
 		
 	}

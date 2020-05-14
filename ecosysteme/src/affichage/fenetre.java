@@ -54,6 +54,10 @@ public class fenetre extends JFrame {
 					A_list.get(i).mort_naturelle(duree_ecoulee);
 					A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 					A_list.get(i).vieillir();
+					if (A_list.get(i).est_enceinte==true){
+						A_list.get(i).duree_ecoulee_gestation+=1;
+						A_list.get(i).accouchement(A_list, ressource, duree_ecoulee);
+					}
 				}
 				else {
 					A_list.get(i).decomposition(ressource);
