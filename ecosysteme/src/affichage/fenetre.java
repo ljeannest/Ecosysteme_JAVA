@@ -48,10 +48,10 @@ public class fenetre extends JFrame {
 		for (int k=0;k<duree*365;k++) {
 			duree_ecoulee++;
 			n=A_list.size();
-			for (int i=0;i<n;i++) {
+			int i=0;
+			while (i<n) {
 				if (A_list.get(i).est_vivant==true) {
-					A_list.get(i).jauge_nourriture-=2;
-					A_list.get(i).jauge_eau-=2;
+					A_list.get(i).degradation_besoin();
 					A_list.get(i).mort_naturelle();
 					A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 					A_list.get(i).vieillir();
@@ -60,6 +60,8 @@ public class fenetre extends JFrame {
 					A_list.get(i).decomposition(ressource);
 					A_list.get(i).disparition(A_list,A_list_mort,i);
 				}
+				i++;
+				n=A_list.size();
 			}
 			ressource = Ressource.devient_desert(ressource);
 			

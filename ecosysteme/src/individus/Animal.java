@@ -260,7 +260,27 @@ public class Animal {
 		}
 		return individus;
 	}
-
+	
+	/**
+	 * Dégrade les besoins de l'animal
+	 * 
+	 * @author Lucie
+	 * 
+	 */
+	public void degradation_besoin() {
+		this.jauge_eau-=2;
+		if (this.type==0) {
+			this.jauge_nourriture-=4;
+		}
+		else if (this.type==1) {
+			this.jauge_nourriture-=5;
+		}
+		else {
+			this.jauge_nourriture-=2;
+		}
+	}
+	
+	
 	/**
 	 * Fait viellir l'animal
 	 * 
@@ -415,7 +435,7 @@ public class Animal {
 				newX=this.posx;
 				newY=this.posy+1;}
 		
-			if (orientation=="S"&& this.posy!=0 && pos_libre (A_list,ressource,pos,posx,posy-1)==true) {
+			if (orientation=="S"&& this.posy>0 && pos_libre (A_list,ressource,pos,posx,posy-1)==true) {
 				newX=this.posx;
 				newY=this.posy-1;}
 		
@@ -423,7 +443,7 @@ public class Animal {
 				newX=this.posx+1;
 				newY=this.posy;}
 		
-			if (orientation=="W"&& this.posx!=0 && pos_libre (A_list,ressource,pos,posx-1,posy)==true) {
+			if (orientation=="W"&& this.posx>0 && pos_libre (A_list,ressource,pos,posx-1,posy)==true) {
 				newX=this.posx-1;
 				newY=this.posy;}
 		}
@@ -466,7 +486,24 @@ public class Animal {
 			
 		}
 		else if (this.type==2) {
-			
+			int[] pos_cad= this.ppcadavre(A_list);
+			if ((pos_cad[0]==posx && (pos_cad[1]==posy+1||pos_cad[1]==posy-1))||(pos_cad[1]==posy && (pos_cad[0]==posx+1||pos_cad[0]==posx-1))) {
+				this.manger_char(A_list.get(pos_cad[2]));
+				orientation="";
+			}
+			else if(pos_cad[0]>this.posx) {
+				orientation="E";
+			}
+			else if (pos_cad[0]<this.posx) {
+				orientation="W";
+			}
+			else if (pos_cad[1]<this.posy) {
+				orientation="S";
+			}
+			else if (pos_cad[1]>this.posy){
+				orientation="N";
+			}
+			return orientation;
 		}
 		return orientation;
 	}
@@ -499,6 +536,33 @@ public class Animal {
 		return pos_veg;
 	}
 
+	/**
+	 *Permet de determiner le cadavre le plus proche
+	 *
+	 *@author Lucie
+	 *
+	 */
+	
+	public int[] ppcadavre(ArrayList<Animal> A_list) {
+		int n = A_list.size();
+		int[] pos_cad = new int[3];
+		double dist_min=1000;
+		pos_cad[0]=this.posx;//pos en x
+		pos_cad[1]=this.posy;//pos en y
+		pos_cad[2]=0;//position de la case dans la liste des animaux
+		for (int k=0;k<n;k++) {
+			if (A_list.get(k).type!=2 && A_list.get(k).est_vivant==false) {
+				double dist = Math.sqrt((this.posx-A_list.get(k).posx)*(this.posx-A_list.get(k).posx)+(this.posy-A_list.get(k).posy)*(this.posy-A_list.get(k).posy));
+				if (dist<dist_min && dist >0) {
+					dist_min = dist;
+					pos_cad[0]=A_list.get(k).posx;
+					pos_cad[1]=A_list.get(k).posy;
+					pos_cad[2]=k;
+				}
+			}
+		}
+		return pos_cad;
+	}
 	
 	
 	/**
@@ -647,7 +711,7 @@ public class Animal {
 	public void manger_carn(Animal A) {
 		if (A.type==0 && A.est_vivant==true) {
 				A.est_vivant=false;
-				A.qte_viande-=20;
+				A.qte_viande-=1;
 				this.jauge_nourriture+=20;
 		}
 	}
@@ -663,7 +727,7 @@ public class Animal {
 	public void manger_char(Animal A) {
 		if (A.type!=2 && A.est_vivant==false) {
 			if (A.qte_viande >20) {
-				A.qte_viande-=20;
+				A.qte_viande-=1;
 				this.jauge_nourriture+=20;
 			}
 		}
