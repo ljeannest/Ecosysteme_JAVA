@@ -46,6 +46,7 @@ public class fenetre extends JFrame {
 			duree_ecoulee++;
 			int n=A_list.size();
 			for (int i=0;i<n;i++) {
+				orientation=A_list.get(i).setOrientationEau(ressource);
 				A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES,orientation);
 			}
 			

@@ -379,15 +379,60 @@ public class Animal {
 				newX=this.posx-1;
 				newY=this.posy;}
 		}
-		else {
-			newX=-1;
-			newY=-1;
-		}
+		
 		this.posx=newX;
 		this.posy=newY;
 		
-}
-
+	}
+	
+	/**
+	 * Permet de définir la direction que va emprunter l'animal à l'instant t+1 s'il a soif
+	 * 
+	 * @author Lucie
+	 */
+	
+	public String setOrientationEau(Ressource[] ressource) {
+		String orientation="N";
+		int[] pos_eau = ppeau(this.posx,this.posy,ressource);
+		if(pos_eau[0]>this.posx) {
+			orientation="E";
+		}
+		else if (pos_eau[0]<this.posx) {
+			orientation="W";
+		}
+		else if (pos_eau[1]<this.posy) {
+			orientation="S";
+		}
+		else {
+			orientation="N";
+		}
+		return orientation;
+	}
+	
+	/**
+	 * Permet de récuperer la position du point d'eau le plus proche d'un animal donné
+	 * 
+	 * @author Lucie
+	 */
+	
+	public int[] ppeau(int posx, int posy, Ressource[] ressource) {
+		int n = ressource.length;
+		int[] pos_eau = new int[2];
+		double dist_min=1000;
+		pos_eau[0]=0;
+		pos_eau[1]=0;
+		for (int k=0;k<n;k++) {
+			if (ressource[k].type=="Eau") {
+				double dist = Math.sqrt((posx-ressource[k].posx)*(posx-ressource[k].posx)+(posy-ressource[k].posy)*(posy-ressource[k].posy));
+				if (dist<dist_min) {
+					dist_min = dist;
+					pos_eau[0]=ressource[k].posx;
+					pos_eau[1]=ressource[k].posy;
+				}
+			}
+		}
+		return pos_eau;
+	}
 
 
 	/**
