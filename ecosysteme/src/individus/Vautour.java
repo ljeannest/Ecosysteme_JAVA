@@ -2,9 +2,9 @@ package individus;
 
 /**
  * <b> individu Animal de type Charognard d'espce Vautour.</b>
- * <p> cet individues est défini par les meme paramétre que l'individue @see Animal mais aussi de cee parametre:.</p>
+ * <p> Cet individu est défini par les mêmes paramètres que l'individu @see Animal mais aussi de ces paramètres:.</p>
  * <ul>
- * <li> Partenaire de reproduction de l'individue qui une fois trouvé ne change pas.</li>
+ * <li> Partenaire de reproduction de l'individu qui une fois trouvé ne change pas.</li>
  * </ul> 
  * 
  * @author Mélodia
@@ -14,7 +14,7 @@ package individus;
 public class Vautour extends Charognard{
 	
 	/**
-	 * Parnetaire du vautour non  modifiable.
+	 * Partenaire du vautour. Non  modifiable.
 	 */
 	Vautour partenaire;
 	

@@ -9,8 +9,8 @@ import java.lang.Math;
 import java.util.ArrayList;
 
 /**
- * <b>Cette classe regroupe les methodes nécessaire à la reproduction de deux aindividus de type Animal.</b>
- * <p> cette classe n'as pas besoin de variables pour la définir il s'agit d'un regroupemetn de methodes interagissant entre elle.</b>
+ * <b> Cette classe regroupe les méthodes nécessaires à la reproduction de deux individus de type Animal.</b>
+ * <p> Cette classe n'as pas besoin de variable pour se définir il s'agit d'un regroupement de méthodes interagissant entre elles.</b>
  *
  * @author Mélodia
  *
@@ -20,17 +20,17 @@ public class repro {
 	
 	
 	/**
-	 * Peremet de tester les emplacement autour de les emplacements de la mere pour trouver un emplacement vide.
+	 * Permet de tester les emplacements autour de les emplacements de la mère pour trouver un emplacement vide.
 	 * @param posx
-	 * 		Postion en X de la mere.
+	 * 		Position en X de la mère.
 	 * @param posy
-	 * 		Position en Y de la mere
+	 * 		Position en Y de la mère.
 	 * @param A
-	 * 		Liste de type Animal regroupant tous les individus de l'ecosysteme.
+	 * 		Liste de type Animal regroupant tous les individus de l'écosystème.
 	 * @param tableauRessource
-	 * 		Tableau de type Ressource regroupant toutes les ressources de l'ecosysteme.
+	 * 		Tableau de type Ressource regroupant toutes les ressources de l'écosystème.
 	 * 
-	 * @return Une contenant la position du futur animal s'il n'en existe pas la liste {-1,-1} est renvoyé.
+	 * @return Une contenant la position du futur animal s'il n'en existe pas la liste {-1,-1} est renvoyée.
 	 */
 	
 	public static int [] vérificationNouvellePlace(int posx, int posy,ArrayList<Animal> A,Ressource[] ressource) {
@@ -66,16 +66,16 @@ public class repro {
 	}
 
 	/**
-	 * Peremet de créer l'individue issue de l'accouplement de deux Animaux et de l'ajouter à la liste d'animaux.
+	 * Permet de créer l'individu issue de l'accouplement de deux Animaux et de l'ajouter à la liste d'animaux.
 	 * 
 	 * @param A1
 	 * 			Animal 1.
 	 * @param A2
 	 * 			Animal 2.
 	 * @param A
-	 * 			List de type Animal regroupant les animaux de l'ecosysteme. 
+	 * 			List de type Animal regroupant les animaux de l'écosystème. 
 	 * @param tableauRessource
-	 * 			Tableau regroupant les ressources de l'ecosyteme.
+	 * 			Tableau regroupant les ressources de l'écosytème.
 	 * 
 	 */
 

@@ -1,9 +1,9 @@
 package ressources;
 
 /**
- * <b> Ressource de type Eau et de sous-type flaque qui peuvant etre bu par touts le sindividus de l'ecosystme.</b>
+ * <b> Ressource de type Eau et de sous-type Flaque qui peut être bue par tous les individus de l'écosystème.</b>
  * <p> Son niveau de ressource disponible étant limité.</p>
- * <p> Pour les variables définissant se type voir @see Ressource </p>
+ * <p> Pour les variables définissant ce type voir @see Ressource </p>
  * 
  * 
  * @author Mélodia
@@ -21,9 +21,9 @@ public class Flaque extends Eau{
 	 * @param posy
 	 * 			Position en Y. Non modifiable.
 	 * @param couleur
-	 * 			Couleur non modifiable.
+	 * 			Couleur. Non modifiable.
 	 * @param quantiteRessource
-	 * 			Quantité de ressource accessible par les individus.
+	 * 			Quantité de ressource accessible pour les individus.
 	 */
 
 	

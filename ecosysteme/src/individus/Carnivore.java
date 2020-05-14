@@ -3,8 +3,8 @@ package individus;
 import ressources.Eau;
 
 /**
- * <b>Individus de type Animal mais ne mangeant que les individus de type Herbivore.</b>
- *  <p> Il es identifié par l'id 1 dans type.</p>
+ * <b> Individus de type Animal mais ne mangeant que les individus de type Herbivore.</b>
+ *  <p> Il est identifié par l'id 1 dans type.</p>
  *@see Animal
  *
  * @author Lucie

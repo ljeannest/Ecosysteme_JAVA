@@ -1,8 +1,8 @@
 package individus;
 
 /**
- * <b> individu Animal de type Carnivore et d'espce Lynx.</b>
- * <p> cet individues est défini par les meme paramétre que l'individue @see Animal.</p>
+ * <b> Individu Animal de type Carnivore et d'espèce Lynx.</b>
+ * <p> Cet individu est défini par les mêmes paramètres que l'individu @see Animal.</p>
  * 
  * @author Mélodia
  *
@@ -11,7 +11,7 @@ package individus;
 public class Lynx extends Carnivore {
 	
 	/**
-	 * Constructeur de l'espece Lynx
+	 * Constructeur de l'espèce Lynx
 	 * 
 	 * @param posx
 	 * 			Position en X.
