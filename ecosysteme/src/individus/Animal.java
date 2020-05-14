@@ -286,7 +286,7 @@ public class Animal {
 	 * 
 	 */
 	public void degradation_besoin() {
-		this.jauge_eau-=2;
+		this.jauge_eau-=3;
 		if (this.type==0) {
 			this.jauge_nourriture-=2;
 		}
