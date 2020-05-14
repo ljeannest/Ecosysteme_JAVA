@@ -51,7 +51,7 @@ public class Donnees {
 	/**
 	 * Décrit les raisons pour l'arret de la simulation.
 	 */
-	public String causeFinSimulation;
+	String causeFinSimulation;
 	
 	/**
 	 * Indique le temps de la simulation.

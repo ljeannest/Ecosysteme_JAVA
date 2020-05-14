@@ -15,8 +15,7 @@ import com.itextpdf.layout.element.ListItem;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
 import com.itextpdf.kernel.pdf.PdfName;
-import individus.*;
-import ressources.*;
+import statistique.Donnees;
 
 /**
  * <b> Cette class permet de créer le squelette du pdf compte rendu de modélisation</b>
@@ -42,22 +41,24 @@ public class CreatePdf {
 	 */
 	static String nomFichier;
 	
+	
 	/**
-	 * Liste regroupant les données de la modélisation non modifiable.
+	 * Donnees de la simulation
 	 */
-	List listDonne;
+	
+	Donnees donneeSimul;
 	
 	/**
 	 * Constructeur de la classe.
 	 * 
 	 * @param nomFichier
 	 * 			Nom donné au fichier non modifiable.
-	 * @param listDonne
-	 * 			Liste des donné non modifiable.
+	 * @param doneeSimul
+	 * 			Données de la simulation non modifiable.
 	 */
-	public CreatePdf( String nomFichier, List listDonne) {
+	public CreatePdf( String nomFichier, Donnees donneeSimul) {
 		CreatePdf.nomFichier = nomFichier;
-		this.listDonne = listDonne;
+		this.donneeSimul = donneeSimul;
 
 	}
 	/**
@@ -135,12 +136,13 @@ public class CreatePdf {
 				.setSymbolIndent(12)
 				.setListSymbol("\u2022")
 				.setFont(font);
+
 		
 		
 		// on ajoute dans la liste les points que l'on veut ecrire.
 		
 		listDonneSimulationGenerale.add(new ListItem(" Durée de la simulation (donnée en jour) :"))
-		.add(new ListItem("Raison de fin de simulation : "))
+		.add(new ListItem("Raison de fin de simulation : "+ donneeSimul.causeFinSimulation))
 		.add(new ListItem("Nombre d'espéce au debut de la simulation: "))
 		.add(new ListItem("Nombre d'individus au début de la simulation : "))
 		.add(new ListItem("Nombre d'espéce à la fin de la simulation: "))

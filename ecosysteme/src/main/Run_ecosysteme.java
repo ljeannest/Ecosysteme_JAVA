@@ -8,6 +8,7 @@ import affichage.fenetre;
 import individus.Animal;
 import ressources.Ressource;
 import java.util.ArrayList;
+import statistique.Donnees;
 
 /**
  * <b> Main de l'application.</b>
