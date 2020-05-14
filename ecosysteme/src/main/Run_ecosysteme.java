@@ -43,6 +43,7 @@ public class Run_ecosysteme {
 		ConteneurFenetre.NB_COLONNES = taille;
 		
 		ArrayList<Animal> individus = Animal.creation(nb_lievre,nb_lynx,nb_vautour);
+		ArrayList<Animal> individus_morts = new ArrayList<Animal>(0);
 		Ressource [] ressource = Ressource.creation(nb_flaque,presencelac,presenceriviere,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 
 		
@@ -50,13 +51,23 @@ public class Run_ecosysteme {
 		//boire, manger, se deplacer, se reproduire...
 		//la boucle se termine quand ? extinction d'une espece? laps de temps donné? extinction de toutes les especes?
 		
-		fenetre fenetrePrincipale = new fenetre(individus,ressource,duree);
+		fenetre fenetrePrincipale = new fenetre(individus,individus_morts,ressource,duree);
 		fenetrePrincipale.setVisible(true);
 		
 		
 		//fermeture de l'ecosysteme
 		
 		fenetrePrincipale.setVisible(false);
+		
+		int p = individus.size();
+		for (int k=0;k<p;k++) {
+			System.out.println(individus.get(k));
+		}
+		
+		int n = individus_morts.size();
+		for (int k=0;k<n;k++) {
+			System.out.println(individus_morts.get(k));
+		}
 		
 		//nouvelle fenetre affichant les statistiques de la modelisation.
 

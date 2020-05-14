@@ -14,15 +14,15 @@ public class fenetre extends JFrame {
 	ConteneurFenetre pan;
 	
 	
-	public fenetre(ArrayList<Animal> A_list, Ressource[] ressource,int duree) throws InterruptedException {
+	public fenetre(ArrayList<Animal> A_list, ArrayList<Animal> A_list_mort, Ressource[] ressource,int duree) throws InterruptedException {
 		super();
 		
-		proprietesFenetre(A_list,ressource,duree);
+		proprietesFenetre(A_list,A_list_mort,ressource,duree);
 	}
 		
 
 
-	private void proprietesFenetre(ArrayList<Animal> A_list,Ressource[] ressource ,int duree) throws InterruptedException {
+	private void proprietesFenetre(ArrayList<Animal> A_list,ArrayList<Animal> A_list_mort,Ressource[] ressource ,int duree) throws InterruptedException {
 		
 	
 		this.setSize(800,1200);
@@ -31,7 +31,6 @@ public class fenetre extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setAlwaysOnTop(true);
 		
-		ArrayList<Animal> A_list_mort = new ArrayList<Animal>(0);
 		int duree_ecoulee=0;
 		int n=A_list.size();
 		for (int i=0;i<n;i++) {
@@ -45,7 +44,7 @@ public class fenetre extends JFrame {
 		fenetretime.setVisible(true);
 		
 		
-		for (int k=0;k<duree*365;k++) {
+		while (duree_ecoulee<duree*365 && A_list.size()>0) {
 			duree_ecoulee++;
 			n=A_list.size();
 			int i=0;

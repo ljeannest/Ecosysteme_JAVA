@@ -203,11 +203,13 @@ public class Animal {
 		String text ="Type : "+type+"\n";
 		text+="Espece : "+this.espece+"\n";
 		text+="Sexe : "+this.sexe+"\n";
-		text+="Age : "+this.age + " ans"+"\n";
+		text+="Age : "+this.age + " jours"+"\n";
 		text+="Position : ("+this.posx+","+this.posy+")\n";
 		text+="Jauge nourriture : "+this.jauge_nourriture+"\n";
 		text+="Jauge eau : "+this.jauge_eau+"\n";
-		text+="Est Vivant : "+this.est_vivant;
+		text+="Est Vivant : "+this.est_vivant+"\n";
+		text+="Date de naissance : "+this.date_naissance+" jours écoulés \n";
+		text+="Date de mort : "+this.date_mort+" jours écoulés \n";
 		return text;
 	}
 
