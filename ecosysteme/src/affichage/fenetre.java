@@ -33,6 +33,10 @@ public class fenetre extends JFrame {
 		
 		
 		int duree_ecoulee=0;
+		int n=A_list.size();
+		for (int i=0;i<n;i++) {
+			A_list.get(i).deplacementAleatoire(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
+		}
 		pan=new ConteneurFenetre(A_list,ressource,duree_ecoulee);
 		this.setContentPane(pan);
 		this.setVisible(true);
@@ -44,7 +48,7 @@ public class fenetre extends JFrame {
 		
 		for (int k=0;k<duree*365;k++) {
 			duree_ecoulee++;
-			int n=A_list.size();
+			n=A_list.size();
 			for (int i=0;i<n;i++) {
 				orientation=A_list.get(i).setOrientationEau(ressource);
 				A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES,orientation);
