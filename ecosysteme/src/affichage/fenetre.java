@@ -75,7 +75,8 @@ public class fenetre extends JFrame {
 		}
 		
 		
-	
+	fenetretime.setVisible(false);
+	this.setVisible(false);
 		
 
 		

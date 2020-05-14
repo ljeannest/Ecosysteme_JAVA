@@ -55,9 +55,12 @@ public class Run_ecosysteme {
 		fenetrePrincipale.setVisible(true);
 		
 		
-		//fermeture de l'ecosysteme
+		//fermeture de la fenetre
 		
 		fenetrePrincipale.setVisible(false);
+		
+		
+		//recuperation informations
 		
 		int p = individus.size();
 		for (int k=0;k<p;k++) {
