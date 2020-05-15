@@ -224,10 +224,24 @@ public class FenetreInit extends JDialog {
 		pan_size.add(sizeLabel);
 		pan_size.add(size);
 		
+		//compte rendu
+		
+		JPanel pan_cr = new JPanel();
+		pan_cr.setBackground(Color.white);
+		pan_cr.setPreferredSize(new Dimension(290,90));
+		compterendu = new JComboBox();
+		compterendu.addItem("oui");
+		compterendu.addItem("non");
+		compterenduLabel = new JLabel ("Souhaitez vous un compte-rendu de la simulation ? ");
+		
+		pan_cr.add(compterenduLabel);
+		pan_cr.add(compterendu);
+		
 		//Remplissage du panel Simulation
 		
 		pan_simulation.add(pan_temps);
 		pan_simulation.add(pan_size);
+		pan_simulation.add(pan_cr);
 		
 		
 		// JPanel General
@@ -243,7 +257,7 @@ public class FenetreInit extends JDialog {
 		JButton okBouton = new JButton("OK");
 		okBouton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				info = new FenetreInitInfo((int)lievre.getSelectedItem(),(int)lynx.getSelectedItem(),(int)vautour.getSelectedItem(),(int)flaque.getSelectedItem(),(int)duree.getSelectedItem(),(String)riviere.getSelectedItem(),(String)lac.getSelectedItem(),(int) size.getSelectedItem(),(String) foret.getSelectedItem());
+				info = new FenetreInitInfo((int)lievre.getSelectedItem(),(int)lynx.getSelectedItem(),(int)vautour.getSelectedItem(),(int)flaque.getSelectedItem(),(int)duree.getSelectedItem(),(String)riviere.getSelectedItem(),(String)lac.getSelectedItem(),(int) size.getSelectedItem(),(String) foret.getSelectedItem(),(String)compterendu.getSelectedItem());
 				setVisible(false);
 			}
 		});
