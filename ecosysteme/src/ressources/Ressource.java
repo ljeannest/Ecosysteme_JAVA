@@ -247,7 +247,7 @@ public class Ressource {
 	 * @return	renvoie une liste contenant les ressources présentes dans l'écosystème.
 	 */
 
-	public static Ressource[] creation(int nb_flaque, int presence_lac, int presence_riviere,int NB_LIGNES, int NB_COLONNES) {
+	public static Ressource[] creation(int nb_flaque, int presence_lac, int presence_riviere,int presence_foret,int NB_LIGNES, int NB_COLONNES) {
 		
 		boolean plein = false;
 		
@@ -332,12 +332,14 @@ public class Ressource {
 					}
 				}
 				if (plein==false) {
-					for (int a=posx_foret;a<ConteneurFenetre.NB_LIGNES;a++) {
-						for (int b = posy_foret; b<ConteneurFenetre.NB_COLONNES;b++) {
-							if (a==i && b==j) {
-								if (a!= posx_foret && b!= posy_foret) {
-									ressource[k]= new Arbre(i,j);
-									plein = true;
+					if (presence_foret==1) {
+						for (int a=posx_foret;a<ConteneurFenetre.NB_LIGNES;a++) {
+							for (int b = posy_foret; b<ConteneurFenetre.NB_COLONNES;b++) {
+								if (a==i && b==j) {
+									if (a!= posx_foret && b!= posy_foret) {
+										ressource[k]= new Arbre(i,j);
+										plein = true;
+									}
 								}
 							}
 						}

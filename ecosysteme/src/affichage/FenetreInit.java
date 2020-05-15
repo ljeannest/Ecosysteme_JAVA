@@ -22,9 +22,9 @@ import javax.swing.border.Border;
 public class FenetreInit extends JDialog {
 	private FenetreInitInfo info= new FenetreInitInfo();
 	private boolean sendData;
-	private JLabel lievreLabel, lynxLabel, vautourLabel, flaqueLabel, dureeLabel,anLabel,lacLabel,riviereLabel,sizeLabel;
-	private JComboBox lievre,lynx,vautour,flaque,duree,lac,riviere,size;
-	private JLabel lievreIcon,lynxIcon,vautourIcon,eauIcon,tempsIcon,sizeIcon;
+	private JLabel lievreLabel, lynxLabel, vautourLabel, flaqueLabel, dureeLabel,anLabel,lacLabel,riviereLabel,sizeLabel, foretLabel;
+	private JComboBox lievre,lynx,vautour,flaque,duree,lac,riviere,size, foret;
+	private JLabel lievreIcon,lynxIcon,vautourIcon,eauIcon,tempsIcon,sizeIcon, foretIcon;
 	
 
 	ImageIcon icon_eau_claire = new ImageIcon(new ImageIcon("images/bleu clair.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
@@ -34,6 +34,8 @@ public class FenetreInit extends JDialog {
 	ImageIcon icon_vautour = new ImageIcon(new ImageIcon("images/vautour.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
 	ImageIcon icon_temps = new ImageIcon(new ImageIcon("images/temps.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 	ImageIcon icon_size = new ImageIcon(new ImageIcon("images/fleche.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+	ImageIcon icon_foret = new ImageIcon(new ImageIcon("images/vert fonce.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+	
 	
 	Border redline = BorderFactory.createLineBorder(Color.red,1); 
 	Border whiteline = BorderFactory.createLineBorder(Color.white,1);
@@ -41,7 +43,7 @@ public class FenetreInit extends JDialog {
 	
 	public FenetreInit(JFrame parent,String titre, boolean modal) {
 		super(parent, titre, modal);
-		this.setSize(1000,400);
+		this.setSize(1000,490);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
@@ -59,7 +61,7 @@ public class FenetreInit extends JDialog {
 		// creation du panel individus
 		JPanel pan_individus = new JPanel();
 		pan_individus.setBackground(Color.white);
-		pan_individus.setPreferredSize(new Dimension(320,320));
+		pan_individus.setPreferredSize(new Dimension(320,410));
 		pan_individus.setBorder(BorderFactory.createTitledBorder("Individus"));
 		
 		//lievres
@@ -119,7 +121,7 @@ public class FenetreInit extends JDialog {
 		//creation du panel environnement
 		JPanel pan_environnement=new JPanel();
 		pan_environnement.setBackground(Color.white);
-		pan_environnement.setPreferredSize(new Dimension(320,320));
+		pan_environnement.setPreferredSize(new Dimension(320,410));
 		pan_environnement.setBorder(BorderFactory.createTitledBorder("Environnement"));
 		
 		//Nombre de flaques
@@ -163,7 +165,21 @@ public class FenetreInit extends JDialog {
 		pan_lac.add(lacLabel);
 		pan_lac.add(lac);
 		
+		//Presence de foret
+		JPanel pan_foret=new JPanel();
+		pan_foret.setBackground(Color.white);
+		pan_foret.setPreferredSize(new Dimension(290,90));
+		foretIcon=new JLabel(icon_foret);
+		foret=new JComboBox();
+		foret.addItem("non");
+		foret.addItem("oui");
+		foretLabel=new JLabel ("Présence de foret ? ");
+		pan_foret.add(foretIcon);
+		pan_foret.add(foretLabel);
+		pan_foret.add(foret);
+		
 		//Remplissage du panel environnement
+		pan_environnement.add(pan_foret);
 		pan_environnement.add(pan_lac);
 		pan_environnement.add(pan_riviere);
 		pan_environnement.add(pan_flaque);
@@ -172,7 +188,7 @@ public class FenetreInit extends JDialog {
 		//creation du panel simulation
 		JPanel pan_simulation= new JPanel();
 		pan_simulation.setBackground(Color.white);
-		pan_simulation.setPreferredSize(new Dimension(320,320));
+		pan_simulation.setPreferredSize(new Dimension(320,410));
 		pan_simulation.setBorder(BorderFactory.createTitledBorder("Simulation"));
 		
 		//duree de la simulation
@@ -227,7 +243,7 @@ public class FenetreInit extends JDialog {
 		JButton okBouton = new JButton("OK");
 		okBouton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				info = new FenetreInitInfo((int)lievre.getSelectedItem(),(int)lynx.getSelectedItem(),(int)vautour.getSelectedItem(),(int)flaque.getSelectedItem(),(int)duree.getSelectedItem(),(String)riviere.getSelectedItem(),(String)lac.getSelectedItem(),(int) size.getSelectedItem());
+				info = new FenetreInitInfo((int)lievre.getSelectedItem(),(int)lynx.getSelectedItem(),(int)vautour.getSelectedItem(),(int)flaque.getSelectedItem(),(int)duree.getSelectedItem(),(String)riviere.getSelectedItem(),(String)lac.getSelectedItem(),(int) size.getSelectedItem(),(String) foret.getSelectedItem());
 				setVisible(false);
 			}
 		});

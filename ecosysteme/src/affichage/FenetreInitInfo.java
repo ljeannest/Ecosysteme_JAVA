@@ -10,10 +10,11 @@ public class FenetreInitInfo {
 	public int presence_riviere;
 	public int presence_lac;
 	public int size;
+	public int presence_foret;
 	
 	public FenetreInitInfo() {}
 	
-	public FenetreInitInfo(int nb_lievre,int nb_lynx,int nb_vautour,int nb_flaques, int duree,String riv,String lac,int size) {
+	public FenetreInitInfo(int nb_lievre,int nb_lynx,int nb_vautour,int nb_flaques, int duree,String riv,String lac,int size, String foret) {
 		this.nb_lievre=nb_lievre;
 		this.nb_lynx=nb_lynx;
 		this.nb_vautour=nb_vautour;
@@ -31,6 +32,12 @@ public class FenetreInitInfo {
 		else {
 			this.presence_lac=0;
 		}
+		if (foret=="oui") {
+			this.presence_foret=1;
+		}
+		else {
+			this.presence_foret=0;
+		}
 		this.size=size;
 	}
 	
@@ -38,6 +45,7 @@ public class FenetreInitInfo {
 		String str;
 		String lac;
 		String riviere;
+		String foret;
 		if(this.nb_flaques!=0 && this.duree!=0){
 			if (presence_lac==1) {
 				lac="oui";
@@ -51,10 +59,17 @@ public class FenetreInitInfo {
 			else {
 				riviere = "non";
 			}
+			if (presence_foret==1) {
+				foret="oui";
+			}
+			else {
+				foret = "non";
+			}
 			str = "Verification des parametres \n\n\n";
 			str+= "Nombre de lievres : "+this.nb_lievre +"\n";
 			str+= "Nombre de lynxs : "+this.nb_lynx +"\n";
 			str+= "Nombre de vautours : "+this.nb_vautour +"\n\n";
+			str+= "Présence de foret : " + foret + "\n";
 			str+= "Présence de rivière : " + riviere + "\n";
 			str+= "Présence de lac : " + lac+"\n";
 			str+= "Nombre de flaques : "+this.nb_flaques +"\n\n";

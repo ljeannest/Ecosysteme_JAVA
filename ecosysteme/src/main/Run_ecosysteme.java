@@ -37,6 +37,7 @@ public class Run_ecosysteme {
 		int presencelac=info[5];
 		int presenceriviere=info[6];
 		int taille = info[7];
+		int presenceforet = info[8];
 		
 		//création de l'écosystème, ainsi que des différents individus
 		
@@ -45,7 +46,7 @@ public class Run_ecosysteme {
 		
 		ArrayList<Animal> individus = Animal.creation(nb_lievre,nb_lynx,nb_vautour);
 		ArrayList<Animal> individus_morts = new ArrayList<Animal>(0);
-		Ressource [] ressource = Ressource.creation(nb_flaque,presencelac,presenceriviere,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
+		Ressource [] ressource = Ressource.creation(nb_flaque,presencelac,presenceriviere,presenceforet,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 
 		
 		//entrée dans une boucle qui modélise notre écosysteme, avec tous nos individus qui peuvent 
