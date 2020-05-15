@@ -22,8 +22,8 @@ import javax.swing.border.Border;
 public class FenetreInit extends JDialog {
 	private FenetreInitInfo info= new FenetreInitInfo();
 	private boolean sendData;
-	private JLabel lievreLabel, lynxLabel, vautourLabel, flaqueLabel, dureeLabel,anLabel,lacLabel,riviereLabel,sizeLabel, foretLabel;
-	private JComboBox lievre,lynx,vautour,flaque,duree,lac,riviere,size, foret;
+	private JLabel lievreLabel, lynxLabel, vautourLabel, flaqueLabel, dureeLabel,anLabel,lacLabel,riviereLabel,sizeLabel, foretLabel,compterenduLabel;
+	private JComboBox lievre,lynx,vautour,flaque,duree,lac,riviere,size, foret,compterendu;
 	private JLabel lievreIcon,lynxIcon,vautourIcon,eauIcon,tempsIcon,sizeIcon, foretIcon;
 	
 
