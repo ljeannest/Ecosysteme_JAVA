@@ -177,7 +177,7 @@ public class Donnees {
 	 * @param nbIndividus
 	 * 			Liste comprenant le nombre d'individus par espéce sur toute la simulation.
 	 * @param moyenAgeParEspece
-	 * 			Liste des moyennes d'age par espéce.
+	 * 			Liste des moyennes d'age par espéce à la fin de la simulation.
 	 * @param moyenAgeALaMort
 	 * 			Liste des moyenne d'age a la mort par espéce.
 	 * @param causeFinSimulation

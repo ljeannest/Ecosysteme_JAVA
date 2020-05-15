@@ -8,7 +8,7 @@ import affichage.fenetre;
 import individus.Animal;
 import ressources.Ressource;
 import java.util.ArrayList;
-import statistique.Donnees;
+import statistique.*;
 
 /**
  * <b> Main de l'application.</b>
@@ -73,6 +73,15 @@ public class Run_ecosysteme {
 		for (int k=0;k<n;k++) {
 			System.out.println(individus_morts.get(k));
 		}
+		
+		Calcul calcul= new Calcul(individus,individus_morts);
+		
+		int[] nbIndividus = calcul.compteurNbIndividus();
+		int[] moyenAgeParEspece = calcul.MoyenneAgeParEsp();
+		int [] moyenAgeALaMort = calcul.MoyenAgeALaMort();
+		int[] nbIndividusFin = calcul.compteurNbIndividusFin();
+		
+		
 		
 		//nouvelle fenetre affichant les statistiques de la modelisation.
 

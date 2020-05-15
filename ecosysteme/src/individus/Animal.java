@@ -73,7 +73,7 @@ public class Animal {
 	 * 
 	 * @see Animal#vieillir()
 	 */
-	int age;
+	public int age;
 
 	/**
 	 * Espérance de vie de l'animal. Non modifiable.
