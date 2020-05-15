@@ -180,9 +180,7 @@ public class Donnees {
 	public int nbTotalIndiFin;
 	
 
-	
 	/**
-	 * Constructeur de la classe.
 	 * 
 	 * @param nbIndividus
 	 * 			Liste comprenant le nombre d'individus par espéce sur toute la simulation.
@@ -214,6 +212,8 @@ public class Donnees {
 	 * 			Liste du nombre de mort par manque d'eau par espece.
 	 * @param nbMortChasse
 	 * 			Liste du nombre de mort par chasse par espece.
+	 * @param nbMort
+	 * 			Liste du nombre de mort total par espece
 	 * @param nbMoyenPetit
 	 * 			Liste du nombre de nouveau nee par espece.
 	 */

@@ -28,13 +28,13 @@ import statistique.*;
  * <b> Main de l'application.</b>
  * 
  * 
- *
+ *@author Augustin & Lucie & Mélodia
  */
 
 public class Run_ecosysteme {
 
 
-	public static final String DEST = "compte_rendu/compteRendu.pdf";
+	public static final String DEST = "compteRendu.pdf";
 
 	public static void main(String[] args) throws InterruptedException, IOException  {
 

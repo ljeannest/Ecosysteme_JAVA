@@ -53,6 +53,12 @@ public class Calcul {
 	 * 			Array liste de type animal.
 	 * @param individus_morts
 	 * 			Array liste de type animal.
+	 * @param dureeSimuPara
+	 * 			Int indiquant le temps voulu par l'utilisateur de la simulation.
+	 * @param dureeSimulReel
+	 * 			Int indiquant le temps réel de la simulation.
+	 * @param nbIndividuDebut
+	 * 			Liste int indiquant le nombre d'individu par espéce.
 	 */
 
 	public Calcul(ArrayList<Animal> individus, ArrayList<Animal> individus_morts,int dureeSimulPara, int dureeSimulReel, int [] nbIndividuDebut) {
