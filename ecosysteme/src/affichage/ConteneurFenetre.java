@@ -60,7 +60,7 @@ public class ConteneurFenetre extends JPanel{
 	/**
 	 * Tableau de type Animal regroupant les animaux présents dans l'écosystème.
 	 */
-	public Animal[][] grid_animaux = new Animal[NB_COLONNES][NB_LIGNES];// ça
+	public Animal[][] grid_animaux = new Animal[NB_COLONNES][NB_LIGNES];
 	
 	
 	/**
@@ -155,13 +155,22 @@ public class ConteneurFenetre extends JPanel{
 	/**
 	 * Bordure de case de couleur rouge.
 	 */
-	Border redline = BorderFactory.createLineBorder(Color.red,1); 
+	Border redline = BorderFactory.createLineBorder(Color.red,1);
+	
+	/**
+	 * Bordure de case de couleur blanche.
+	 */
 	Border whiteline = BorderFactory.createLineBorder(Color.white,1);
+	
+	/**
+	 * Bordure de case de couleur verte.
+	 */
 	Border greenline = BorderFactory.createLineBorder(Color.green,1);
 	
-
+	/**
+	 * JPanel qui contient la grille d'affichage de l'ecosysteme.
+	 */
 	private JPanel grille;
-	
 
 	
 	/**
@@ -206,9 +215,7 @@ public class ConteneurFenetre extends JPanel{
 	 * Liste Array de type Ressource regroupant l'herbe.
 	 */
 	public static ArrayList<Ressource> herbe;
-	
-	//private int[][] grid = new int[NB_LIGNES][NB_COLONNES];
-	//private Image[] images;
+
 	
 	/**
 	 * Constructeur de la classe.
@@ -243,13 +250,21 @@ public class ConteneurFenetre extends JPanel{
 
 	}
 	
+	/**
+	 * Permet de générer le JPanel contenant l'ecosysteme.
+	 * 
+	 * @param A_list
+	 *         Liste des individus présents dans l'ecosysteme (vivant ou mort mais non decomposé)
+	 * @param ressource
+	 *         Liste de toutes les ressources de l'environnement (tous les elements Ressource présents dans l'ecosysteme)
+	 *
+	 * @throws InterruptedException
+	 * 
+	 * @author Lucie
+	 */
 	private void proprietesConteneur(ArrayList<Animal> A_list,Ressource[] ressource) throws InterruptedException {
 		
 		this.setLayout(null);
-		//this.proprietesEtiquette();
-		//this.propBouton();
-		//this.propChampTexte();
-		//this.affichImage();
 		this.setGrilleEnv(ressource);
 		this.Set_grille_position(A_list);
 		this.setGrille();
@@ -257,7 +272,14 @@ public class ConteneurFenetre extends JPanel{
 	}
 	
 
-	
+	/**
+	 * Permet de générer un tableau qui positionne les individus
+	 * 
+	 * @param A_list
+	 *         Liste des individus présents dans l'ecosysteme (vivant ou mort mais non decomposé)
+	 * 
+	 * @author Lucie
+	 */
 	private void Set_grille_position(ArrayList<Animal> a_list) {
 		int n = a_list.size();
 		for (int k=0; k<n; k++) {
@@ -266,7 +288,14 @@ public class ConteneurFenetre extends JPanel{
 		
 	
 
-	
+	/**
+	 * Permet de générer un tableau qui positionne les ressources
+	 * 
+	 * @param ressource
+	 *         Liste des ressources présentes dans l'ecosysteme
+	 * 
+	 * @author Lucie
+	 */
 	private void setGrilleEnv(Ressource[] ressource) {
 		int n = ressource.length;
 		for (int k=0; k<n; k++) {
@@ -275,7 +304,11 @@ public class ConteneurFenetre extends JPanel{
 	}
 	
 
-	
+	/**
+	 * Création de la grille permettant l'affichage de l'ecosysteme avec ses ressources et ses individus
+	 * 
+	 * @author Lucie
+	 */
 	private  void setGrille() throws InterruptedException {
 		
 		

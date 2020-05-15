@@ -96,21 +96,7 @@ public class Run_ecosysteme {
 		
 		
 			fenetrePrincipale.setVisible(false);
-		
-		
-			//affichage des informations de la simulation
-			
-			//System.out.println("Duree totale de la simulation : "+duree_ecoulee+" jours\n\n");
-		
-			//int p = individus.size();
-			//for (int k=0;k<p;k++) {
-			//	System.out.println(individus.get(k));
-			//}
-			
-			//int n = individus_morts.size();
-			//for (int k=0;k<n;k++) {
-			//	System.out.println(individus_morts.get(k));
-			// }
+	
 			
 			if (presencecompterendu==1) {
 				int [] nbIndividuDebut = {nb_lievre, nb_lynx, nb_vautour};

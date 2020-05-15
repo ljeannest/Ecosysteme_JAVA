@@ -9,7 +9,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * Class regroupant les methodes nécessaire à l'ouverture de la fenetre.
+ * <b> Class regroupant les methodes nécessaire à l'ouverture de la fenetre.<b>
+ * <p> Ces elements sont necessaires : <p>
+ * <ul>
+ * <li> un JButton qui s'affichera dans une premiere fenetre permettant de lancer la fenetre initiale <li>
+ * <li> Une FenetreInitInfo qui recuperera les informations <li>
+ * <ul>
  * 
  * @author Lucie
  *
@@ -21,6 +26,9 @@ public class FenetreInitOuverture extends JFrame{
 
 	public FenetreInitInfo FII;
 	
+	/**
+	 * Constructeur de la classe
+	 */
 	public FenetreInitOuverture() {
 		this.setTitle("Initialisation");
 		this.setSize(300,100);
@@ -39,6 +47,11 @@ public class FenetreInitOuverture extends JFrame{
 		this.setVisible(true);
 	}
 	
+	/**
+	 * Permet  de recuperer sous forme de liste les informations entrees par l'utilisateur dans la fenetre initiale
+	 * @return
+	 * 			les informations sous forme de tableau
+	 */
 	public static int[] recuperation_info() {
 		int[] info = new int[10];
 		FenetreInit FI=new FenetreInit(null,"Paramètres de la simulation",true);

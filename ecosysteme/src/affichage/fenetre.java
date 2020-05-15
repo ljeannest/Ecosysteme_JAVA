@@ -8,12 +8,36 @@ import javax.swing.JFrame;
 import individus.*;
 import ressources.Ressource;
 
+/**
+ * <b> Cree la fenetre principale de notre ecosysteme et la met a jour au fil du temps qui passe <b>
+ * <p> Pour cela, nous avons besoin des variables suivantes<p>
+ * <ul>
+ * <li> un ConteneurFenetre pan qui sera mis à jour a chaque instant de la simulation<li>
+ * <ul>
+ * 
+ * @author Lucie & Augustin
+ *
+ */
 
 public class fenetre extends JFrame {
 	
 	ConteneurFenetre pan;
 	
-	
+	/**
+	 * Constructeur de la classe.
+	 * 
+	 * @param A_list
+	 * 			Liste Array de type Animal regroupant les individus à modéliser.
+	 * @param A_list_mort
+	 * 			Liste Array de type Animal regroupant les individus morts de la simulation
+	 * @param ressource
+	 * 			Liste Array de type Ressource regroupant les ressources à modéliser.
+	 * @param duree_ecoulee
+	 * 			Duree ecoulee depuis le début de la simulation
+	 * @param duree
+	 * 			Duree de la modélisation.
+	 * @throws InterruptedException
+	 */
 	public fenetre(ArrayList<Animal> A_list, ArrayList<Animal> A_list_mort, Ressource[] ressource,int duree_ecoulee,int duree) throws InterruptedException {
 		super();
 		
@@ -21,7 +45,21 @@ public class fenetre extends JFrame {
 	}
 		
 
-
+	/**
+	 * Détermine le contenu de la fenetre, et permet a la simulation de se dérouler convenablement
+	 * 
+	 * @param A_list
+	 * 			Liste Array de type Animal regroupant les individus à modéliser.
+	 * @param A_list_mort
+	 * 			Liste Array de type Animal regroupant les individus morts pendant la simulation
+	 * @param ressource
+	 * 			Liste Array de type Ressource regroupant les ressources à modéliser.
+	 * @param duree_ecoulee
+	 * 			Duree ecoulee depuis le debut de la simulation
+	 * @param duree
+	 * 			Duree de la modélisation.
+	 * @throws InterruptedException
+	 */
 	private void proprietesFenetre(ArrayList<Animal> A_list,ArrayList<Animal> A_list_mort,Ressource[] ressource ,int duree_ecoulee, int duree) throws InterruptedException {
 		
 	
@@ -82,18 +120,6 @@ public class fenetre extends JFrame {
 		
 	fenetretime.setVisible(false);
 	this.setVisible(false);
-		
 
-		
-
-		
-		
-		
-		
-
-		
-
-		}
-	
-
+	}
 }

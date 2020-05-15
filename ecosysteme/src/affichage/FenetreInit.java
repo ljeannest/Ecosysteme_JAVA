@@ -19,6 +19,57 @@ import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+
+
+/**
+ * <b> Ouvre une premiere fenetre permettant à l'utilisateur de choisir les parametres de la simulation <b>
+ * <p> Les variables suivantes sont donc necessaires : <p>
+ * <ul>
+ * <li> Un element info de type FenetreInitInfo qui permettra de récuperer toutes les donnees indiquees par l'utilisateur <li>
+ * <li> un booleen sendData, qui servira a envoyer ou non les donnees dans info <li>
+ * <li> Un JLabel lievreLabel, qui contiendra un texte concernant les lievres à afficher dans la fenetre <li>
+ * <li> Un JLabel lynxLabel, qui contiendra un texte concernant les lynxs à afficher dans la fenetre <li>
+ * <li> Un JLabel vautourLabel, qui contiendra un texte concernant les vautours à afficher dans la fenetre <li>
+ * <li> Un JLabel flaqueLabel, qui contiendra un texte concernant les flaques à afficher dans la fenetre <li> 
+ * <li> Un JLabel dureeLabel, qui contiendra un texte concernant la duree de la simulation à afficher dans la fenetre <li> 
+ * <li> Un JLabel anLabel, qui contiendra un texte concernant l'echelle de temps(an) à afficher dans la fenetre <li> 
+ * <li> Un JLabel lacLabel, qui contiendra un texte concernant les lacs à afficher dans la fenetre <li> 
+ * <li> Un JLabel riviereLabel, qui contiendra un texte concernant les rivieres à afficher dans la fenetre <li> 
+ * <li> Un JLabel tailleLabel, qui contiendra un texte concernant la taille de l'ecosysteme à afficher dans la fenetre <li> 
+ * <li> Un JLabel foretLabel, qui contiendra un texte concernant les forets à afficher dans la fenetre <li>
+ * <li> Un JLabel compterenduLabel, qui contiendra un texte concernant les compte_rendus à afficher dans la fenetre <li> 
+ * <li> Un JComboBox lievre qui contiendra les differentes options concernant le nombre de lievres <li>
+ * <li> Un JComboBox lynx qui contiendra les differentes options concernant le nombre de lynxs <li>
+ * <li> Un JComboBox vautour qui contiendra les differentes options concernant le nombre de vautours <li>
+ * <li> Un JComboBox flaque qui contiendra les differentes options concernant le nombre de flaques <li>
+ * <li> Un JComboBox duree qui contiendra les differentes options concernant la duree de la simulation <li>
+ * <li> Un JComboBox lac qui contiendra les differentes options concernant le nombre de lacs <li>
+ * <li> Un JComboBox riviere qui contiendra les differentes options concernant la presence de rivieres <li>
+ * <li> Un JComboBox size qui contiendra les differentes options concernant la taille de l'ecosysteme <li>
+ * <li> Un JComboBox foret qui contiendra les differentes options concernant la presence de forets <li>
+ * <li> Un JComboBox compterendu qui contiendra les differentes options concernant la presence d'un compte rendu <li>
+ * <li> Un JLabel lievreIcon qui contiendra un icone representant un lievre <li>
+ * <li> Un JLabel lynxIcon qui contiendra un icone representant un lynx <li>
+ * <li> Un JLabel vautourIcon qui contiendra un icone representant un vautour <li>
+ * <li> Un JLabel eauIcon qui contiendra un icone representant une case d'eau <li>
+ * <li> Un JLabel tempsIcon qui contiendra un icone representant une horloge <li>
+ * <li> Un JLabel sizeIcon qui contiendra un icone representant la taille de l'ecosysteme <li>
+ * <li> Un JLabel foretIcon qui contiendra un icone representant une case de foret <li>
+ * <li> Un ImageIcon icon_eau_claire qui represente une case d'eau claire <li>
+ * <li> Un ImageIcon icon_eau_foncee qui represente une case d'eau foncee <li>
+ * <li> Un ImageIcon icon_lynx qui represente un individu de type lynx <li>
+ * <li> Un ImageIcon icon_lievre qui represente un individu de type lievre <li>
+ * <li> Un ImageIcon icon_vautour qui represente un individu de type vautour <li>
+ * <li> Un ImageIcon icon_temps qui represente une horloge <li>
+ * <li> Un ImageIcon icon_size qui represente une taille <li>
+ * <li> Un ImageIcon icon_foret qui represente une case de foret <li>
+ * <li> Une Border redline qui est un contour de couleur rouge <li>
+ * <li> Une Border blackline qui est un contour de couleur noire <li>
+ * <li> Une Border whiteline qui est un contour de couleur blanche <li>
+ * <ul>
+ * @author Lucie
+ *
+ */
 public class FenetreInit extends JDialog {
 	private FenetreInitInfo info= new FenetreInitInfo();
 	private boolean sendData;
