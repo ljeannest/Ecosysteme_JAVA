@@ -8,6 +8,8 @@ import ressources.Vegetaux;
 import java.lang.Math;
 import java.util.ArrayList;
 
+import affichage.ConteneurFenetre;
+
 /**
  * <b> Cette classe regroupe les méthodes nécessaires à la reproduction de deux individus de type Animal.</b>
  * <p> Cette classe n'as pas besoin de variable pour se définir il s'agit d'un regroupement de méthodes interagissant entre elles.</b>
@@ -39,19 +41,19 @@ public class repro {
 		int posX;
 		int posY;
 		
-		if (Animal.pos_libre(A, ressource,-1,posx+1, posy)==true) {
+		if (Animal.pos_libre(A, ressource,-1,posx+1, posy)==true && posx+1<ConteneurFenetre.NB_LIGNES) {
 			posX = posx+1;
 			posY = posy;
 		}
-		else if (Animal.pos_libre(A,  ressource, -1, posx-1, posy)==true) {
+		else if (Animal.pos_libre(A,  ressource, -1, posx-1, posy)==true && posx>0) {
 			posX = posx-1;
 			posY = posy;
 		}
-		else if(Animal.pos_libre(A,  ressource, -1, posx, posy+1)==true) {
+		else if(Animal.pos_libre(A,  ressource, -1, posx, posy+1)==true && posy+1<ConteneurFenetre.NB_COLONNES) {
 			posX = posx;
 			posY = posy+1;
 		}
-		else if(Animal.pos_libre(A,  ressource, -1, posx, posy-1)==true) {
+		else if(Animal.pos_libre(A,  ressource, -1, posx, posy-1)==true && posy>0) {
 			posX = posx;
 			posY = posy-1;
 		}
