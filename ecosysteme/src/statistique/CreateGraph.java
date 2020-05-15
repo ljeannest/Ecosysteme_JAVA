@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * <b> On créée les graphisques issu du traitement statistiques de la modélisation. </b>
+ * <b> On crée les graphiques issus du traitement statistiques de la modélisation. </b>
  * @author Mélodia
  *
  */

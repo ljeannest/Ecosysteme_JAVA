@@ -90,21 +90,21 @@ public class CreatePdf {
 		
 		// écriture du contenu de cahque paragraphe
 
-		String para1 = "Dans ce PDF voud trouverez les statistiques que nous avons pu ressortir de votre simulation. Les données qui ont servie à leur élaboration vous seront donné en première partie.";  
+		String para1 = "Dans ce PDF vous trouverez les statistiques que nous avons pu ressortir de votre simulation. Les données qui ont servi à leur élaboration vous seront données en première partie.";  
 
 		String para2 = "Voici les données jour par jour de la simulation:";
 		
-		String para3 = "Donnée génerale:";
+		String para3 = "Données génerales:";
 
-		String para4 = "Pour les carnivores:";
+		String para4 = "Pour les Carnivores:";
 		
-		String para5 = "Pour les charognards:";
+		String para5 = "Pour les Charognards:";
 		
-		String para6 = "Pour les herbivores:";
+		String para6 = "Pour les Herbivores:";
 
-		String para7 = "Nous observons les graphiqes suivant:";
+		String para7 = "Nous observons les graphiques suivants:";
 
-		String para8 = "Nous esperons que cette simulation a pu vous éclairez dans vos recherches.";   
+		String para8 = "Nous espérons que cette simulation a pu vous éclairer dans vos recherches.";   
 		
 		// création des paragraph via la methode paragraph de la class paragraph et rajout d'indentation avec setFirstLineIndent et aplication de la font crée en debut avec setFont     
 		Paragraph paragraph1 = new Paragraph(para1).setFont(font).setFirstLineIndent(20);   // on précise la police
@@ -149,48 +149,48 @@ public class CreatePdf {
 		
 		listDonneSimulationGenerale.add(new ListItem("" + donneeSimul.tSimulation))
 		.add(new ListItem(donneeSimul.causeFinSimulation))
-		.add(new ListItem("Nombre d'espéce au debut de la simulation: " + donneeSimul.nbEspeceDebut))
-		.add(new ListItem("Nombre d'individus au début de la simulation : " + donneeSimul.nbTotalIndivDebut))
-		.add(new ListItem("Nombre d'espéce à la fin de la simulation: " + donneeSimul.nbEspeceFin))
-		.add(new ListItem("Nombre d'individu à la fin de la simulation: " + donneeSimul.nbTotalIndiFin));
+		.add(new ListItem("Nombre d'espèces au debut de la simulation: " + donneeSimul.nbEspeceDebut))
+		.add(new ListItem("Nombre d'individus au début de la simulation: " + donneeSimul.nbTotalIndivDebut))
+		.add(new ListItem("Nombre d'espèces à la fin de la simulation: " + donneeSimul.nbEspeceFin))
+		.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbTotalIndiFin));
 		
 
 
-		listDonneSimulationCarnivore.add(new ListItem("Nombre totale de carnivore sur toute le simulation: " + donneeSimul.nbIndividus[1]))
+		listDonneSimulationCarnivore.add(new ListItem("Nombre total de carnivores sur toute la simulation: " + donneeSimul.nbIndividus[1]))
 		.add(new ListItem("Nombre d'individus au début de la simulation: " + donneeSimul.nbIndividuDebut[1]))
 		.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbIndividuFin[1]))
-		.add(new ListItem("Age moyen de la populayion à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[1]))
-		.add(new ListItem("Nombre de Carnivore mort durant la simulation: " + donneeSimul.nbMort[1]))
-		.add(new ListItem("Nombre moyen de carnivore mort par jour: " ))
-		.add(new ListItem("Nombre moyen de naissance de carnivore par jour: " + donneeSimul.nbMoyenNaissance[1]))
-		.add(new ListItem("Nombre de mort par viellesse durant la simulation: " + donneeSimul.nbMortNorm[1]))
-		.add(new ListItem("Nombre moyen de décés par viellesse par jour: "))
-		.add(new ListItem("Nombre moyen de décés du à la faim: " + donneeSimul.nbMortFaim[1]))
-		.add(new ListItem("Nombre moyen de décés du à la Soif: " + donneeSimul.nbMortSoif[1]))
-		.add(new ListItem("Nombre moyen de décés autre que viellesse par jour: "))
+		.add(new ListItem("Age moyen de la population à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[1]))
+		.add(new ListItem("Nombre de carnivores morts durant la simulation: " + donneeSimul.nbMort[1]))
+		.add(new ListItem("Nombre moyen de carnivores morts par jour: " ))
+		.add(new ListItem("Nombre moyen de naissances de carnivore par jour: " + donneeSimul.nbMoyenNaissance[1]))
+		.add(new ListItem("Nombre de morts par vieillesse durant la simulation: " + donneeSimul.nbMortNorm[1]))
+		.add(new ListItem("Nombre moyen de décès par vieillesse par jour: "))
+		.add(new ListItem("Nombre moyen de décès dus à la faim: " + donneeSimul.nbMortFaim[1]))
+		.add(new ListItem("Nombre moyen de décès dus à la Soif: " + donneeSimul.nbMortSoif[1]))
+		.add(new ListItem("Nombre moyen de décès autres que vieillesse par jour: "))
 		.add(new ListItem("Age moyen à la mort: " + donneeSimul.moyenAgeALaMort[1]));
 
 		
-		listDonneSimulationCharognard.add(new ListItem("Nombre totale de charognard sur toute la simulation: "))
+		listDonneSimulationCharognard.add(new ListItem("Nombre total de charognards sur toute la simulation: "))
 		.add(new ListItem("Nombre d'individus au début de la simulation: "))
 		.add(new ListItem("Nombre d'individus à la fin de la simulation: "))
 		.add(new ListItem("Nombre moyen de charognars mort par jour: "))
-		.add(new ListItem("Nombre moyen de naissance de charognard par jour: "))
-		.add(new ListItem("Nombre moyen de charognard en vie par jour: "))
-		.add(new ListItem("Nombre moyen de décés par viellesse par jour: "))
-		.add(new ListItem("Nombre moyen de décés autre que viellesse par jour: "))
+		.add(new ListItem("Nombre moyen de naissances de charognards par jour: "))
+		.add(new ListItem("Nombre moyen de charognards en vie par jour: "))
+		.add(new ListItem("Nombre moyen de décès par viellesse par jour: "))
+		.add(new ListItem("Nombre moyen de décès autre que viellesse par jour: "))
 		.add(new ListItem("Age moyen à la mort: "));
 
 		
 		
-		listDonneSimulationHerbivore.add(new ListItem("Nombre totale d'Herbivore sur toute la simulation: "))
+		listDonneSimulationHerbivore.add(new ListItem("Nombre total d'herbivores sur toute la simulation: "))
 		.add(new ListItem("Nombre d'individus au début de la simulation: "))
 		.add(new ListItem("Nombre d'individus à la fin de la simulation: "))
-		.add(new ListItem("Nombre moyen d'herbivore mort par jour: "))
-		.add(new ListItem("Nombre moyen de naissance d'herbivore par jour: "))
-		.add(new ListItem("Nombre moyen d'herbivore en vie par jour: "))
-		.add(new ListItem("Nombre moyen de décés par viellesse par jour: "))
-		.add(new ListItem("Nombre moyen de décés autre que viellesse par jour: "))
+		.add(new ListItem("Nombre moyen d'herbivores morts par jour: "))
+		.add(new ListItem("Nombre moyen de naissances d'herbivores par jour: "))
+		.add(new ListItem("Nombre moyen d'herbivores en vie par jour: "))
+		.add(new ListItem("Nombre moyen de décès par viellesse par jour: "))
+		.add(new ListItem("Nombre moyen de décès autres que viellesse par jour: "))
 		.add(new ListItem("Age moyen à la mort: "));
 		
 
@@ -213,7 +213,7 @@ public class CreatePdf {
 		document.close();
 		
 		// on prévient l'utilisatuer de la création du document et de son emplacement.
-		System.out.println("Les données statistiques de cette modélisation sont disponible dans le dossier compte_rendu de l'application. Le document est en format PDF et se nomme: "+ nomFichier);
+		System.out.println("Les données statistiques de cette modélisation sont disponibles dans le dossier compte_rendu de l'application. Le document est en format PDF et se nomme: "+ nomFichier);
 
 
 
