@@ -257,12 +257,10 @@ public class Calcul {
 			causeFinSimul = "La simulation a pris fin car tous les individus de l'écosystème sont morts.";
 
 		}
-		else if(dureeSimulPara==dureeSimulReel){
+		else{
 			causeFinSimul = "La durée de simulation entrée en paramètre de début a été atteinte.";
 		}
-		else {
-			causeFinSimul = "L'utilisateur a demandé la fin de la simulation.";
-		}
+		
 
 		return causeFinSimul;
 
