@@ -95,7 +95,7 @@ public class Run_ecosysteme {
 
 			//affichage des informations de la simulation
 
-			System.out.println("Duree totale de la simulation : "+duree_ecoulee+" jours\n\n");
+			System.out.println("Durée totale de la simulation : "+duree_ecoulee+" jours\n\n");
 
 			int p = individus.size();
 			for (int k=0;k<p;k++) {
@@ -134,11 +134,11 @@ public class Run_ecosysteme {
 
 				String Titre = "Compte rendu de la simulation.\n\n";
 
-				String para1 = "\nDans ce PDF voud trouverez les statistiques que nous avons pu ressortir de votre simulation. Les données qui ont servie à leur élaboration vous seront donné en première partie.";  
+				String para1 = "\nDans ce PDF voud trouverez les statistiques que nous avons pu ressortir de votre simulation. Les données qui ont servi à leur élaboration vous seront données en première partie.";  
 
 				String para2 = "\nVoici les données jour par jour de la simulation:";
 
-				String para3 = "\n Donnée génerale:";
+				String para3 = "\n Donnée génerales:";
 
 				String para4 = "\nPour les carnivores:";
 
@@ -146,7 +146,7 @@ public class Run_ecosysteme {
 
 				String para6 = "\nPour les herbivores:";
 
-				String para7 = "\nNous esperons que cette simulation a pu vous éclairez dans vos recherches.";
+				String para7 = "\nNous espérons que cette simulation a pu vous éclairer dans vos recherches.";
 
 
 				// création des paragraph via la methode paragraph de la class paragraph et rajout d'indentation avec setFirstLineIndent et aplication de la font crée en debut avec setFont     
@@ -193,56 +193,56 @@ public class Run_ecosysteme {
 
 				listDonneSimulationGenerale.add(new ListItem("" + donneeSimul.tSimulation))
 				.add(new ListItem(donneeSimul.causeFinSimulation))
-				.add(new ListItem("Nombre d'espéce au debut de la simulation: " + donneeSimul.nbEspeceDebut))
+				.add(new ListItem("Nombre d'espèces au debut de la simulation: " + donneeSimul.nbEspeceDebut))
 				.add(new ListItem("Nombre d'individus au début de la simulation : " + donneeSimul.nbTotalIndivDebut))
-				.add(new ListItem("Nombre d'espéce à la fin de la simulation: " + donneeSimul.nbEspeceFin))
-				.add(new ListItem("Nombre d'individu à la fin de la simulation: " + donneeSimul.nbTotalIndiFin));
+				.add(new ListItem("Nombre d'espèces à la fin de la simulation: " + donneeSimul.nbEspeceFin))
+				.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbTotalIndiFin));
 
 
 
 
 
 
-				listDonneSimulationCarnivore.add(new ListItem("Nombre totale d'individus sur toute le simulation: " + donneeSimul.nbIndividus[1]))
+				listDonneSimulationCarnivore.add(new ListItem("Nombre total d'individus sur toute la simulation: " + donneeSimul.nbIndividus[1]))
 				.add(new ListItem("Nombre d'individus au début de la simulation: " + donneeSimul.nbIndividuDebut[1]))
 				.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbIndividuFin[1]))
-				.add(new ListItem("Age moyen de la populayion à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[1]))
-				.add(new ListItem("Nombre de mort durant la simulation: " + donneeSimul.nbMort[1]))
-				.add(new ListItem("Nombre moyen de petit par femelle: " + donneeSimul.nbMoyenPetit))
-				.add(new ListItem("Nombre moyen de naissance de carnivore par jour: " + donneeSimul.nbMoyenNaissance[1]))
-				.add(new ListItem("Nombre de mort par viellesse durant la simulation: " + donneeSimul.nbMortNorm[1]))
-				.add(new ListItem("Nombre de décés du à la faim durant la simulation: " + donneeSimul.nbMortFaim[1]))
-				.add(new ListItem("Nombre de décés du à la Soif: " + donneeSimul.nbMortSoif[1]))
+				.add(new ListItem("Age moyen de la population à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[1]))
+				.add(new ListItem("Nombre de morts durant la simulation: " + donneeSimul.nbMort[1]))
+				.add(new ListItem("Nombre moyen de petits par femelle: " + donneeSimul.nbMoyenPetit))
+				.add(new ListItem("Nombre moyen de naissances de carnivore par jour: " + donneeSimul.nbMoyenNaissance[1]))
+				.add(new ListItem("Nombre de mort par vieillesse durant la simulation: " + donneeSimul.nbMortNorm[1]))
+				.add(new ListItem("Nombre de décès dus à la faim durant la simulation: " + donneeSimul.nbMortFaim[1]))
+				.add(new ListItem("Nombre de décès dus à la soif: " + donneeSimul.nbMortSoif[1]))
 				.add(new ListItem("Age moyen à la mort: " + donneeSimul.moyenAgeALaMort[1]));
 
 
 
 
-				listDonneSimulationCharognard.add(new ListItem("Nombre totale d'individus sur toute le simulation: " + donneeSimul.nbIndividus[2]))
+				listDonneSimulationCharognard.add(new ListItem("Nombre total d'individus sur toute la simulation: " + donneeSimul.nbIndividus[2]))
 				.add(new ListItem("Nombre d'individus au début de la simulation: " + donneeSimul.nbIndividuDebut[2]))
 				.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbIndividuFin[2]))
-				.add(new ListItem("Age moyen de la populayion à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[2]))
-				.add(new ListItem("Nombre de mort durant la simulation: " + donneeSimul.nbMort[2]))
-				.add(new ListItem("Nombre moyen de petit par femelle:" + donneeSimul.nbMoyenPetit ))
-				.add(new ListItem("Nombre moyen de naissance de carnivore par jour: " + donneeSimul.nbMoyenNaissance[2]))
-				.add(new ListItem("Nombre de mort par viellesse durant la simulation: " + donneeSimul.nbMortNorm[2]))
-				.add(new ListItem("Nombre de décés du à la faim durant la simulation: " + donneeSimul.nbMortFaim[2]))
-				.add(new ListItem("Nombre de décés du à la Soif: " + donneeSimul.nbMortSoif[2]))
+				.add(new ListItem("Age moyen de la population à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[2]))
+				.add(new ListItem("Nombre de morts durant la simulation: " + donneeSimul.nbMort[2]))
+				.add(new ListItem("Nombre moyen de petits par femelle:" + donneeSimul.nbMoyenPetit ))
+				.add(new ListItem("Nombre moyen de naissances de carnivore par jour: " + donneeSimul.nbMoyenNaissance[2]))
+				.add(new ListItem("Nombre de morts par vieillesse durant la simulation: " + donneeSimul.nbMortNorm[2]))
+				.add(new ListItem("Nombre de décès dus à la faim durant la simulation: " + donneeSimul.nbMortFaim[2]))
+				.add(new ListItem("Nombre de décès dus à la soif: " + donneeSimul.nbMortSoif[2]))
 				.add(new ListItem("Age moyen à la mort: " + donneeSimul.moyenAgeALaMort[2]));
 
 
 
-				listDonneSimulationHerbivore.add(new ListItem("Nombre totale d'individus sur toute le simulation: " + donneeSimul.nbIndividus[0]))
+				listDonneSimulationHerbivore.add(new ListItem("Nombre total d'individus sur toute la simulation: " + donneeSimul.nbIndividus[0]))
 				.add(new ListItem("Nombre d'individus au début de la simulation: " + donneeSimul.nbIndividuDebut[0]))
 				.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbIndividuFin[0]))
-				.add(new ListItem("Age moyen de la populayion à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[0]))
+				.add(new ListItem("Age moyen de la population à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[0]))
 				.add(new ListItem("Nombre de mort durant la simulation: " + donneeSimul.nbMort[0]))
-				.add(new ListItem("Nombre moyen de petit par femelle: " + donneeSimul.nbMoyenPetit ))
-				.add(new ListItem("Nombre moyen de naissance de carnivore par jour: " + donneeSimul.nbMoyenNaissance[0]))
-				.add(new ListItem("Nombre de mort par viellesse durant la simulation: " + donneeSimul.nbMortNorm[0]))
-				.add(new ListItem("Nombre de décés du à la faim durant la simulation: " + donneeSimul.nbMortFaim[0]))
-				.add(new ListItem("Nombre de décés du à la prédation durant la simulation: " + donneeSimul.nbMortChasse[0]))
-				.add(new ListItem("Nombre de décés du à la Soif: " + donneeSimul.nbMortSoif[0]))
+				.add(new ListItem("Nombre moyen de petits par femelle: " + donneeSimul.nbMoyenPetit ))
+				.add(new ListItem("Nombre moyen de naissances de carnivore par jour: " + donneeSimul.nbMoyenNaissance[0]))
+				.add(new ListItem("Nombre de morts par vieillesse durant la simulation: " + donneeSimul.nbMortNorm[0]))
+				.add(new ListItem("Nombre de décès dus à la faim durant la simulation: " + donneeSimul.nbMortFaim[0]))
+				.add(new ListItem("Nombre de décès dus à la prédation durant la simulation: " + donneeSimul.nbMortChasse[0]))
+				.add(new ListItem("Nombre de décès dus à la soif: " + donneeSimul.nbMortSoif[0]))
 				.add(new ListItem("Age moyen à la mort: " + donneeSimul.moyenAgeALaMort[0]));
 
 
