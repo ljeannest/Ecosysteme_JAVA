@@ -51,7 +51,7 @@ public class Run_ecosysteme {
 		
 		//entrée dans une boucle qui modélise notre écosysteme, avec tous nos individus qui peuvent 
 		//boire, manger, se deplacer, se reproduire.
-		//la boucle se termine quand ? laps de temps donné? extinction de toutes les especes?
+		//la boucle se termine a la fin du laps de temps donné ou de l'extinction de toutes les especes
 		
 		fenetre fenetrePrincipale = new fenetre(individus,individus_morts,ressource,duree_ecoulee,duree);
 		fenetrePrincipale.setVisible(true);
