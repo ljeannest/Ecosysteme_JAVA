@@ -411,18 +411,42 @@ public class Animal {
 	 */
 	
 	public void deplacement(ArrayList<Animal> A_list, Ressource[] ressource, int pos, int maxX, int maxY,int duree_ecoulee) {
-		String orientation ="";
+		int[] ori_obj;
 		if (this.jauge_eau>60 && this.jauge_nourriture>60 && this.est_enceinte==false && this.age>=this.ageReproMin && this.age<=this.ageReproMax) {
-			orientation = this.setOrientationRepro(A_list);
+			ori_obj = this.setOrientationRepro(A_list);
 		}
 		else if (this.jauge_eau<=this.jauge_nourriture) {
-			orientation = this.setOrientationEau(ressource);
+			ori_obj = this.setOrientationEau(ressource);
 		}
 		else {
-			orientation = this.setOrientationNourriture(A_list,ressource,duree_ecoulee);
+			ori_obj = this.setOrientationNourriture(A_list,ressource,duree_ecoulee);
 		}
-		this.deplacement_orientation(A_list, ressource, pos, maxX, maxY, orientation);
+		this.deplacement_orientation(A_list, ressource, pos, maxX, maxY, str_ori(ori_obj[0]),ori_obj[1],ori_obj[2]);
 	}
+	
+	/**
+	 * Permet de faire le lien entre les directions en int et en string (0:"";1:"E";2:"W";3:"N";4:"S")
+	 * 
+	 * @author Lucie
+	 */
+	
+	public String str_ori(int ori) {
+		String orientation="";
+		if (ori==1) {
+			orientation = "E";
+		}
+		else if (ori==2) {
+			orientation = "W";
+		}
+		else if (ori==3) {
+			orientation = "N";
+		}
+		else if (ori==4) {
+			orientation = "S";
+		}
+		return orientation;
+	}
+	
 	
 	
 	/**
@@ -432,7 +456,7 @@ public class Animal {
 	 *
 	 */
 
-	public void deplacement_orientation(ArrayList<Animal> A_list,Ressource[] ressource, int pos, int maxX,int maxY,String orientation) {
+	public void deplacement_orientation(ArrayList<Animal> A_list,Ressource[] ressource, int pos, int maxX,int maxY,String orientation,int posx_obj, int posy_obj) {
 	
 		int newX=this.posx;
 		int newY=this.posy;
@@ -444,17 +468,23 @@ public class Animal {
 				newX=this.posx;
 				newY=this.posy+1;}
 		
-			if (orientation=="S"&& this.posy>0 && pos_libre (A_list,ressource,pos,posx,posy-1)==true) {
+			else if (orientation=="S"&& this.posy>0 && pos_libre (A_list,ressource,pos,posx,posy-1)==true) {
 				newX=this.posx;
 				newY=this.posy-1;}
 		
-			if (orientation=="E"&& (maxX-1)>this.posx && pos_libre (A_list,ressource,pos,posx+1,posy)==true) {
+			else if (orientation=="E"&& (maxX-1)>this.posx && pos_libre (A_list,ressource,pos,posx+1,posy)==true) {
 				newX=this.posx+1;
 				newY=this.posy;}
 		
-			if (orientation=="W"&& this.posx>0 && pos_libre (A_list,ressource,pos,posx-1,posy)==true) {
+			else if (orientation=="W"&& this.posx>0 && pos_libre (A_list,ressource,pos,posx-1,posy)==true) {
 				newX=this.posx-1;
 				newY=this.posy;}
+			
+			else {
+				int[] pos_suiv = this.contournement(A_list,ressource,pos, posx_obj, posy_obj);
+				newX=pos_suiv[0];
+				newY=pos_suiv[1];
+			}
 		}
 		
 		this.posx=newX;
@@ -469,26 +499,80 @@ public class Animal {
 	 *
 	 */
 	
-	public String setOrientationRepro(ArrayList<Animal> A_list) {
-		String orientation = "";
+	public int[] contournement (ArrayList<Animal> A_list,Ressource[] ressource,int pos, int posx_obj, int posy_obj) {
+		int[] pos_suiv = new int[2];
+		if(posx_obj>this.posx && pos_libre (A_list,ressource,pos,this.posx+1,this.posy)==true && this.posx+1<ConteneurFenetre.NB_LIGNES) {
+			pos_suiv[0]=this.posx+1;
+			pos_suiv[1]=this.posy;
+		}
+		else if (posx_obj<this.posx && pos_libre (A_list,ressource,pos,this.posx-1,this.posy)==true && this.posx>0) {
+			pos_suiv[0]=this.posx-1;
+			pos_suiv[1]=this.posy;
+		}
+		else if (posy_obj<this.posy && pos_libre (A_list,ressource,pos,this.posx,this.posy-1)==true && this.posy>0) {
+			pos_suiv[0]=this.posx;
+			pos_suiv[1]=this.posy-1;
+		}
+		else if (posy_obj>this.posy && pos_libre (A_list,ressource,pos,this.posx,this.posy+1)==true && this.posy+1<ConteneurFenetre.NB_COLONNES){
+			pos_suiv[0]=this.posx;
+			pos_suiv[1]=this.posy+1;
+		}
+		else {
+			if (pos_libre (A_list,ressource,pos,this.posx+1,this.posy)==true && this.posx+1<ConteneurFenetre.NB_LIGNES) {
+				pos_suiv[0]=this.posx+1;
+				pos_suiv[1]=this.posy;
+			}
+			else if (pos_libre (A_list,ressource,pos,this.posx-1,this.posy)==true && this.posx>0) {
+				pos_suiv[0]=this.posx-1;
+				pos_suiv[1]=this.posy;
+			}
+			else if (pos_libre (A_list,ressource,pos,this.posx,this.posy-1)==true && this.posy>0) {
+				pos_suiv[0]=this.posx;
+				pos_suiv[1]=this.posy-1;
+			}
+			else if (pos_libre (A_list,ressource,pos,this.posx,this.posy+1)==true && this.posy+1<ConteneurFenetre.NB_COLONNES){
+				pos_suiv[0]=this.posx;
+				pos_suiv[1]=this.posy+1;
+			}
+			else {
+				pos_suiv[0]=this.posx;
+				pos_suiv[1]=this.posy;
+			}
+		}
+		return pos_suiv;
+	}
+	
+	/**
+	 *Permet de définir la direction que va emprunter l'animal à l'instant t+1 pour se reproduire.
+	 *
+	 *@author Lucie
+	 *
+	 */
+	
+	public int[] setOrientationRepro(ArrayList<Animal> A_list) {
+		int[] ori_obj = new int[3];
 		int[] pos_animal= this.ppcompagnon(A_list);
+		ori_obj[1]=pos_animal[0];
+		ori_obj[2]=pos_animal[1];
 		if ((pos_animal[0]==posx && (pos_animal[1]==posy+1||pos_animal[1]==posy-1))||(pos_animal[1]==posy && (pos_animal[0]==posx+1||pos_animal[0]==posx-1))) {
 			this.reproduction(A_list.get(pos_animal[2]));
-			orientation="";
+			ori_obj[0]=0;
+			ori_obj[1]=this.posx;
+			ori_obj[2]=this.posy;
 		}
 		else if(pos_animal[0]>this.posx) {
-			orientation="E";
+			ori_obj[0]=1;
 		}
 		else if (pos_animal[0]<this.posx) {
-			orientation="W";
+			ori_obj[0]=2;
 		}
 		else if (pos_animal[1]<this.posy) {
-			orientation="S";
+			ori_obj[0]=4;
 		}
 		else if (pos_animal[1]>this.posy){
-			orientation="N";
+			ori_obj[0]=3;
 		}
-		return orientation;
+		return ori_obj;
 	}
 	
 	
@@ -524,69 +608,77 @@ public class Animal {
 	 *
 	 */
 	
-	public String setOrientationNourriture(ArrayList<Animal> A_list,Ressource[] ressource,int duree_ecoulee) {
-		String orientation = "";
+	public int[] setOrientationNourriture(ArrayList<Animal> A_list,Ressource[] ressource,int duree_ecoulee) {
+		int[] ori_obj = new int[3];
 		if (this.type==0) {
 			int[] pos_veg= this.ppvegetaux(ressource);
-			if ((pos_veg[0]==posx && (pos_veg[1]==posy+1||pos_veg[1]==posy-1))||(pos_veg[1]==posy && (pos_veg[0]==posx+1||pos_veg[0]==posx-1))) {
+			ori_obj[1]=pos_veg[0];
+			ori_obj[2]=pos_veg[1];
+			if (pos_veg[0]==posx && pos_veg[1]==posy) {
 				this.manger_herb(ressource[pos_veg[2]]);
-				orientation="";
+				ori_obj[0]=0;
+				ori_obj[1]=this.posx;
+				ori_obj[2]=this.posy;
 			}
 			else if(pos_veg[0]>this.posx) {
-				orientation="E";
+				ori_obj[0]=1;
 			}
 			else if (pos_veg[0]<this.posx) {
-				orientation="W";
+				ori_obj[0]=2;
 			}
 			else if (pos_veg[1]<this.posy) {
-				orientation="S";
+				ori_obj[0]=4;
 			}
 			else if (pos_veg[1]>this.posy){
-				orientation="N";
+				ori_obj[0]=3;
 			}
-			return orientation;
+			return ori_obj;
 		}
 		else if (this.type==1) {
 			int[] pos_herb= this.ppherbivore(A_list);
 			if ((pos_herb[0]==posx && (pos_herb[1]==posy+1||pos_herb[1]==posy-1))||(pos_herb[1]==posy && (pos_herb[0]==posx+1||pos_herb[0]==posx-1))) {
 				this.manger_carn(A_list.get(pos_herb[2]),duree_ecoulee);
-				orientation="";
+				ori_obj[0]=0;
+				ori_obj[1]=this.posx;
+				ori_obj[2]=this.posy;
 			}
 			else if(pos_herb[0]>this.posx) {
-				orientation="E";
+				ori_obj[0]=1;
 			}
 			else if (pos_herb[0]<this.posx) {
-				orientation="W";
+				ori_obj[0]=2;
 			}
 			else if (pos_herb[1]<this.posy) {
-				orientation="S";
+				ori_obj[0]=4;
 			}
 			else if (pos_herb[1]>this.posy){
-				orientation="N";
+				ori_obj[0]=3;
 			}
-			return orientation;
+			return ori_obj;
 		}
 		else if (this.type==2) {
 			int[] pos_cad= this.ppcadavre(A_list);
 			if ((pos_cad[0]==posx && (pos_cad[1]==posy+1||pos_cad[1]==posy-1))||(pos_cad[1]==posy && (pos_cad[0]==posx+1||pos_cad[0]==posx-1))) {
 				this.manger_char(A_list.get(pos_cad[2]));
-				orientation="";
+				ori_obj[0]=0;
+				ori_obj[1]=this.posx;
+				ori_obj[2]=this.posy;
 			}
 			else if(pos_cad[0]>this.posx) {
-				orientation="E";
+				ori_obj[0]=1;
 			}
 			else if (pos_cad[0]<this.posx) {
-				orientation="W";
+				ori_obj[0]=2;
 			}
 			else if (pos_cad[1]<this.posy) {
-				orientation="S";
+				ori_obj[0]=4;
 			}
 			else if (pos_cad[1]>this.posy){
-				orientation="N";
+				ori_obj[0]=3;
 			}
-			return orientation;
+			return ori_obj;
 		}
-		return orientation;
+		return ori_obj;
 	}
 	
 	/**
@@ -606,7 +698,7 @@ public class Animal {
 		for (int k=0;k<n;k++) {
 			if (ressource[k].type=="Vegetaux") {
 				double dist = Math.sqrt((this.posx-ressource[k].posx)*(this.posx-ressource[k].posx)+(this.posy-ressource[k].posy)*(this.posy-ressource[k].posy));
-				if (dist<dist_min && dist >0) {
+				if (dist<dist_min) {
 					dist_min = dist;
 					pos_veg[0]=ressource[k].posx;
 					pos_veg[1]=ressource[k].posy;
@@ -681,26 +773,30 @@ public class Animal {
 	 * @author Lucie
 	 */
 	
-	public String setOrientationEau(Ressource[] ressource) {
-		String orientation="N";
+	public int[] setOrientationEau(Ressource[] ressource) {
+		int[] ori_obj= new int[3];
 		int[] pos_eau = ppeau(this.posx,this.posy,ressource);
+		ori_obj[1]=pos_eau[0];
+		ori_obj[2]=pos_eau[1];
 		if ((pos_eau[0]==posx && (pos_eau[1]==posy+1||pos_eau[1]==posy-1))||(pos_eau[1]==posy && (pos_eau[0]==posx+1||pos_eau[0]==posx-1))) {
 			this.boire(ressource[pos_eau[2]]);
-			orientation="";
+			ori_obj[0]=0;
+			ori_obj[1]=this.posx;
+			ori_obj[2]=this.posy;
 		}
 		else if(pos_eau[0]>this.posx) {
-			orientation="E";
+			ori_obj[0]=1;
 		}
 		else if (pos_eau[0]<this.posx) {
-			orientation="W";
+			ori_obj[0]=2;
 		}
 		else if (pos_eau[1]<this.posy) {
-			orientation="S";
+			ori_obj[0]=4;
 		}
 		else {
-			orientation="N";
+			ori_obj[0]=3;
 		}
-		return orientation;
+		return ori_obj;
 	}
 	
 	/**
