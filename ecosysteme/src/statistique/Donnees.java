@@ -87,7 +87,7 @@ public class Donnees {
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
-	public double [] nbMoyenNaissance = new double [3];
+	public float[] nbMoyenNaissance = new float [3];
 	
 	/**
 	 * Nombre de nouveau Individus par espece durant toute la simulation
@@ -217,7 +217,7 @@ public class Donnees {
 	 * @param nbMoyenPetit
 	 * 			Liste du nombre de nouveau nee par espece.
 	 */
-	public Donnees(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,String tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,double [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse, int [] nbMort) {
+	public Donnees(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,String tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,float [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse, int [] nbMort) {
 		
 		this.nbIndividus = nbIndividus;
 		this.moyenAgeParEspece = moyenAgeParEspece;

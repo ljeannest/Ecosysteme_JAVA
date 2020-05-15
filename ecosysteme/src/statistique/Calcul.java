@@ -173,17 +173,17 @@ public class Calcul {
 		}
 		if(compteurType0>0) {
 
-			moyenAgeParEspece[0]=moyenAgeParEspece[0]/compteurType0;
+			moyenAgeParEspece[0]=(moyenAgeParEspece[0]/compteurType0)/365;
 
 		}
 		if(compteurType1>0) {
 
-			moyenAgeParEspece[1]=moyenAgeParEspece[1]/compteurType1;
+			moyenAgeParEspece[1]=(moyenAgeParEspece[1]/compteurType1)/365;
 
 		}
 
 		if (compteurType2>0) {
-			moyenAgeParEspece[2]=moyenAgeParEspece[2]/compteurType2;
+			moyenAgeParEspece[2]=(moyenAgeParEspece[2]/compteurType2)/365;
 
 		}
 
@@ -224,15 +224,15 @@ public class Calcul {
 		}
 
 		if (compteurType0>0) {
-			moyenAgeALaMort[0]=moyenAgeALaMort[0]/compteurType0;
+			moyenAgeALaMort[0]=(moyenAgeALaMort[0]/compteurType0)/365;
 		}
 
 		if(compteurType1>0) {
-			moyenAgeALaMort[1]=moyenAgeALaMort[1]/compteurType1;
+			moyenAgeALaMort[1]=(moyenAgeALaMort[1]/compteurType1)/365;
 		}
 
 		if(compteurType2>0) {
-			moyenAgeALaMort[2]=moyenAgeALaMort[2]/compteurType2;
+			moyenAgeALaMort[2]=(moyenAgeALaMort[2]/compteurType2)/365;
 		}
 
 		return moyenAgeALaMort;
@@ -248,7 +248,7 @@ public class Calcul {
 		String causeFinSimul;
 		if(individus.size()==0) {
 
-			causeFinSimul = "La simulation a pris fain car tous les individus de l'ecosystems sont mort.";
+			causeFinSimul = "La simulation a pris fin car tous les individus de l'ecosystems sont mort.";
 
 		}
 		else if(dureeSimulPara==dureeSimulReel){
@@ -294,7 +294,7 @@ public class Calcul {
 		
 		int nbEspeceDebut = 0;
 
-		if(individus.size()==0) {
+		if(nbIndividuDebut.length==0) {
 			return nbEspeceDebut;
 		}
 		if(nbIndividuDebut[0]>0) {
@@ -346,13 +346,13 @@ public class Calcul {
 	 * @return Une liste de type double contenant dans l'ordre suivant la moyenne des naissance par jour et par type: Herbivore, Carnivore, Charognard.
 	 */
 
-	public double [] nbMoyenNaissance() {
+	public float [] nbMoyenNaissance() {
 
-		double []nbMoyenNaissance = new double [3];
+		float []nbMoyenNaissance = new float [3];
 		int [] nbTotalIndi = compteurNbIndividus();
-		nbMoyenNaissance[0] = ((double) nbTotalIndi[0]- (double) nbIndividuDebut[0])/(double)dureeSimulReel;
-		nbMoyenNaissance[1] = ((double)nbTotalIndi[1]- (double)nbIndividuDebut[1])/(double)dureeSimulReel;
-		nbMoyenNaissance[2] = ((double)nbTotalIndi[2]- (double)nbIndividuDebut[2])/(double)dureeSimulReel;
+		nbMoyenNaissance[0] = ((float) nbTotalIndi[0]- (float) nbIndividuDebut[0])/(float)dureeSimulReel;
+		nbMoyenNaissance[1] = ((float)nbTotalIndi[1]- (float)nbIndividuDebut[1])/(float)dureeSimulReel;
+		nbMoyenNaissance[2] = ((float)nbTotalIndi[2]- (float)nbIndividuDebut[2])/(float)dureeSimulReel;
 
 		return nbMoyenNaissance;
 
@@ -381,12 +381,12 @@ public class Calcul {
 	 */
 	public int [] nbMortNorm() {
 		int [] nbMortNorm =new int [3];
-		for(int i=0; i < individus.size(); i++) {
-			if(individus.get(i).esp_de_vie==individus.get(i).age) {
-				if(individus.get(i).type == 0) {
+		for(int i=0; i < individus_morts.size(); i++) {
+			if(individus_morts.get(i).esp_de_vie==individus_morts .get(i).age) {
+				if(individus_morts.get(i).type == 0) {
 					nbMortNorm[0]+=1;
 				}
-				else if(individus.get(i).type == 1) {
+				else if(individus_morts.get(i).type == 1) {
 					nbMortNorm[1]+=1;
 				}
 
@@ -406,12 +406,12 @@ public class Calcul {
 	public int [] nbMortFaim(){
 
 		int [] nbMortFaim = new int[3];
-		for(int i=0; i < individus.size(); i++) {
-			if(individus.get(i).jauge_nourriture==0) {
-				if(individus.get(i).type == 0) {
+		for(int i=0; i < individus_morts.size(); i++) {
+			if(individus_morts.get(i).jauge_nourriture==0) {
+				if(individus_morts.get(i).type == 0) {
 					nbMortFaim[0]+=1;
 				}
-				else if(individus.get(i).type == 1) {
+				else if(individus_morts.get(i).type == 1) {
 					nbMortFaim[1]+=1;
 				}
 
@@ -434,15 +434,15 @@ public class Calcul {
 
 		int [] nbMortSoif=new int [3];
 
-		for(int i=0; i < individus.size(); i++) {
+		for(int i=0; i < individus_morts.size(); i++) {
 
-			if(individus.get(i).jauge_eau==0) {
+			if(individus_morts.get(i).jauge_eau==0) {
 
-				if(individus.get(i).type == 0) {
+				if(individus_morts.get(i).type == 0) {
 
 					nbMortSoif[0]+=1;
 				}
-				else if(individus.get(i).type == 1) {
+				else if(individus_morts.get(i).type == 1) {
 
 					nbMortSoif[1]+=1;
 				}
@@ -465,16 +465,16 @@ public class Calcul {
 
 		int [] nbMortChasse = new int [3];
 
-		for(int i = 0; i > individus.size();i++) {
-			if(individus.get(i).esp_de_vie < individus.get(i).age) {
-				if(individus.get(i).jauge_nourriture > 0) {
-					if(individus.get(i).jauge_eau > 0) {
+		for(int i = 0; i < individus_morts.size();i++) {
+			if(individus_morts.get(i).esp_de_vie > individus_morts.get(i).age) {
+				if(individus_morts.get(i).jauge_nourriture > 0) {
+					if(individus_morts.get(i).jauge_eau > 0) {
 
-						if(individus.get(i).type == 0) {
+						if(individus_morts.get(i).type == 0) {
 
 							nbMortChasse[0]+=1;
 						}
-						else if(individus.get(i).type == 1) {
+						else if(individus_morts.get(i).type == 1) {
 
 							nbMortChasse[1]+=1;
 						}
@@ -492,12 +492,15 @@ public class Calcul {
 	/**
 	 * Donne le nombre moyen de petit par femelle selon l'espece.
 	 * 
-	 * @return
+	 * @returnUne liste de type int contenant dans l'ordre suivant le nombre de mort par espéce: Herbivore, Carnivore, Charognard.
 	 */
 	//public int [] nbMoyenPetit () {
 		
 	//}
-	
+	/**
+	 * Permet de donner le nombre de mort par espece durant la simulation.
+	 * @return
+	 */
 	public int [] nbMort() {
 		
 		int [] nbMort = new int [3];
