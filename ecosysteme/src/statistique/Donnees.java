@@ -1,27 +1,27 @@
 package statistique;
 
 /**
- * <b> Permet de créer le pdf compte rendu avec les donnés traité statistiquements</b>
- * <p>Les données nécessaire à cette assemblage sont les suivantes:</p>
+ * <b> Permet de créer le pdf compte rendu avec les données traitées statistiquement</b>
+ * <p>Les données nécessaires à cette assemblage sont les suivantes:</p>
  * <ul>
- * <li> Une liste contenant les nombres d'individus total par espéce durant la simulation. </li>
- * <li> Une liste comprenant les moyennnes age par espéce sur la durée de simulation. </li>
- * <li> Une liste comprenant les moyennes d'age à la mort par espéce. </li>
+ * <li> Une liste contenant les nombres d'individus total par espèce durant la simulation. </li>
+ * <li> Une liste comprenant les moyennes des âge par espèce sur la durée de la simulation. </li>
+ * <li> Une liste comprenant les moyennes d'âge à la mort par espèce. </li>
  * <li> La raisons de la fin de la simulation. </li>
- * <li> La duree de la simulation prévue. </li>
- * <li> La duree reel de la simulation. </li>
- * <li> Le nombre d'espece en début de simulation. </li>
- * <li> Le nombre d'espece en fin de simulation. </li>
- * <li> Une liste comprenant les nombres d'individus par espece en début de simulation.</li>
- * <li> Une liste comprenant les nombres d'individus par espece en fin de simulation. </li>
- * <li> Une liste comprenant les nombres moyen de naissance par espece et par jour. </li>
- * <li> Une liste comprenant les nombres moyen de mort par espece et par jour. </li>
- * <li> Une liste comprenant les nombres moyen de mort de faim par espece et par jour.</li>
- * <li> Une liste comprenant les nombres moyen de mort de soif par espece et par jour.</li>
- * <li> Une liste comprenant les nombres moyen de mort par chasse par esepece et par jour. </li>
- * <li> Une liste comprenant les nombres moyen de nouveau ne par femelle par espece sur toute la durée de la simulation. </li>
+ * <li> La durée de la simulation prévue. </li>
+ * <li> La durée réelle de la simulation. </li>
+ * <li> Le nombre d'espèces en début de simulation. </li>
+ * <li> Le nombre d'espèces en fin de simulation. </li>
+ * <li> Une liste comprenant les nombres d'individus par espèce en début de simulation.</li>
+ * <li> Une liste comprenant les nombres d'individus par espèce en fin de simulation. </li>
+ * <li> Une liste comprenant les nombres moyen de naissances par espèce et par jour. </li>
+ * <li> Une liste comprenant les nombres moyen de morts par espèce et par jour. </li>
+ * <li> Une liste comprenant les nombres moyen de morts de faim par espèce et par jour.</li>
+ * <li> Une liste comprenant les nombres moyen de morts de soif par espèce et par jour.</li>
+ * <li> Une liste comprenant les nombres moyen de morts par chasse par espèce et par jour. </li>
+ * <li> Une liste comprenant les nombres moyen de nouveaux nés par femelle par espèce sur toute la durée de la simulation. </li>
  * </ul>
- * <p> Les moyens sont effectué sur la durée réel de la simulation<p>
+ * <p> Les moyennes sont effectués sur la durée réelle de la simulation<p>
  * 
  * @author Mélodia
  *
@@ -30,26 +30,26 @@ package statistique;
 public class Donnees {
 	
 	/**
-	 * Liste contenant le nombre d'individus par espéce sur toute la simulation par convention la position 0 correspond aux herbivores 1 pour Carnivore 3 pour Charognard.
+	 * Liste contenant le nombre d'individus par espèce sur toute la simulation par convention la position 0 correspond aux herbivores 1 pour Carnivore 3 pour Charognard.
 	 */
 	public int []nbIndividus= new int [3];
 	
 	/**
-	 * Liste de type int contenant les moyenne d'age pour chaque espece à la fin de la simulation.
+	 * Liste de type int contenant les moyennes d'âge pour chaque espèce à la fin de la simulation.
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
 	public int[] moyenAgeParEspece=new int [3];
 	
 	/**
-	 * Liste contenant les moyenne d'age à la mort de chaque espece.
+	 * Liste contenant les moyennes d'âge à la mort de chaque espèce.
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
 	public int [] moyenAgeALaMort = new int [3];
 	
 	/**
-	 * Décrit les raisons pour l'arret de la simulation.
+	 * Décrit les raisons pour l'arrêt de la simulation.
 	 */
 	public String causeFinSimulation;
 	
@@ -59,76 +59,76 @@ public class Donnees {
 	public String tSimulation;
 	
 	/**
-	 * Indique le nombre d'espece en début de simulation.
+	 * Indique le nombre d'espèce en début de simulation.
 	 */
 	public int nbEspeceDebut;
 	
 	/**
-	 * Le nombre d'espece en fin de simulation. 
+	 * Le nombre d'espèce en fin de simulation. 
 	 */
 	public int nbEspeceFin;
 	
 	/**
-	 * Liste contenant le nombre d'individu par espéce en début de simulation.
+	 * Liste contenant le nombre d'individus par espèce en début de simulation.
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
 	public int [] nbIndividuDebut = new int [3];
 	
 	/**
-	 * Liste contenant le nombre d'individue par espece en fin de simulation.
+	 * Liste contenant le nombre d'individus par espèce en fin de simulation.
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
 	public int [] nbIndividuFin = new int [3];
 	
 	/**
-	 * Liste contnant le nombre moyen de naissance durant la simulation par espece.
+	 * Liste contnant le nombre moyen de naissances durant la simulation par espèce.
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
 	public double [] nbMoyenNaissance = new double [3];
 	
 	/**
-	 * Nombre de nouveau Individus par espece durant toute la simulation
+	 * Nombre de nouveaux individus par espèce durant toute la simulation.
 	 */
 	public int [] nbNaissance = new int [3];
 	
 	/**
-	 * Nombre de mort total par espece durant la simulation
+	 * Nombre total de morts par espèce durant la simulation.
 	 */
 	public int [] nbMort = new int [3];
 	
 	/**
-	 * Liste contenant le nombre de mort normal lors de la simulation par espece.
+	 * Liste contenant le nombre de morts normal lors de la simulation par espèce.
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
 	public int [] nbMortNorm =new int [3];
 	
 	/**
-	 * Liste contenant le nombre de Mort du à la faim par espece durant la simulation.
+	 * Liste contenant le nombre de morts dus à la faim par espèce durant la simulation.
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
 	public int [] nbMortFaim = new int [3];
 	
 	/**
-	 * Liste indiquant le nombre de mort de soif par espece  durant le simulation.
+	 * Liste indiquant le nombre de morts de soif par espèce  durant la simulation.
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
 	public int [] nbMortSoif = new int [3];
 	
 	/**
-	 * Liste contenant le le nombre de mort causé par la chasse par espece durant le simulation.
+	 * Liste contenant le nombre de morts causées par la chasse par espèce durant le simulation.
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
 	public int [] nbMortChasse = new int [3];
 	
 	/**
-	 * Liste contenant le nombre moyen de nouveau née par femelle.
+	 * Liste contenant le nombre moyen de nouveaux nés par femelle.
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
@@ -140,26 +140,26 @@ public class Donnees {
 	public int nbTotalIndividus;
 	
 	/**
-	 * Nombre total de Mort pendant la simulation.
+	 * Nombre total de morts pendant la simulation.
 	 */
 	public int nbTotalMort;
 	
 	/**
-	 * Nombre total de mort par viellesse.
+	 * Nombre total de morts par viellesse.
 	 */
 	public int nbTotalMortNorm;
 	
 	/**
-	 * Nombre total d'individus mort par faim.
+	 * Nombre total d'individus morts par faim.
 	 */
 	public int nbTotalMortFaim;
 	/**
-	 * Nombre total de mort par manque d'eau.
+	 * Nombre total de morts par manque d'eau.
 	 */
 	public int nbTotalMortSoif;
 	
 	/**
-	 * Nombre total d'individus mort du à la chasse.
+	 * Nombre total d'individus morts dus à la chasse.
 	 */
 	public int nbTotalMortChasse;
 	
@@ -169,13 +169,13 @@ public class Donnees {
 	public int nbTotalNaissance;
 	
 	/**
-	 * Nombre total d'individu au début de la simulation.
+	 * Nombre total d'individus au début de la simulation.
 	 */
 	
 	public int nbTotalIndivDebut;
 	
 	/**
-	 * Nombre total d'individu a la fin de la simulation.
+	 * Nombre total d'individus à la fin de la simulation.
 	 */
 	public int nbTotalIndiFin;
 	
@@ -185,37 +185,37 @@ public class Donnees {
 	 * Constructeur de la classe.
 	 * 
 	 * @param nbIndividus
-	 * 			Liste comprenant le nombre d'individus par espéce sur toute la simulation.
+	 * 			Liste comprenant le nombre d'individus par espèce sur toute la simulation.
 	 * @param moyenAgeParEspece
-	 * 			Liste des moyennes d'age par espéce à la fin de la simulation.
+	 * 			Liste des moyennes d'âge par espèce à la fin de la simulation.
 	 * @param moyenAgeALaMort
-	 * 			Liste des moyenne d'age a la mort par espéce.
+	 * 			Liste des moyenne d'âge à la mort par espèce.
 	 * @param causeFinSimulation
 	 * 			Cause de fin de simulation.
 	 * @param tSimulation
 	 * 			Temps de la simulation.
 	 * @param nbEspeceDebut
-	 * 			Nombre d'espece au début de la simulation.
+	 * 			Nombre d'espèces au début de la simulation.
 	 * @param nbEspeceFin
-	 * 			Nombre d'espece a la fin de la simulation.
+	 * 			Nombre d'espèces à la fin de la simulation.
 	 * @param nbIndividuDebut
-	 * 			Liste du ombre d'individu au début de la simulation par espece.
+	 * 			Liste du nombre d'individus au début de la simulation par espèce.
 	 * @param nbIndividuFin
-	 * 			Liste du nombre d'individue a la fin de la simulation par espece.
+	 * 			Liste du nombre d'individus à la fin de la simulation par espèce.
 	 * @param nbMoyenNaissance
-	 * 			Liste des nombres moyen de naissance par espece.
+	 * 			Liste des nombres moyen de naissances par espèce.
 	 * @param nbNaissance
-	 * 			Liste du nombre de naissance par espece.
+	 * 			Liste du nombre de naissances par espèce.
 	 * @param nbMortNorm
-	 * 			Liste du nombre de mort naturelle par espece.
+	 * 			Liste du nombre de morts naturelles par espèce.
 	 * @param nbMortFaim
-	 * 			Liste du nombre de mort par faim par espece.
+	 * 			Liste du nombre de morts par faim par espèce.
 	 * @param nbMortSoif
-	 * 			Liste du nombre de mort par manque d'eau par espece.
+	 * 			Liste du nombre de morts par manque d'eau par espèce.
 	 * @param nbMortChasse
-	 * 			Liste du nombre de mort par chasse par espece.
+	 * 			Liste du nombre de mort par chasse par espèce.
 	 * @param nbMoyenPetit
-	 * 			Liste du nombre de nouveau nee par espece.
+	 * 			Liste du nombre de nouveaux nés par espèce.
 	 */
 	public Donnees(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,String tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,double [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse, int [] nbMort) {
 		

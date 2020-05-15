@@ -6,9 +6,9 @@ import individus.*;
 
 /**
  * <b>Permet de calculer les données de la simulation</b>
- * <p> les donnes suivantes suivantes seront nécessaire.</P>
+ * <p> les données suivantes  seront nécessaires.</P>
  * <ul>
- * <li>les donnes des individus mort et vivant à la fin de la simultation</li>
+ * <li>les données des individus morts et vivants à la fin de la simulation</li>
  * </ul>
  * 
  * 
@@ -29,7 +29,7 @@ public class Calcul {
 	ArrayList<Animal> individus_morts;
 
 	/**
-	 * Durée de la simulation préciser au lancement de la simulation.
+	 * Durée de la simulation précisée au lancement de la simulation.
 	 */
 
 	int dureeSimulPara;
@@ -41,7 +41,7 @@ public class Calcul {
 	int dureeSimulReel;
 
 	/**
-	 * nombre d'individu par espéce au début de la simulation.
+	 * nombre d'individus par espèces au début de la simulation.
 	 */
 	int [] nbIndividuDebut = new int [3];
 
@@ -66,10 +66,10 @@ public class Calcul {
 	}
 
 	/**
-	 * Permet de compter le nombre d'individus par espece présent durant toute la simulation.
+	 * Permet de compter le nombre d'individus par espèce présents durant toute la simulation.
 	 * @return 
 	 * 
-	 * @return Une liste de type int contenant dans l'ordre suivant le nombre d'individus présent lors de toute la simulation: Herbivore, Carnivore, Charognard.
+	 * @return Une liste de type int contenant dans l'ordre suivant le nombre d'individus présents lors de toute la simulation: Herbivore, Carnivore, Charognard.
 	 */
 	public int[] compteurNbIndividus() {
 
@@ -115,9 +115,9 @@ public class Calcul {
 	}
 
 	/**
-	 * Permet de compter le nombre d'individus par espéce vivant à la fin de la simulation.
+	 * Permet de compter le nombre d'individus par espèce vivants à la fin de la simulation.
 	 * 
-	 * @return Une liste de type int contenant dans l'ordre suivant le nombre d'individus présent à la fin de la simulation: Herbivore, Carnivore, Charognard.
+	 * @return Une liste de type int contenant dans l'ordre suivant le nombre d'individus présents à la fin de la simulation: Herbivore, Carnivore, Charognard.
 	 */
 	public int[] compteurNbIndividusFin(){
 
@@ -141,8 +141,8 @@ public class Calcul {
 		return nbIndividusFin;
 	}
 	/**
-	 * Permet de calculer l'age moyen des populations à la fin de la simulation.
-	 * @return Une liste de type int contenant dans l'ordre suivant la moyenne d'age à la fin de la simulation: Herbivore, Carnivore, Charognard.
+	 * Permet de calculer l'âge moyen des populations à la fin de la simulation.
+	 * @return Une liste de type int contenant dans l'ordre suivant la moyenne d'âge à la fin de la simulation: Herbivore, Carnivore, Charognard.
 	 */
 	public int[] MoyenneAgeParEsp() {
 
@@ -191,9 +191,9 @@ public class Calcul {
 
 	}
 	/**
-	 * Permet de calculer l'age moyen des individus morts.
+	 * Permet de calculer l'âge moyen des individus morts.
 	 * 
-	 * @return Une liste de type int contenant dans l'ordre suivant l'age moyend des individus mort: Herbivore, Carnivore, Charognard.
+	 * @return Une liste de type int contenant dans l'ordre suivant l'âge moyen des individus morts: Herbivore, Carnivore, Charognard.
 	 */
 
 	public int [] MoyenAgeALaMort () {
@@ -248,14 +248,14 @@ public class Calcul {
 		String causeFinSimul;
 		if(individus.size()==0) {
 
-			causeFinSimul = "La simulation a pris fain car tous les individus de l'ecosystems sont mort.";
+			causeFinSimul = "La simulation a pris fin car tous les individus de l'écosystème sont morts.";
 
 		}
 		else if(dureeSimulPara==dureeSimulReel){
-			causeFinSimul = "La durée de simulation entré en paramétre de début a été atteinte.";
+			causeFinSimul = "La durée de simulation entrée en paramètre de début a été atteinte.";
 		}
 		else {
-			causeFinSimul = "L'utilisateur a demander la fin de simulation.";
+			causeFinSimul = "L'utilisateur a demandé la fin de la simulation.";
 		}
 
 		return causeFinSimul;
@@ -274,7 +274,7 @@ public class Calcul {
 		int an = dureeSimulReel/365;
 		int mois = (dureeSimulReel%365)/30;
 		int jours = ((dureeSimulReel%365)%30);
-		String tSimul="La simulation a durée " + an +" ans, " + mois + " mois et  " + jours + " jours.";
+		String tSimul="La simulation a duré " + an +" ans, " + mois + " mois et  " + jours + " jours.";
 
 		return tSimul;
 		}
@@ -283,7 +283,7 @@ public class Calcul {
 			int an = dureeSimulPara;
 			int mois = 0;
 			int jours = 0;
-			String tSimul="La simulation a durée " + an +" ans, " + mois + " mois et  " + jours + " jours.";
+			String tSimul="La simulation a duré " + an +" ans, " + mois + " mois et  " + jours + " jours.";
 
 			return tSimul;
 			
@@ -313,9 +313,9 @@ public class Calcul {
 		
 	}
 	/**
-	 * Permet de calculer nombre d'espece présent à la fin de la simulation.
+	 * Permet de calculer nombre d'espèces présentes à la fin de la simulation.
 	 * 
-	 * @return Le nombre d'espece présent à la fin de la simulation.
+	 * @return Le nombre d'espèces présentes à la fin de la simulation.
 	 */
 	public int nbEspeceFin() {
 
@@ -341,9 +341,9 @@ public class Calcul {
 	}
 
 	/**
-	 * Permet de donner la moyennne des naissances par jour et par espece.
+	 * Permet de donner la moyennne des naissances par jour et par espèce.
 	 * 
-	 * @return Une liste de type double contenant dans l'ordre suivant la moyenne des naissance par jour et par type: Herbivore, Carnivore, Charognard.
+	 * @return Une liste de type double contenant dans l'ordre suivant la moyenne des naissances par jour et par type: Herbivore, Carnivore, Charognard.
 	 */
 
 	public double [] nbMoyenNaissance() {
@@ -359,9 +359,9 @@ public class Calcul {
 	}
 	
 	/**
-	 * Permet de retourner le nombre de naissance par espece durant la simulation.
+	 * Permet de retourner le nombre de naissance par espèce durant la simulation.
 	 * 
-	 * @return Une liste de type int contenant dans l'ordre suivant le nombre de naissance par espéce durant la simulation: Herbivore, Carnivore, Charognard.
+	 * @return Une liste de type int contenant dans l'ordre suivant le nombre de naissances par espèces durant la simulation: Herbivore, Carnivore, Charognard.
 	 */
 	public int [] nbNaissance() {
 
@@ -375,7 +375,7 @@ public class Calcul {
 	}
 	
 	/**
-	 * Permet de donner le nombre de mort du à l'age par espece.
+	 * Permet de donner le nombre de morts dus à l'âge par espèce.
 	 * 
 	 * @return Une liste de type int contenant dans l'ordre suivant le nombre de mort de viellesse: Herbivore, Carnivore, Charognard.
 	 */
@@ -399,7 +399,7 @@ public class Calcul {
 	}
 	
 	/**
-	 * permet de retourner le nombre d'individus mort de faim par espece.
+	 * permet de retourner le nombre d'individus morts de faim par espèce.
 	 * 
 	 * @return Une liste de type int contenant dans l'ordre suivant le nombre d'individus mort de faim : Herbivore, Carnivore, Charognard.
 	 */
@@ -425,9 +425,9 @@ public class Calcul {
 	}
 	
 	/**
-	 * Permet de retourner le nombre d'individus mort de soif par espéce.
+	 * Permet de retourner le nombre d'individus mort de soif par espèce.
 	 * 
-	 * @return Une liste de type int contenant dans l'ordre suivant le nombre d'individus mort de soif par espece: Herbivore, Carnivore, Charognard.
+	 * @return Une liste de type int contenant dans l'ordre suivant le nombre d'individus mort de soif par espèce: Herbivore, Carnivore, Charognard.
 	 */
 
 	public int [] nbMortSoif() {
@@ -457,9 +457,9 @@ public class Calcul {
 	}
 	
 	/**
-	 * permet de donner le nombre de mort du à la chasse par espéce.
+	 * permet de donner le nombre de morts dus à la chasse par espèce.
 	 * 
-	 * @return Une liste de type int contenant dans l'ordre suivant le nombre de mort su à la chasse par espéce: Herbivore, Carnivore, Charognard.
+	 * @return Une liste de type int contenant dans l'ordre suivant le nombre de morts dus à la chasse par espèce: Herbivore, Carnivore, Charognard.
 	 */
 	public int [] nbMortChasse() {
 
@@ -490,7 +490,7 @@ public class Calcul {
 	}
 	
 	/**
-	 * Donne le nombre moyen de petit par femelle selon l'espece.
+	 * Donne le nombre moyen de petits par femelle selon l'espèce.
 	 * 
 	 * @return
 	 */
