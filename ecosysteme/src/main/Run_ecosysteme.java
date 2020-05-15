@@ -79,7 +79,9 @@ public class Run_ecosysteme {
 		int[] nbIndividus = calcul.compteurNbIndividus();
 		int[] moyenAgeParEspece = calcul.MoyenneAgeParEsp();
 		int [] moyenAgeALaMort = calcul.MoyenAgeALaMort();
+		String causeFinSimulation = calcul.CauseFinSimul();
 		int[] nbIndividusFin = calcul.compteurNbIndividusFin();
+		
 		
 		
 		

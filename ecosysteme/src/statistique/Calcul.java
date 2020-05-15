@@ -209,6 +209,21 @@ public class Calcul {
 		return moyenAgeALaMort;
 	}
 
+	public String CauseFinSimul() {
+		
+		String causeFinSimul;
+		if(individus.size()==0) {
+			
+			causeFinSimul = "La simulation a pris fain car tous les individus de l'ecosystems sont mort.";
+			
+		}
+		else {
+			causeFinSimul = "La durée de simulation entré en paramétre de début a été atteinte.";
+		}
+		
+		return causeFinSimul;
+		
+	}
 
 
 }

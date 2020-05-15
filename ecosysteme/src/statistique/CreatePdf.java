@@ -46,7 +46,7 @@ public class CreatePdf {
 	 * Donnees de la simulation
 	 */
 	
-	Donnees donneeSimul;
+	static Donnees donneeSimul;
 	
 	/**
 	 * Constructeur de la classe.
@@ -142,7 +142,7 @@ public class CreatePdf {
 		// on ajoute dans la liste les points que l'on veut ecrire.
 		
 		listDonneSimulationGenerale.add(new ListItem(" Durée de la simulation (donnée en jour) :"))
-		.add(new ListItem("Raison de fin de simulation : "+ donneeSimul.causeFinSimulation))
+		.add(new ListItem(donneeSimul.causeFinSimulation))
 		.add(new ListItem("Nombre d'espéce au debut de la simulation: "))
 		.add(new ListItem("Nombre d'individus au début de la simulation : "))
 		.add(new ListItem("Nombre d'espéce à la fin de la simulation: "))
