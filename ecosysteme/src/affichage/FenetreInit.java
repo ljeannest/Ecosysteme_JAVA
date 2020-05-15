@@ -266,7 +266,7 @@ public class FenetreInit extends JDialog {
 		pan_size.setPreferredSize(new Dimension(290,90));
 		sizeIcon = new JLabel (icon_size);
 		size =new JComboBox();
-		for (int k=30;k<61;k+=10) {
+		for (int k=30;k<=60;k+=10) {
 			size.addItem(k);
 		}
 		sizeLabel = new JLabel ("Taille de la grille : ");
