@@ -35,6 +35,7 @@ public class fenetre extends JFrame {
 		for (int i=0;i<n;i++) {
 			A_list.get(i).deplacementAleatoire(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
 		}
+		
 		pan=new ConteneurFenetre(A_list,ressource,duree_ecoulee);
 		this.setContentPane(pan);
 		this.setVisible(true);
