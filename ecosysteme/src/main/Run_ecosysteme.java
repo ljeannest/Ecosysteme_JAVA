@@ -50,7 +50,7 @@ public class Run_ecosysteme {
 		int duree_ecoulee=0;
 		
 		//entrée dans une boucle qui modélise notre écosysteme, avec tous nos individus qui peuvent 
-		//boire, manger, se deplacer, se reproduire...
+		//boire, manger, se deplacer, se reproduire.
 		//la boucle se termine quand ? laps de temps donné? extinction de toutes les especes?
 		
 		fenetre fenetrePrincipale = new fenetre(individus,individus_morts,ressource,duree_ecoulee,duree);
