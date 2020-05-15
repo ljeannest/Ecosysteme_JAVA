@@ -132,7 +132,7 @@ public class Donnees {
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
-	//public int [] nbMoyenPetit = new int [3];
+	public float [] nbMoyenPetit = new float [3];
 	
 	/**
 	 * Nombre total d'individus lors de la simulation.
@@ -217,7 +217,7 @@ public class Donnees {
 	 * @param nbMoyenPetit
 	 * 			Liste du nombre de nouveau nee par espece.
 	 */
-	public Donnees(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,String tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,float [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse, int [] nbMort) {
+	public Donnees(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,String tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,float [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse, int [] nbMort, float [] nbMoyenPetit) {
 		
 		this.nbIndividus = nbIndividus;
 		this.moyenAgeParEspece = moyenAgeParEspece;
@@ -234,7 +234,7 @@ public class Donnees {
 		this.nbMortFaim = nbMortFaim ;
 		this.nbMortSoif = nbMortSoif;
 		this.nbMortChasse = nbMortChasse;
-		//this.nbMoyenPetit = nbMoyenPetit;
+		this.nbMoyenPetit = nbMoyenPetit;
 		this.nbMort= nbMort;
 		this.nbTotalIndividus = this.nbIndividus[0] + this.nbIndividus[1] + this.nbIndividus[2];
 		this.nbTotalMortNorm = this.nbMortNorm[0] + this.nbMortNorm[1] + this.nbMortNorm[2];

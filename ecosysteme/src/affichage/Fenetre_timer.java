@@ -8,15 +8,39 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ *<b> Permet l'affichage du temps qui passe.</b>
+ * <p> Les variables suivantes sont donc nécessaires:</p>
+ * <ul>
+ * <li> Le temps ecoule depuis le debut de la simulation.</li>
+ * </ul>
+ *
+ */
+
 public class Fenetre_timer extends JFrame {
 
+	/**
+	 * Constructeur de la classe.
+	 * 
+	 * @param temps_ecoule
+	 * 			Nombre de jours ecoules depuis le debut de la simulation.
+	 */
 	
 	public Fenetre_timer(int temps_ecoule) {
 		super();
 		proprietes_fenetre_timer(temps_ecoule);
 		
 	}
-
+	
+	
+	/**
+	 * Permet d'afficherr une fenetre qui contient le temps écoulé depuis le début de la simulation
+	 * 
+	 * @param temps_ecoule
+	 *        Nombre de jours écoulés depuis le début de la simulation
+	 * 
+	 * @author Lucie
+	 */
 	public void proprietes_fenetre_timer(int temps_ecoule) {
 		this.setTitle("Timer");
 		this.setSize(300,100);
@@ -39,6 +63,15 @@ public class Fenetre_timer extends JFrame {
 		this.setContentPane(pan);
 	}
 	
+	
+	/**
+	 * Permet de mettre la fenetre du timer à jour sans la réouvir a chaque instant
+	 * 
+	 * @param temps_ecoule
+	 *         Nombre de jours écoulés depuis le debut de la simulatioin
+	 * 
+	 * @author Lucie
+	 */
 	public void maj_pan(int temps_ecoule) {
 		JPanel pan = new JPanel();
 		pan.setBackground(Color.white);
@@ -54,6 +87,17 @@ public class Fenetre_timer extends JFrame {
 		this.setContentPane(pan);
 	}
 	
+	/**
+	 * Permet de renvoyer la date sous forme de texte
+	 * 
+	 * @param temps_ecoule
+	 *         Nombre de jours ecoules depuis le debut de la simulation
+	 * 
+	 * @return String
+	 * 		   Duree ecoulee depuis le debut de la simulation exprime en (an/mois/jour)
+	 * 
+	 * @author Lucie
+	 */
 	public String str_time (int temps_ecoule) {
 		int an = temps_ecoule/365;
 		int mois = 0;

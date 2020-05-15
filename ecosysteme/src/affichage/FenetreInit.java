@@ -19,11 +19,62 @@ import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+
+
+/**
+ * <b> Ouvre une premiere fenetre permettant à l'utilisateur de choisir les parametres de la simulation <b>
+ * <p> Les variables suivantes sont donc necessaires : <p>
+ * <ul>
+ * <li> Un element info de type FenetreInitInfo qui permettra de récuperer toutes les donnees indiquees par l'utilisateur <li>
+ * <li> un booleen sendData, qui servira a envoyer ou non les donnees dans info <li>
+ * <li> Un JLabel lievreLabel, qui contiendra un texte concernant les lievres à afficher dans la fenetre <li>
+ * <li> Un JLabel lynxLabel, qui contiendra un texte concernant les lynxs à afficher dans la fenetre <li>
+ * <li> Un JLabel vautourLabel, qui contiendra un texte concernant les vautours à afficher dans la fenetre <li>
+ * <li> Un JLabel flaqueLabel, qui contiendra un texte concernant les flaques à afficher dans la fenetre <li> 
+ * <li> Un JLabel dureeLabel, qui contiendra un texte concernant la duree de la simulation à afficher dans la fenetre <li> 
+ * <li> Un JLabel anLabel, qui contiendra un texte concernant l'echelle de temps(an) à afficher dans la fenetre <li> 
+ * <li> Un JLabel lacLabel, qui contiendra un texte concernant les lacs à afficher dans la fenetre <li> 
+ * <li> Un JLabel riviereLabel, qui contiendra un texte concernant les rivieres à afficher dans la fenetre <li> 
+ * <li> Un JLabel tailleLabel, qui contiendra un texte concernant la taille de l'ecosysteme à afficher dans la fenetre <li> 
+ * <li> Un JLabel foretLabel, qui contiendra un texte concernant les forets à afficher dans la fenetre <li>
+ * <li> Un JLabel compterenduLabel, qui contiendra un texte concernant les compte_rendus à afficher dans la fenetre <li> 
+ * <li> Un JComboBox lievre qui contiendra les differentes options concernant le nombre de lievres <li>
+ * <li> Un JComboBox lynx qui contiendra les differentes options concernant le nombre de lynxs <li>
+ * <li> Un JComboBox vautour qui contiendra les differentes options concernant le nombre de vautours <li>
+ * <li> Un JComboBox flaque qui contiendra les differentes options concernant le nombre de flaques <li>
+ * <li> Un JComboBox duree qui contiendra les differentes options concernant la duree de la simulation <li>
+ * <li> Un JComboBox lac qui contiendra les differentes options concernant le nombre de lacs <li>
+ * <li> Un JComboBox riviere qui contiendra les differentes options concernant la presence de rivieres <li>
+ * <li> Un JComboBox size qui contiendra les differentes options concernant la taille de l'ecosysteme <li>
+ * <li> Un JComboBox foret qui contiendra les differentes options concernant la presence de forets <li>
+ * <li> Un JComboBox compterendu qui contiendra les differentes options concernant la presence d'un compte rendu <li>
+ * <li> Un JLabel lievreIcon qui contiendra un icone representant un lievre <li>
+ * <li> Un JLabel lynxIcon qui contiendra un icone representant un lynx <li>
+ * <li> Un JLabel vautourIcon qui contiendra un icone representant un vautour <li>
+ * <li> Un JLabel eauIcon qui contiendra un icone representant une case d'eau <li>
+ * <li> Un JLabel tempsIcon qui contiendra un icone representant une horloge <li>
+ * <li> Un JLabel sizeIcon qui contiendra un icone representant la taille de l'ecosysteme <li>
+ * <li> Un JLabel foretIcon qui contiendra un icone representant une case de foret <li>
+ * <li> Un ImageIcon icon_eau_claire qui represente une case d'eau claire <li>
+ * <li> Un ImageIcon icon_eau_foncee qui represente une case d'eau foncee <li>
+ * <li> Un ImageIcon icon_lynx qui represente un individu de type lynx <li>
+ * <li> Un ImageIcon icon_lievre qui represente un individu de type lievre <li>
+ * <li> Un ImageIcon icon_vautour qui represente un individu de type vautour <li>
+ * <li> Un ImageIcon icon_temps qui represente une horloge <li>
+ * <li> Un ImageIcon icon_size qui represente une taille <li>
+ * <li> Un ImageIcon icon_foret qui represente une case de foret <li>
+ * <li> Une Border redline qui est un contour de couleur rouge <li>
+ * <li> Une Border blackline qui est un contour de couleur noire <li>
+ * <li> Une Border whiteline qui est un contour de couleur blanche <li>
+ * <ul>
+ * @author Lucie
+ *
+ */
 public class FenetreInit extends JDialog {
 	private FenetreInitInfo info= new FenetreInitInfo();
 	private boolean sendData;
-	private JLabel lievreLabel, lynxLabel, vautourLabel, flaqueLabel, dureeLabel,anLabel,lacLabel,riviereLabel,sizeLabel, foretLabel;
-	private JComboBox lievre,lynx,vautour,flaque,duree,lac,riviere,size, foret;
+	private JLabel lievreLabel, lynxLabel, vautourLabel, flaqueLabel, dureeLabel,anLabel,lacLabel,riviereLabel,sizeLabel, foretLabel,compterenduLabel;
+	private JComboBox lievre,lynx,vautour,flaque,duree,lac,riviere,size, foret,compterendu;
 	private JLabel lievreIcon,lynxIcon,vautourIcon,eauIcon,tempsIcon,sizeIcon, foretIcon;
 	
 
@@ -224,10 +275,24 @@ public class FenetreInit extends JDialog {
 		pan_size.add(sizeLabel);
 		pan_size.add(size);
 		
+		//compte rendu
+		
+		JPanel pan_cr = new JPanel();
+		pan_cr.setBackground(Color.white);
+		pan_cr.setPreferredSize(new Dimension(290,90));
+		compterendu = new JComboBox();
+		compterendu.addItem("oui");
+		compterendu.addItem("non");
+		compterenduLabel = new JLabel ("Souhaitez vous un compte-rendu de la simulation ? ");
+		
+		pan_cr.add(compterenduLabel);
+		pan_cr.add(compterendu);
+		
 		//Remplissage du panel Simulation
 		
 		pan_simulation.add(pan_temps);
 		pan_simulation.add(pan_size);
+		pan_simulation.add(pan_cr);
 		
 		
 		// JPanel General
@@ -243,7 +308,7 @@ public class FenetreInit extends JDialog {
 		JButton okBouton = new JButton("OK");
 		okBouton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				info = new FenetreInitInfo((int)lievre.getSelectedItem(),(int)lynx.getSelectedItem(),(int)vautour.getSelectedItem(),(int)flaque.getSelectedItem(),(int)duree.getSelectedItem(),(String)riviere.getSelectedItem(),(String)lac.getSelectedItem(),(int) size.getSelectedItem(),(String) foret.getSelectedItem());
+				info = new FenetreInitInfo((int)lievre.getSelectedItem(),(int)lynx.getSelectedItem(),(int)vautour.getSelectedItem(),(int)flaque.getSelectedItem(),(int)duree.getSelectedItem(),(String)riviere.getSelectedItem(),(String)lac.getSelectedItem(),(int) size.getSelectedItem(),(String) foret.getSelectedItem(),(String)compterendu.getSelectedItem());
 				setVisible(false);
 			}
 		});

@@ -267,31 +267,31 @@ public class Calcul {
 	 * @return Une phrase indiquant la durée de la simulation en année mois jours.
 	 */
 	public String tSimulation() {
-		
+
 		if (dureeSimulReel>0) {
-			
 
-		int an = dureeSimulReel/365;
-		int mois = (dureeSimulReel%365)/30;
-		int jours = ((dureeSimulReel%365)%30);
-		String tSimul="La simulation a durée " + an +" ans, " + mois + " mois et  " + jours + " jours.";
 
-		return tSimul;
+			int an = dureeSimulReel/365;
+			int mois = (dureeSimulReel%365)/30;
+			int jours = ((dureeSimulReel%365)%30);
+			String tSimul="La simulation a durée " + an +" ans, " + mois + " mois et  " + jours + " jours.";
+
+			return tSimul;
 		}
 		else {
-			
+
 			int an = dureeSimulPara;
 			int mois = 0;
 			int jours = 0;
 			String tSimul="La simulation a durée " + an +" ans, " + mois + " mois et  " + jours + " jours.";
 
 			return tSimul;
-			
+
 		}
 	}
-	
+
 	public int nbEspeceDebut() {
-		
+
 		int nbEspeceDebut = 0;
 
 		if(nbIndividuDebut.length==0) {
@@ -310,7 +310,7 @@ public class Calcul {
 		}
 
 		return nbEspeceDebut;
-		
+
 	}
 	/**
 	 * Permet de calculer nombre d'espece présent à la fin de la simulation.
@@ -357,7 +357,7 @@ public class Calcul {
 		return nbMoyenNaissance;
 
 	}
-	
+
 	/**
 	 * Permet de retourner le nombre de naissance par espece durant la simulation.
 	 * 
@@ -373,7 +373,7 @@ public class Calcul {
 
 		return nbNaissance;
 	}
-	
+
 	/**
 	 * Permet de donner le nombre de mort du à l'age par espece.
 	 * 
@@ -397,7 +397,7 @@ public class Calcul {
 		}
 		return nbMortNorm;
 	}
-	
+
 	/**
 	 * permet de retourner le nombre d'individus mort de faim par espece.
 	 * 
@@ -423,7 +423,7 @@ public class Calcul {
 		return nbMortFaim;
 
 	}
-	
+
 	/**
 	 * Permet de retourner le nombre d'individus mort de soif par espéce.
 	 * 
@@ -455,7 +455,7 @@ public class Calcul {
 		return nbMortSoif;
 
 	}
-	
+
 	/**
 	 * permet de donner le nombre de mort du à la chasse par espéce.
 	 * 
@@ -488,34 +488,83 @@ public class Calcul {
 		}
 		return nbMortChasse;
 	}
-	
+
 	/**
 	 * Donne le nombre moyen de petit par femelle selon l'espece.
 	 * 
 	 * @returnUne liste de type int contenant dans l'ordre suivant le nombre de mort par espéce: Herbivore, Carnivore, Charognard.
 	 */
-	//public int [] nbMoyenPetit () {
+	public float[] nbMoyenPetit() {
+
+		float [] nbMoyenPetit= new float [3];
+		int compteurType0=0;
+		int compteurType1=0;
+		int compteurType2=0;
+
+		for(int i=0; i<individus.size(); i++ ) {
+			if (individus.get(i).sexe=="F") {
+				if(individus.get(i).type==0) {
+					nbMoyenPetit[0]+=individus.get(i).nb_bebes;
+					compteurType0+=1;
+				}
+				else if(individus.get(i).type==1) {
+					nbMoyenPetit[1]+=individus.get(i).nb_bebes;
+					compteurType1+=1;
+				}
+				else{
+					nbMoyenPetit[2]+=individus.get(i).nb_bebes;
+					compteurType2+=1;
+				}
+			}
+		}
+		for(int i=0; i<individus_morts.size(); i++ ) {
+			if (individus_morts.get(i).sexe=="F") {
+				if(individus_morts.get(i).type==0) {
+					nbMoyenPetit[0]+=individus_morts.get(i).nb_bebes;
+					compteurType0+=1;
+				}
+				else if(individus_morts.get(i).type==1) {
+					nbMoyenPetit[1]+=individus_morts.get(i).nb_bebes;
+					compteurType1+=1;
+				}
+				else{
+					nbMoyenPetit[2]+=individus_morts.get(i).nb_bebes;
+					compteurType2+=1;
+				}
+			}
+		}
+		if(compteurType0>0) {
+			nbMoyenPetit[0] = (float)nbMoyenPetit[0]/(float)compteurType0;
+		}
+		if(compteurType0>0) {
+			nbMoyenPetit[1] = (float)nbMoyenPetit[1]/(float)compteurType1;
+		}
+		if(compteurType0>0) {
+			nbMoyenPetit[2] = (float)nbMoyenPetit[2]/(float)compteurType2;
+		}
 		
-	//}
+		return nbMoyenPetit;
+
+	}
 	/**
 	 * Permet de donner le nombre de mort par espece durant la simulation.
 	 * @return
 	 */
 	public int [] nbMort() {
-		
+
 		int [] nbMort = new int [3];
 		int [] nbMortNorm = nbMortNorm();
 		int [] nbMortFaim= nbMortFaim();
 		int [] nbMortSoif = nbMortSoif();
 		int [] nbMortChasse= nbMortChasse();
-		
+
 		nbMort[0]= nbMortNorm[0] + nbMortFaim[0] + nbMortSoif[0] + nbMortChasse[0];
 		nbMort[1]= nbMortNorm[1] + nbMortFaim[1] + nbMortSoif[1] + nbMortChasse[1];
 		nbMort[2]= nbMortNorm[2] + nbMortFaim[2] + nbMortSoif[2] + nbMortChasse[2];
-		
+
 		return nbMort;
 	}
-	
-	
+
+
 
 }

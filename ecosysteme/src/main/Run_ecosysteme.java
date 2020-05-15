@@ -39,6 +39,7 @@ public class Run_ecosysteme {
 	public static void main(String[] args) throws InterruptedException, IOException  {
 
 
+		boolean nouvelle_simulation =true;
 		//ouverture d'une premiere fenetre permettant à l'utilisateur de sélectionner les paramètres de la simulation.
 		//a la validation, une fenetre recapitulative s'ouvre
 
@@ -55,7 +56,7 @@ public class Run_ecosysteme {
 		int presenceriviere=info[6];
 		int taille = info[7];
 		int presenceforet = info[8];
-
+		int presencecompterendu = info[9];
 		//création de l'écosystème, ainsi que des différents individus
 
 		ConteneurFenetre.NB_LIGNES = taille;
@@ -70,172 +71,217 @@ public class Run_ecosysteme {
 		//boire, manger, se deplacer, se reproduire.
 		//la boucle se termine a la fin du laps de temps donné ou de l'extinction de toutes les especes
 
-		fenetre fenetrePrincipale = new fenetre(individus,individus_morts,ressource,duree_ecoulee,duree);
-		fenetrePrincipale.setVisible(true);
+
 
 
 		//fermeture de la fenetre
 
-		fenetrePrincipale.setVisible(false);
+
 
 
 		//affichage des informations de la simulation
 
-		
-		int [] nbIndividuDebut = {nb_lievre, nb_lynx, nb_vautour};
-		Calcul calcul= new Calcul(individus,individus_morts,duree, duree_ecoulee, nbIndividuDebut);
-		String nomFichier="nomfichier";
-
-		Donnees donneeSimul = new Donnees( calcul.compteurNbIndividus(),calcul.MoyenneAgeParEsp(), calcul.MoyenAgeALaMort(), calcul.CauseFinSimul(), calcul.tSimulation(), calcul.nbEspeceDebut(), calcul.nbEspeceFin(), nbIndividuDebut, calcul.compteurNbIndividusFin(), calcul.nbMoyenNaissance(),  calcul.nbNaissance(), calcul.nbMortNorm(), calcul.nbMortFaim() , calcul.nbMortSoif(), calcul.nbMortChasse(), calcul.nbMort());
 
 
 
-		PdfDocument pdf = new PdfDocument(new PdfWriter(DEST));
-		Document document = new Document(pdf);
 
-		// Creation d'une font pour pdf
-		PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+		if (duree!=0) {
+			fenetre fenetrePrincipale = new fenetre(individus,individus_morts,ressource,duree_ecoulee,duree);
+			fenetrePrincipale.setVisible(true);
 
-		// écriture du contenue du PDF
+			//fermeture de la fenetre
 
-		// écriture du contenu de cahque paragraphe
+			fenetrePrincipale.setVisible(false);
 
-		String Titre = "Compte rendu de la simulation.\n\n";
+			//affichage des informations de la simulation
 
-		String para1 = "\nDans ce PDF voud trouverez les données utilent pour une étude statistiques.";  
+			System.out.println("Duree totale de la simulation : "+duree_ecoulee+" jours\n\n");
 
-		String para2 = "\nVoici les données jour par jour de la simulation:";
+			int p = individus.size();
+			for (int k=0;k<p;k++) {
+				System.out.println(individus.get(k));
+			}
 
-		String para3 = "\nDonnée génerale:";
-
-		String para4 = "\nPour les carnivores:";
-
-		String para5 = "\nPour les charognards:";
-
-		String para6 = "\nPour les herbivores:";
-
-		String para7 = "\nNous esperons que cette simulation a pu vous éclairez dans vos recherches.";   
-
-		// création des paragraph via la methode paragraph de la class paragraph et rajout d'indentation avec setFirstLineIndent et aplication de la font crée en debut avec setFont     
-		Paragraph TitreDocument = new Paragraph(Titre).setFont(font).setFirstLineIndent(200);
-		Paragraph paragraph1 = new Paragraph(para1).setFont(font).setFirstLineIndent(20);   // on précise la police
-		Paragraph paragraph2 = new Paragraph(para2).setFont(font).setFirstLineIndent(20);
-		Paragraph paragraph3 = new Paragraph(para3).setFont(font).setFirstLineIndent(40);
-		Paragraph paragraph4 =  new Paragraph(para4).setFont(font).setFirstLineIndent(40);
-		Paragraph paragraph5 = new Paragraph(para5).setFont(font).setFirstLineIndent(40);
-		Paragraph paragraph6 = new Paragraph(para6).setFont(font).setFirstLineIndent(40);
-		Paragraph paragraph7 = new Paragraph(para7).setFont(font).setFirstLineIndent(20);
-
-
-		// création de listes de point:
-
-		List listDonneSimulationGenerale = new List()
-				.setSymbolIndent(12)// on précise l'indentatation
-				.setListSymbol("\u2022")// on choisi le symbole à utiliser pour les points
-				.setFont(font);// on précise la font qu'on utilise pour le text
-
-
-		List listDonneSimulationCarnivore = new List()
-				.setSymbolIndent(12)
-				.setListSymbol("\u2022")
-				.setFont(font);
-
-
-		List listDonneSimulationCharognard =new List()
-				.setSymbolIndent(12)
-				.setListSymbol("\u2022")
-				.setFont(font);
+			int n = individus_morts.size();
+			for (int k=0;k<n;k++) {
+				System.out.println(individus_morts.get(k));
+			}
 
 
 
-		List listDonneSimulationHerbivore =new List()
-				.setSymbolIndent(12)
-				.setListSymbol("\u2022")
-				.setFont(font);
+			fenetrePrincipale.setVisible(false);
+
+
+			if (presencecompterendu==1) {
+
+				int [] nbIndividuDebut = {nb_lievre, nb_lynx, nb_vautour};
+				Calcul calcul= new Calcul(individus,individus_morts,duree, duree_ecoulee, nbIndividuDebut);
+
+
+				Donnees donneeSimul = new Donnees( calcul.compteurNbIndividus(),calcul.MoyenneAgeParEsp(), calcul.MoyenAgeALaMort(), calcul.CauseFinSimul(), calcul.tSimulation(), calcul.nbEspeceDebut(), calcul.nbEspeceFin(), nbIndividuDebut, calcul.compteurNbIndividusFin(), calcul.nbMoyenNaissance(),  calcul.nbNaissance(), calcul.nbMortNorm(), calcul.nbMortFaim() , calcul.nbMortSoif(), calcul.nbMortChasse(), calcul.nbMort(),calcul.nbMoyenPetit());
+
+				PdfDocument pdf = new PdfDocument(new PdfWriter(DEST));
+				Document document = new Document(pdf);
 
 
 
-		// on ajoute dans la liste les points que l'on veut ecrire.
+				// Creation d'une font pour pdf
+				PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
 
-		listDonneSimulationGenerale.add(new ListItem("" + donneeSimul.tSimulation))
-		.add(new ListItem(donneeSimul.causeFinSimulation))
-		.add(new ListItem("Nombre d'espéce au debut de la simulation: " + donneeSimul.nbEspeceDebut))
-		.add(new ListItem("Nombre d'individus au début de la simulation : " + donneeSimul.nbTotalIndivDebut))
-		.add(new ListItem("Nombre d'espéce à la fin de la simulation: " + donneeSimul.nbEspeceFin))
-		.add(new ListItem("Nombre d'individu à la fin de la simulation: " + donneeSimul.nbTotalIndiFin));
+				// écriture du contenue du PDF
+
+				// écriture du contenu de cahque paragraphe
 
 
 
-		listDonneSimulationCarnivore.add(new ListItem("Nombre totale d'individus sur toute le simulation: " + donneeSimul.nbIndividus[1]))
-		.add(new ListItem("Nombre d'individus au début de la simulation: " + donneeSimul.nbIndividuDebut[1]))
-		.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbIndividuFin[1]))
-		.add(new ListItem("Age moyen de la populayion à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[1]))
-		.add(new ListItem("Nombre de mort durant la simulation: " + donneeSimul.nbMort[1]))
-		.add(new ListItem("Nombre moyen de mort par jour: " ))
-		.add(new ListItem("Nombre moyen de naissance de carnivore par jour: " + donneeSimul.nbMoyenNaissance[1]))
-		.add(new ListItem("Nombre de mort par viellesse durant la simulation: " + donneeSimul.nbMortNorm[1]))
-		.add(new ListItem("Nombre de décés du à la faim durant la simulation: " + donneeSimul.nbMortFaim[1]))
-		.add(new ListItem("Nombre de décés du à la Soif: " + donneeSimul.nbMortSoif[1]))
-		.add(new ListItem("Age moyen à la mort: " + donneeSimul.moyenAgeALaMort[1]));
+				String Titre = "Compte rendu de la simulation.\n\n";
+
+				String para1 = "\nDans ce PDF voud trouverez les statistiques que nous avons pu ressortir de votre simulation. Les données qui ont servie à leur élaboration vous seront donné en première partie.";  
+
+				String para2 = "\nVoici les données jour par jour de la simulation:";
+
+				String para3 = "\n Donnée génerale:";
+
+				String para4 = "\nPour les carnivores:";
+
+				String para5 = "\nPour les charognards:";
+
+				String para6 = "\nPour les herbivores:";
+
+				String para7 = "\nNous esperons que cette simulation a pu vous éclairez dans vos recherches.";
 
 
-		listDonneSimulationCharognard.add(new ListItem("Nombre totale d'individus sur toute le simulation: " + donneeSimul.nbIndividus[2]))
-		.add(new ListItem("Nombre d'individus au début de la simulation: " + donneeSimul.nbIndividuDebut[2]))
-		.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbIndividuFin[2]))
-		.add(new ListItem("Age moyen de la populayion à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[2]))
-		.add(new ListItem("Nombre de mort durant la simulation: " + donneeSimul.nbMort[2]))
-		.add(new ListItem("Nombre moyen de mort par jour: " ))
-		.add(new ListItem("Nombre moyen de naissance de carnivore par jour: " + donneeSimul.nbMoyenNaissance[2]))
-		.add(new ListItem("Nombre de mort par viellesse durant la simulation: " + donneeSimul.nbMortNorm[2]))
-		.add(new ListItem("Nombre de décés du à la faim durant la simulation: " + donneeSimul.nbMortFaim[2]))
-		.add(new ListItem("Nombre de décés du à la Soif: " + donneeSimul.nbMortSoif[2]))
-		.add(new ListItem("Age moyen à la mort: " + donneeSimul.moyenAgeALaMort[2]));
+				// création des paragraph via la methode paragraph de la class paragraph et rajout d'indentation avec setFirstLineIndent et aplication de la font crée en debut avec setFont     
+				Paragraph TitreDocument = new Paragraph(Titre).setFirstLineIndent(200);
+				Paragraph paragraph1 = new Paragraph(para1).setFirstLineIndent(20);   // on précise la police
+				Paragraph paragraph2 = new Paragraph(para2).setFirstLineIndent(20);
+				Paragraph paragraph3 = new Paragraph(para3).setFirstLineIndent(40);
+				Paragraph paragraph4 =  new Paragraph(para4).setFirstLineIndent(40);
+				Paragraph paragraph5 = new Paragraph(para5).setFirstLineIndent(40);
+				Paragraph paragraph6 = new Paragraph(para6).setFirstLineIndent(40);
+				Paragraph paragraph7 = new Paragraph(para7).setFirstLineIndent(20);
 
 
 
-		listDonneSimulationHerbivore.add(new ListItem("Nombre totale d'individus sur toute le simulation: " + donneeSimul.nbIndividus[0]))
-		.add(new ListItem("Nombre d'individus au début de la simulation: " + donneeSimul.nbIndividuDebut[0]))
-		.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbIndividuFin[0]))
-		.add(new ListItem("Age moyen de la populayion à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[0]))
-		.add(new ListItem("Nombre de mort durant la simulation: " + donneeSimul.nbMort[0]))
-		.add(new ListItem("Nombre moyen de mort par jour: " ))
-		.add(new ListItem("Nombre moyen de naissance de carnivore par jour: " + donneeSimul.nbMoyenNaissance[0]))
-		.add(new ListItem("Nombre de mort par viellesse durant la simulation: " + donneeSimul.nbMortNorm[0]))
-		.add(new ListItem("Nombre de décés du à la faim durant la simulation: " + donneeSimul.nbMortFaim[0]))
-		.add(new ListItem("Nombre de décés du à la prédation durant la simulation: " + donneeSimul.nbMortChasse[0]))
-		.add(new ListItem("Nombre de décés du à la Soif: " + donneeSimul.nbMortSoif[0]))
-		.add(new ListItem("Age moyen à la mort: " + donneeSimul.moyenAgeALaMort[0]));
+				// création de listes de point:
+
+				List listDonneSimulationGenerale = new List()
+						.setSymbolIndent(12)// on précise l'indentatation
+						.setListSymbol("\u2022");// on choisi le symbole à utiliser pour les points
 
 
-		// On ajoute les différentes partie cré precedement dans le pdf dans l'ordre soihaité.
+				List listDonneSimulationCarnivore = new List()
+						.setSymbolIndent(12)
+						.setListSymbol("\u2022");
 
-		document.add(TitreDocument)
-		.add(paragraph1)
-		.add(paragraph2) 
-		.add(paragraph3)
-		.add(listDonneSimulationGenerale)
-		.add(paragraph4)
-		.add(listDonneSimulationCarnivore)
-		.add(paragraph5)
-		.add(listDonneSimulationCharognard)
-		.add(paragraph6)
-		.add(listDonneSimulationHerbivore)
-		.add(paragraph7);
 
-		// on ferme le document. à noté que l'ouverture est automatique lors de sa création.
-		document.close();
 
-		// on prévient l'utilisatuer de la création du document et de son emplacement.
-		System.out.println("Les données statistiques de cette modélisation sont disponible dans le dossier compte_rendu de l'application. Le document est en format PDF et se nomme: "+ nomFichier);
+
+				List listDonneSimulationCharognard =new List()
+						.setSymbolIndent(12)
+						.setListSymbol("\u2022");
+
+
+
+				List listDonneSimulationHerbivore =new List()
+						.setSymbolIndent(12)
+						.setListSymbol("\u2022");
+
+
+
+
+
+				// on ajoute dans la liste les points que l'on veut ecrire.
+
+				listDonneSimulationGenerale.add(new ListItem("" + donneeSimul.tSimulation))
+				.add(new ListItem(donneeSimul.causeFinSimulation))
+				.add(new ListItem("Nombre d'espéce au debut de la simulation: " + donneeSimul.nbEspeceDebut))
+				.add(new ListItem("Nombre d'individus au début de la simulation : " + donneeSimul.nbTotalIndivDebut))
+				.add(new ListItem("Nombre d'espéce à la fin de la simulation: " + donneeSimul.nbEspeceFin))
+				.add(new ListItem("Nombre d'individu à la fin de la simulation: " + donneeSimul.nbTotalIndiFin));
 
 
 
 
 
 
+				listDonneSimulationCarnivore.add(new ListItem("Nombre totale d'individus sur toute le simulation: " + donneeSimul.nbIndividus[1]))
+				.add(new ListItem("Nombre d'individus au début de la simulation: " + donneeSimul.nbIndividuDebut[1]))
+				.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbIndividuFin[1]))
+				.add(new ListItem("Age moyen de la populayion à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[1]))
+				.add(new ListItem("Nombre de mort durant la simulation: " + donneeSimul.nbMort[1]))
+				.add(new ListItem("Nombre moyen de petit par femelle: " + donneeSimul.nbMoyenPetit))
+				.add(new ListItem("Nombre moyen de naissance de carnivore par jour: " + donneeSimul.nbMoyenNaissance[1]))
+				.add(new ListItem("Nombre de mort par viellesse durant la simulation: " + donneeSimul.nbMortNorm[1]))
+				.add(new ListItem("Nombre de décés du à la faim durant la simulation: " + donneeSimul.nbMortFaim[1]))
+				.add(new ListItem("Nombre de décés du à la Soif: " + donneeSimul.nbMortSoif[1]))
+				.add(new ListItem("Age moyen à la mort: " + donneeSimul.moyenAgeALaMort[1]));
 
-		//nouvelle fenetre affichant les statistiques de la modelisation.
 
+
+
+				listDonneSimulationCharognard.add(new ListItem("Nombre totale d'individus sur toute le simulation: " + donneeSimul.nbIndividus[2]))
+				.add(new ListItem("Nombre d'individus au début de la simulation: " + donneeSimul.nbIndividuDebut[2]))
+				.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbIndividuFin[2]))
+				.add(new ListItem("Age moyen de la populayion à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[2]))
+				.add(new ListItem("Nombre de mort durant la simulation: " + donneeSimul.nbMort[2]))
+				.add(new ListItem("Nombre moyen de petit par femelle:" + donneeSimul.nbMoyenPetit ))
+				.add(new ListItem("Nombre moyen de naissance de carnivore par jour: " + donneeSimul.nbMoyenNaissance[2]))
+				.add(new ListItem("Nombre de mort par viellesse durant la simulation: " + donneeSimul.nbMortNorm[2]))
+				.add(new ListItem("Nombre de décés du à la faim durant la simulation: " + donneeSimul.nbMortFaim[2]))
+				.add(new ListItem("Nombre de décés du à la Soif: " + donneeSimul.nbMortSoif[2]))
+				.add(new ListItem("Age moyen à la mort: " + donneeSimul.moyenAgeALaMort[2]));
+
+
+
+				listDonneSimulationHerbivore.add(new ListItem("Nombre totale d'individus sur toute le simulation: " + donneeSimul.nbIndividus[0]))
+				.add(new ListItem("Nombre d'individus au début de la simulation: " + donneeSimul.nbIndividuDebut[0]))
+				.add(new ListItem("Nombre d'individus à la fin de la simulation: " + donneeSimul.nbIndividuFin[0]))
+				.add(new ListItem("Age moyen de la populayion à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[0]))
+				.add(new ListItem("Nombre de mort durant la simulation: " + donneeSimul.nbMort[0]))
+				.add(new ListItem("Nombre moyen de petit par femelle: " + donneeSimul.nbMoyenPetit ))
+				.add(new ListItem("Nombre moyen de naissance de carnivore par jour: " + donneeSimul.nbMoyenNaissance[0]))
+				.add(new ListItem("Nombre de mort par viellesse durant la simulation: " + donneeSimul.nbMortNorm[0]))
+				.add(new ListItem("Nombre de décés du à la faim durant la simulation: " + donneeSimul.nbMortFaim[0]))
+				.add(new ListItem("Nombre de décés du à la prédation durant la simulation: " + donneeSimul.nbMortChasse[0]))
+				.add(new ListItem("Nombre de décés du à la Soif: " + donneeSimul.nbMortSoif[0]))
+				.add(new ListItem("Age moyen à la mort: " + donneeSimul.moyenAgeALaMort[0]));
+
+
+
+				// On ajoute les différentes partie cré precedement dans le pdf dans l'ordre soihaité.
+
+
+				document.add(TitreDocument)
+				.add(paragraph1)
+				.add(paragraph2) 
+				.add(paragraph3)
+				.add(listDonneSimulationGenerale)
+				.add(paragraph4)
+				.add(listDonneSimulationCarnivore)
+				.add(paragraph5)
+				.add(listDonneSimulationCharognard)
+				.add(paragraph6)
+				.add(listDonneSimulationHerbivore)
+				.add(paragraph7);
+
+
+
+				// on ferme le document. à noté que l'ouverture est automatique lors de sa création.
+				document.close();
+
+
+
+
+
+
+
+
+				//nouvelle fenetre affichant les statistiques de la modelisation.
+
+
+			}
+		}
 	}
-
 }
+

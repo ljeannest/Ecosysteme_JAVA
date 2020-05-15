@@ -138,6 +138,8 @@ public class Animal {
 	public int duree_ecoulee_gestation;
 	
 	public int duree_gestation;
+	
+	public int nb_bebes;
 
 	/**
 	 * Constructeur Animal
@@ -193,6 +195,7 @@ public class Animal {
 		this.est_enceinte=false;
 		this.duree_ecoulee_gestation=0;
 		this.duree_gestation=duree_gestation;
+		this.nb_bebes=0;
 	}
 
 	/**
@@ -1003,16 +1006,19 @@ public class Animal {
 				int nb_bebes = (int) (2+Math.random()*2);
 				for (int k=0;k<=nb_bebes;k++) {
 					repro.creationNouvelIndividu(this,A_list,ressource,duree_ecoulee);
+					this.nb_bebes+=1;
 				}
 			}
 			else if (this.espece=="Lynx"){
 				int nb_bebes = (int) (1+Math.random());
 				for (int k=0; k<=nb_bebes;k++) {
 					repro.creationNouvelIndividu(this,A_list,ressource,duree_ecoulee);
+					this.nb_bebes+=1;
 				}
 			}
 			else {
 				repro.creationNouvelIndividu(this,A_list,ressource,duree_ecoulee);
+				this.nb_bebes+=1;
 			}
 		}
 	}
