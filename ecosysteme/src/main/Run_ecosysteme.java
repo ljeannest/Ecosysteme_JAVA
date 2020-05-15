@@ -21,7 +21,7 @@ public class Run_ecosysteme {
 
 	public static void main(String[] args) throws InterruptedException  {
 		
-		
+		boolean nouvelle_simulation =true;
 		//ouverture d'une premiere fenetre permettant à l'utilisateur de sélectionner les paramètres de la simulation.
 		//a la validation, une fenetre recapitulative s'ouvre
 
@@ -53,50 +53,49 @@ public class Run_ecosysteme {
 		//boire, manger, se deplacer, se reproduire.
 		//la boucle se termine a la fin du laps de temps donné ou de l'extinction de toutes les especes
 		
-		fenetre fenetrePrincipale = new fenetre(individus,individus_morts,ressource,duree_ecoulee,duree);
-		fenetrePrincipale.setVisible(true);
+		if (duree!=0) {
+			fenetre fenetrePrincipale = new fenetre(individus,individus_morts,ressource,duree_ecoulee,duree);
+			fenetrePrincipale.setVisible(true);
+
+			//fermeture de la fenetre
+		
+			fenetrePrincipale.setVisible(false);
+		
+			//affichage des informations de la simulation
+		
+			System.out.println("Duree totale de la simulation : "+duree_ecoulee+" jours\n\n");
+		
+			int p = individus.size();
+			for (int k=0;k<p;k++) {
+				System.out.println(individus.get(k));
+			}
+		
+			int n = individus_morts.size();
+			for (int k=0;k<n;k++) {
+				System.out.println(individus_morts.get(k));
+			}
 		
 		
-		//fermeture de la fenetre
+			int [] nbIndividuDebut = {nb_lievre, nb_lynx, nb_vautour};
+			Calcul calcul= new Calcul(individus,individus_morts,duree, duree_ecoulee, nbIndividuDebut);
 		
-		fenetrePrincipale.setVisible(false);
-		
-		
-		//affichage des informations de la simulation
-		
-		System.out.println("Duree totale de la simulation : "+duree_ecoulee+" jours\n\n");
-		
-		int p = individus.size();
-		for (int k=0;k<p;k++) {
-			System.out.println(individus.get(k));
-		}
-		
-		int n = individus_morts.size();
-		for (int k=0;k<n;k++) {
-			System.out.println(individus_morts.get(k));
-		}
-		
-		
-		int [] nbIndividuDebut = {nb_lievre, nb_lynx, nb_vautour};
-		Calcul calcul= new Calcul(individus,individus_morts,duree, duree_ecoulee, nbIndividuDebut);
-		
-		int[] nbIndividus = calcul.compteurNbIndividus();
-		int[] moyenAgeParEspece = calcul.MoyenneAgeParEsp();
-		int [] moyenAgeALaMort = calcul.MoyenAgeALaMort();
-		String causeFinSimulation = calcul.CauseFinSimul();
-		String tSimulation = calcul.tSimulation();
-		int nombreEspeceFin = calcul.nbEspeceFin();
-		int[] nbIndividusFin = calcul.compteurNbIndividusFin();
-		int [] nbNaissance = calcul.nbNaissance();
-		double [] nbMoyenNaissance = calcul.nbMoyenNaissance();
-		int [] nbMortNorm = calcul.nbMortNorm();
-		int [] nbMortFaim = calcul.nbMortFaim();
+			int[] nbIndividus = calcul.compteurNbIndividus();
+			int[] moyenAgeParEspece = calcul.MoyenneAgeParEsp();
+			int [] moyenAgeALaMort = calcul.MoyenAgeALaMort();
+			String causeFinSimulation = calcul.CauseFinSimul();
+			String tSimulation = calcul.tSimulation();
+			int nombreEspeceFin = calcul.nbEspeceFin();
+			int[] nbIndividusFin = calcul.compteurNbIndividusFin();
+			int [] nbNaissance = calcul.nbNaissance();
+			double [] nbMoyenNaissance = calcul.nbMoyenNaissance();
+			int [] nbMortNorm = calcul.nbMortNorm();
+			int [] nbMortFaim = calcul.nbMortFaim();
 		
 		
 		
 		
 		//nouvelle fenetre affichant les statistiques de la modelisation.
 
+		}
 	}
-
 }
