@@ -97,13 +97,8 @@ public class Run_ecosysteme {
 		int [] nbIndividuDebut = {nb_lievre, nb_lynx, nb_vautour};
 		Calcul calcul= new Calcul(individus,individus_morts,duree, duree_ecoulee, nbIndividuDebut);
 		
-		int[] nbIndividus = calcul.compteurNbIndividus();
-		int[] moyenAgeParEspece = calcul.MoyenneAgeParEsp();
-		int [] moyenAgeALaMort = calcul.MoyenAgeALaMort();
-		String causeFinSimulation = calcul.CauseFinSimul();
-		String tSimulation = calcul.tSimulation();
-		int nbEspeceDebut = calcul.nbEspeceDebut();
-		int nbEspeceFin = calcul.nbEspeceFin();
+
+
 		int[] nbIndividusFin = calcul.compteurNbIndividusFin();
 		int [] nbNaissance = calcul.nbNaissance();
 		double [] nbMoyenNaissance = calcul.nbMoyenNaissance();
@@ -114,7 +109,7 @@ public class Run_ecosysteme {
 		int [] nbMortChasse = calcul.nbMortChasse();
 		String nomFichier="nomfichier";
 		
-		Donnees donneeSimul = new Donnees( nbIndividus, moyenAgeParEspece, moyenAgeALaMort, causeFinSimulation, tSimulation, nbEspeceDebut, nbEspeceFin, nbIndividuDebut, nbIndividusFin, nbMoyenNaissance,  nbNaissance, nbMortNorm, nbMortFaim , nbMortSoif, nbMortChasse, nbMort);
+		Donnees donneeSimul = new Donnees( calcul.compteurNbIndividus(),calcul.MoyenneAgeParEsp(), calcul.MoyenAgeALaMort(), calcul.CauseFinSimul(), calcul.tSimulation(), calcul.nbEspeceDebut(), calcul.nbEspeceFin(), nbIndividuDebut, calcul.compteurNbIndividusFin(), calcul.nbMoyenNaissance(),  calcul.nbNaissance(), calcul.nbMortNorm(), calcul.nbMortFaim() , calcul.nbMortSoif(), calcul.nbMortChasse(), calcul.nbMort());
 		
 
 		
