@@ -51,7 +51,7 @@ public class Donnees {
 	/**
 	 * Décrit les raisons pour l'arret de la simulation.
 	 */
-	String causeFinSimulation;
+	public String causeFinSimulation;
 	
 	/**
 	 * Indique le temps de la simulation.
@@ -87,12 +87,17 @@ public class Donnees {
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
-	public int [] nbMoyenNaissance = new int [3];
+	public double [] nbMoyenNaissance = new double [3];
 	
 	/**
 	 * Nombre de nouveau Individus par espece durant toute la simulation
 	 */
 	public int [] nbNaissance = new int [3];
+	
+	/**
+	 * Nombre de mort total par espece durant la simulation
+	 */
+	public int [] nbMort = new int [3];
 	
 	/**
 	 * Liste contenant le nombre de mort normal lors de la simulation par espece.
@@ -127,7 +132,7 @@ public class Donnees {
 	 * <p> pour l'ordre de rangement regarder:</p>
 	 * @see Assemblage#nbIndividus
 	 */
-	public int [] nbMoyenPetit = new int [3];
+	//public int [] nbMoyenPetit = new int [3];
 	
 	/**
 	 * Nombre total d'individus lors de la simulation.
@@ -138,6 +143,11 @@ public class Donnees {
 	 * Nombre total de Mort pendant la simulation.
 	 */
 	public int nbTotalMort;
+	
+	/**
+	 * Nombre total de mort par viellesse.
+	 */
+	public int nbTotalMortNorm;
 	
 	/**
 	 * Nombre total d'individus mort par faim.
@@ -207,7 +217,7 @@ public class Donnees {
 	 * @param nbMoyenPetit
 	 * 			Liste du nombre de nouveau nee par espece.
 	 */
-	public Donnees(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,String tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,int [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse,int [] nbMoyenPetit) {
+	public Donnees(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,String tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,double [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse, int [] nbMort) {
 		
 		this.nbIndividus = nbIndividus;
 		this.moyenAgeParEspece = moyenAgeParEspece;
@@ -224,9 +234,10 @@ public class Donnees {
 		this.nbMortFaim = nbMortFaim ;
 		this.nbMortSoif = nbMortSoif;
 		this.nbMortChasse = nbMortChasse;
-		this.nbMoyenPetit = nbMoyenPetit;
+		//this.nbMoyenPetit = nbMoyenPetit;
+		this.nbMort= nbMort;
 		this.nbTotalIndividus = this.nbIndividus[0] + this.nbIndividus[1] + this.nbIndividus[2];
-		this.nbTotalMort = this.nbMortNorm[0] + this.nbMortNorm[1] + this.nbMortNorm[2];
+		this.nbTotalMortNorm = this.nbMortNorm[0] + this.nbMortNorm[1] + this.nbMortNorm[2];
 		this.nbTotalMortFaim = this.nbMortFaim[0] + this.nbMortFaim[1] + this.nbMortFaim[2];
 		this.nbTotalMortSoif = this.nbMortSoif[0] + this.nbMortSoif[1] + this.nbMortSoif[2];
 		this.nbTotalMortChasse = this.nbMortChasse[0] + this.nbMortChasse[1] + this.nbMortChasse[2];
