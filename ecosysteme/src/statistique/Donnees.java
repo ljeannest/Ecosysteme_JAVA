@@ -56,7 +56,7 @@ public class Donnees {
 	/**
 	 * Indique le temps de la simulation.
 	 */
-	public int tSimulation;
+	public String tSimulation;
 	
 	/**
 	 * Indique le nombre d'espece en début de simulation.
@@ -90,7 +90,7 @@ public class Donnees {
 	public int [] nbMoyenNaissance = new int [3];
 	
 	/**
-	 * Nombre de nouveau Individuspar espece durant toute la simulation
+	 * Nombre de nouveau Individus par espece durant toute la simulation
 	 */
 	public int [] nbNaissance = new int [3];
 	
@@ -207,7 +207,7 @@ public class Donnees {
 	 * @param nbMoyenPetit
 	 * 			Liste du nombre de nouveau nee par espece.
 	 */
-	public Donnees(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,int tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,int [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse,int [] nbMoyenPetit) {
+	public Donnees(int[] nbIndividus,int [] moyenAgeParEspece,int [] moyenAgeALaMort,String causeFinSimulation,String tSimulation,int nbEspeceDebut,int nbEspeceFin,int [] nbIndividuDebut, int[] nbIndividuFin,int [] nbMoyenNaissance, int [] nbNaissance ,int [] nbMortNorm,int [] nbMortFaim ,int [] nbMortSoif,int [] nbMortChasse,int [] nbMoyenPetit) {
 		
 		this.nbIndividus = nbIndividus;
 		this.moyenAgeParEspece = moyenAgeParEspece;

@@ -76,13 +76,21 @@ public class Run_ecosysteme {
 			System.out.println(individus_morts.get(k));
 		}
 		
-		Calcul calcul= new Calcul(individus,individus_morts);
+		
+		int [] nbIndividuDebut = {nb_lievre, nb_lynx, nb_vautour};
+		Calcul calcul= new Calcul(individus,individus_morts,duree, duree_ecoulee, nbIndividuDebut);
 		
 		int[] nbIndividus = calcul.compteurNbIndividus();
 		int[] moyenAgeParEspece = calcul.MoyenneAgeParEsp();
 		int [] moyenAgeALaMort = calcul.MoyenAgeALaMort();
 		String causeFinSimulation = calcul.CauseFinSimul();
+		String tSimulation = calcul.tSimulation();
+		int nombreEspeceFin = calcul.nbEspeceFin();
 		int[] nbIndividusFin = calcul.compteurNbIndividusFin();
+		int [] nbNaissance = calcul.nbNaissance();
+		double [] nbMoyenNaissance = calcul.nbMoyenNaissance();
+		int [] nbMortNorm = calcul.nbMortNorm();
+		int [] nbMortFaim = calcul.nbMortFaim();
 		
 		
 		
