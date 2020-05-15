@@ -258,6 +258,8 @@ public class Run_ecosysteme {
 
 				// on ferme le document. à noté que l'ouverture est automatique lors de sa création.
 				document.close();
+				
+				System.out.println("Le compte rendu se trouve dans le dossier de l'application sous le nom compte rendu.");
 
 
 
