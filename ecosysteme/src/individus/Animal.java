@@ -464,7 +464,7 @@ public class Animal {
 		if (this.est_vivant==true) {
 		
 
-			if (orientation=="N"&& (maxY-1)>this.posy&& pos_libre (A_list,ressource,pos,posx,posy+1)==true) {
+			if (orientation=="N"&& (ConteneurFenetre.NB_LIGNES-1)>this.posy&& pos_libre (A_list,ressource,pos,posx,posy+1)==true) {
 				newX=this.posx;
 				newY=this.posy+1;}
 		
@@ -472,7 +472,7 @@ public class Animal {
 				newX=this.posx;
 				newY=this.posy-1;}
 		
-			else if (orientation=="E"&& (maxX-1)>this.posx && pos_libre (A_list,ressource,pos,posx+1,posy)==true) {
+			else if (orientation=="E"&& (ConteneurFenetre.NB_COLONNES-1)>this.posx && pos_libre (A_list,ressource,pos,posx+1,posy)==true) {
 				newX=this.posx+1;
 				newY=this.posy;}
 		
