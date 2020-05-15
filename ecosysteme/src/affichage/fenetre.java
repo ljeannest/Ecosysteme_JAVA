@@ -22,6 +22,7 @@ import ressources.Ressource;
 public class fenetre extends JFrame {
 	
 	ConteneurFenetre pan;
+	public int duree_ecoulee;
 	
 	/**
 	 * Constructeur de la classe.
@@ -40,8 +41,8 @@ public class fenetre extends JFrame {
 	 */
 	public fenetre(ArrayList<Animal> A_list, ArrayList<Animal> A_list_mort, Ressource[] ressource,int duree_ecoulee,int duree) throws InterruptedException {
 		super();
-		
-		proprietesFenetre(A_list,A_list_mort,ressource,duree_ecoulee,duree);
+		this.duree_ecoulee=duree_ecoulee;
+		this.duree_ecoulee=proprietesFenetre(A_list,A_list_mort,ressource,duree_ecoulee,duree);
 	}
 		
 
@@ -58,9 +59,11 @@ public class fenetre extends JFrame {
 	 * 			Duree ecoulee depuis le debut de la simulation
 	 * @param duree
 	 * 			Duree de la modélisation.
+	 * @return
+	 * 			Duree ecoulee
 	 * @throws InterruptedException
 	 */
-	private void proprietesFenetre(ArrayList<Animal> A_list,ArrayList<Animal> A_list_mort,Ressource[] ressource ,int duree_ecoulee, int duree) throws InterruptedException {
+	private int proprietesFenetre(ArrayList<Animal> A_list,ArrayList<Animal> A_list_mort,Ressource[] ressource ,int duree_ecoulee, int duree) throws InterruptedException {
 		
 	
 		this.setSize(800,1200);
@@ -120,6 +123,7 @@ public class fenetre extends JFrame {
 		
 	fenetretime.setVisible(false);
 	this.setVisible(false);
-
+	
+	return duree_ecoulee;
 	}
 }

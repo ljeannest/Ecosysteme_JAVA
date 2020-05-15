@@ -94,7 +94,7 @@ public class Run_ecosysteme {
 			fenetrePrincipale.setVisible(false);
 
 			//affichage des informations de la simulation
-
+			duree_ecoulee=fenetrePrincipale.duree_ecoulee;
 			System.out.println("Duree totale de la simulation : "+duree_ecoulee+" jours\n\n");
 
 			int p = individus.size();
