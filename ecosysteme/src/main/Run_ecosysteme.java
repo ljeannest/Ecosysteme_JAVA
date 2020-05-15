@@ -81,22 +81,9 @@ public class Run_ecosysteme {
 
 		//affichage des informations de la simulation
 
-		//System.out.println("Duree totale de la simulation : "+duree_ecoulee+" jours\n\n");
-
-		//int p = individus.size();
-		//for (int k=0;k<p;k++) {
-		//	System.out.println(individus.get(k));
-		//}
-
-		//int n = individus_morts.size();
-		//for (int k=0;k<n;k++) {
-		//	System.out.println(individus_morts.get(k));
-		//}
-
-
+		
 		int [] nbIndividuDebut = {nb_lievre, nb_lynx, nb_vautour};
 		Calcul calcul= new Calcul(individus,individus_morts,duree, duree_ecoulee, nbIndividuDebut);
-		System.out.println(calcul.nbMortChasse()[0]);
 		String nomFichier="nomfichier";
 
 		Donnees donneeSimul = new Donnees( calcul.compteurNbIndividus(),calcul.MoyenneAgeParEsp(), calcul.MoyenAgeALaMort(), calcul.CauseFinSimul(), calcul.tSimulation(), calcul.nbEspeceDebut(), calcul.nbEspeceFin(), nbIndividuDebut, calcul.compteurNbIndividusFin(), calcul.nbMoyenNaissance(),  calcul.nbNaissance(), calcul.nbMortNorm(), calcul.nbMortFaim() , calcul.nbMortSoif(), calcul.nbMortChasse(), calcul.nbMort());
