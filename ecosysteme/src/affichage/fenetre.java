@@ -91,7 +91,9 @@ public class fenetre extends JFrame {
 			int i=0;
 			while (i<n) {
 				if (A_list.get(i).est_vivant==true) {
-					A_list.get(i).degradation_besoin();
+					if (duree_ecoulee%2==0) {
+						A_list.get(i).degradation_besoin();
+					}
 					A_list.get(i).mort_naturelle(duree_ecoulee);
 					A_list.get(i).deplacement(A_list,ressource,i,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES,duree_ecoulee);
 					A_list.get(i).vieillir();
