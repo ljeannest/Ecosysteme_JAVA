@@ -23,7 +23,7 @@ public class Lievre extends Herbivore {
 	 * 
 	 */
 	public Lievre(int posx, int posy, String sexe, int age,int date_naissance) {
-		super("Lievre", posx, posy, sexe, age, 5*365,20,30,4*365,date_naissance,30);
+		super("Lievre", posx, posy, sexe, age, 5*365,5,365/2,4*365+365/2,date_naissance,40);
 		
 	}
 }

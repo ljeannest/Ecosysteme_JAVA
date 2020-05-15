@@ -102,6 +102,9 @@ public class repro {
 		
 		if(A1.espece=="Lievre") {
 			Animal A3= new Lievre(positionNaissance[0], positionNaissance[1], sexe, 0, duree_ecoulee);
+			if (A3.posx==0 && A3.posy==0) {
+				A3.deplacementAleatoire(A, ressource, -1, ConteneurFenetre.NB_LIGNES, ConteneurFenetre.NB_COLONNES);
+			}
 			A.add(A3);
 		}
 		

@@ -251,7 +251,7 @@ public class Animal {
 				else {
 					sexeanimal = "F";
 				}
-				individus.add(new Lievre(posx, posy, sexeanimal, 0,0));
+				individus.add(new Lievre(posx, posy, sexeanimal, 365/2,0));
 			}
 			else if (k<nb_lievre+nb_lynx) {
 				int posx = (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
@@ -262,7 +262,7 @@ public class Animal {
 				else {
 					sexeanimal = "F";
 				}
-				individus.add(new Lynx(posx, posy, sexeanimal, 0,0));
+				individus.add(new Lynx(posx, posy, sexeanimal, 2*365,0));
 			}
 			else {
 				int posx = (int)(Math.random()*ConteneurFenetre.NB_LIGNES);
@@ -273,7 +273,7 @@ public class Animal {
 				else {
 					sexeanimal = "F";
 				}
-				individus.add(new Vautour(posx, posy, sexeanimal, 0,0));
+				individus.add(new Vautour(posx, posy, sexeanimal, 5*365,0));
 			}
 		}
 		return individus;
@@ -286,15 +286,15 @@ public class Animal {
 	 * 
 	 */
 	public void degradation_besoin() {
-		this.jauge_eau-=2;
+		this.jauge_eau-=1;
 		if (this.type==0) {
-			this.jauge_nourriture-=2;
+			this.jauge_nourriture-=1;
 		}
 		else if (this.type==1) {
-			this.jauge_nourriture-=2;
+			this.jauge_nourriture-=1;
 		}
 		else {
-			this.jauge_nourriture-=2;
+			this.jauge_nourriture-=1;
 		}
 	}
 	
@@ -919,7 +919,7 @@ public class Animal {
 				A.est_vivant=false;
 				A.date_mort=duree_ecoulee;
 				A.qte_viande-=1;
-				this.jauge_nourriture+=50;
+				this.jauge_nourriture=100;
 		}
 	}
 	
@@ -933,14 +933,8 @@ public class Animal {
 	 */
 	public void manger_char(Animal A) {
 		if (A.type!=2 && A.est_vivant==false) {
-			if (A.qte_viande >20) {
-				A.qte_viande-=1;
-				this.jauge_nourriture+=20;
-			}
-		}
-		else if (A.qte_viande>=0) {
-			this.jauge_nourriture+=A.qte_viande;
-			A.qte_viande=0;
+			A.qte_viande-=1;
+			this.jauge_nourriture=100;
 		}
 	}
 	/**
@@ -1005,7 +999,21 @@ public class Animal {
 	public void accouchement (ArrayList<Animal> A_list, Ressource[] ressource, int duree_ecoulee) {
 		if (this.duree_ecoulee_gestation>=this.duree_gestation) {
 			this.est_enceinte=false;
-			repro.creationNouvelIndividu(this,A_list,ressource,duree_ecoulee);
+			if (this.espece=="Lievre") {
+				int nb_bebes = (int) (2+Math.random()*2);
+				for (int k=0;k<=nb_bebes;k++) {
+					repro.creationNouvelIndividu(this,A_list,ressource,duree_ecoulee);
+				}
+			}
+			else if (this.espece=="Lynx"){
+				int nb_bebes = (int) (1+Math.random());
+				for (int k=0; k<=nb_bebes;k++) {
+					repro.creationNouvelIndividu(this,A_list,ressource,duree_ecoulee);
+				}
+			}
+			else {
+				repro.creationNouvelIndividu(this,A_list,ressource,duree_ecoulee);
+			}
 		}
 	}
 }

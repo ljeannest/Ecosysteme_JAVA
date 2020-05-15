@@ -31,7 +31,7 @@ public class Vautour extends Charognard{
 	 */
 	public Vautour(int posx, int posy, String sexe, int age,int date_naissance) {
 		
-		super("Vautour", posx, posy, sexe, age, 10*365, 10, 4, 9*365,date_naissance,90);
+		super("Vautour", posx, posy, sexe, age, 15*365, 10, 5*365, 14*365,date_naissance,9*30);
 	}
 	
 
