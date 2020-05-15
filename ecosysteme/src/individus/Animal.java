@@ -985,13 +985,13 @@ public class Animal {
 		}
 	}
 	/**
-	 * <p>Permet de faire disparaitre les animaux aprés décompostion de leur cadavre. Et de mes faire passer dans la liste des animaux mort.</p>
+	 * <p>Permet de faire disparaitre les animaux après décomposition de leur cadavre. Et de les faire passer dans la liste des animaux mort.</p>
 	 * @param A_list
-	 * 			Liste array de type Animal. contient les animaux vivant de l'ecosysteme.
+	 * 			Liste array de type Animal. contient les animaux vivant de l'écosystème.
 	 * @param A_list_mort
-	 * 			Liste array de type Animal. Contient les animaux mort de l'ecosysteme.
+	 * 			Liste array de type Animal. Contient les animaux mort de l'écosystème.
 	 * @param pos
-	 * 			Position de l'animal à faire disparaitre de la A_list vers la A_list_mort.
+	 * 			Position de l'animal à faire disparaître de la A_list vers la A_list_mort.
 	 * 
 	 */
 	public void disparition(ArrayList<Animal> A_list,ArrayList<Animal> A_list_mort,int pos) {
