@@ -1,5 +1,7 @@
 package ressources;
 
+import affichage.ConteneurFenetre;
+
 /**
  * <b> ressource qui peut être mangée par les individus de type animal.</b>
  * <p>
@@ -207,7 +209,7 @@ public class Ressource {
 	public static Ressource[] devient_desert(Ressource[] ressource) {
 		int n = ressource.length;
 		for (int k=0;k<n;k++) {
-			if (ressource[k].quantiteRessource<=0) {
+			if (ressource[k].quantiteRessource<=0 && ressource[k].sous_type!="Arbre") {
 				ressource[k]=new Desert(ressource[k].posx,ressource[k].posy);
 			}
 		}
@@ -254,6 +256,9 @@ public class Ressource {
 		
 		int posx_riviere = (int) (Math.random()*NB_LIGNES);
 		int posy_riviere = (int) (Math.random()*NB_COLONNES);
+		
+		int posx_foret = (int) (NB_LIGNES/2+Math.random()*(NB_LIGNES/2));
+		int posy_foret = (int) (NB_LIGNES/2+Math.random()*(NB_LIGNES/2));
 		
 		int[] posx_flaque = new int[nb_flaque];
 		int[] posy_flaque = new int[nb_flaque];
@@ -323,6 +328,18 @@ public class Ressource {
 						if (posx_flaque[a]==i && posy_flaque[a]==j) {
 							ressource[k]=new Flaque (i,j,"bleu clair",50);
 							plein=true;
+						}
+					}
+				}
+				if (plein==false) {
+					for (int a=posx_foret;a<ConteneurFenetre.NB_LIGNES;a++) {
+						for (int b = posy_foret; b<ConteneurFenetre.NB_COLONNES;b++) {
+							if (a==i && b==j) {
+								if (a!= posx_foret && b!= posy_foret) {
+									ressource[k]= new Arbre(i,j);
+									plein = true;
+								}
+							}
 						}
 					}
 				}

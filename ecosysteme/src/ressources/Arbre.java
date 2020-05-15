@@ -25,7 +25,7 @@ public class Arbre extends Vegetaux{
 
 	public Arbre (int posx, int posy) {
 		
-		super("Arbre",posx,posy,"vert fonce", 0);
+		super("Arbre",posx,posy,"vert fonce",0);
 	}
 	
 }

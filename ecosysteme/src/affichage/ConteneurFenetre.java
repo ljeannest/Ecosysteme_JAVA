@@ -69,6 +69,11 @@ public class ConteneurFenetre extends JPanel{
 	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert clair.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
+	 * Icon représentant la foret.
+	 */
+	ImageIcon icon_foret = new ImageIcon(new ImageIcon("images/vert fonce.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	/**
 	 * Icon représentant de l'eau claire.
 	 */
 	ImageIcon icon_eau_claire = new ImageIcon(new ImageIcon("images/bleu clair.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
@@ -361,27 +366,28 @@ public class ConteneurFenetre extends JPanel{
 					}
 						
 				
-					//else if (ressource_emplacement.type=="Vegetaux") {
-					
-						//emplacement.setBorder(grayline);}
-					
+					else if (ressource_emplacement.couleur=="vert fonce") {
+						emplacement = new JLabel(icon_foret);
+						//emplacement.setBorder(grayline);
 					}
 					
-					emplacement.setSize(largeur, hauteur);
-					
-					grille.add(emplacement);
-				
 				}
+					
+				emplacement.setSize(largeur, hauteur);
+					
+				grille.add(emplacement);
+				
 			}
-
-
-			grille.setBorder(blackline);
-			this.grille.setBounds(0, 0, taille_grille_x, taille_grille_y);
-			this.add(grille);
-			this.setVisible(true);
-		
 		}
+
+
+		grille.setBorder(blackline);
+		this.grille.setBounds(0, 0, taille_grille_x, taille_grille_y);
+		this.add(grille);
+		this.setVisible(true);
+	
 	}
+}
 	
 
 	

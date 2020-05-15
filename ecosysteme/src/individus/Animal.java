@@ -696,7 +696,7 @@ public class Animal {
 		pos_veg[1]=0;//pos en y
 		pos_veg[2]=0;//position de la case dans la liste des ressources
 		for (int k=0;k<n;k++) {
-			if (ressource[k].type=="Vegetaux") {
+			if (ressource[k].type=="Vegetaux" && ressource[k].quantiteRessource>0) {
 				double dist = Math.sqrt((this.posx-ressource[k].posx)*(this.posx-ressource[k].posx)+(this.posy-ressource[k].posy)*(this.posy-ressource[k].posy));
 				if (dist<dist_min) {
 					dist_min = dist;
