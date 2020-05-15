@@ -53,6 +53,12 @@ public class Calcul {
 	 * 			Array liste de type animal.
 	 * @param individus_morts
 	 * 			Array liste de type animal.
+	 * @param dureeSimuPara
+	 * 			Int indiquant le temps voulu par l'utilisateur de la simulation.
+	 * @param dureeSimulReel
+	 * 			Int indiquant le temps réel de la simulation.
+	 * @param nbIndividuDebut
+	 * 			Liste int indiquant le nombre d'individu par espéce.
 	 */
 
 	public Calcul(ArrayList<Animal> individus, ArrayList<Animal> individus_morts,int dureeSimulPara, int dureeSimulReel, int [] nbIndividuDebut) {
@@ -173,17 +179,17 @@ public class Calcul {
 		}
 		if(compteurType0>0) {
 
-			moyenAgeParEspece[0]=moyenAgeParEspece[0]/compteurType0;
+			moyenAgeParEspece[0]=(moyenAgeParEspece[0]/compteurType0)/365;
 
 		}
 		if(compteurType1>0) {
 
-			moyenAgeParEspece[1]=moyenAgeParEspece[1]/compteurType1;
+			moyenAgeParEspece[1]=(moyenAgeParEspece[1]/compteurType1)/365;
 
 		}
 
 		if (compteurType2>0) {
-			moyenAgeParEspece[2]=moyenAgeParEspece[2]/compteurType2;
+			moyenAgeParEspece[2]=(moyenAgeParEspece[2]/compteurType2)/365;
 
 		}
 
@@ -224,15 +230,15 @@ public class Calcul {
 		}
 
 		if (compteurType0>0) {
-			moyenAgeALaMort[0]=moyenAgeALaMort[0]/compteurType0;
+			moyenAgeALaMort[0]=(moyenAgeALaMort[0]/compteurType0)/365;
 		}
 
 		if(compteurType1>0) {
-			moyenAgeALaMort[1]=moyenAgeALaMort[1]/compteurType1;
+			moyenAgeALaMort[1]=(moyenAgeALaMort[1]/compteurType1)/365;
 		}
 
 		if(compteurType2>0) {
-			moyenAgeALaMort[2]=moyenAgeALaMort[2]/compteurType2;
+			moyenAgeALaMort[2]=(moyenAgeALaMort[2]/compteurType2)/365;
 		}
 
 		return moyenAgeALaMort;
@@ -267,34 +273,31 @@ public class Calcul {
 	 * @return Une phrase indiquant la durée de la simulation en année mois jours.
 	 */
 	public String tSimulation() {
-		
+
 		if (dureeSimulReel>0) {
-			
-
-		int an = dureeSimulReel/365;
-		int mois = (dureeSimulReel%365)/30;
-		int jours = ((dureeSimulReel%365)%30);
-		String tSimul="La simulation a duré " + an +" ans, " + mois + " mois et  " + jours + " jours.";
-
-		return tSimul;
+			int an = dureeSimulReel/365;
+			int mois = (dureeSimulReel%365)/30;
+			int jours = ((dureeSimulReel%365)%30);
+			String tSimul="La simulation a duré " + an +" ans, " + mois + " mois et  " + jours + " jours.";
+			return tSimul;
 		}
 		else {
-			
+
 			int an = dureeSimulPara;
 			int mois = 0;
 			int jours = 0;
 			String tSimul="La simulation a duré " + an +" ans, " + mois + " mois et  " + jours + " jours.";
 
 			return tSimul;
-			
+
 		}
 	}
-	
+
 	public int nbEspeceDebut() {
-		
+
 		int nbEspeceDebut = 0;
 
-		if(individus.size()==0) {
+		if(nbIndividuDebut.length==0) {
 			return nbEspeceDebut;
 		}
 		if(nbIndividuDebut[0]>0) {
@@ -310,7 +313,7 @@ public class Calcul {
 		}
 
 		return nbEspeceDebut;
-		
+
 	}
 	/**
 	 * Permet de calculer nombre d'espèces présentes à la fin de la simulation.
@@ -346,18 +349,18 @@ public class Calcul {
 	 * @return Une liste de type double contenant dans l'ordre suivant la moyenne des naissances par jour et par type: Herbivore, Carnivore, Charognard.
 	 */
 
-	public double [] nbMoyenNaissance() {
+	public float [] nbMoyenNaissance() {
 
-		double []nbMoyenNaissance = new double [3];
+		float []nbMoyenNaissance = new float [3];
 		int [] nbTotalIndi = compteurNbIndividus();
-		nbMoyenNaissance[0] = ((double) nbTotalIndi[0]- (double) nbIndividuDebut[0])/(double)dureeSimulReel;
-		nbMoyenNaissance[1] = ((double)nbTotalIndi[1]- (double)nbIndividuDebut[1])/(double)dureeSimulReel;
-		nbMoyenNaissance[2] = ((double)nbTotalIndi[2]- (double)nbIndividuDebut[2])/(double)dureeSimulReel;
+		nbMoyenNaissance[0] = ((float) nbTotalIndi[0]- (float) nbIndividuDebut[0])/(float)dureeSimulReel;
+		nbMoyenNaissance[1] = ((float)nbTotalIndi[1]- (float)nbIndividuDebut[1])/(float)dureeSimulReel;
+		nbMoyenNaissance[2] = ((float)nbTotalIndi[2]- (float)nbIndividuDebut[2])/(float)dureeSimulReel;
 
 		return nbMoyenNaissance;
 
 	}
-	
+
 	/**
 	 * Permet de retourner le nombre de naissance par espèce durant la simulation.
 	 * 
@@ -373,7 +376,7 @@ public class Calcul {
 
 		return nbNaissance;
 	}
-	
+
 	/**
 	 * Permet de donner le nombre de morts dus à l'âge par espèce.
 	 * 
@@ -381,12 +384,12 @@ public class Calcul {
 	 */
 	public int [] nbMortNorm() {
 		int [] nbMortNorm =new int [3];
-		for(int i=0; i < individus.size(); i++) {
-			if(individus.get(i).esp_de_vie==individus.get(i).age) {
-				if(individus.get(i).type == 0) {
+		for(int i=0; i < individus_morts.size(); i++) {
+			if(individus_morts.get(i).esp_de_vie==individus_morts .get(i).age) {
+				if(individus_morts.get(i).type == 0) {
 					nbMortNorm[0]+=1;
 				}
-				else if(individus.get(i).type == 1) {
+				else if(individus_morts.get(i).type == 1) {
 					nbMortNorm[1]+=1;
 				}
 
@@ -397,7 +400,7 @@ public class Calcul {
 		}
 		return nbMortNorm;
 	}
-	
+
 	/**
 	 * permet de retourner le nombre d'individus morts de faim par espèce.
 	 * 
@@ -406,12 +409,12 @@ public class Calcul {
 	public int [] nbMortFaim(){
 
 		int [] nbMortFaim = new int[3];
-		for(int i=0; i < individus.size(); i++) {
-			if(individus.get(i).jauge_nourriture==0) {
-				if(individus.get(i).type == 0) {
+		for(int i=0; i < individus_morts.size(); i++) {
+			if(individus_morts.get(i).jauge_nourriture==0) {
+				if(individus_morts.get(i).type == 0) {
 					nbMortFaim[0]+=1;
 				}
-				else if(individus.get(i).type == 1) {
+				else if(individus_morts.get(i).type == 1) {
 					nbMortFaim[1]+=1;
 				}
 
@@ -423,7 +426,7 @@ public class Calcul {
 		return nbMortFaim;
 
 	}
-	
+
 	/**
 	 * Permet de retourner le nombre d'individus mort de soif par espèce.
 	 * 
@@ -434,15 +437,15 @@ public class Calcul {
 
 		int [] nbMortSoif=new int [3];
 
-		for(int i=0; i < individus.size(); i++) {
+		for(int i=0; i < individus_morts.size(); i++) {
 
-			if(individus.get(i).jauge_eau==0) {
+			if(individus_morts.get(i).jauge_eau==0) {
 
-				if(individus.get(i).type == 0) {
+				if(individus_morts.get(i).type == 0) {
 
 					nbMortSoif[0]+=1;
 				}
-				else if(individus.get(i).type == 1) {
+				else if(individus_morts.get(i).type == 1) {
 
 					nbMortSoif[1]+=1;
 				}
@@ -455,7 +458,7 @@ public class Calcul {
 		return nbMortSoif;
 
 	}
-	
+
 	/**
 	 * permet de donner le nombre de morts dus à la chasse par espèce.
 	 * 
@@ -465,16 +468,16 @@ public class Calcul {
 
 		int [] nbMortChasse = new int [3];
 
-		for(int i = 0; i > individus.size();i++) {
-			if(individus.get(i).esp_de_vie < individus.get(i).age) {
-				if(individus.get(i).jauge_nourriture > 0) {
-					if(individus.get(i).jauge_eau > 0) {
+		for(int i = 0; i < individus_morts.size();i++) {
+			if(individus_morts.get(i).esp_de_vie > individus_morts.get(i).age) {
+				if(individus_morts.get(i).jauge_nourriture > 0) {
+					if(individus_morts.get(i).jauge_eau > 0) {
 
-						if(individus.get(i).type == 0) {
+						if(individus_morts.get(i).type == 0) {
 
 							nbMortChasse[0]+=1;
 						}
-						else if(individus.get(i).type == 1) {
+						else if(individus_morts.get(i).type == 1) {
 
 							nbMortChasse[1]+=1;
 						}
@@ -488,31 +491,83 @@ public class Calcul {
 		}
 		return nbMortChasse;
 	}
-	
+
 	/**
 	 * Donne le nombre moyen de petits par femelle selon l'espèce.
 	 * 
+	 * @returnUne liste de type int contenant dans l'ordre suivant le nombre de mort par espéce: Herbivore, Carnivore, Charognard.
+	 */
+	public float[] nbMoyenPetit() {
+
+		float [] nbMoyenPetit= new float [3];
+		int compteurType0=0;
+		int compteurType1=0;
+		int compteurType2=0;
+
+		for(int i=0; i<individus.size(); i++ ) {
+			if (individus.get(i).sexe=="F") {
+				if(individus.get(i).type==0) {
+					nbMoyenPetit[0]+=individus.get(i).nb_bebes;
+					compteurType0+=1;
+				}
+				else if(individus.get(i).type==1) {
+					nbMoyenPetit[1]+=individus.get(i).nb_bebes;
+					compteurType1+=1;
+				}
+				else{
+					nbMoyenPetit[2]+=individus.get(i).nb_bebes;
+					compteurType2+=1;
+				}
+			}
+		}
+		for(int i=0; i<individus_morts.size(); i++ ) {
+			if (individus_morts.get(i).sexe=="F") {
+				if(individus_morts.get(i).type==0) {
+					nbMoyenPetit[0]+=individus_morts.get(i).nb_bebes;
+					compteurType0+=1;
+				}
+				else if(individus_morts.get(i).type==1) {
+					nbMoyenPetit[1]+=individus_morts.get(i).nb_bebes;
+					compteurType1+=1;
+				}
+				else{
+					nbMoyenPetit[2]+=individus_morts.get(i).nb_bebes;
+					compteurType2+=1;
+				}
+			}
+		}
+		if(compteurType0>0) {
+			nbMoyenPetit[0] = (float)nbMoyenPetit[0]/(float)compteurType0;
+		}
+		if(compteurType0>0) {
+			nbMoyenPetit[1] = (float)nbMoyenPetit[1]/(float)compteurType1;
+		}
+		if(compteurType0>0) {
+			nbMoyenPetit[2] = (float)nbMoyenPetit[2]/(float)compteurType2;
+		}
+		
+		return nbMoyenPetit;
+
+	}
+	/**
+	 * Permet de donner le nombre de mort par espece durant la simulation.
 	 * @return
 	 */
-	//public int [] nbMoyenPetit () {
-		
-	//}
-	
 	public int [] nbMort() {
-		
+
 		int [] nbMort = new int [3];
 		int [] nbMortNorm = nbMortNorm();
 		int [] nbMortFaim= nbMortFaim();
 		int [] nbMortSoif = nbMortSoif();
 		int [] nbMortChasse= nbMortChasse();
-		
+
 		nbMort[0]= nbMortNorm[0] + nbMortFaim[0] + nbMortSoif[0] + nbMortChasse[0];
 		nbMort[1]= nbMortNorm[1] + nbMortFaim[1] + nbMortSoif[1] + nbMortChasse[1];
 		nbMort[2]= nbMortNorm[2] + nbMortFaim[2] + nbMortSoif[2] + nbMortChasse[2];
-		
+
 		return nbMort;
 	}
-	
-	
+
+
 
 }
