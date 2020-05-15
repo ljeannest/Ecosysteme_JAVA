@@ -66,7 +66,7 @@ public class ConteneurFenetre extends JPanel{
 	/**
 	 * Icon représentant l'herbe.
 	 */
-	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert clair.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon représentant de l'eau claire.
@@ -357,13 +357,13 @@ public class ConteneurFenetre extends JPanel{
 					   
 					else if (ressource_emplacement.type=="Desert") {
 						emplacement = new JLabel(icon_desert);
-						emplacement.setBorder(grayline);
+						//emplacement.setBorder(grayline);
 					}
 						
 				
-					else if (ressource_emplacement.type=="Vegetaux") {
+					//else if (ressource_emplacement.type=="Vegetaux") {
 					
-						emplacement.setBorder(grayline);}
+						//emplacement.setBorder(grayline);}
 					
 					}
 					
