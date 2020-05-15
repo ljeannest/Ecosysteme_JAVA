@@ -96,7 +96,6 @@ public class Run_ecosysteme {
 			//affichage des informations de la simulation
 
 			duree_ecoulee=fenetrePrincipale.duree_ecoulee;
-			
 
 			fenetrePrincipale.setVisible(false);
 
@@ -125,7 +124,7 @@ public class Run_ecosysteme {
 
 				String Titre = "Compte rendu de la simulation.\n\n";
 
-				String para1 = "\nDans ce PDF voud trouverez les statistiques que nous avons pu ressortir de votre simulation. Les données qui ont servi à leur élaboration vous seront données en première partie.";  
+				String para1 = "\nDans ce PDF vous trouverez les statistiques que nous avons pu ressortir de votre simulation. Les données qui ont servi à leur élaboration vous seront données en première partie.";  
 
 				String para2 = "\nVoici les données jour par jour de la simulation:";
 

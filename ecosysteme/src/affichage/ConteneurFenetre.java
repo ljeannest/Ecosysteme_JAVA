@@ -71,17 +71,17 @@ public class ConteneurFenetre extends JPanel{
 	/**
 	 * Icon représentant la foret.
 	 */
-	ImageIcon icon_foret = new ImageIcon(new ImageIcon("images/vert fonce.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_foret = new ImageIcon(new ImageIcon("images/vert fonce2.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon représentant de l'eau claire.
 	 */
-	ImageIcon icon_eau_claire = new ImageIcon(new ImageIcon("images/bleu clair.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_eau_claire = new ImageIcon(new ImageIcon("images/bleu clair2.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icone représentant de l'eau foncée.
 	 */
-	ImageIcon icon_eau_foncee = new ImageIcon(new ImageIcon("images/bleu fonce.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_eau_foncee = new ImageIcon(new ImageIcon("images/bleu fonce2.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icone représentant le Desert.
