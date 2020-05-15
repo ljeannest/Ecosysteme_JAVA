@@ -47,13 +47,13 @@ public class Run_ecosysteme {
 		ArrayList<Animal> individus = Animal.creation(nb_lievre,nb_lynx,nb_vautour);
 		ArrayList<Animal> individus_morts = new ArrayList<Animal>(0);
 		Ressource [] ressource = Ressource.creation(nb_flaque,presencelac,presenceriviere,presenceforet,ConteneurFenetre.NB_LIGNES,ConteneurFenetre.NB_COLONNES);
-
+		int duree_ecoulee=0;
 		
 		//entrée dans une boucle qui modélise notre écosysteme, avec tous nos individus qui peuvent 
 		//boire, manger, se deplacer, se reproduire...
 		//la boucle se termine quand ? extinction d'une espece? laps de temps donné? extinction de toutes les especes?
 		
-		fenetre fenetrePrincipale = new fenetre(individus,individus_morts,ressource,duree);
+		fenetre fenetrePrincipale = new fenetre(individus,individus_morts,ressource,duree_ecoulee,duree);
 		fenetrePrincipale.setVisible(true);
 		
 		
@@ -63,6 +63,8 @@ public class Run_ecosysteme {
 		
 		
 		//affichage des informations de la simulation
+		
+		System.out.println("Duree totale de la simulation : "+duree_ecoulee+" jours\n\n");
 		
 		int p = individus.size();
 		for (int k=0;k<p;k++) {
