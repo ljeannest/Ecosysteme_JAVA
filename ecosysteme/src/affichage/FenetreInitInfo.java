@@ -38,7 +38,7 @@ public class FenetreInitInfo {
 		String str;
 		String lac;
 		String riviere;
-		if(this.nb_lievre!=0 && this.nb_lynx!=0 && this.nb_vautour!=0 && this.nb_flaques!=0 && this.duree!=0){
+		if(this.nb_flaques!=0 && this.duree!=0){
 			if (presence_lac==1) {
 				lac="oui";
 			}

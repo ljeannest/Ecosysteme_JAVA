@@ -69,9 +69,10 @@ public class FenetreInit extends JDialog {
 		pan_lapin.setBackground(Color.white);
 		pan_lapin.setPreferredSize(new Dimension(290,90));
 		lievre=new JComboBox();
-		for (int k=1;k<=20;k++) {
+		for (int k=0;k<=20;k++) {
 			lievre.addItem(k);
 		}
+		lievre.setSelectedItem(6);
 		lievreLabel=new JLabel("Nombre de lievres : ");
 		pan_lapin.add(lievreIcon);
 		pan_lapin.add(lievreLabel);
@@ -84,9 +85,10 @@ public class FenetreInit extends JDialog {
 		pan_lynx.setBackground(Color.white);
 		pan_lynx.setPreferredSize(new Dimension(290,90));
 		lynx=new JComboBox();
-		for (int k=1;k<=30;k++) {
+		for (int k=0;k<=30;k++) {
 			lynx.addItem(k);
 		}
+		lynx.setSelectedItem(9);;
 		lynxLabel=new JLabel("Nombre de lynx : ");
 		pan_lynx.add(lynxIcon);
 		pan_lynx.add(lynxLabel);
@@ -99,9 +101,10 @@ public class FenetreInit extends JDialog {
 		pan_vautour.setBackground(Color.white);
 		pan_vautour.setPreferredSize(new Dimension(290,90));
 		vautour=new JComboBox();
-		for (int k=1;k<=10;k++) {
+		for (int k=0;k<=10;k++) {
 			vautour.addItem(k);
 		}
+		vautour.setSelectedItem(3);
 		vautourLabel=new JLabel("Nombre de vautours : ");
 		pan_vautour.add(vautourIcon);
 		pan_vautour.add(vautourLabel);
@@ -125,9 +128,10 @@ public class FenetreInit extends JDialog {
 		pan_flaque.setPreferredSize(new Dimension(290,90));
 		eauIcon = new JLabel(icon_eau_claire);
 		flaque=new JComboBox();
-		for (int k=4; k<=20;k++) {
+		for (int k=0; k<=20;k++) {
 			flaque.addItem(k);
 		}
+		flaque.setSelectedItem(5);
 		flaqueLabel=new JLabel ("Nombre de flaques : ");
 		pan_flaque.add(eauIcon);
 		pan_flaque.add(flaqueLabel);

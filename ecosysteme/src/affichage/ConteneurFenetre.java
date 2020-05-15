@@ -113,6 +113,22 @@ public class ConteneurFenetre extends JPanel{
 	 */
 	ImageIcon icon_vautour_mort = new ImageIcon(new ImageIcon("images/vautour_mort.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
+	/**
+	 * Icon représentant un Lievre en gestation.
+	 */
+	ImageIcon icon_lievre_enceinte = new ImageIcon(new ImageIcon("images/lievre_enceinte.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	/**
+	 * Icon représentant un Lynx en gestation.
+	 */
+	ImageIcon icon_lynx_enceinte = new ImageIcon(new ImageIcon("images/lynx_enceinte.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	/**
+	 * Icon représentant un Vautour en gestation.
+	 */
+	ImageIcon icon_vautour_enceinte = new ImageIcon(new ImageIcon("images/vautour_enceinte.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	
+	
 	
 	/**
 	 * Bordure de case de couleur grise.
@@ -275,8 +291,14 @@ public class ConteneurFenetre extends JPanel{
 				
 					if (animal_emplacement.espece=="Lynx") {
 						if (animal_emplacement.est_vivant==true) {
-							emplacement = new JLabel(icon_lynx);
-							emplacement.setBorder(redline);
+							if (animal_emplacement.est_enceinte==false) {
+								emplacement = new JLabel(icon_lynx);
+								emplacement.setBorder(redline);
+							}
+							else {
+								emplacement = new JLabel(icon_lynx_enceinte);
+								emplacement.setBorder(redline);
+							}
 						}
 						else {
 							emplacement = new JLabel(icon_lynx_mort);
@@ -285,8 +307,14 @@ public class ConteneurFenetre extends JPanel{
 					}
 					else if (animal_emplacement.espece=="Lievre") {
 						if (animal_emplacement.est_vivant == true) {
-							emplacement = new JLabel(icon_lievre);
-							emplacement.setBorder(whiteline);
+							if (animal_emplacement.est_enceinte==false) {
+								emplacement = new JLabel(icon_lievre);
+								emplacement.setBorder(whiteline);
+							}
+							else {
+								emplacement = new JLabel(icon_lievre_enceinte);
+								emplacement.setBorder(whiteline);
+							}
 						}
 						else {
 							emplacement = new JLabel(icon_lievre_mort);
@@ -295,8 +323,14 @@ public class ConteneurFenetre extends JPanel{
 					}
 					else if (animal_emplacement.espece=="Vautour") {
 						if (animal_emplacement.est_vivant == true) {
-							emplacement = new JLabel(icon_vautour);
-							emplacement.setBorder(blackline);	
+							if (animal_emplacement.est_enceinte==false) {
+								emplacement = new JLabel(icon_vautour);
+								emplacement.setBorder(blackline);	
+							}
+							else {
+								emplacement = new JLabel(icon_vautour_enceinte);
+								emplacement.setBorder(blackline);	
+							}
 						}
 						else {
 							emplacement = new JLabel(icon_vautour_mort);
