@@ -46,7 +46,7 @@ public class FenetreInitInfo {
 		String lac;
 		String riviere;
 		String foret;
-		if(this.nb_flaques!=0 && this.duree!=0){
+		if(this.duree!=0){
 			if (presence_lac==1) {
 				lac="oui";
 			}
