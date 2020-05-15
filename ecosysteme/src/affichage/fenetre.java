@@ -67,6 +67,7 @@ public class fenetre extends JFrame {
 				n=A_list.size();
 			}
 			ressource = Ressource.devient_desert(ressource);
+			ressource = Ressource.regeneration(ressource);
 			
 			pan=new ConteneurFenetre(A_list,ressource,duree_ecoulee);
 			this.setContentPane(pan);

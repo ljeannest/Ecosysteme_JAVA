@@ -214,6 +214,18 @@ public class Ressource {
 		return ressource;
 	}
 	
+	public static Ressource[] regeneration(Ressource[] ressource) {
+		int n = ressource.length;
+		for (int k=0;k<n;k++) {
+			if (ressource[k].type=="Desert" && ressource[k].quantiteRessource>=50) {
+				ressource[k] = new Herbe (ressource[k].posx,ressource[k].posy,ressource[k].quantiteRessource);
+			}
+			if (ressource[k].quantiteRessource<100) {
+				ressource[k].quantiteRessource+=1;
+			}
+		}
+		return ressource;
+	}
 	
 
 	/**
@@ -315,7 +327,7 @@ public class Ressource {
 					}
 				}
 				if (plein==false) {
-					ressource[k]= new Herbe (i,j,"vert clair",100);
+					ressource[k]= new Herbe (i,j,100);
 				}
 				k++;
 			}
