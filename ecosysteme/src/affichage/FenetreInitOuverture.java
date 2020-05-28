@@ -41,7 +41,7 @@ public class FenetreInitOuverture extends JFrame{
 				FenetreInit FI=new FenetreInit(null,"Paramètres de la simulation",true);
 				FenetreInitInfo FII = FI.showFII();
 				JOptionPane jop=new JOptionPane();
-				jop.showMessageDialog(null,FII.toString(),"Recapitulatif",JOptionPane.INFORMATION_MESSAGE);
+				jop.showMessageDialog(null,FII.toString(),"Récapitulatif",JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		this.setVisible(true);
@@ -57,7 +57,7 @@ public class FenetreInitOuverture extends JFrame{
 		FenetreInit FI=new FenetreInit(null,"Paramètres de la simulation",true);
 		FenetreInitInfo FII = FI.showFII();
 		JOptionPane jop=new JOptionPane();
-		jop.showMessageDialog(null,FII.toString(),"Recapitulatif",JOptionPane.INFORMATION_MESSAGE);
+		jop.showMessageDialog(null,FII.toString(),"Récapitulatif",JOptionPane.INFORMATION_MESSAGE);
 		info[0]=FII.nb_lievre;
 		info[1]=FII.nb_lynx;
 		info[2]=FII.nb_vautour;

@@ -1,6 +1,6 @@
 package affichage;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -78,14 +78,14 @@ public class FenetreInit extends JDialog {
 	private JLabel lievreIcon,lynxIcon,vautourIcon,eauIcon,tempsIcon,sizeIcon, foretIcon;
 	
 
-	ImageIcon icon_eau_claire = new ImageIcon(new ImageIcon("images/bleu clair.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-	ImageIcon icon_eau_foncee = new ImageIcon(new ImageIcon("images/bleu fonce.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-	ImageIcon icon_lynx = new ImageIcon(new ImageIcon("images/lynx.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-	ImageIcon icon_lievre = new ImageIcon(new ImageIcon("images/lievre.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-	ImageIcon icon_vautour = new ImageIcon(new ImageIcon("images/vautour.jpg").getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-	ImageIcon icon_temps = new ImageIcon(new ImageIcon("images/temps.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-	ImageIcon icon_size = new ImageIcon(new ImageIcon("images/fleche.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-	ImageIcon icon_foret = new ImageIcon(new ImageIcon("images/vert fonce.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+	ImageIcon icon_eau_claire = new ImageIcon(new ImageIcon(getClass().getResource("/images/bleu clair.jpg")).getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+	ImageIcon icon_eau_foncee = new ImageIcon(new ImageIcon(getClass().getResource("/images/bleu fonce.jpg")).getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+	ImageIcon icon_lynx = new ImageIcon(new ImageIcon(getClass().getResource("/images/lynx.jpg")).getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+	ImageIcon icon_lievre = new ImageIcon(new ImageIcon(getClass().getResource("/images/lievre.jpg")).getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+	ImageIcon icon_vautour = new ImageIcon(new ImageIcon(getClass().getResource("/images/vautour.jpg")).getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+	ImageIcon icon_temps = new ImageIcon(new ImageIcon(getClass().getResource("/images/temps.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+	ImageIcon icon_size = new ImageIcon(new ImageIcon(getClass().getResource("/images/fleche.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+	ImageIcon icon_foret = new ImageIcon(new ImageIcon(getClass().getResource("/images/vert fonce.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 	
 	
 	Border redline = BorderFactory.createLineBorder(Color.red,1); 
@@ -283,7 +283,7 @@ public class FenetreInit extends JDialog {
 		compterendu = new JComboBox();
 		compterendu.addItem("oui");
 		compterendu.addItem("non");
-		compterenduLabel = new JLabel ("Souhaitez vous un compte-rendu de la simulation ? ");
+		compterenduLabel = new JLabel ("Souhaitez-vous un compte-rendu de la simulation ? ");
 		
 		pan_cr.add(compterenduLabel);
 		pan_cr.add(compterendu);

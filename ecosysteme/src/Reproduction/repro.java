@@ -2,10 +2,10 @@ package Reproduction;
 
 
 
-import individus.*;
+import individus.*; 
 import ressources.Ressource;
 import ressources.Vegetaux;
-import java.lang.Math;
+import java.lang.*;
 import java.util.ArrayList;
 
 import affichage.ConteneurFenetre;

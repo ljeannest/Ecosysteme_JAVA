@@ -1,7 +1,7 @@
 package affichage;
 
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -11,11 +11,10 @@ import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon; 
-import javax.swing.JButton;
-import javax.swing.JFrame;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+
 import javax.swing.border.Border;
 
 import individus.*;
@@ -66,72 +65,72 @@ public class ConteneurFenetre extends JPanel{
 	/**
 	 * Icon représentant l'herbe.
 	 */
-	ImageIcon icon_herbe = new ImageIcon(new ImageIcon("images/vert clair.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_herbe = new ImageIcon(new ImageIcon(getClass().getResource("/images/vert clair.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon représentant la foret.
 	 */
-	ImageIcon icon_foret = new ImageIcon(new ImageIcon("images/vert fonce2.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_foret = new ImageIcon(new ImageIcon(getClass().getResource("/images/vert fonce2.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon représentant de l'eau claire.
 	 */
-	ImageIcon icon_eau_claire = new ImageIcon(new ImageIcon("images/bleu clair2.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_eau_claire = new ImageIcon(new ImageIcon(getClass().getResource("/images/bleu clair2.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icone représentant de l'eau foncée.
 	 */
-	ImageIcon icon_eau_foncee = new ImageIcon(new ImageIcon("images/bleu fonce2.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_eau_foncee = new ImageIcon(new ImageIcon(getClass().getResource("/images/bleu fonce2.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icone représentant le Desert.
 	 */
-	ImageIcon icon_desert = new ImageIcon (new ImageIcon("images/marron clair.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_desert = new ImageIcon (new ImageIcon(getClass().getResource("/images/marron clair.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon représentant un Lynx.
 	 */
-	ImageIcon icon_lynx = new ImageIcon(new ImageIcon("images/lynx.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_lynx = new ImageIcon(new ImageIcon(getClass().getResource("/images/lynx.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/** 
 	 * Icon représentant un Lievre.
 	 */
-	ImageIcon icon_lievre = new ImageIcon(new ImageIcon("images/lievre.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_lievre = new ImageIcon(new ImageIcon(getClass().getResource("/images/lievre.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon représentant un Vautour.
 	 */
-	ImageIcon icon_vautour = new ImageIcon(new ImageIcon("images/vautour.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_vautour = new ImageIcon(new ImageIcon(getClass().getResource("/images/vautour.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon représentant un Lievre mort.
 	 */
-	ImageIcon icon_lievre_mort = new ImageIcon(new ImageIcon("images/lievre_mort.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_lievre_mort = new ImageIcon(new ImageIcon(getClass().getResource("/images/lievre_mort.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon représentant un Lynx mort.
 	 */
-	ImageIcon icon_lynx_mort = new ImageIcon(new ImageIcon("images/lynx_mort.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_lynx_mort = new ImageIcon(new ImageIcon(getClass().getResource("/images/lynx_mort.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon répresentant un Vautour.
 	 */
-	ImageIcon icon_vautour_mort = new ImageIcon(new ImageIcon("images/vautour_mort.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_vautour_mort = new ImageIcon(new ImageIcon(getClass().getResource("/images/vautour_mort.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon représentant un Lievre en gestation.
 	 */
-	ImageIcon icon_lievre_enceinte = new ImageIcon(new ImageIcon("images/lievre_enceinte.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_lievre_enceinte = new ImageIcon(new ImageIcon(getClass().getResource("/images/lievre_enceinte.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon représentant un Lynx en gestation.
 	 */
-	ImageIcon icon_lynx_enceinte = new ImageIcon(new ImageIcon("images/lynx_enceinte.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_lynx_enceinte = new ImageIcon(new ImageIcon(getClass().getResource("/images/lynx_enceinte.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	/**
 	 * Icon représentant un Vautour en gestation.
 	 */
-	ImageIcon icon_vautour_enceinte = new ImageIcon(new ImageIcon("images/vautour_enceinte.jpg").getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+	ImageIcon icon_vautour_enceinte = new ImageIcon(new ImageIcon(getClass().getResource("/images/vautour_enceinte.jpg")).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 	
 	
 	

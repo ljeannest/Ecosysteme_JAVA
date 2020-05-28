@@ -128,7 +128,7 @@ public class Run_ecosysteme {
 
 				String para2 = "\nVoici les données jour par jour de la simulation:";
 
-				String para3 = "\n Donnée génerales:";
+				String para3 = "\n Données génerales:";
 
 				String para4 = "\nPour les carnivores:";
 
@@ -214,7 +214,7 @@ public class Run_ecosysteme {
 				.add(new ListItem("Age moyen de la population à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[2]))
 				.add(new ListItem("Nombre de morts durant la simulation: " + donneeSimul.nbMort[2]))
 				.add(new ListItem("Nombre moyen de petits par femelle:" + donneeSimul.nbMoyenPetit ))
-				.add(new ListItem("Nombre moyen de naissances de carnivore par jour: " + donneeSimul.nbMoyenNaissance[2]))
+				.add(new ListItem("Nombre moyen de naissances de charognard par jour: " + donneeSimul.nbMoyenNaissance[2]))
 				.add(new ListItem("Nombre de morts par vieillesse durant la simulation: " + donneeSimul.nbMortNorm[2]))
 				.add(new ListItem("Nombre de décès dus à la faim durant la simulation: " + donneeSimul.nbMortFaim[2]))
 				.add(new ListItem("Nombre de décès dus à la soif: " + donneeSimul.nbMortSoif[2]))
@@ -228,7 +228,7 @@ public class Run_ecosysteme {
 				.add(new ListItem("Age moyen de la population à la fin de la simulation: " + donneeSimul.moyenAgeParEspece[0]))
 				.add(new ListItem("Nombre de mort durant la simulation: " + donneeSimul.nbMort[0]))
 				.add(new ListItem("Nombre moyen de petits par femelle: " + donneeSimul.nbMoyenPetit ))
-				.add(new ListItem("Nombre moyen de naissances de carnivore par jour: " + donneeSimul.nbMoyenNaissance[0]))
+				.add(new ListItem("Nombre moyen de naissances de herbivore par jour: " + donneeSimul.nbMoyenNaissance[0]))
 				.add(new ListItem("Nombre de morts par vieillesse durant la simulation: " + donneeSimul.nbMortNorm[0]))
 				.add(new ListItem("Nombre de décès dus à la faim durant la simulation: " + donneeSimul.nbMortFaim[0]))
 				.add(new ListItem("Nombre de décès dus à la prédation durant la simulation: " + donneeSimul.nbMortChasse[0]))

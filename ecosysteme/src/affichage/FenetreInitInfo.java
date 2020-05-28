@@ -118,15 +118,15 @@ public class FenetreInitInfo {
 			else {
 				compte_rendu="non";
 			}
-			str = "Verification des parametres \n\n\n";
+			str = "Vérification des paramètres \n\n\n";
 			str+= "Nombre de lievres : "+this.nb_lievre +"\n";
-			str+= "Nombre de lynxs : "+this.nb_lynx +"\n";
+			str+= "Nombre de lynx : "+this.nb_lynx +"\n";
 			str+= "Nombre de vautours : "+this.nb_vautour +"\n\n";
-			str+= "Présence de foret : " + foret + "\n";
+			str+= "Présence de forêt : " + foret + "\n";
 			str+= "Présence de rivière : " + riviere + "\n";
 			str+= "Présence de lac : " + lac+"\n";
 			str+= "Nombre de flaques : "+this.nb_flaques +"\n\n";
-			str+= "Duree de la simulation : "+this.duree +" ans\n";
+			str+= "Durée de la simulation : "+this.duree +" ans\n";
 			str+= "Taille de la grille : "+this.size+"x"+this.size +"\n";
 			str+= "Compte-rendu souhaité : "+ compte_rendu + "\n\n";
 
